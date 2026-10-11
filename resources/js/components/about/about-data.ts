@@ -234,39 +234,30 @@ export const NUMBERS = localized<NumberEntry[]>({
     ],
 });
 
-/**
- * Drafts in a client's plain words, written from the portfolio projects, not words a client said. Send each one to
- * its client to correct and approve; publish it only with their consent, put the person's name in `author`, and
- * drop `sample`. Until then they never leave local development.
- */
+/** Approved by each client for publication (2026-10-11), signed with their company. */
 export const TESTIMONIALS = localized<Testimonial[]>({
     pl: [
         {
-            sample: true,
             quote: 'Strona wyszła super, wszystko jest jasno opisane, a numer telefonu widać od razu. Ekipa z Netizo ogarnęła temat szybko i bez zbędnego gadania. Polecam!',
             author: 'Treepro.pl',
             company: 'Wycinka drzew, podnośniki i prace ogrodowe, zachodnia Polska',
         },
         {
-            sample: true,
             quote: 'Mieliśmy tylko pomysł, a dostaliśmy gotowy projekt, który naprawdę nam się podoba. Wszystko było na bieżąco tłumaczone, więc zawsze wiedzieliśmy, na jakim etapie jesteśmy.',
             author: 'Vetly.pl',
             company: 'Platforma rezerwacji wizyt u weterynarza',
         },
         {
-            sample: true,
             quote: 'Jesteśmy bardzo zadowoleni. Strona wygląda nowocześnie, a kalkulator oszczędności to strzał w dziesiątkę. Treści zmieniamy sami w panelu, to dla nas duży plus.',
             author: 'energizo.pl',
             company: 'Doradztwo OZE i termomodernizacja',
         },
         {
-            sample: true,
             quote: 'Sklep działa bez zarzutu, płatności i paczkomaty śmigają. Klient może sam skomponować bukiet, a na tym zależało nam najbardziej. Dziękujemy za cierpliwość do naszych poprawek!',
             author: 'nakazdaokazje.pl',
             company: 'Sklep z prezentami, bukietami i dekoracjami',
         },
         {
-            sample: true,
             quote: 'Portal jest szybki i wygodny, a wszystko, czego chcieliśmy, jest w jednym miejscu. Kontakt bardzo dobry, każdą sprawę dało się załatwić od ręki. Polecam!',
             author: 'KrainaMT2.pl',
             company: 'Portal społeczności graczy Metin2',
@@ -274,31 +265,26 @@ export const TESTIMONIALS = localized<Testimonial[]>({
     ],
     en: [
         {
-            sample: true,
             quote: 'The website turned out great. Everything is clearly laid out and our phone number is right there. The Netizo team handled it fast and without any fuss. Highly recommend!',
             author: 'Treepro.pl',
             company: 'Tree removal, lift rental and garden work, western Poland',
         },
         {
-            sample: true,
             quote: 'We only had an idea and ended up with a finished design we really like. They explained everything as we went, so we always knew where things stood.',
             author: 'Vetly.pl',
             company: 'Platform for booking vet appointments',
         },
         {
-            sample: true,
             quote: 'We’re very happy. The website looks modern and the savings calculator was a great idea. We change the content ourselves in the panel, which is a big plus for us.',
             author: 'energizo.pl',
             company: 'Renewable energy and retrofit advice',
         },
         {
-            sample: true,
             quote: 'The store runs without a hitch, and payments and parcel lockers just work. Customers can put together their own bouquets, which mattered most to us. Thanks for your patience with all our changes!',
             author: 'nakazdaokazje.pl',
             company: 'Online store for gifts, bouquets and decorations',
         },
         {
-            sample: true,
             quote: 'The portal is fast and easy to use, and everything we wanted is in one place. Great communication, every issue was sorted out right away. Highly recommend!',
             author: 'KrainaMT2.pl',
             company: 'Community portal for Metin2 players',
