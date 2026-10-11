@@ -3,6 +3,7 @@ import { useRef, type FormEvent } from 'react';
 
 import { FormField } from '@/components/admin/form-field';
 import { TurnstileWidget, type TurnstileWidgetHandle } from '@/components/admin/turnstile-widget';
+import { ThemeToggle } from '@/components/home/theme-toggle';
 import { Logo } from '@/components/home/logo';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
@@ -34,14 +35,14 @@ export default function Login() {
     };
 
     return (
-        <main className="flex min-h-svh items-center justify-center p-6 md:p-10">
+        <main className="relative flex min-h-svh items-center justify-center p-6 md:p-10">
             <Head title="Logowanie – Panel Netizo" />
 
             <form onSubmit={submit} className="flex w-full max-w-sm flex-col gap-6" noValidate>
                 <div className="flex flex-col items-center gap-2 text-center">
                     <Logo className="mb-2 h-10 w-auto" title="Netizo" />
                     <h1 className="text-xl font-semibold">Panel administracyjny</h1>
-                    <p className="text-sm text-muted-foreground">Zaloguj się, aby zarządzać treściami i zgłoszeniami.</p>
+                    <p className="text-sm text-muted-foreground">Zaloguj się, aby kontynuować.</p>
                 </div>
 
                 {pageErrors?.form ? (
@@ -102,6 +103,8 @@ export default function Login() {
                     Zaloguj się
                 </Button>
             </form>
+
+            <ThemeToggle className="absolute top-4 right-4 md:top-6 md:right-6" />
         </main>
     );
 }

@@ -130,7 +130,7 @@ export function TurnstileWidget({ siteKey, action, onTokenChange, ref }: Turnsti
     if (loadFailed) {
         return (
             <p className="text-sm text-destructive" role="alert">
-                Nie udało się wczytać weryfikacji Cloudflare. Wyłącz blokowanie skryptów i odśwież stronę.
+                Nie udało się wczytać weryfikacji. Odśwież stronę albo wyłącz blokowanie skryptów dla tej witryny.
             </p>
         );
     }
