@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @page {
+    size: A4;
+    margin: 22mm 18mm 25mm 18mm;
+    @bottom-center {
+      content: "Page " counter(page) " of " counter(pages);
+      font-size: 9pt;
+      color: #6b7280;
+      font-family: 'DejaVu Serif', 'Times New Roman', Georgia, serif;
+    }
+    @bottom-left {
+      content: "Confidential";
+      font-size: 7pt;
+      color: #d6d3cc;
+      font-family: 'DejaVu Serif', 'Times New Roman', Georgia, serif;
+    }
+    @bottom-right {
+      content: "netizo.pl Google SEO Report";
+      font-size: 8pt;
+      color: #cbd5e1;
+      font-family: 'DejaVu Serif', 'Times New Roman', Georgia, serif;
+    }
+  }
+
+  @page :first {
+    margin: 0;
+    @bottom-left { content: none; }
+    @bottom-center { content: none; }
+    @bottom-right { content: none; }
+  }
+
+  @page toc {
+    @bottom-center {
+      content: counter(page);
+      font-size: 9pt;
+      color: #6b7280;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Times New Roman', 'DejaVu Serif', Georgia, serif;
+    font-size: 10pt;
+    line-height: 1.55;
+    color: #1e293b;
+    background: white;
+  }
+
+  /* ─── Title Page (Clean White) ─── */
+  .title-page {
+    page: first;
+    width: 210mm;
+    height: 297mm;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #1a1a2e;
+    position: relative;
+    padding: 50mm 30mm 40mm 30mm;
+    border-top: 6mm solid #1e3a5f;
+  }
+
+  .title-page .badge {
+    background: #f7f6f3;
+    border: 1px solid #d6d3cc;
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-size: 9pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15mm;
+    color: #1e3a5f;
+  }
+
+  .title-page h1 {
+    font-size: 28pt;
+    font-weight: bold;
+    margin-bottom: 5mm;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    color: #1a1a2e;
+  }
+
+  .title-page .subtitle {
+    font-size: 13pt;
+    color: #6b7280;
+    margin-bottom: 12mm;
+    font-weight: 300;
+  }
+
+  .title-page .url {
+    font-size: 12pt;
+    color: #1e3a5f;
+    margin-bottom: 15mm;
+    padding: 4mm 8mm;
+    border: 1px solid #d6d3cc;
+    border-radius: 6px;
+    background: #faf9f7;
+  }
+
+  .title-page .score-box {
+    background: #faf9f7;
+    border: 2px solid #d6d3cc;
+    border-radius: 12px;
+    padding: 6mm 12mm;
+    margin-bottom: 15mm;
+  }
+
+  .title-page .score-number {
+    font-size: 42pt;
+    font-weight: bold;
+    color: #1e3a5f;
+    line-height: 1;
+  }
+
+  .title-page .score-label {
+    font-size: 10pt;
+    color: #6b7280;
+    margin-top: 2mm;
+  }
+
+  .title-page .meta {
+    font-size: 9pt;
+    color: #6b7280;
+    margin-top: 8mm;
+    padding-top: 5mm;
+    border-top: 1px solid #d6d3cc;
+  }
+
+  .title-page .meta span {
+    margin: 0 8px;
+  }
+
+  /* ─── Table of Contents ─── */
+  .toc-page {
+    page: toc;
+    page-break-before: always;
+  }
+
+  .toc-page h2 {
+    font-size: 18pt;
+    color: #1e3a5f;
+    margin-bottom: 8mm;
+    padding-bottom: 3mm;
+    border-bottom: 2px solid #1e3a5f;
+  }
+
+  .toc-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .toc-list li {
+    padding: 2mm 0;
+    border-bottom: 1px solid #f1f5f9;
+    overflow: hidden;
+  }
+
+  .toc-list li.toc-section {
+    font-weight: bold;
+    font-size: 11pt;
+    padding-top: 4mm;
+    color: #0f172a;
+  }
+
+  .toc-list li.toc-sub {
+    padding-left: 8mm;
+    font-size: 9.5pt;
+    color: #475569;
+  }
+
+  .toc-score {
+    display: inline-block;
+    float: right;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-size: 9pt;
+    font-weight: bold;
+    color: white;
+  }
+
+  .score-good { background: #2d6a4f; }
+  .score-warn { background: #d4740e; }
+  .score-bad { background: #c53030; }
+
+  /* ─── Section Styles ─── */
+  div.section {
+    page-break-before: always;
+  }
+
+  .section-header {
+    background: #faf9f7;
+    border-left: 4px solid #1e3a5f;
+    padding: 5mm 6mm;
+    margin-bottom: 6mm;
+    page-break-after: avoid;
+  }
+
+  .section-header h2 {
+    font-size: 16pt;
+    color: #0f172a;
+    margin-bottom: 1mm;
+  }
+
+  .section-header .section-score {
+    font-size: 12pt;
+    font-weight: bold;
+    float: right;
+    margin-top: -6mm;
+  }
+
+  h3 {
+    font-size: 12pt;
+    color: #1e3a5f;
+    margin-top: 6mm;
+    margin-bottom: 3mm;
+    padding-bottom: 1.5mm;
+    border-bottom: 1px solid #d6d3cc;
+    page-break-after: avoid;
+  }
+
+  h4 {
+    font-size: 10.5pt;
+    color: #334155;
+    margin-top: 4mm;
+    margin-bottom: 2mm;
+    page-break-after: avoid;
+  }
+
+  p {
+    margin-bottom: 3mm;
+    color: #334155;
+  }
+
+  .highlight {
+    background: #fef3c7;
+    border-left: 3px solid #d4740e;
+    padding: 3mm 4mm;
+    margin: 4mm 0;
+    font-size: 9.5pt;
+    /* allow page breaks to prevent white gaps */
+  }
+
+  .critical-box {
+    background: #fef2f2;
+    border-left: 3px solid #c53030;
+    padding: 3mm 4mm;
+    margin: 4mm 0;
+    font-size: 9.5pt;
+    /* allow page breaks to prevent white gaps */
+  }
+
+  .success-box {
+    background: #f0fdf4;
+    border-left: 3px solid #2d6a4f;
+    padding: 3mm 4mm;
+    margin: 4mm 0;
+    font-size: 9.5pt;
+    /* allow page breaks to prevent white gaps */
+  }
+
+  /* ─── Tables ─── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4mm 0 6mm 0;
+    font-size: 9pt;
+  }
+
+  thead th {
+    background: #f7f6f3;
+    color: #0f172a;
+    font-weight: bold;
+    padding: 3mm 4mm;
+    text-align: left;
+    border-bottom: 2px solid #d6d3cc;
+    font-size: 9pt;
+  }
+
+  tbody td {
+    padding: 2.5mm 3mm;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: top;
+  }
+
+  tbody tr:nth-child(even) {
+    background: #fdfcfa;
+  }
+
+  .status-pass {
+    color: #2d6a4f;
+    font-weight: bold;
+  }
+
+  .status-fail {
+    color: #c53030;
+    font-weight: bold;
+  }
+
+  .status-warn {
+    color: #d4740e;
+    font-weight: bold;
+  }
+
+  .status-partial {
+    color: #4a5568;
+    font-weight: bold;
+  }
+
+  /* ─── Charts ─── */
+  .chart-container {
+    text-align: center;
+    margin: 4mm 0;
+  }
+
+  .chart-container img {
+    max-width: 100%;
+    max-height: 120mm;
+    height: auto;
+  }
+
+  .chart-caption {
+    font-size: 8.5pt;
+    color: #6b7280;
+    font-style: italic;
+    margin-top: 2mm;
+    text-align: center;
+  }
+
+  .chart-half {
+    display: inline-block;
+    width: 48%;
+    vertical-align: top;
+    text-align: center;
+    margin: 2mm 0;
+  }
+
+  .chart-half img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* ─── Two column layout ─── */
+  .two-col {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    margin: 3mm 0;
+  }
+
+  .two-col .col {
+    display: table-cell;
+    vertical-align: top;
+    padding: 0 2mm;
+  }
+
+  .four-col {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    margin: 3mm 0;
+  }
+
+  .four-col .col {
+    display: table-cell;
+    vertical-align: top;
+    padding: 0 1.5mm;
+  }
+
+  /* ─── Metric Cards ─── */
+  .metric-card {
+    background: #faf9f7;
+    border: 1px solid #d6d3cc;
+    border-radius: 6px;
+    padding: 2.5mm 3mm;
+    text-align: center;
+    margin: 2mm 0;
+  }
+
+  .metric-card .value {
+    font-size: 14pt;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+
+  .metric-card .label {
+    font-size: 7.5pt;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 1mm;
+  }
+
+  /* ─── Action Plan ─── */
+  .action-item {
+    background: #faf9f7;
+    border-radius: 4px;
+    padding: 3mm 4mm;
+    margin: 3mm 0;
+    border-left: 3px solid #cbd5e1;
+    /* allow page breaks to prevent white gaps */
+  }
+
+  .action-item.critical {
+    border-left-color: #c53030;
+    background: #fdf2f2;
+  }
+
+  .action-item.high {
+    border-left-color: #d4740e;
+    background: #fdf8ef;
+  }
+
+  .action-item.medium {
+    border-left-color: #1e3a5f;
+    background: #f0f4f8;
+  }
+
+  .action-item.low {
+    border-left-color: #94a3b8;
+  }
+
+  .action-item h4 {
+    margin-top: 0;
+    margin-bottom: 1.5mm;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .action-item .effort {
+    font-size: 8.5pt;
+    color: #64748b;
+    float: right;
+  }
+
+  .priority-tag {
+    display: inline-block;
+    padding: 0.5mm 3mm;
+    border-radius: 3px;
+    font-size: 8pt;
+    font-weight: bold;
+    color: white;
+    margin-right: 2mm;
+    vertical-align: middle;
+  }
+
+  .priority-critical { background: #c53030; }
+  .priority-high { background: #d4740e; }
+  .priority-medium { background: #1e3a5f; }
+  .priority-low { background: #94a3b8; }
+
+  /* ─── Code blocks ─── */
+  .code-block {
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 3mm 4mm;
+    border-radius: 4px;
+    font-family: 'DejaVu Sans Mono', monospace;
+    font-size: 8pt;
+    line-height: 1.6;
+    margin: 3mm 0;
+    white-space: pre-wrap;
+    word-break: break-all;
+    /* allow page breaks to prevent white gaps */
+  }
+
+  /* ─── Divider ─── */
+  .divider {
+    border: none;
+    border-top: 1px solid #d6d3cc;
+    margin: 5mm 0;
+  }
+
+  /* ─── Roadmap ─── */
+  .roadmap-phase {
+    background: #faf9f7;
+    border-radius: 6px;
+    padding: 4mm 5mm;
+    margin: 4mm 0;
+    border: 1px solid #d6d3cc;
+    /* allow page breaks to prevent white gaps */
+  }
+
+  .roadmap-phase h4 {
+    margin-top: 0;
+    border-bottom: none;
+    color: #1e3a5f;
+  }
+
+  .roadmap-phase ul {
+    margin: 2mm 0 0 5mm;
+    padding: 0;
+  }
+
+  .roadmap-phase li {
+    margin-bottom: 1.5mm;
+    font-size: 9.5pt;
+    color: #334155;
+  }
+
+  /* ─── Lists ─── */
+  ul {
+    margin-left: 5mm;
+    margin-bottom: 3mm;
+  }
+
+  li {
+    margin-bottom: 1.5mm;
+  }
+
+  /* ─── Data freshness ─── */
+  .data-freshness {
+    font-size: 8pt;
+    color: #6b7280;
+    font-style: italic;
+    margin-top: 4mm;
+    padding-top: 2mm;
+    border-top: 1px solid #d6d3cc;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ======================================================= TITLE PAGE === -->
+<div class="title-page">
+  <div class="badge">Full SEO Audit Report</div>
+  <h1>netizo.pl</h1>
+  <div class="subtitle">Prepared by Claude SEO</div>
+  <div class="score-box">
+    <div class="score-number">63<span style="font-size: 20pt; color: #94a3b8;">/100</span></div>
+    <div class="score-label">SEO Health Score</div>
+  </div>
+  <div class="meta">
+    <span>October 11, 2026</span>
+    <span>Full Audit</span>
+  </div>
+</div>
+
+
+<!-- ======================================================= TABLE OF CONTENTS === -->
+<div class="toc-page">
+  <h2>Table of Contents</h2>
+  <ul class="toc-list">
+    <li class="toc-section"><span>1. Executive Summary</span></li>
+    <li class="toc-sub"><span>Key Metrics, Critical Issues &amp; Quick Wins</span></li>
+    <li class="toc-section"><span>2. Audit Categories</span></li>
+    <li class="toc-sub"><span>What Works</span></li>
+    <li class="toc-sub"><span>Findings by Severity</span></li>
+    <li class="toc-section"><span>3. Action Plan</span></li>
+    <li class="toc-sub"><span>Phased Roadmap</span></li>
+    <li class="toc-section"><span>4. Data Sources &amp; Methodology</span></li>
+  </ul>
+</div>
+
+
+<!-- ======================================================= 1. EXECUTIVE SUMMARY === -->
+<div class="section">
+  <div class="section-header">
+    <h2>1. Executive Summary</h2>
+  </div>
+
+  <p>This report presents a comprehensive SEO audit of <strong>netizo.pl</strong> for a <strong>agencja interaktywna / software house B2B z Leszna (hybryda SAB, PL/EN)</strong> site, generated on October 11, 2026. Findings combine technical, content, schema, performance, visual, and search-readiness evidence as available.</p>
+
+  <div class="two-col">
+    <div class="col">
+      <div class="metric-card">
+        <div class="value" style="color: #d4740e;">63/100</div>
+        <div class="label">SEO Health Score</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="critical-box">
+    <strong>Critical Issues Found:</strong>
+    <ol>
+      <li><strong>Critical:</strong> Polityka prywatności, regulamin i /utrzymanie zwracają 404 (12 martwych linków w stopce + link zgody w briefie)</li>
+      <li><strong>Critical:</strong> GA4 i Microsoft Clarity ładują się przed zgodą na cookies (brak Consent Mode i bramkowania)</li>
+      <li><strong>High:</strong> Brak stron dopasowanych do intencji: Leszno, usługi, cennik, realizacje (tylko 4 URL)</li>
+      <li><strong>High:</strong> Brak danych podmiotu, opinii i ludzi; kolizja nazwy z netizo.in; e-mail zaciemniony przez Cloudflare</li>
+      <li><strong>High:</strong> Duplikat serwisu pod /index.php z self-canonical</li>
+    </ol>
+  </div>
+
+  <div class="success-box">
+    <strong>Quick Wins:</strong>
+    <ol>
+      <li>Wyłączyć Cloudflare Email Address Obfuscation</li>
+      <li>301 netizo.agency -&gt; https://netizo.pl (dziś błąd 526)</li>
+      <li>Podmienić public/sitemap.xml na wersję bez adresów z # (raw/sitemap/sitemap.proposed.xml)</li>
+      <li>Skrócić meta description do 155 zn., title z frazą i Lesznem w sentence case, usunąć meta keywords</li>
+      <li>Dodać telephone, email, logo, @id i WebSite do JSON-LD</li>
+    </ol>
+  </div>
+
+</div>
+
+<!-- ======================================================= 2. AUDIT CATEGORIES === -->
+<div class="section">
+  <div class="section-header">
+    <h2>2. Audit Categories</h2>
+  </div>
+
+  <h3>2.1 Technical SEO</h3>
+  <p><strong>Score:</strong> <span class="status-warn">76/100</span></p>
+  <h4>What Works</h4>
+  <ul>
+    <li>Pełny SSR: treść, canonical i JSON-LD identyczne przed i po JS</li>
+    <li>Hreflang pl/en/x-default wzajemny i zgodny z sitemapą</li>
+    <li>Wszystkie boty (Google, Bing, AI) dostają 200; prawdziwe 404 z noindex</li>
+    <li>TTFB 0,10-0,22 s, HTTP/2 + h3, Brotli</li>
+    <li>Parametry UTM kanonizowane poprawnie; /admin/login z noindex</li>
+  </ul>
+  <h4>Findings</h4>
+  <div class="action-item medium">
+    <h4>Duplikat serwisu pod /index.php <span class="status-warn">High</span></h4>
+    <p>/index.php i /index.php/&lt;ścieżka&gt; zwracają 200 z canonicalem, hreflang i JSON-LD wskazującymi na siebie (LocalizedRoutes.php:67, Controller.php:43).</p>
+    <p><strong>Recommendation:</strong> 301 w Cloudflare/nginx + URL::forceRootUrl(config(&#x27;app.url&#x27;)) w AppServiceProvider::boot().</p>
+  </div>
+  <div class="action-item medium">
+    <h4>3 martwe linki w stopce na każdej stronie <span class="status-warn">High</span></h4>
+    <p>/utrzymanie, /regulamin, /polityka-prywatnosci -&gt; 404 (resources/js/lib/site.ts:63-71).</p>
+    <p><strong>Recommendation:</strong> Opublikować strony lub usunąć linki.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Brak HSTS <span class="status-warn">Medium</span></h4>
+    <p>HTTPS i TLS 1.3 działają, nagłówka Strict-Transport-Security brak.</p>
+    <p><strong>Recommendation:</strong> Dodać HSTS max-age=31536000; includeSubDomains.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Osłabiona CSP <span class="status-warn">Medium</span></h4>
+    <p>&#x27;unsafe-inline&#x27; i &#x27;unsafe-eval&#x27;; domyślna polityka Trusted Types przepuszcza wszystko (SecurityHeaders.php:47, app.blade.php:5-13).</p>
+    <p><strong>Recommendation:</strong> Nonce dla skryptów inline, usunąć unsafe-eval.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Sitemap z adresami # <span class="status-warn">Medium</span></h4>
+    <p>4/8 wpisów to fragmenty strony głównej (#stack nie istnieje), lastmod z 2025-12-05.</p>
+    <p><strong>Recommendation:</strong> Wdrożyć poprawiony plik z raw/sitemap/sitemap.proposed.xml.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Krótki cache statyków <span class="status-warn">Medium</span></h4>
+    <p>/build/assets/* i /assets/images/* mają max-age=14400 mimo hashy w nazwach.</p>
+    <p><strong>Recommendation:</strong> max-age=31536000, immutable (nginx lub Cloudflare Cache Rule).</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Ciężki HTML/DOM <span class="status-warn">Medium</span></h4>
+    <p>455 KB HTML (57 KB br), 2674 elementy: ~224 KB klas Tailwind, ~101 KB inline SVG.</p>
+    <p><strong>Recommendation:</strong> Logotypy jako &lt;img&gt;/sprite, lazy load sekcji poniżej linii zgięcia.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Cloudflare Email Obfuscation <span class="status-warn">Medium</span></h4>
+    <p>Adres e-mail w SSR HTML zamieniony na [email protected].</p>
+    <p><strong>Recommendation:</strong> Wyłączyć w Scrape Shield.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Zduplikowane nagłówki bezpieczeństwa <span class="status-warn">Low</span></h4>
+    <p>x-content-type-options i x-frame-options wysyłane dwa razy, przestarzały x-xss-protection.</p>
+    <p><strong>Recommendation:</strong> Usunąć add_header z nginx albo z SecurityHeaders.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Przekierowania porządkowe <span class="status-warn">Low</span></h4>
+    <p>/en/ i /partnerzy/ -&gt; 200 zamiast 301; http://www -&gt; https://www -&gt; apex (2 skoki); manifest jako application/octet-stream.</p>
+    <p><strong>Recommendation:</strong> 301 bez slasha, jeden skok, MIME application/manifest+json.</p>
+  </div>
+  <hr class="divider">
+  <h3>2.2 Content Quality</h3>
+  <p><strong>Score:</strong> <span class="status-fail">48/100</span></p>
+  <h4>What Works</h4>
+  <ul>
+    <li>Konkretne, uczciwe FAQ z widełkami cen i terminami</li>
+    <li>Kompletna, unikalna strona partnerska z kalkulatorem</li>
+    <li>Dobra czytelność (FOG-PL 11,8 / 7,8), brak lania wody</li>
+    <li>Pełne tłumaczenie EN</li>
+  </ul>
+  <h4>Findings</h4>
+  <div class="action-item medium">
+    <h4>Brak polityki prywatności i regulaminu <span class="status-warn">Critical</span></h4>
+    <p>Strony 404 przy 5 formularzach, GA4 i Clarity.</p>
+    <p><strong>Recommendation:</strong> Opublikować dokumenty prawne.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Brak danych podmiotu i ludzi <span class="status-warn">High</span></h4>
+    <p>Brak nazwy prawnej, NIP, adresu, zespołu, strony O nas; stopka to tylko © Netizo.</p>
+    <p><strong>Recommendation:</strong> Stopka z danymi firmy + strona O nas.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Twierdzenia nieweryfikowalne lub sprzeczne <span class="status-warn">High</span></h4>
+    <p>150+ projektów przy 5 realizacjach; 8 lat przy domenie od 2023; Vetly 1000+ weterynarzy przy niewdrożonej stronie; &#x27;100% SEO według Google&#x27; to wynik Lighthouse.</p>
+    <p><strong>Recommendation:</strong> Dodać kontekst/źródła lub złagodzić twierdzenia.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Realizacja temar-mt.pl to domyślna strona hostingu <span class="status-warn">High</span></h4>
+    <p>Portfolio linkuje do strony &#x27;Strona domyślna&#x27;.</p>
+    <p><strong>Recommendation:</strong> Ukryć do czasu wdrożenia.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Brak podstron usług, lokalnych, realizacji i bloga <span class="status-warn">High</span></h4>
+    <p>Każda z 6 usług to jedno zdanie; case studies tylko w modalu bez URL.</p>
+    <p><strong>Recommendation:</strong> Strony usług, /realizacje/{slug}, hub Leszno, cennik.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Brak opinii klientów <span class="status-warn">High</span></h4>
+    <p>Sekcja klientów to same logotypy.</p>
+    <p><strong>Recommendation:</strong> Prawdziwe opinie na stronie i w GBP/Clutch.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Szum w tekście SSR <span class="status-warn">Medium</span></h4>
+    <p>CountUp renderuje obie wartości (&#x27;150+ 120+&#x27;, &#x27;99,9% 99,0%&#x27;); makiety UI z fikcyjnymi cenami.</p>
+    <p><strong>Recommendation:</strong> Jedna wartość w SSR, data-nosnippet na makietach.</p>
+  </div>
+  <hr class="divider">
+  <h3>2.3 On-Page SEO</h3>
+  <p><strong>Score:</strong> <span class="status-warn">57/100</span></p>
+  <h4>What Works</h4>
+  <ul>
+    <li>Jeden H1 na stronę, logiczna hierarchia H2/H3</li>
+    <li>Unikalne title (47-54 zn.) i opisy, OG per język</li>
+    <li>Canonical i hreflang poprawne</li>
+  </ul>
+  <h4>Findings</h4>
+  <div class="action-item medium">
+    <h4>Meta description za długie <span class="status-warn">High</span></h4>
+    <p>171-214 zn.; CTA &#x27;Bezpłatna wycena!&#x27; ucina się w SERP.</p>
+    <p><strong>Recommendation:</strong> Maks. ~155 zn., CTA na początku.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Martwe linki w stopce <span class="status-warn">High</span></h4>
+    <p>12 wystąpień na 4 stronach.</p>
+    <p><strong>Recommendation:</strong> Patrz Technical SEO.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Title bez frazy i lokalizacji, Title Case <span class="status-warn">Medium</span></h4>
+    <p>&#x27;Tworzymy Strony WWW dla Ambitnych Firm | Netizo&#x27;.</p>
+    <p><strong>Recommendation:</strong> &#x27;Strony internetowe i aplikacje webowe dla firm – Leszno | Netizo&#x27;.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Meta keywords stuffing <span class="status-warn">Medium</span></h4>
+    <p>78 fraz, 18 miejscowości × 3 warianty.</p>
+    <p><strong>Recommendation:</strong> Usunąć meta keywords.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>H2 bez fraz tematycznych <span class="status-warn">Medium</span></h4>
+    <p>&#x27;Co dla Ciebie zbudujemy&#x27;, &#x27;Ostatnie wdrożenia&#x27;; H3 w Title Case.</p>
+    <p><strong>Recommendation:</strong> Frazy usługowe w H2, sentence case.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Nawigacja wyłącznie z kotwic # <span class="status-warn">Medium</span></h4>
+    <p>Brak linków do podstron tematycznych.</p>
+    <p><strong>Recommendation:</strong> Linkować kafelki usług i realizacje do własnych URL.</p>
+  </div>
+  <hr class="divider">
+  <h3>2.4 Schema / Structured Data</h3>
+  <p><strong>Score:</strong> <span class="status-warn">58/100</span></p>
+  <h4>What Works</h4>
+  <ul>
+    <li>8 poprawnych bloków JSON-LD w SSR</li>
+    <li>FAQ 1:1 z treścią, jedno źródło w lang/*</li>
+    <li>sameAs z realnych profili, brak fałszywych ocen</li>
+  </ul>
+  <h4>Findings</h4>
+  <div class="action-item medium">
+    <h4>ProfessionalService bez telephone, email, logo <span class="status-warn">High</span></h4>
+    <p>Dane są na stronie, brak ich w schema (HomeController.php:45-61).</p>
+    <p><strong>Recommendation:</strong> Uzupełnić; gotowy @graph w findings/schema.md.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Brak @id/@graph, encja rozdwojona PL/EN <span class="status-warn">Medium</span></h4>
+    <p>url / vs /en dla tej samej firmy.</p>
+    <p><strong>Recommendation:</strong> Jedna encja z @id dla obu języków.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Brak WebSite <span class="status-warn">Medium</span></h4>
+    <p>Brak nazwy witryny i alternateName.</p>
+    <p><strong>Recommendation:</strong> Dodać węzeł WebSite.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Strony partnerów bez powiązań <span class="status-warn">Medium</span></h4>
+    <p>WebPage bez isPartOf/publisher/BreadcrumbList.</p>
+    <p><strong>Recommendation:</strong> Powiązać z organizacją.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>FAQPage bez korzyści w Google <span class="status-warn">Info</span></h4>
+    <p>Rich results FAQ wycofane dla wszystkich witryn od 7.05.2026.</p>
+    <p><strong>Recommendation:</strong> Zostawić, nie rozbudowywać.</p>
+  </div>
+  <hr class="divider">
+  <h3>2.5 Performance (CWV, lab)</h3>
+  <p><strong>Score:</strong> <span class="status-pass">80/100</span></p>
+  <h4>What Works</h4>
+  <ul>
+    <li>Desktop 99-100, TBT 0, CLS 0</li>
+    <li>Obraz LCP z fetchpriority=high i eager</li>
+    <li>TTFB &lt; 0,2 s, Brotli</li>
+  </ul>
+  <h4>Findings</h4>
+  <div class="action-item medium">
+    <h4>LCP mobile 3,9-4,5 s na / <span class="status-warn">High</span></h4>
+    <p>Lighthouse 13.5 mobile (mediana 4,54 s); 509 KB JS, 45 żądań, ~1 MB.</p>
+    <p><strong>Recommendation:</strong> Lazy load briefu i dialogów, skrypty 3rd party po zgodzie, małe warianty zdjęć.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Cache statyków 4 h <span class="status-warn">Medium</span></h4>
+    <p>513 KiB do zyskania przy powtórnej wizycie.</p>
+    <p><strong>Recommendation:</strong> max-age=31536000, immutable.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>~20 modulepreload, 57% app.js nieużywane <span class="status-warn">Medium</span></h4>
+    <p>Preload także dla chunków formularzy i dialogów.</p>
+    <p><strong>Recommendation:</strong> Dynamiczny import komponentów poniżej linii zgięcia.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Skrypty 3rd party przed zgodą <span class="status-warn">Medium</span></h4>
+    <p>gtag 181 KB, Clarity 26 KB (long task 155 ms), cookie-consent 23 KB.</p>
+    <p><strong>Recommendation:</strong> Ładować po zgodzie / defer.</p>
+  </div>
+  <hr class="divider">
+  <h3>2.6 AI Search Readiness</h3>
+  <p><strong>Score:</strong> <span class="status-warn">64/100</span></p>
+  <h4>What Works</h4>
+  <ul>
+    <li>SSR i pełny dostęp botów AI</li>
+    <li>FAQ z konkretnymi cenami i terminami, łatwe do cytowania</li>
+    <li>Lighthouse Agentic Browsing 2/2, Agent-UX 100, 0 nienazwanych kontrolek</li>
+  </ul>
+  <h4>Findings</h4>
+  <div class="action-item medium">
+    <h4>Kolizja nazwy z netizo.in <span class="status-warn">High</span></h4>
+    <p>W wynikach dla &#x27;netizo&#x27; dominuje indyjska agencja (od 2017).</p>
+    <p><strong>Recommendation:</strong> Zdanie-definicja z Lesznem, LinkedIn, GBP, katalogi, później Wikidata.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Brak danych podmiotu w encji <span class="status-warn">High</span></h4>
+    <p>Brak NIP, nazwy prawnej, adresu, osób.</p>
+    <p><strong>Recommendation:</strong> Strona O nas + rozbudowany JSON-LD.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>netizo.agency zwraca 526 <span class="status-warn">High</span></h4>
+    <p>Stara domena nie przekierowuje.</p>
+    <p><strong>Recommendation:</strong> 301 na netizo.pl.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Case studies tylko w JSON Inertii <span class="status-warn">Medium</span></h4>
+    <p>Brak w DOM i bez URL.</p>
+    <p><strong>Recommendation:</strong> Podstrony /realizacje/{slug}.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Link zgody w briefie do 404 <span class="status-warn">High</span></h4>
+    <p>Agent nie przeczyta dokumentu, który akceptuje.</p>
+    <p><strong>Recommendation:</strong> Opublikować politykę prywatności.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Inputy kart 1×1 px <span class="status-warn">Medium</span></h4>
+    <p>Agenci nie mogą zaznaczyć opcji w kreatorze briefu (choices.tsx:55).</p>
+    <p><strong>Recommendation:</strong> Pełnowymiarowy przezroczysty input.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Brak llms.txt <span class="status-warn">Low</span></h4>
+    <p>404; Google go nie używa.</p>
+    <p><strong>Recommendation:</strong> Gotowy PL+EN w findings/geo.md.</p>
+  </div>
+  <hr class="divider">
+  <h3>2.7 Images</h3>
+  <p><strong>Score:</strong> <span class="status-warn">78/100</span></p>
+  <h4>What Works</h4>
+  <ul>
+    <li>WebP wszędzie, komplet alt, width/height, srcset/sizes</li>
+    <li>CLS 0, lekkie OG (50-82 KB)</li>
+  </ul>
+  <h4>Findings</h4>
+  <div class="action-item medium">
+    <h4>Brak małych wariantów zdjęć <span class="status-warn">Medium</span></h4>
+    <p>768w do slotów 64-270 px (298 KiB nadmiaru).</p>
+    <p><strong>Recommendation:</strong> Warianty 256w/384w w lib/photos.ts.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Ciężkie screenshoty projektów <span class="status-warn">Medium</span></h4>
+    <p>Pełnostronicowe 1920×4267-7002 px, 1,33 MB, jakość 95.</p>
+    <p><strong>Recommendation:</strong> Jakość ~80, przycięta miniatura 16:10.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Niezgodne width/height screenshotów <span class="status-warn">Low</span></h4>
+    <p>Atrybuty 1600×1000 vs rzeczywiste wymiary.</p>
+    <p><strong>Recommendation:</strong> Zgodne atrybuty.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Nieużywane pliki hero-studio <span class="status-warn">Low</span></h4>
+    <p>154 KB w public/assets/images/photos.</p>
+    <p><strong>Recommendation:</strong> Usunąć.</p>
+  </div>
+  <hr class="divider">
+  <h3>2.8 Visual / Mobile (uzupełniająco)</h3>
+  <p><strong>Score:</strong> <span class="status-pass">82/100</span></p>
+  <h4>What Works</h4>
+  <ul>
+    <li>Brak poziomego scrolla 320-1920 px, CLS ~0</li>
+    <li>Kontrast WCAG spełniony w light i dark</li>
+    <li>Brak interstitiali; przełącznik języka widoczny na każdej szerokości</li>
+    <li>/partnerzy: mocny pierwszy ekran z przykładem liczbowym</li>
+  </ul>
+  <h4>Findings</h4>
+  <div class="action-item medium">
+    <h4>Baner cookies zasłania CTA na małych telefonach <span class="status-warn">Medium</span></h4>
+    <p>236 px (28% ekranu 390x844); na 360x640 i 320x640 CTA prawie niewidoczne; brak linku do polityki prywatności.</p>
+    <p><strong>Recommendation:</strong> Kompaktowy baner 120-140 px (cookies.blade.php:148, :506).</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Brak telefonu i lokalizacji w pierwszym ekranie <span class="status-warn">Medium</span></h4>
+    <p>Ikona słuchawki i FAB otwierają formularz, nie tel:.</p>
+    <p><strong>Recommendation:</strong> &#x27;Leszno, cała Polska&#x27; + tel: pod CTA (hero.tsx:110-120).</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Cele dotykowe &lt; 44 px <span class="status-warn">Low</span></h4>
+    <p>Przyciski banera 36 px, zakładki 38 px, marquee 40 px.</p>
+    <p><strong>Recommendation:</strong> Zwiększyć padding (clients-section.tsx:117).</p>
+  </div>
+  <div class="action-item medium">
+    <h4>CTA w menu mobilnym poza ekranem <span class="status-warn">Low</span></h4>
+    <p>Widać 6 px przycisku.</p>
+    <p><strong>Recommendation:</strong> Przykleić CTA do dołu panelu (site-header.tsx:253, :304).</p>
+  </div>
+  <hr class="divider">
+  <h3>2.9 Local SEO (uzupełniająco)</h3>
+  <p><strong>Score:</strong> <span class="status-fail">18/100</span></p>
+  <h4>What Works</h4>
+  <ul>
+    <li>Telefon i e-mail spójne na wszystkich stronach</li>
+    <li>ProfessionalService jako poprawny podtyp</li>
+    <li>Uczciwy opis modelu hybrydowego w FAQ</li>
+  </ul>
+  <h4>Findings</h4>
+  <div class="action-item medium">
+    <h4>Google Business Profile niezweryfikowany, zero sygnałów GBP na stronie <span class="status-warn">Critical</span></h4>
+    <p>Brak mapy, linku do profilu i próśb o opinie; Netizo poza blokiem map w Brave.</p>
+    <p><strong>Recommendation:</strong> Zweryfikować/założyć GBP jako SAB, podlinkować.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Niepełny NAP <span class="status-warn">High</span></h4>
+    <p>Brak ulicy, kodu, NIP, godzin.</p>
+    <p><strong>Recommendation:</strong> Uzupełnić w stopce i schema.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Brak stron lokalnych <span class="status-warn">High</span></h4>
+    <p>Miasta tylko w meta keywords.</p>
+    <p><strong>Recommendation:</strong> Jedna strona-hub Leszno, bez masowych stron miast (doorway).</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Rekord Panorama Firm z innym miastem <span class="status-warn">Medium</span></h4>
+    <p>Rekord &#x27;Netizo&#x27; z adresem w Kępnie, powiązanie niezweryfikowane.</p>
+    <p><strong>Recommendation:</strong> Wyjaśnić i ujednolicić NAP w katalogach.</p>
+  </div>
+  <hr class="divider">
+  <h3>2.10 SXO / dopasowanie do intencji (uzupełniająco)</h3>
+  <p><strong>Score:</strong> <span class="status-fail">42/100</span></p>
+  <h4>What Works</h4>
+  <ul>
+    <li>/partnerzy dopasowane typem do intencji</li>
+    <li>Dopracowane CTA, brief, callback</li>
+  </ul>
+  <h4>Findings</h4>
+  <div class="action-item medium">
+    <h4>Niedopasowanie typu strony dla fraz lokalnych <span class="status-warn">Critical</span></h4>
+    <p>Dla &#x27;tworzenie stron internetowych Leszno&#x27; 8/9 wyników to podstrony miasto + usługa.</p>
+    <p><strong>Recommendation:</strong> Strona /tworzenie-stron-internetowych/leszno.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Brak cennika <span class="status-warn">Critical</span></h4>
+    <p>Dla &#x27;ile kosztuje strona internetowa&#x27; 9/9 to cenniki i artykuły.</p>
+    <p><strong>Recommendation:</strong> /cennik + artykuł.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Brak stron usług <span class="status-warn">High</span></h4>
+    <p>&#x27;aplikacje webowe dla firm&#x27; – 7/9 treści edukacyjne.</p>
+    <p><strong>Recommendation:</strong> Podstrony usług ~800+ słów.</p>
+  </div>
+  <hr class="divider">
+  <h3>2.11 Sitemap (uzupełniająco)</h3>
+  <p><strong>Score:</strong> <span class="status-warn">72/100</span></p>
+  <h4>What Works</h4>
+  <ul>
+    <li>Poprawny XML, wskazany w robots.txt</li>
+    <li>Wzajemny hreflang z x-default dla 4 stron</li>
+  </ul>
+  <h4>Findings</h4>
+  <div class="action-item medium">
+    <h4>Adresy z fragmentem # <span class="status-warn">Medium</span></h4>
+    <p>4/8 wpisów.</p>
+    <p><strong>Recommendation:</strong> Usunąć.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Niewiarygodny lastmod <span class="status-warn">Medium</span></h4>
+    <p>2025-12-05 i 2026-10-09 dla tego samego dokumentu.</p>
+    <p><strong>Recommendation:</strong> Generować dynamicznie.</p>
+  </div>
+  <hr class="divider">
+  <h3>2.12 Backlinks (uzupełniająco)</h3>
+  <p><strong>Score:</strong> brak danych</p>
+  <h4>What Works</h4>
+  <ul>
+    <li>voxbit.pl przekierowuje 301 na netizo.pl, więc linki ze stopek klientów nie przepadają</li>
+  </ul>
+  <h4>Findings</h4>
+  <div class="action-item medium">
+    <h4>Stopki klientów linkują do starej marki voxbit.pl <span class="status-warn">High</span></h4>
+    <p>5/5 działających stron klientów; 0/6 linkuje do netizo.pl; hotlink logo voxbit.pl.</p>
+    <p><strong>Recommendation:</strong> Podmienić na &#x27;Realizacja: Netizo&#x27; -&gt; https://netizo.pl.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Brak danych o domenach linkujących <span class="status-warn">Medium</span></h4>
+    <p>Tylko Tier 0; netizo.pl poza grafem Common Crawl.</p>
+    <p><strong>Recommendation:</strong> Podłączyć GSC &#x27;Linki&#x27;, Bing Webmaster, Moz free.</p>
+  </div>
+  <hr class="divider">
+</div>
+
+<!-- ======================================================= 3. ACTION PLAN === -->
+<div class="section">
+  <div class="section-header">
+    <h2>3. Action Plan</h2>
+  </div>
+
+  <div class="roadmap-phase">
+    <h4>Faza 1: Krytyczne i szybkie poprawki <span class="effort">Tydzień 1</span></h4>
+    <ul>
+      <li>Opublikować politykę prywatności i regulamin, naprawić linki w stopce i w briefie</li>
+      <li>Bramkować GA4 i Clarity zgodą (Consent Mode v2), usunąć osierocony noscript GTM</li>
+      <li>Sprawdzić autoodnawianie domeny (odnowienie 2026-11-19)</li>
+      <li>301 dla /index.php i netizo.agency; wyłączyć Email Obfuscation</li>
+      <li>Wdrożyć poprawioną sitemapę; poprawić title/description, usunąć meta keywords</li>
+    </ul>
+  </div>
+  <div class="roadmap-phase">
+    <h4>Faza 2: Encja i zaufanie <span class="effort">Tygodnie 2-3</span></h4>
+    <ul>
+      <li>Dane firmy w stopce i strona O nas</li>
+      <li>JSON-LD @graph z @id, kontaktem, logo, WebSite</li>
+      <li>Google Business Profile i spójny NAP w katalogach</li>
+      <li>Uwiarygodnić twierdzenia, ukryć temar-mt.pl</li>
+      <li>LCP mobile &lt; 2,5 s: lazy load, skrypty po zgodzie, małe warianty zdjęć</li>
+    </ul>
+  </div>
+  <div class="roadmap-phase">
+    <h4>Faza 3: Treść i architektura <span class="effort">Miesiąc 2</span></h4>
+    <ul>
+      <li>Podstrony /realizacje/{slug}</li>
+      <li>Strony usług: strony internetowe, sklepy, aplikacje webowe</li>
+      <li>Strona-hub Leszno i /cennik</li>
+      <li>Opinie klientów; stopki klientów &#x27;Realizacja: Netizo&#x27;</li>
+      <li>Cache statyków, HSTS, CSP; czystszy tekst SSR (CountUp, makiety)</li>
+    </ul>
+  </div>
+  <div class="roadmap-phase">
+    <h4>Faza 4: Monitoring <span class="effort">Ciągle</span></h4>
+    <ul>
+      <li>Google Search Console i Bing Webmaster Tools, zgłoszenie sitemapy</li>
+      <li>Klucz CrUX/PSI dla danych terenowych CWV</li>
+      <li>Baseline drift po fazie 1, ponowny audyt po fazie 2 (cel &gt;= 80)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ======================================================= DATA SOURCES & METHODOLOGY === -->
+<div class="section" style="text-align: center; padding-top: 15mm;">
+  <hr class="divider">
+  <h3 style="text-align: left;">Data Sources &amp; Methodology</h3>
+  <table>
+    <thead>
+      <tr><th>Source</th><th>Description</th><th>Update Frequency</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>PageSpeed Insights API</td>
+          <td>Lighthouse lab audit (mobile emulation, Moto G Power, slow 4G)</td>
+          <td>Real-time</td></tr>
+      <tr><td>Chrome UX Report (CrUX)</td>
+          <td>28-day rolling field data from real Chrome users</td>
+          <td>Daily ~04:00 UTC</td></tr>
+      <tr><td>CrUX History API</td>
+          <td>25-week p75 trend data per metric</td>
+          <td>Weekly</td></tr>
+      <tr><td>Google Search Console</td>
+          <td>Search Analytics (clicks, impressions, CTR, position)</td>
+          <td>2-3 day lag</td></tr>
+      <tr><td>URL Inspection API</td>
+          <td>Per-URL index status, coverage state, crawl info</td>
+          <td>Real-time (2,000/day)</td></tr>
+    </tbody>
+  </table>
+  <p style="color: #94a3b8; font-size: 9pt; margin-top: 5mm;">
+    Report generated by Claude SEO (Google SEO Intelligence Skill), October 11, 2026<br>
+    Methodology based on Google Web Vitals thresholds, Search Console documentation, and Lighthouse scoring algorithms.
+  </p>
+</div>
+
+</body>
+</html>

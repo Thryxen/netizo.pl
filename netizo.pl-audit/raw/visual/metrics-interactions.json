@@ -1,0 +1,333 @@
+{
+ "cookieCustomize": {
+  "h": 664.859375,
+  "top": 179.140625,
+  "vh": 844,
+  "scrollH": 664,
+  "overflowY": "auto",
+  "maxH": "844px"
+ },
+ "cookieCollapsed": 235.875,
+ "endScrollBottomGap": {
+  "footerBottom": 608.484375,
+  "bannerTop": 608.125,
+  "vh": 844
+ },
+ "menu": {
+  "rect": [
+   46.8125,
+   0,
+   343.1875,
+   844
+  ],
+  "items": [
+   {
+    "t": "Zamknij menu",
+    "w": 44,
+    "h": 44,
+    "y": 10
+   },
+   {
+    "t": "Usługi",
+    "w": 342,
+    "h": 56,
+    "y": 64
+   },
+   {
+    "t": "Projekty",
+    "w": 342,
+    "h": 56,
+    "y": 121
+   },
+   {
+    "t": "Misja",
+    "w": 342,
+    "h": 56,
+    "y": 178
+   },
+   {
+    "t": "Klienci",
+    "w": 342,
+    "h": 56,
+    "y": 235
+   },
+   {
+    "t": "Proces",
+    "w": 342,
+    "h": 56,
+    "y": 292
+   },
+   {
+    "t": "Panel klienta",
+    "w": 342,
+    "h": 56,
+    "y": 349
+   },
+   {
+    "t": "FAQ",
+    "w": 342,
+    "h": 56,
+    "y": 406
+   },
+   {
+    "t": "Newsletter",
+    "w": 342,
+    "h": 56,
+    "y": 463
+   },
+   {
+    "t": "Kontakt",
+    "w": 342,
+    "h": 56,
+    "y": 520
+   },
+   {
+    "t": "Zaloguj się do panelu (otwiera się w now",
+    "w": 326,
+    "h": 44,
+    "y": 589
+   },
+   {
+    "t": "Program partnerski",
+    "w": 326,
+    "h": 44,
+    "y": 633
+   },
+   {
+    "t": "Utrzymanie",
+    "w": 326,
+    "h": 44,
+    "y": 677
+   },
+   {
+    "t": "Regulamin",
+    "w": 326,
+    "h": 44,
+    "y": 721
+   },
+   {
+    "t": "Polityka prywatności",
+    "w": 326,
+    "h": 44,
+    "y": 765
+   },
+   {
+    "t": "Wyceń projekt",
+    "w": 310,
+    "h": 44,
+    "y": 838
+   },
+   {
+    "t": "kontakt@netizo.pl",
+    "w": 116,
+    "h": 44,
+    "y": 886
+   },
+   {
+    "t": "Włącz ciemny motyw",
+    "w": 44,
+    "h": 44,
+    "y": 886
+   }
+  ]
+ },
+ "callback": {
+  "rect": [
+   16,
+   266,
+   358,
+   312
+  ],
+  "bannerTop": 608.125,
+  "bannerZ": "45",
+  "bannerVisible": true
+ },
+ "w320": {
+  "vw": 320,
+  "sw": 320,
+  "h1": {
+   "y": 93,
+   "b": 228
+  },
+  "ctas": [
+   {
+    "t": "Wyceń projekt",
+    "y": 400
+   },
+   {
+    "t": "Zobacz realizacje",
+    "y": 456
+   }
+  ],
+  "banner": {
+   "top": 404,
+   "h": 236
+  },
+  "header": [
+   "Netizo – strona główna",
+   "English EN",
+   "Zamów rozmowę telefoniczną",
+   "Otwórz menu"
+  ]
+ },
+ "w360": {
+  "vw": 360,
+  "sw": 360,
+  "h1": {
+   "y": 93,
+   "b": 228
+  },
+  "ctas": [
+   {
+    "t": "Wyceń projekt",
+    "y": 400
+   },
+   {
+    "t": "Zobacz realizacje",
+    "y": 400
+   }
+  ],
+  "banner": {
+   "top": 504,
+   "h": 236
+  },
+  "header": [
+   "Netizo – strona główna",
+   "English EN",
+   "Zamów rozmowę telefoniczną",
+   "Otwórz menu"
+  ]
+ },
+ "w768": {
+  "vw": 768,
+  "sw": 768,
+  "h1": {
+   "y": 124,
+   "b": 236
+  },
+  "ctas": [
+   {
+    "t": "Wyceń projekt",
+    "y": 348
+   },
+   {
+    "t": "Zobacz realizacje",
+    "y": 348
+   }
+  ],
+  "banner": {
+   "top": 810,
+   "h": 214
+  },
+  "header": [
+   "Netizo – strona główna",
+   "English English",
+   "Włącz ciemny motyw",
+   "Zamów rozmowę telefoniczną",
+   "Wyceń projekt",
+   "Otwórz menu"
+  ]
+ },
+ "w1024": {
+  "vw": 1024,
+  "sw": 1024,
+  "h1": {
+   "y": 157,
+   "b": 290
+  },
+  "ctas": [
+   {
+    "t": "Wyceń projekt",
+    "y": 457
+   },
+   {
+    "t": "Zobacz realizacje",
+    "y": 457
+   }
+  ],
+  "banner": {
+   "top": 640,
+   "h": 128
+  },
+  "header": [
+   "Netizo – strona główna",
+   "Usługi",
+   "Projekty",
+   "Proces",
+   "FAQ",
+   "Kontakt",
+   "English EN",
+   "Włącz ciemny motyw",
+   "Panel klienta (otwiera się w n",
+   "Wyceń projekt"
+  ]
+ },
+ "w1280": {
+  "vw": 1280,
+  "sw": 1280,
+  "h1": {
+   "y": 168,
+   "b": 334
+  },
+  "ctas": [
+   {
+    "t": "Wyceń projekt",
+    "y": 478
+   },
+   {
+    "t": "Zobacz realizacje",
+    "y": 478
+   }
+  ],
+  "banner": {
+   "top": 672,
+   "h": 128
+  },
+  "header": [
+   "Netizo – strona główna",
+   "Usługi",
+   "Projekty",
+   "Proces",
+   "FAQ",
+   "Kontakt",
+   "English English",
+   "Włącz ciemny motyw",
+   "Panel klienta (otwiera się w n",
+   "Wyceń projekt"
+  ]
+ },
+ "w1920": {
+  "vw": 1920,
+  "sw": 1920,
+  "h1": {
+   "y": 303,
+   "b": 479
+  },
+  "ctas": [
+   {
+    "t": "Wyceń projekt",
+    "y": 623
+   },
+   {
+    "t": "Zobacz realizacje",
+    "y": 623
+   }
+  ],
+  "banner": {
+   "top": 952,
+   "h": 128
+  },
+  "header": [
+   "Netizo – strona główna",
+   "Usługi",
+   "Projekty",
+   "Proces",
+   "FAQ",
+   "Kontakt",
+   "English English",
+   "Włącz ciemny motyw",
+   "Panel klienta (otwiera się w n",
+   "Wyceń projekt"
+  ]
+ }
+}

@@ -1,0 +1,85 @@
+# Plan działań SEO — netizo.pl
+
+**Stan wyjściowy:** SEO Health Score **63/100** (2026-10-11). Szczegóły i dowody: [`FULL-AUDIT-REPORT.md`](FULL-AUDIT-REPORT.md) oraz `findings/*.md`.
+
+Nakład: **XS** < 1 h · **S** 1–4 h · **M** 0,5–2 dni · **L** 3–5 dni · **XL** > 1 tydz.
+
+---
+
+## Critical — natychmiast (tydzień 1)
+
+| # | Działanie | Gdzie | Nakład | Wpływ |
+|---|---|---|---|---|
+| 1 | **Opublikować `/polityka-prywatnosci` i `/regulamin`** (PL; w EN link z oznaczeniem PL albo wersje EN), uzupełnić lub usunąć `/utrzymanie`. Polityka musi opisywać formularze, GA4, Clarity, cookies, Discord jako odbiorcę danych. Dodać do sitemapy. | nowe trasy w `routes/web.php` + strony Inertia; linki w `resources/js/lib/site.ts:63-71`, zgoda w `components/home/brief/brief-steps.tsx:378` | M | Usuwa 12 martwych linków; Trust/E-E-A-T; wymóg RODO |
+| 2 | **Bramkować GA4 i Clarity zgodą** — Consent Mode v2 z domyślnym `denied` i aktualizacja po akceptacji w banerze `whitecube/laravel-cookie-consent`; Clarity ładować dopiero po zgodzie na kategorię analityczną. Usunąć osierocony `<noscript>` GTM `GTM-K8FQP9D5`. | `resources/views/app.blade.php:14-20`, `:107-112`, `:91` | S | Zgodność z RODO/ePrivacy; przy okazji −200 KB JS przed zgodą (LCP mobile) |
+| 3 | **Sprawdzić autoodnawianie domeny netizo.pl** — data odnowienia 2026-11-19. | rejestrator | XS | Ciągłość serwisu |
+
+## High — tydzień 1–2
+
+| # | Działanie | Gdzie | Nakład |
+|---|---|---|---|
+| 4 | **Usunąć duplikat `/index.php`**: reguła 301 w Cloudflare (`/index.php*` → bez prefiksu) lub w nginx + `URL::forceRootUrl(config('app.url'))` w `AppServiceProvider::boot()`. Test Pest na canonical przy `/index.php/partnerzy`. | Cloudflare/nginx, `app/Providers/AppServiceProvider.php:29-34` | S |
+| 5 | ✅ **DONE (2026-10-11)** — ~~Wyłączyć Cloudflare Email Address Obfuscation (Scrape Shield).~~ Zweryfikowane: `/`, `/partnerzy`, `/en` bez `data-cfemail`/`email-protection`, w HTML jest `mailto:kontakt@netizo.pl`. | panel Cloudflare | XS |
+| 6 | **301 netizo.agency → https://netizo.pl** (dziś 526; linkuje do niej YouTube). | Cloudflare (Redirect Rule) | XS |
+| 7 | **Podmienić `public/sitemap.xml`** na `raw/sitemap/sitemap.proposed.xml` (4 URL bez `#`, bez `priority`/`changefreq`, poprawna kolejność), ponownie zgłosić w GSC i Bing. | `public/sitemap.xml` | XS |
+| 8 | **Metadane strony głównej i partnerów:** meta description ≤ 155 zn. z CTA na początku; title w sentence case z frazą i lokalizacją (np. „Strony internetowe i aplikacje webowe dla firm – Leszno \| Netizo”); **usunąć meta keywords** (78 fraz). Zaktualizować `HomePageTest`/`PartnerProgramPageTest`. | `lang/{pl,en}/home.php:9-45`, `lang/{pl,en}/partners.php:9-13`, `config/seotools.php`, `HomeController.php:29` | S |
+| 9 | 🟡 **CZĘŚCIOWO (2026-10-11)** — **Dane firmy na stronie.** ✅ Stopka, dolna belka obok © (PL/EN, wszystkie strony): ul. Wiosny Ludów 12 lok. 8, 63-600 Kępno, NIP 6192060508, REGON 527974955 (`lib/site.ts` → `company`, `components/home/site-footer.tsx`; wariant „Pasek rejestrowy”). ✅ Model SAB ujednolicony: JSON-LD ma adres rejestrowy w Kępnie (ulica, kod; nie biuro), `telephone`, `email`, `taxID` (NIP), `identifier` (REGON) i `areaServed` = Polska + Leszno, Rydzyna, Wschowa, Kościan, Gostyń, Rawicz; FAQ PL/EN „Czy pracujecie z firmami z całej Polski?” mówi: zdalnie w całej Polsce, osobiście z dojazdem w Lesznie i okolicach, bez biura dla klientów, Kępno to adres rejestrowy (`HomeController.php`, `lang/{pl,en}/home.php`, `HomePageTest`). ✅ Strona „O nas” (`/o-nas`, `/en/about`): Damian Idzik i Kamil Nawrot (współwłaściciele), jak pracujemy, dane firmy, AboutPage JSON-LD, w stopce, menu i sitemapie. Sekcje historii, liczb i opinii są gotowe z przykładami widocznymi tylko lokalnie (`previewSamples`); mapa okolicy z OpenStreetMap (`netizo/mapa/generuj.cjs`); realizacje z panelu. ⏳ Do wpisania w `components/about/about-data.ts`: prawdziwa historia, źródła liczb i opinie klientów (za zgodą); zdjęcia osób (teraz inicjały). | `components/home/site-footer.tsx`, nowa strona | M |
+| 10 | **JSON-LD `@graph`:** `Organization`/`ProfessionalService` z `@id`, `telephone`, `email`, `logo`, `contactPoint`, `sameAs` (+ YouTube, LinkedIn, GBP) + `WebSite`; strony partnerów z `isPartOf`/`publisher`/`BreadcrumbList`. Jedna encja dla PL i EN. Gotowe bloki: `findings/schema.md` §5. Wyzerować domyślne JSON-LD w `config/seotools.php:84-95`. | `HomeController.php:44-67`, `PartnerProgramController.php:38-43`, `app.blade.php:64-71`, testy | M |
+| 11 | **Google Business Profile jako firma usługowa (SAB):** adres rejestrowy w Kępnie (nie biuro) podany tylko do weryfikacji i **ukryty**; obszar obsługi: Leszno, Rydzyna, Wschowa, Kościan, Gostyń, Rawicz i okoliczne gminy (dojazd do klienta to warunek kwalifikacji do GBP — samo „online” by nie wystarczyło); kategoria główna „Projektant stron internetowych”; godziny = dostępność telefoniczna. Link do profilu i prośba o opinie na stronie. Uwaga: lokalny pakiet map liczy odległość od ukrytego adresu (Kępno), więc w Lesznie widoczność da głównie strona-hub (pkt 16), nie mapa. Rekord Panorama Firm (Kępno) jest zgodny — ujednolicić telefon, e-mail i www w nim i w pozostałych katalogach. | Google, katalogi | S + ciągłe |
+| 12 | **Uwiarygodnić twierdzenia:** „150+ projektów” i „8 lat” (domena od 2023) — dodać kontekst/źródło lub złagodzić; Vetly — usunąć „1000+ weterynarzy” albo opisać jako rynek docelowy; „100% SEO według Google” → „100/100 w Lighthouse SEO”; ukryć temar-mt.pl (domyślna strona hostingu) do czasu wdrożenia. | `hero.tsx:24-26`, `clients-section.tsx:21-22`, `lang/pl/home.php:11-13`, `/admin/projects` | S |
+| 13 | **LCP mobile (3,9–4,5 s lab):** lazy load kreatora briefu, dialogów case study i formularzy poniżej linii zgięcia (bez `modulepreload` dla nich); skrypty firm trzecich po zgodzie (pkt 2); warianty zdjęć 384w/256w. Zmierzyć ponownie Lighthouse mobile. | `pages/home.tsx`, `components/home/brief/`, `case-study-dialog.tsx:153`, `lib/photos.ts:54` | M |
+
+## Medium — miesiąc 1
+
+| # | Działanie | Gdzie | Nakład |
+|---|---|---|---|
+| 14 | **Podstrony realizacji** `/realizacje` + `/realizacje/{slug}` (PL) i `/en/projects/{slug}` z pełnym case study, zrzutami, wynikami, technologiami, linkiem do klienta; `CreativeWork` w schema; w sitemapie. Model `Project` ma już `slug`. | nowe trasy/kontroler/strona, `projects-section.tsx:69` (link zamiast tylko modalu) | L |
+| 15 | **Strony usług** (~800+ słów każda, z FAQ, cenami „od”, realizacjami): `/tworzenie-stron-internetowych`, `/sklepy-internetowe`, `/aplikacje-webowe` (+ EN). Kafelki usług na stronie głównej linkują do nich. | `services-section.tsx:32-58` | L |
+| 16 | **Jedna strona-hub Leszno** `/tworzenie-stron-internetowych/leszno` — uczciwie jako obszar dojazdu, nie biuro: H1 z frazą, „przyjeżdżamy do Ciebie w Lesznie, Rydzynie, Wschowie, Kościanie, Gostyniu, Rawiczu i okolicach”, lista miejscowości dojazdu, ceny, case Treepro, opinie lokalnych klientów, CTA „Umów spotkanie u siebie w firmie”, FAQ lokalne; bez adresu w Lesznie i bez mapy biura. **Bez** osobnych stron dla każdego miasta (doorway); Kępno tylko jako adres rejestrowy w stopce/schema. | nowa strona | M |
+| 17 | **`/cennik`** z kalkulatorem (wzorzec `components/partners/commission-calculator.tsx`) + artykuł „Ile kosztuje strona internetowa w 2026”. | nowe strony | M |
+| 18 | **Opinie klientów** (prawdziwe, z imieniem/firmą, za zgodą) na stronie głównej i stronach usług; zbierać je w GBP, Clutch, Sortlist, GoodFirms. Dopiero wtedy rozważyć `Review` (nie `aggregateRating` dla własnej firmy). | sekcja klientów | M + ciągłe |
+| 19 | **Cache statyków**: `/build/assets/*`, `/assets/images/*`, `/storage/*` → `Cache-Control: public, max-age=31536000, immutable` (nginx `location` lub Cloudflare Cache Rule + Browser TTL). | serwer/Cloudflare | S |
+| 20 | **Nagłówki bezpieczeństwa:** HSTS (`max-age=31536000; includeSubDomains`, później preload), usunąć duplikaty z nginx i `x-xss-protection`; plan zaostrzenia CSP (nonce zamiast `'unsafe-inline'`, usunąć `'unsafe-eval'` jeśli zbędne). | `SecurityHeaders.php:27-28,47`, nginx | S–M |
+| 21 | **Czystszy tekst dla crawlerów:** `CountUp` — w SSR jedna wartość (końcowa), druga warstwa `aria-hidden` poza tekstem; `data-nosnippet` na makietach UI z fikcyjnymi cenami; marquee klientów — duplikaty `aria-hidden`. | `components/motion/count-up.tsx:74-77,131-138`, `clients-section.tsx` | S |
+| 22 | **Zdanie-definicja marki** w widocznej treści (np. w hero/stopce): „Netizo to agencja interaktywna z Leszna, która…”; oddzielenie od netizo.in (LinkedIn company page, spójny opis we wszystkich profilach). | `hero.tsx`, `site-footer.tsx` | S |
+| 23 | **Screenshoty projektów:** jakość 95 → ~80, prawdziwa miniatura przycięta do 16:10 (np. 1200×750), pełny obraz osobno; `width`/`height` zgodne z plikiem; rozważyć AVIF. Przetworzyć istniejące pliki. | `app/Services/ImageOptimizer.php:21,29-32`, `Admin/ProjectController.php:26-27`, `project-frame.tsx:49,106-118,177` | M |
+| 24 | **Formularze dla agentów:** pełnowymiarowy przezroczysty input w kartach/chipach; natywne `required` (lub sygnał wymagalności dla grup). | `brief/choices.tsx:44-58,128-137`, `quick-contact-form.tsx:190,205,230`, `partner-application-form.tsx:218-242` | S |
+| 25 | **Stopki klientów:** „Realizacja: Netizo” → `https://netizo.pl` zamiast voxbit.pl; lokalny plik logo zamiast hotlinku do `voxbit.pl/assets/images/logo.svg`. Zapis o linku w umowach i checkliście wdrożenia. | serwisy klientów | S/stronę |
+| 26 | **Nagłówki H2/H3** z frazami tematycznymi i w sentence case („AI i automatyzacja”, „DevOps i chmura”). | `services-section.tsx:28,42,52`, `projects-section.tsx:15` | XS |
+| 27 | **Przekierowania porządkowe:** 301 dla `/en/` i `/partnerzy/` → bez slasha; `http://www` → apex jednym skokiem; MIME `application/manifest+json` dla `.webmanifest`. | nginx/Cloudflare | S |
+| 28 | **Publiczny regulamin programu partnerskiego** `/partnerzy/regulamin`. | nowa strona, `components/partners/rules-section.tsx:9` | S |
+| 28a | **Pierwszy ekran:** „Leszno, cała Polska” + klikalny `tel:+48884343924` pod CTA w hero. | `components/home/hero.tsx:110-120` | XS |
+| 28b | **Kompaktowy baner cookies na mobile** (~120–140 px zamiast 236 px) z linkiem do polityki prywatności; przyciski ≥ 44 px. | `resources/views/vendor/cookie-consent/cookies.blade.php:148`, `:506` | S |
+| 28c | **Menu mobilne:** CTA „Wyceń projekt” przyklejone do dołu panelu. | `components/home/site-header.tsx:253`, `:304` | XS |
+
+## Low — backlog
+
+| # | Działanie | Nakład |
+|---|---|---|
+| 29 | `public/llms.txt` (gotowy PL+EN w `findings/geo.md`) — niski wpływ, Google go nie używa | XS |
+| 30 | Komentarz w `robots.txt` dokumentujący politykę wobec botów AI (obecne „Allow all” jest właściwe); ewentualnie `Content-Signal` | XS |
+| 31 | Sitemap generowana dynamicznie z `LocalizedRoutes::alternates()` (szkic w `findings/sitemap.md`) + test Pest; usunąć wtedy `public/sitemap.xml` | M |
+| 32 | `noindex` na `panel-klienta.netizo.pl/login`; `X-Robots-Tag: noindex` dla `/admin*` | XS |
+| 33 | Logotypy SVG inline (2 × 16 KB) → `<img>`/sprite; skrócić listy klas Tailwind w powtarzalnych elementach | S |
+| 34 | Preload fontów Geist Mono lub `font-display: optional` dla mono | XS |
+| 35 | Usunąć nieużywane `public/assets/images/photos/hero-studio*.webp` | XS |
+| 36 | Linki w stopce ≥ 24 px wysokości na desktopie (WCAG 2.2 Target Size) | XS |
+| 37 | `security.txt`, IndexNow (Bing/Yandex) | XS |
+| 38 | Drobne: U+2060/NBSP w tekście JSON-LD FAQ (`Controller.php:17-32`), `priceRange`, rozbieżności PL/EN („Common questions” vs „Frequently asked questions”), anchory „English en English” | S |
+| 39 | Profile w katalogach (Clutch, Sortlist, GoodFirms, Oferteo, pkt.pl, Panorama Firm) z identycznym NAP; LinkedIn; później Wikidata | S + ciągłe |
+
+## Monitoring (ciągle)
+
+- **Podłączyć Google Search Console i Bing Webmaster Tools** (właściwość domenowa), zgłosić sitemapę; po 4–6 tygodniach ponownie ocenić indeksację i zapytania.
+- **Klucz Google API (CrUX/PSI)** w `~/.config/claude-seo/google-api.json` — dane terenowe CWV zamiast labu.
+- **Baseline drift** po wdrożeniu fazy 1 (`drift_baseline.py https://netizo.pl`), żeby kolejne audyty wykrywały regresje.
+- Ponowny audyt po fazie 2 (cel: Health Score ≥ 80).
+
+## Mapa wdrożenia
+
+| Faza | Czas | Pozycje | Oczekiwany efekt |
+|---|---|---|---|
+| 1. Krytyczne i szybkie | tydzień 1 | 1–8 | Brak martwych linków i duplikatów, zgodność z RODO, czysta sitemap, lepszy CTR snippetów |
+| 2. Encja i zaufanie | tydzień 2–3 | 9–13, 18 (start), 22 | Rozpoznawalna encja (Google, AI), mniejsze ryzyko pomylenia z netizo.in, LCP mobile < 2,5 s |
+| 3. Treść i architektura | miesiąc 2 | 14–17, 23, 25–28 | Strony dopasowane do fraz docelowych (Leszno, usługi, cennik), indeksowalne case studies, pierwsze linki od klientów |
+| 4. Monitoring i rozwój | ciągle | 19–21, 24, 29–39 | Stabilne CWV, dane z GSC, przyrost opinii i cytowań |

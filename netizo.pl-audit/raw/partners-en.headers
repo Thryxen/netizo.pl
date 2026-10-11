@@ -1,0 +1,24 @@
+HTTP/2 200 
+date: Sun, 11 Oct 2026 08:46:05 GMT
+content-type: text/html; charset=utf-8
+server: cloudflare
+vary: Accept-Encoding
+vary: X-Inertia
+cache-control: no-cache, private
+link: <https://netizo.pl/build/assets/app-CFZq5pi_.css>; rel="preload"; as="style", <https://netizo.pl/build/assets/app-CpHfl-vG.js>; rel="modulepreload"; as="script", <https://netizo.pl/build/assets/partners-MhlEwalP.js>; rel="modulepreload"; as="script", <https://netizo.pl/build/assets/alert-DknxhqdP.js>; rel="modulepreload"; as="script", <https://netizo.pl/build/assets/use-in-page-anchors-BJRGl7vJ.js>; rel="modulepreload"; as="script", <https://netizo.pl/build/assets/i18n-CwdfM72g.js>; rel="modulepreload"; as="script", <https://netizo.pl/build/assets/plus-CRrPlK69.js>; rel="modulepreload"; as="script", <https://netizo.pl/build/assets/index-BcgbAMQj.js>; rel="modulepreload"; as="script", <https://netizo.pl/build/assets/label-DyUJ6TmT.js>; rel="modulepreload"; as="script", <https://netizo.pl/build/assets/textarea-DyvQ2uGp.js>; rel="modulepreload"; as="script", <https://netizo.pl/build/assets/partner-options-_qaR-ic7.js>; rel="modulepreload"; as="script", <https://netizo.pl/build/assets/check-B7q_4Nef.js>; rel="modulepreload"; as="script", <https://netizo.pl/build/assets/theme-toggle-3WLWv7gQ.js>; rel="modulepreload"; as="script", <https://netizo.pl/build/assets/select-BN-M2ivF.js>; rel="modulepreload"; as="script", <https://netizo.pl/build/assets/chevron-up-zE41kuVW.js>; rel="modulepreload"; as="script", <https://netizo.pl/build/assets/badge-C6aPE4TF.js>; rel="modulepreload"; as="script", <https://netizo.pl/build/assets/globe-DGjoS_mk.js>; rel="modulepreload"; as="script"
+content-security-policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://*.clarity.ms https://fonts.googleapis.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms https://region1.google-analytics.com; frame-src 'self' https://www.googletagmanager.com https://challenges.cloudflare.com; child-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; require-trusted-types-for 'script'; trusted-types default dompurify gtm clarity
+x-content-type-options: nosniff
+x-content-type-options: nosniff
+x-frame-options: SAMEORIGIN
+x-frame-options: SAMEORIGIN
+referrer-policy: strict-origin-when-cross-origin
+permissions-policy: camera=(), microphone=(), geolocation=()
+set-cookie: XSRF-TOKEN=eyJpdiI6IkExQ3VlLzJBTVR3ckNCaHZ1MS9zUEE9PSIsInZhbHVlIjoiVWhXdldHMHlwQkZndUdZRzlITWV5ZTJ2aHpiWEVuUUVhSGtqSGNuUUlxeVlGN3ZjbklCK2k0NUdoWkpSbHdnNktnTFVZYkxjTnMvUHo4a2V2WDIwd2hJWGJ5YnpjdUw0YnRiUG9KTVhHblRRVTI1TlFWcWk3SnZ4bmRCakRobHoiLCJtYWMiOiI4MzJlZWQyODczZTQwOTg2MWM5NGNiMmQ1NDk0MjVmOTQ5YjM4NmQxN2ViNjYzMzJiMGU3MTY0MDliM2M2M2ExIiwidGFnIjoiIn0%3D; expires=Sun, 11 Oct 2026 10:46:05 GMT; Max-Age=7200; path=/; secure; samesite=lax
+set-cookie: netizopl-session=eyJpdiI6ImZuMzRpUHByZk1PRWttV0tDc1FPL0E9PSIsInZhbHVlIjoiekY0dFNBbFlYMDZCenViQ2VHTXRIWDlMSkFIUkpKSmFJLzg3ZDd4V0Z1QmRaL3YvVGVtakpYbHJ1NnZobFpTbkdWcDhxckVSTmZQM2RsUE9PVWlyTmJhZVpVcUtuUXpseS9NVyttK1NGaG81ZlIzRU1YeEsrZHllejRWZUFvUlUiLCJtYWMiOiIwMDZhMjk0ZWM4NTgwZDQ3MTE1ZDExNjczZTdkYmVlYzEzMWE4ZTBlMzNiNTE0OTk1NTRmNDZkZGU3MTQ0NjQzIiwidGFnIjoiIn0%3D; expires=Sun, 11 Oct 2026 10:46:05 GMT; Max-Age=7200; path=/; secure; httponly; samesite=lax
+x-xss-protection: 1; mode=block
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+cf-cache-status: DYNAMIC
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=AaryNcRSW%2FrLxVFnSJlC7G2J2ep0auxXx%2Bhr5U1oJzGuHeldRbbT25bGPQb0Ky%2F1UaVwTbJGgEzTsBIi5zzfDGhv6QdPiG0qtgbsE%2F34EEN6wG3kECvqV0TiBEE%3D"}]}
+cf-ray: a48c97a28c5a8851-WAW
+alt-svc: h3=":443"; ma=86400
+

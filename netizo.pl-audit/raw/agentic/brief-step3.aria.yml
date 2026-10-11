@@ -1,0 +1,30 @@
+- 'form "Krok 3 z 6: Szczegóły projektu"':
+  - progressbar "Postęp briefu"
+  - 'heading "Krok 3 z 6: Szczegóły projektu" [level=3]'
+  - paragraph: Opowiedz więcej o swoich potrzebach.
+  - text: Branża
+  - combobox "Branża": Wybierz branżę…
+  - text: Grupa docelowa
+  - combobox "Grupa docelowa": Wybierz grupę…
+  - group "Czy masz projekt graficzny?":
+    - text: Czy masz projekt graficzny?
+    - paragraph: Wybierz jedną opcję.
+    - radio "Tak, mam Figma / Sketch / XD"
+    - text: Tak, mam Figma / Sketch / XD
+    - radio "Częściowo Szkice / inspiracje"
+    - text: Częściowo Szkice / inspiracje
+    - radio "Nie mam Potrzebuję projektu"
+    - text: Nie mam Potrzebuję projektu
+  - group "Oczekiwany termin":
+    - text: Oczekiwany termin
+    - paragraph: Wybierz jedną opcję.
+    - radio "Pilne ASAP"
+    - text: Pilne ASAP
+    - radio "1–2 mies. Standardowy"
+    - text: 1–2 mies. Standardowy
+    - radio "3–6 mies. Większy projekt"
+    - text: 3–6 mies. Większy projekt
+    - radio "Elastyczny Do ustalenia"
+    - text: Elastyczny Do ustalenia
+  - button "Wstecz"
+  - button "Dalej"

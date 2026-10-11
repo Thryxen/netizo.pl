@@ -159,9 +159,28 @@ it('renders the organization JSON-LD built in the controller', function () {
     expect($organization)->not->toBeNull()
         ->and($organization['name'])->toBe('Netizo')
         ->and($organization)->not->toHaveKey('sameAs')
-        ->and($organization['address'])->toBe(['@type' => 'PostalAddress', 'addressLocality' => 'Leszno', 'addressRegion' => 'wielkopolskie', 'addressCountry' => 'PL'])
+        ->and($organization['address'])->toBe([
+            '@type' => 'PostalAddress',
+            'streetAddress' => 'ul. Wiosny Ludów 12 lok. 8',
+            'postalCode' => '63-600',
+            'addressLocality' => 'Kępno',
+            'addressRegion' => 'wielkopolskie',
+            'addressCountry' => 'PL',
+        ])
+        ->and($organization['telephone'])->toBe('+48884343924')
+        ->and($organization['email'])->toBe('kontakt@netizo.pl')
+        ->and($organization['taxID'])->toBe('6192060508')
+        ->and($organization['identifier'])->toBe(['@type' => 'PropertyValue', 'propertyID' => 'REGON', 'value' => '527974955'])
         ->and($organization['image'])->toBe(asset('assets/images/og-netizo-2.png'))
-        ->and($organization['areaServed'])->toBe(['@type' => 'Country', 'name' => 'Polska'])
+        ->and($organization['areaServed'])->toBe([
+            ['@type' => 'Country', 'name' => 'Polska'],
+            ['@type' => 'City', 'name' => 'Leszno'],
+            ['@type' => 'City', 'name' => 'Rydzyna'],
+            ['@type' => 'City', 'name' => 'Wschowa'],
+            ['@type' => 'City', 'name' => 'Kościan'],
+            ['@type' => 'City', 'name' => 'Gostyń'],
+            ['@type' => 'City', 'name' => 'Rawicz'],
+        ])
         ->and($organization['priceRange'])->toBe('$$')
         ->and($schemas->firstWhere('@type', 'WebPage'))->toBeNull();
 });
@@ -357,7 +376,8 @@ it('renders the english SEO tags, share image and JSON-LD on /en', function () {
         ->and(collect($faqSchema['mainEntity'])->pluck('name')->all())->toBe(array_column($response->viewData('page')['props']['faq'], 'question'))
         ->and($organization['url'])->toBe(url('/en'))
         ->and($organization['image'])->toBe($imageUrl)
-        ->and($organization['areaServed'])->toBe(['@type' => 'Country', 'name' => 'Poland'])
+        ->and($organization['areaServed'][0])->toBe(['@type' => 'Country', 'name' => 'Poland'])
+        ->and($organization['address']['addressLocality'])->toBe('Kępno')
         ->and($organization['knowsLanguage'])->toBe(['pl', 'en']);
 
     expect(public_path('assets/images/og-netizo-en.png'))->toBeFile()

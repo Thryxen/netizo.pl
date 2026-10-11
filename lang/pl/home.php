@@ -83,8 +83,8 @@ return [
             'answer' => 'Tak. Od początku współpracy masz dostęp do panelu klienta: widzisz zadania i etap każdego z nich, czas pracy i dokumenty, a z zespołem piszesz na czacie. Co dwa tygodnie pokazujemy postępy na wersji testowej.',
         ],
         [
-            'question' => 'Czy pracujecie tylko z firmami z Leszna?',
-            'answer' => 'Nie. Jesteśmy z Leszna w Wielkopolsce, ale realizujemy projekty dla firm z całej Polski. Większość spraw załatwiamy online: na rozmowach wideo i w panelu klienta. Z firmami z Leszna i okolic chętnie spotkamy się na miejscu.',
+            'question' => 'Czy pracujecie z firmami z całej Polski?',
+            'answer' => 'Tak. Większość projektów prowadzimy zdalnie: rozmawiamy na wideorozmowach i przez telefon, a postępy widzisz w panelu klienta. Z firmami z Leszna i okolic, m.in. z Rydzyny, Wschowy, Kościana, Gostynia i Rawicza, możemy też spotkać się osobiście: przyjeżdżamy do Ciebie. Nie mamy biura dla klientów, a Kępno to adres rejestrowy firmy.',
         ],
         [
             'question' => 'Jakie technologie wykorzystujecie?',

@@ -1,0 +1,647 @@
+{
+  "title": "Websites and Web Apps for Ambitious Companies | Netizo",
+  "meta_description": "Websites and web applications for businesses, designed and built by a software house from Poland. Modern design, speed and SEO as standard. React, Next.js, Laravel. 150+ projects, 8 years of experience. Free quote!",
+  "meta_robots": "index, follow",
+  "canonical": "https://netizo.pl/en",
+  "h1": [
+    "We buildwebsites forthe ambitious."
+  ],
+  "h2": [
+    "What we\u2019ll build for you",
+    "Recent launches",
+    "Our mission",
+    "Trusted by",
+    "How we work",
+    "Your project in one portal",
+    "Frequently asked questions",
+    "Refer us and earn 15%",
+    "A monthly newsletter",
+    "Let\u2019s work together",
+    "Information",
+    "Contact",
+    "Follow us",
+    "We use cookies"
+  ],
+  "h3": [
+    "Web applications",
+    "Mobile apps",
+    "AI & automation",
+    "Backend systems",
+    "DevOps & cloud",
+    "E-commerce",
+    "Treepro.pl",
+    "Vetly.pl",
+    "energizo.pl",
+    "nakazdaokazje.pl",
+    "KrainaMT2.pl",
+    "Discovery",
+    "Design",
+    "Development",
+    "Launch",
+    "Team chat",
+    "Live documents",
+    "Credentials vault",
+    "Notifications",
+    "Full history",
+    "Secure login",
+    "How much does a website or an app cost?",
+    "How long does it take to build a website or an app?",
+    "Will my website show up on Google?",
+    "Can I edit the content of the website myself?",
+    "Will you design the website if I don\u2019t have a design?",
+    "Can you refresh my current website instead of building a new one?",
+    "Will you take care of the domain, hosting and business email?",
+    "Do you look after the website after launch?",
+    "Can I follow the progress while you work?",
+    "Do you work with clients outside Poland?",
+    "What technologies do you use?",
+    "Step 1 of 6:What kind of project are you planning?",
+    "Prefer to talk?"
+  ],
+  "images": [
+    {
+      "src": "https://netizo.pl/assets/images/photos/backdrop-workshop.webp",
+      "alt": "",
+      "width": "1536",
+      "height": "1024",
+      "loading": "eager",
+      "lazy_method": "none"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/shop-hero.webp",
+      "alt": "",
+      "width": "1536",
+      "height": "1024",
+      "loading": "eager",
+      "lazy_method": "none"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/shop-sweater.webp",
+      "alt": "",
+      "width": "1024",
+      "height": "1024",
+      "loading": "eager",
+      "lazy_method": "none"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/shop-scarf.webp",
+      "alt": "",
+      "width": "1024",
+      "height": "1024",
+      "loading": "eager",
+      "lazy_method": "none"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/shop-hat.webp",
+      "alt": "",
+      "width": "1024",
+      "height": "1024",
+      "loading": "eager",
+      "lazy_method": "none"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/shop-hero.webp",
+      "alt": "",
+      "width": "1536",
+      "height": "1024",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/shop-sweater.webp",
+      "alt": "",
+      "width": "1024",
+      "height": "1024",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/shop-scarf.webp",
+      "alt": "",
+      "width": "1024",
+      "height": "1024",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/bento-mobile.webp",
+      "alt": "",
+      "width": "1024",
+      "height": "1536",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/bento-ecommerce.webp",
+      "alt": "",
+      "width": "1536",
+      "height": "1024",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/storage/projects/full/01KWVJR4J217JBZ7JR3Q8YXB2R.webp",
+      "alt": "Screenshot of the Treepro.pl website",
+      "width": "1600",
+      "height": "1000",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/storage/projects/full/01KWVJVQ1SE7GM93PQ8HEWVBEW.webp",
+      "alt": "Screenshot of the Vetly.pl website",
+      "width": "1600",
+      "height": "1000",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/storage/projects/full/01M255HNPGZ16M3APXHWSM0CXD.webp",
+      "alt": "Screenshot of the energizo.pl website",
+      "width": "1600",
+      "height": "1000",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/storage/projects/full/01M2562F1Q88GANFJ19RW5XT9F.webp",
+      "alt": "Screenshot of the nakazdaokazje.pl website",
+      "width": "1600",
+      "height": "1000",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/storage/projects/full/01KWVJM4QYMM4E0F124SG90M9G.webp",
+      "alt": "Screenshot of the KrainaMT2.pl website",
+      "width": "1600",
+      "height": "1000",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/mission-workshop.webp",
+      "alt": "",
+      "width": "1536",
+      "height": "1024",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/shop-hero.webp",
+      "alt": "",
+      "width": "1536",
+      "height": "1024",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/backdrop-office.webp",
+      "alt": "",
+      "width": "1536",
+      "height": "1024",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/shop-hero.webp",
+      "alt": "",
+      "width": "1536",
+      "height": "1024",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/world-wool.webp",
+      "alt": "",
+      "width": "1536",
+      "height": "1024",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/newsletter-reading.webp",
+      "alt": "",
+      "width": "1024",
+      "height": "1280",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/contact-desk.webp",
+      "alt": "",
+      "width": "1024",
+      "height": "1024",
+      "loading": "lazy",
+      "lazy_method": "native"
+    }
+  ],
+  "links": {
+    "internal": [
+      {
+        "href": "https://netizo.pl",
+        "text": "PolskiplPolski",
+        "rel": []
+      },
+      {
+        "href": "https://netizo.pl/en/partners",
+        "text": "Become a partner",
+        "rel": []
+      },
+      {
+        "href": "https://netizo.pl/cdn-cgi/l/email-protection#b9d2d6d7cdd8d2cdf9d7dccdd0c3d697c9d5",
+        "text": "[email\u00a0protected]",
+        "rel": []
+      },
+      {
+        "href": "https://netizo.pl/en/partners",
+        "text": "Partner program",
+        "rel": []
+      },
+      {
+        "href": "https://netizo.pl/utrzymanie",
+        "text": "Maintenancepl(in Polish)",
+        "rel": []
+      },
+      {
+        "href": "https://netizo.pl/regulamin",
+        "text": "Terms of servicepl(in Polish)",
+        "rel": []
+      },
+      {
+        "href": "https://netizo.pl/polityka-prywatnosci",
+        "text": "Privacy policypl(in Polish)",
+        "rel": []
+      },
+      {
+        "href": "https://netizo.pl/cdn-cgi/l/email-protection#cda6a2a3b9aca6b98da3a8b9a4b7a2e3bda1",
+        "text": "[email\u00a0protected]",
+        "rel": []
+      },
+      {
+        "href": "https://netizo.pl",
+        "text": "PolskiplPolski",
+        "rel": []
+      }
+    ],
+    "external": [
+      {
+        "href": "https://panel-klienta.netizo.pl",
+        "text": "Client portal(opens in a new tab)",
+        "rel": [
+          "noopener"
+        ]
+      },
+      {
+        "href": "https://treepro.pl",
+        "text": "treepro.pl(opens in a new tab)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://leasingodreki.pl",
+        "text": "leasingodreki.pl(opens in a new tab)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://krainamt2.pl",
+        "text": "krainamt2.pl(opens in a new tab)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://temar-mt.pl",
+        "text": "temar-mt.pl(opens in a new tab)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://energizo.pl",
+        "text": "energizo.pl(opens in a new tab)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://nakazdaokazje.pl",
+        "text": "nakazdaokazje.pl(opens in a new tab)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://treepro.pl",
+        "text": "treepro.pl(opens in a new tab)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://leasingodreki.pl",
+        "text": "leasingodreki.pl(opens in a new tab)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://krainamt2.pl",
+        "text": "krainamt2.pl(opens in a new tab)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://temar-mt.pl",
+        "text": "temar-mt.pl(opens in a new tab)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://energizo.pl",
+        "text": "energizo.pl(opens in a new tab)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://nakazdaokazje.pl",
+        "text": "nakazdaokazje.pl(opens in a new tab)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://treepro.pl",
+        "text": "treepro.pl(opens in a new tab)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://leasingodreki.pl",
+        "text": "leasingodreki.pl(opens in a new tab)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://krainamt2.pl",
+        "text": "krainamt2.pl(opens in a new tab)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://temar-mt.pl",
+        "text": "temar-mt.pl(opens in a new tab)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://energizo.pl",
+        "text": "energizo.pl(opens in a new tab)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://nakazdaokazje.pl",
+        "text": "nakazdaokazje.pl(opens in a new tab)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://panel-klienta.netizo.pl",
+        "text": "Log in to the portal(opens in a new tab)",
+        "rel": [
+          "noopener"
+        ]
+      },
+      {
+        "href": "tel:+48884343924",
+        "text": "+48 884 343 924",
+        "rel": []
+      },
+      {
+        "href": "https://panel-klienta.netizo.pl",
+        "text": "Client portal(opens in a new tab)",
+        "rel": [
+          "noopener"
+        ]
+      },
+      {
+        "href": "tel:+48884343924",
+        "text": "+48 884 343 924",
+        "rel": []
+      },
+      {
+        "href": "https://www.facebook.com/netizo.agency",
+        "text": "Facebook(opens in a new tab)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://www.instagram.com/netizo.agency",
+        "text": "Instagram(opens in a new tab)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://www.tiktok.com/@netizo.agency",
+        "text": "TikTok(opens in a new tab)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      }
+    ]
+  },
+  "schema": [
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Netizo",
+      "description": "Websites and web applications for businesses, designed and built in Poland. Modern design, speed and SEO as standard. 150+ projects, 8 years of experience.",
+      "url": "https://netizo.pl/en",
+      "image": "https://netizo.pl/assets/images/og-netizo-en.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Leszno",
+        "addressRegion": "wielkopolskie",
+        "addressCountry": "PL"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Poland"
+      },
+      "knowsLanguage": [
+        "pl",
+        "en"
+      ],
+      "priceRange": "$$",
+      "sameAs": [
+        "https://www.facebook.com/netizo.agency",
+        "https://www.instagram.com/netizo.agency",
+        "https://www.tiktok.com/@netizo.agency"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does a website or an app cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A simple website usually costs PLN\u00a01,000\u2013\u20605,000, a larger website or a small online store PLN\u00a05,000\u2013\u206015,000, a web application PLN\u00a015,000\u2013\u206050,000, and large systems start at PLN\u00a050,000. The final price depends on the scope, and you get a detailed quote for free after the brief."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to build a website or an app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A landing page usually takes 2\u2013\u20603\u00a0weeks, a company website 4\u2013\u20606\u00a0weeks, and a web application 2\u2013\u20604\u00a0months. We set the exact deadline after the brief, once we know the scope of work."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will my website show up on Google?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We build every website with search engines in mind: fast loading, a clean heading structure, titles and descriptions for search results, structured data and a sitemap. No one can honestly guarantee a specific position, because it also depends on the competition and the content, but you get a solid foundation for SEO, local search included."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I edit the content of the website myself?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. If you want to do it in-house, we add a simple content management system (CMS): you can change texts, images and posts in it, and we show you how to use it. Bigger changes you send to us as tasks in the client portal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will you design the website if I don\u2019t have a design?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We have UI/UX designers on the team: we design the look from scratch or build on your sketches, logo and brand identity. Before we start coding, you get the design and a clickable Figma prototype to review and approve."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you refresh my current website instead of building a new one?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We start by reviewing your current website: what works, what slows it down and what puts customers off. Then we suggest refreshing the design and content, or a rebuild if the old technology holds you back. When we rebuild, we redirect the old URLs to the new ones to limit the risk of losing Google rankings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will you take care of the domain, hosting and business email?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We help you choose and set up the domain, hosting and business email, or we work with what you already have. Your credentials are kept in an encrypted vault in the client portal, and before a domain or hosting renewal is due, you get a reminder there."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you look after the website after launch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. After launch we stay with you: we take care of hosting, security updates, backups, monitoring and further development of the website. You report fixes as tasks in the client portal, and with ongoing cooperation you get a monthly statement with the hours broken down."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I follow the progress while you work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. From day one you have access to the client portal: you see the tasks and the stage of each one, the time spent and the documents, and you chat with the team. Every two weeks we show the progress on a staging version."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work with clients outside Poland?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We are based in Leszno, in western Poland, and we work with companies from all over the country and from abroad. Most things happen online, over video calls and in the client portal, in Polish or English. If you are near Leszno, we are happy to meet in person."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What technologies do you use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We choose technologies to fit the project. Most often we work with this stack: front end \u2013 React, Next.js, Vue.js and Tailwind CSS; back end \u2013 Node.js, Go, Laravel and Python; databases \u2013 PostgreSQL, MongoDB and Redis; cloud \u2013 AWS, GCP and Vercel."
+          }
+        }
+      ]
+    }
+  ],
+  "open_graph": {
+    "og:title": "Websites and Web Apps for Ambitious Companies | Netizo",
+    "og:description": "Professional websites and web applications. Modern design, speed, SEO. 150+ projects. Free quote!",
+    "og:type": "website",
+    "og:site_name": "Netizo",
+    "og:locale": "en_US",
+    "og:locale:alternate": "pl_PL",
+    "og:url": "https://netizo.pl/en",
+    "og:image": "https://netizo.pl/assets/images/og-netizo-en.png",
+    "og:image:width": "1200",
+    "og:image:height": "630"
+  },
+  "twitter_card": {
+    "twitter:card": "summary_large_image",
+    "twitter:image": "https://netizo.pl/assets/images/og-netizo-en.png",
+    "twitter:title": "Websites and Web Apps for Ambitious Companies | Netizo",
+    "twitter:description": "Professional websites and web applications. Modern design, speed, SEO. 150+ projects. Free quote!"
+  },
+  "word_count": 2698,
+  "hreflang": [
+    {
+      "lang": "pl",
+      "href": "https://netizo.pl"
+    },
+    {
+      "lang": "en",
+      "href": "https://netizo.pl/en"
+    },
+    {
+      "lang": "x-default",
+      "href": "https://netizo.pl"
+    }
+  ]
+}

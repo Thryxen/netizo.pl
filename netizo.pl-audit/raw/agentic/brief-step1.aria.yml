@@ -1,0 +1,19 @@
+- 'form "Krok 1 z 6: Jakiego typu projekt planujesz?"':
+  - progressbar "Postęp briefu"
+  - 'heading "Krok 1 z 6: Jakiego typu projekt planujesz?" [level=3]'
+  - paragraph: Wybierz wszystkie pasujące opcje.
+  - group "Typ projektu":
+    - text: Typ projektu
+    - checkbox "Strona WWW Landing page, firmowa, portfolio" [checked]
+    - text: Strona WWW Landing page, firmowa, portfolio
+    - checkbox "Aplikacja web SaaS, panel, dashboard, CRM"
+    - text: Aplikacja web SaaS, panel, dashboard, CRM
+    - checkbox "E-commerce Sklep, marketplace, B2B"
+    - text: E-commerce Sklep, marketplace, B2B
+    - checkbox "Aplikacja mobilna iOS, Android, cross-platform"
+    - text: Aplikacja mobilna iOS, Android, cross-platform
+    - checkbox "Redesign Modernizacja istniejącego projektu"
+    - text: Redesign Modernizacja istniejącego projektu
+    - checkbox "Inne API, integracje, automatyzacje"
+    - text: Inne API, integracje, automatyzacje
+  - button "Dalej"

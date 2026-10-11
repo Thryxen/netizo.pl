@@ -1,0 +1,241 @@
+- link "Przejdź do treści":
+  - /url: "#main-content"
+- banner:
+  - link "Netizo – strona główna":
+    - /url: /
+  - text: Program partnerski
+  - navigation "Sekcje strony":
+    - list:
+      - listitem:
+        - link "Jak to działa":
+          - /url: "#jak-to-dziala"
+      - listitem:
+        - link "Kalkulator":
+          - /url: "#kalkulator"
+      - listitem:
+        - link "Zasady":
+          - /url: "#zasady"
+      - listitem:
+        - link "FAQ":
+          - /url: "#faq"
+  - link "English":
+    - /url: https://netizo.pl/en/partners
+  - button "Włącz ciemny motyw"
+  - link "Dołącz do programu":
+    - /url: "#dolacz"
+- main:
+  - region "Polecasz nas, dostajesz 15% od każdego zamówienia.":
+    - heading "Polecasz nas, dostajesz 15% od każdego zamówienia." [level=1]
+    - paragraph: Znasz firmę, która potrzebuje strony, sklepu albo aplikacji? Przekaż jej kontakt do nas. Rozmowy, wycenę i wdrożenie bierzemy na siebie, a Ty dostajesz 15% netto od każdej opłaconej faktury tego klienta.
+    - link "Dołącz do programu":
+      - /url: "#dolacz"
+    - link "Policz swoją prowizję":
+      - /url: "#kalkulator"
+    - paragraph: Udział jest bezpłatny. Odpowiadamy w ciągu 24 godzin.
+    - list "Warunki w skrócie":
+      - listitem: 15% netto od każdej opłaconej faktury
+      - listitem: 12 mies. prowizji od zamówień klienta
+      - listitem: 14 dni na przelew po opłaceniu faktury
+      - listitem: 0 zł za udział w programie
+  - region "Jak to działa":
+    - heading "Jak to działa" [level=2]
+    - paragraph: Cztery kroki. Ty polecasz, my zajmujemy się resztą.
+    - list:
+      - listitem:
+        - heading "Zgłaszasz się" [level=3]
+        - paragraph: Wypełniasz krótki formularz. W ciągu 24 godzin dostajesz kod partnera i umowę do podpisania.
+      - listitem:
+        - heading "Polecasz nas" [level=3]
+        - paragraph: Dajesz znajomej firmie swój kod albo przekazujesz nam jej kontakt. Nie musisz niczego sprzedawać ani negocjować.
+      - listitem:
+        - heading "My robimy resztę" [level=3]
+        - paragraph: Rozmawiamy z klientem, wyceniamy, projektujemy i wdrażamy. O każdym zamówieniu z Twoim kodem dostajesz maila.
+      - listitem:
+        - heading "Dostajesz 15%" [level=3]
+        - paragraph: Po każdej opłaconej fakturze klienta przelewamy Ci 15% jej wartości netto, najpóźniej w ciągu 14 dni.
+    - paragraph: Twoja część kończy się na drugim kroku.
+    - link "Policz, ile możesz zarobić":
+      - /url: "#kalkulator"
+  - region "Policz swoją prowizję":
+    - heading "Policz swoją prowizję" [level=2]
+    - paragraph: Dodaj firmy, które możesz nam polecić. Kwoty to typowe wyceny z naszych realizacji, ostateczna cena zależy od zakresu projektu.
+    - heading "Dodaj poleconą firmę" [level=3]
+    - list "Dodaj poleconą firmę":
+      - listitem:
+        - 'button "Dodaj: Prosta strona, 4 000 zł"': Prosta strona 4 000 zł
+      - listitem:
+        - 'button "Dodaj: Strona firmowa, 10 000 zł"': Strona firmowa 10 000 zł
+      - listitem:
+        - 'button "Dodaj: Sklep internetowy, 15 000 zł"': Sklep internetowy 15 000 zł
+      - listitem:
+        - 'button "Dodaj: Aplikacja webowa, 30 000 zł"': Aplikacja webowa 30 000 zł
+    - paragraph: Kliknij słupek na wykresie, żeby go usunąć.
+    - button "Wyczyść"
+    - 'button "Usuń: Strona firmowa, 10 000 zł"'
+    - 'button "Usuń: Aplikacja webowa, 30 000 zł"'
+    - 'button "Usuń: Sklep internetowy, 15 000 zł"'
+    - paragraph: Każdy słupek to jedno zamówienie. Wypełniona część to Twoje 15%.
+    - paragraph: 3 firmy, zamówienia za 55 000 zł netto.
+    - paragraph:
+      - text: Twoja prowizja
+      - status: 8 250 zł
+    - paragraph: Do tego 15% od kolejnych zamówień tych firm przez 12 miesięcy, na przykład za rozbudowę albo opiekę techniczną.
+  - region "Dla kogo jest program":
+    - heading "Dla kogo jest program" [level=2]
+    - paragraph: "Wystarczy, że rozmawiasz z właścicielami firm. Polecenie zwykle przychodzi samo, w takich sytuacjach:"
+    - list:
+      - listitem:
+        - heading "Biuro rachunkowe" [level=3]
+        - paragraph: Klient zakłada firmę i pyta, kto zrobi mu stronę. Odpowiadasz jednym kontaktem.
+      - listitem:
+        - heading "Agencja marketingowa" [level=3]
+        - paragraph: Prowadzisz kampanie, a klientowi brakuje strony albo sklepu, który zamieni ruch w zamówienia.
+      - listitem:
+        - heading "Grafik, fotograf, copywriter" [level=3]
+        - paragraph: Robisz logo, zdjęcia albo teksty. Strona to zwykle następny krok Twojego klienta.
+      - listitem:
+        - heading "Doradca, konsultant" [level=3]
+        - paragraph: Porządkujesz procesy w firmie i widzisz, gdzie przydałby się system albo aplikacja.
+      - listitem:
+        - heading "Klient Netizo" [level=3]
+        - paragraph: Ktoś pyta, kto zrobił Twoją stronę. Od teraz ta odpowiedź się opłaca.
+      - listitem:
+        - heading "Ktoś, kto zna firmy" [level=3]
+        - paragraph: Znasz właścicieli firm z pracy, z branży albo z sąsiedztwa. To wystarczy.
+  - region "Zasady programu":
+    - heading "Zasady programu" [level=2]
+    - paragraph: Pełną umowę dostajesz do przejrzenia przed startem. Najważniejsze punkty są tutaj.
+    - term: Prowizja
+    - definition: 15% wartości netto każdej faktury opłaconej przez poleconego klienta.
+    - term: Jak długo
+    - definition: "12 miesięcy od pierwszego zamówienia klienta: projekt, rozbudowa, opieka techniczna."
+    - term: Wypłata
+    - definition: Przelewem, najpóźniej 14 dni po opłaceniu faktury przez klienta.
+    - term: Rozliczenie
+    - definition: Na fakturę, jeśli prowadzisz firmę. Na podstawie umowy, jeśli jej nie prowadzisz.
+    - term: Kto się liczy
+    - definition: Nowa firma, z którą nie rozmawialiśmy o współpracy w ostatnich 12 miesiącach.
+    - term: Przypisanie
+    - definition: Kod partnera podany przez klienta albo kontakt przekazany przez Ciebie, za zgodą klienta.
+    - term: Cena dla klienta
+    - definition: Taka sama jak bez polecenia. Prowizję płacimy z naszej marży.
+    - term: Limit
+    - definition: Nie ma. Polecasz tyle firm, ile chcesz, z całej Polski.
+  - region "Częste pytania":
+    - heading "Częste pytania" [level=2]
+    - paragraph: Nie ma tu Twojego pytania? Napisz, odpowiemy w ciągu 24 godzin.
+    - link "Napisz do nas":
+      - /url: mailto:kontakt@netizo.pl?subject=Program%20partnerski
+    - heading "Kto może zostać partnerem?" [level=3]:
+      - button "Kto może zostać partnerem?"
+    - region "Kto może zostać partnerem?"
+    - heading "Czy muszę prowadzić działalność gospodarczą?" [level=3]:
+      - button "Czy muszę prowadzić działalność gospodarczą?"
+    - region "Czy muszę prowadzić działalność gospodarczą?"
+    - heading "Od czego liczona jest prowizja?" [level=3]:
+      - button "Od czego liczona jest prowizja?"
+    - region "Od czego liczona jest prowizja?"
+    - heading "Kiedy dostanę pieniądze?" [level=3]:
+      - button "Kiedy dostanę pieniądze?"
+    - region "Kiedy dostanę pieniądze?"
+    - heading "Skąd będziecie wiedzieć, że klient jest ode mnie?" [level=3]:
+      - button "Skąd będziecie wiedzieć, że klient jest ode mnie?"
+    - region "Skąd będziecie wiedzieć, że klient jest ode mnie?"
+    - heading "Czy polecony klient zapłaci przez to więcej?" [level=3]:
+      - button "Czy polecony klient zapłaci przez to więcej?"
+    - region "Czy polecony klient zapłaci przez to więcej?"
+    - heading "Czy muszę brać udział w rozmowach i wycenie?" [level=3]:
+      - button "Czy muszę brać udział w rozmowach i wycenie?"
+    - region "Czy muszę brać udział w rozmowach i wycenie?"
+    - heading "Co, jeśli polecona firma już się z wami kontaktowała?" [level=3]:
+      - button "Co, jeśli polecona firma już się z wami kontaktowała?"
+    - region "Co, jeśli polecona firma już się z wami kontaktowała?"
+    - heading "Czy jest limit poleceń albo zarobków?" [level=3]:
+      - button "Czy jest limit poleceń albo zarobków?"
+    - region "Czy jest limit poleceń albo zarobków?"
+  - region "Dołącz do programu":
+    - heading "Dołącz do programu" [level=2]
+    - paragraph: Zgłoszenie zajmuje minutę. W ciągu 24 godzin odezwiemy się z kodem partnera i umową do przejrzenia.
+    - form "Zgłoszenie do programu partnerskiego":
+      - text: Imię i nazwisko
+      - textbox "Imię i nazwisko":
+        - /placeholder: Anna Kowalska
+      - text: E-mail
+      - textbox "E-mail":
+        - /placeholder: anna@firma.pl
+      - text: Telefon (opcjonalnie)
+      - textbox "Telefon (opcjonalnie)":
+        - /placeholder: +48 600 000 000
+      - group "Kim jesteś?":
+        - text: Kim jesteś?
+        - radio "Biuro rachunkowe"
+        - text: Biuro rachunkowe
+        - radio "Agencja marketingowa"
+        - text: Agencja marketingowa
+        - radio "Grafik, fotograf, copywriter"
+        - text: Grafik, fotograf, copywriter
+        - radio "Doradca, konsultant"
+        - text: Doradca, konsultant
+        - radio "Klient Netizo"
+        - text: Klient Netizo
+        - radio "Ktoś inny"
+        - text: Ktoś inny
+      - text: Kogo chcesz nam polecić? (opcjonalnie)
+      - textbox "Kogo chcesz nam polecić? (opcjonalnie)":
+        - /placeholder: "Na przykład: znam kilka firm budowlanych, które potrzebują nowych stron."
+      - paragraph: Zgłoszenie do niczego Cię nie zobowiązuje. Pola oznaczone gwiazdką są wymagane.
+      - button "Wyślij zgłoszenie"
+- contentinfo:
+  - link "Netizo – strona główna":
+    - /url: /
+  - paragraph: Tworzymy strony WWW dla ambitnych. Zbudujmy to razem, od pomysłu do wdrożenia. Opieka techniczna, SEO i optymalizacja kosztów utrzymania.
+  - navigation "Informacje":
+    - heading "Informacje" [level=2]
+    - list:
+      - listitem:
+        - link "Panel klienta (otwiera się w nowej karcie)":
+          - /url: https://panel-klienta.netizo.pl
+      - listitem:
+        - link "Program partnerski":
+          - /url: /partnerzy
+      - listitem:
+        - link "Utrzymanie":
+          - /url: /utrzymanie
+      - listitem:
+        - link "Regulamin":
+          - /url: /regulamin
+      - listitem:
+        - link "Polityka prywatności":
+          - /url: /polityka-prywatnosci
+  - heading "Kontakt" [level=2]
+  - list:
+    - listitem:
+      - link "kontakt@netizo.pl":
+        - /url: mailto:kontakt@netizo.pl
+    - listitem:
+      - link "+48 884 343 924":
+        - /url: tel:+48884343924
+  - heading "Obserwuj nas" [level=2]
+  - list:
+    - listitem:
+      - link "Facebook (otwiera się w nowej karcie)":
+        - /url: https://www.facebook.com/netizo.agency
+    - listitem:
+      - link "Instagram (otwiera się w nowej karcie)":
+        - /url: https://www.instagram.com/netizo.agency
+    - listitem:
+      - link "TikTok (otwiera się w nowej karcie)":
+        - /url: https://www.tiktok.com/@netizo.agency
+  - paragraph: © 2026 Netizo. Wszelkie prawa zastrzeżone.
+  - link "English":
+    - /url: https://netizo.pl/en/partners
+- complementary:
+  - img
+  - heading "Korzystamy z plików cookie" [level=2]
+  - paragraph: Ta witryna używa plików cookie w celu ulepszenia ogólnej wygody użytkowania.
+  - button "Tylko niezbędne"
+  - button "Zaakceptuj wszystko"
+  - link "Dostosuj":
+    - /url: "#cookies-policy-customize"
+    - text: Dostosuj
+    - img

@@ -52,6 +52,24 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://netizo.pl/o-nas</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://netizo.pl/o-nas"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://netizo.pl/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://netizo.pl/o-nas"/>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://netizo.pl/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://netizo.pl/o-nas"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://netizo.pl/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://netizo.pl/o-nas"/>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://netizo.pl/en/partners</loc>
     <xhtml:link rel="alternate" hreflang="pl" href="https://netizo.pl/partnerzy"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://netizo.pl/en/partners"/>

@@ -70,7 +70,7 @@ type SectionProps = Omit<ComponentProps<'section'>, 'children'> & {
  */
 export function Section({ id, labelledBy, hairline = true, className, containerClassName, children, ...props }: SectionProps) {
     return (
-        <section id={id} aria-labelledby={labelledBy} className={cn('relative', hairline && 'border-t border-border', className)} {...props}>
+        <section id={id} aria-labelledby={labelledBy} data-slot="section" className={cn('relative', hairline && 'border-t border-border', className)} {...props}>
             <Container className={cn('py-20 md:py-28', containerClassName)}>
                 {hairline && (
                     <>

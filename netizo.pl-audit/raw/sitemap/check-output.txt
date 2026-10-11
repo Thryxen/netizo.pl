@@ -1,0 +1,25 @@
+== live-sitemap.xml
+entries 8 unique after fragment strip 4
+  DUP https://netizo.pl/ [('https://netizo.pl/', '2026-10-09'), ('https://netizo.pl/#stack', '2025-12-05'), ('https://netizo.pl/#projekty', '2025-12-05'), ('https://netizo.pl/#faq', '2025-12-05'), ('https://netizo.pl/#kontakt', '2025-12-05')]
+  https://netizo.pl/ 2026-10-09 3 hreflang ['changefreq=weekly priority=1.0']
+  https://netizo.pl/en 2026-10-09 3 hreflang ['changefreq=weekly priority=0.9']
+  https://netizo.pl/#stack 2025-12-05 0 hreflang ['FRAGMENT', 'changefreq=monthly priority=0.8']
+  https://netizo.pl/#projekty 2025-12-05 0 hreflang ['FRAGMENT', 'changefreq=weekly priority=0.8']
+  https://netizo.pl/#faq 2025-12-05 0 hreflang ['FRAGMENT', 'changefreq=monthly priority=0.7']
+  https://netizo.pl/#kontakt 2025-12-05 0 hreflang ['FRAGMENT', 'changefreq=monthly priority=0.9']
+  https://netizo.pl/partnerzy 2026-10-09 3 hreflang ['changefreq=monthly priority=0.6']
+  https://netizo.pl/en/partners 2026-10-09 3 hreflang ['changefreq=monthly priority=0.5']
+  html-vs-sitemap home-pl: exact=False normalized=True; canonical=https://netizo.pl loc_exact=False loc_norm=True
+  html-vs-sitemap home-en: exact=False normalized=True; canonical=https://netizo.pl/en loc_exact=True loc_norm=True
+  html-vs-sitemap partners-pl: exact=True normalized=True; canonical=https://netizo.pl/partnerzy loc_exact=True loc_norm=True
+  html-vs-sitemap partners-en: exact=True normalized=True; canonical=https://netizo.pl/en/partners loc_exact=True loc_norm=True
+== sitemap.proposed.xml
+entries 4 unique after fragment strip 4
+  https://netizo.pl 2026-10-09 3 hreflang []
+  https://netizo.pl/en 2026-10-09 3 hreflang []
+  https://netizo.pl/partnerzy 2026-10-09 3 hreflang []
+  https://netizo.pl/en/partners 2026-10-09 3 hreflang []
+  html-vs-sitemap home-pl: exact=True normalized=True; canonical=https://netizo.pl loc_exact=True loc_norm=True
+  html-vs-sitemap home-en: exact=True normalized=True; canonical=https://netizo.pl/en loc_exact=True loc_norm=True
+  html-vs-sitemap partners-pl: exact=True normalized=True; canonical=https://netizo.pl/partnerzy loc_exact=True loc_norm=True
+  html-vs-sitemap partners-en: exact=True normalized=True; canonical=https://netizo.pl/en/partners loc_exact=True loc_norm=True

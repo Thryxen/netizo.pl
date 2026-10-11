@@ -1,0 +1,197 @@
+  (text) Przejdź do treści
+  (text) Program partnerski
+  (li) Jak to działa
+  (li) Kalkulator
+  (li) Zasady
+  (li) FAQ
+  (text) EnglishenEnglish
+  (button) Włącz ciemny motywWłącz jasny motyw
+  (text) DołączDołącz do programu
+
+[H1] Polecasz nas, dostajesz 15% od każdego zamówienia.
+  (p) Znasz firmę, która potrzebuje strony, sklepu albo aplikacji? Przekaż jej kontakt do nas. Rozmowy, wycenę i wdrożenie bierzemy na siebie, a Ty dostajesz 15% netto od każdej opłaconej faktury tego klienta.
+  (text) Dołącz do programuPolicz swoją prowizję
+  (p) Udział jest bezpłatny. Odpowiadamy w ciągu 24 godzin.
+  (p) Odezwij się do Netizo i podaj mój kod: ANNA15
+  (text) Przelew przychodzącyProwizja partnerska Netizo+1 800 zł
+  (text) Nowe zamówienieANNA15Gabinet Ruch, strona z rezerwacjami12 000 zł
+  (text) Netizo 85%Twoje 15%: 1 800 zł
+  (li) 15%netto od każdej opłaconej faktury
+  (li) 12 mies.prowizji od zamówień klienta
+  (li) 14 dnina przelew po opłaceniu faktury
+  (li) 0 złza udział w programie
+
+[H2] Jak to działa
+  (p) Cztery kroki. Ty polecasz, my zajmujemy się resztą.
+  (li) 01
+
+[H3] Zgłaszasz się
+  (p) Wypełniasz krótki formularz. W ciągu 24 godzin dostajesz kod partnera i umowę do podpisania.
+  (li) 02
+
+[H3] Polecasz nas
+  (p) Dajesz znajomej firmie swój kod albo przekazujesz nam jej kontakt. Nie musisz niczego sprzedawać ani negocjować.
+  (li) 03
+
+[H3] My robimy resztę
+  (p) Rozmawiamy z klientem, wyceniamy, projektujemy i wdrażamy. O każdym zamówieniu z Twoim kodem dostajesz maila.
+  (li) 04
+
+[H3] Dostajesz 15%
+  (p) Po każdej opłaconej fakturze klienta przelewamy Ci 15% jej wartości netto, najpóźniej w ciągu 14 dni.
+  (p) Twoja część kończy się na drugim kroku.
+  (text) Policz, ile możesz zarobić
+
+[H2] Policz swoją prowizję
+  (p) Dodaj firmy, które możesz nam polecić. Kwoty to typowe wyceny z naszych realizacji, ostateczna cena zależy od zakresu projektu.
+
+[H3] Dodaj poleconą firmę
+  (button) Prosta strona4 000 zł
+  (button) Strona firmowa10 000 zł
+  (button) Sklep internetowy15 000 zł
+  (button) Aplikacja webowa30 000 zł
+  (p) Kliknij słupek na wykresie, żeby go usunąć.
+  (button) Wyczyść
+  (button) 1 500 zł
+  (button) 4 500 zł
+  (button) 2 250 zł
+  (p) Każdy słupek to jedno zamówienie. Wypełniona część to Twoje 15%.
+  (p) 3 firmy, zamówienia za 55 000 zł netto.
+  (p) Twoja prowizja8 250 zł8 250 zł
+  (p) Do tego 15% od kolejnych zamówień tych firm przez 12 miesięcy, na przykład za rozbudowę albo opiekę techniczną.
+
+[H2] Dla kogo jest program
+  (p) Wystarczy, że rozmawiasz z właścicielami firm. Polecenie zwykle przychodzi samo, w takich sytuacjach:
+
+[H3] Biuro rachunkowe
+  (p) Klient zakłada firmę i pyta, kto zrobi mu stronę. Odpowiadasz jednym kontaktem.
+
+[H3] Agencja marketingowa
+  (p) Prowadzisz kampanie, a klientowi brakuje strony albo sklepu, który zamieni ruch w zamówienia.
+
+[H3] Grafik, fotograf, copywriter
+  (p) Robisz logo, zdjęcia albo teksty. Strona to zwykle następny krok Twojego klienta.
+
+[H3] Doradca, konsultant
+  (p) Porządkujesz procesy w firmie i widzisz, gdzie przydałby się system albo aplikacja.
+
+[H3] Klient Netizo
+  (p) Ktoś pyta, kto zrobił Twoją stronę. Od teraz ta odpowiedź się opłaca.
+
+[H3] Ktoś, kto zna firmy
+  (p) Znasz właścicieli firm z pracy, z branży albo z sąsiedztwa. To wystarczy.
+
+[H2] Zasady programu
+  (p) Pełną umowę dostajesz do przejrzenia przed startem. Najważniejsze punkty są tutaj.
+  (dt) Prowizja
+  (dd) 15% wartości netto każdej faktury opłaconej przez poleconego klienta.
+  (dt) Jak długo
+  (dd) 12 miesięcy od pierwszego zamówienia klienta: projekt, rozbudowa, opieka techniczna.
+  (dt) Wypłata
+  (dd) Przelewem, najpóźniej 14 dni po opłaceniu faktury przez klienta.
+  (dt) Rozliczenie
+  (dd) Na fakturę, jeśli prowadzisz firmę. Na podstawie umowy, jeśli jej nie prowadzisz.
+  (dt) Kto się liczy
+  (dd) Nowa firma, z którą nie rozmawialiśmy o współpracy w ostatnich 12 miesiącach.
+  (dt) Przypisanie
+  (dd) Kod partnera podany przez klienta albo kontakt przekazany przez Ciebie, za zgodą klienta.
+  (dt) Cena dla klienta
+  (dd) Taka sama jak bez polecenia. Prowizję płacimy z naszej marży.
+  (dt) Limit
+  (dd) Nie ma. Polecasz tyle firm, ile chcesz, z całej Polski.
+
+[H2] Częste pytania
+  (p) Nie ma tu Twojego pytania? Napisz, odpowiemy w ciągu 24 godzin.
+  (text) Napisz do nas
+  (button) Kto może zostać partnerem?
+  (p) Każdy, kto zna właścicieli firm: biuro rachunkowe, agencja marketingowa, grafik, doradca, nasz klient albo osoba prywatna. Nie musisz mieć doświadczenia w sprzedaży ani znać się na stronach internetowych.
+  (button) Czy muszę prowadzić działalność gospodarczą?
+  (p) Nie. Z firmą rozliczamy się na podstawie faktury, a z osobą prywatną podpisujemy umowę i wypłacamy prowizję na jej podstawie.
+  (button) Od czego liczona jest prowizja?
+  (p) Od wartości netto każdej faktury, którą polecony klient opłaci w ciągu 12 miesięcy od pierwszego zamówienia: za projekt, rozbudowę i opiekę techniczną. Jeśli klient zamówi stronę za 10 000 zł netto, dostajesz 1 500 zł.
+  (button) Kiedy dostanę pieniądze?
+  (p) W ciągu 14 dni od dnia, w którym klient opłaci fakturę. Przy każdej wypłacie dostajesz zestawienie: za jakie zamówienie i od jakiej kwoty.
+  (button) Skąd będziecie wiedzieć, że klient jest ode mnie?
+  (p) Klient podaje Twój kod partnera w briefie albo na pierwszej rozmowie. Możesz też sam przekazać nam jego kontakt, za jego zgodą. Każde polecenie potwierdzamy Ci mailem.
+  (button) Czy polecony klient zapłaci przez to więcej?
+  (p) Nie. Prowizję płacimy z naszej marży, więc klient dostaje taką samą wycenę jak bez polecenia.
+  (button) Czy muszę brać udział w rozmowach i wycenie?
+  (p) Nie. Wystarczy, że przekażesz kontakt. Rozmowy, wycenę, projekt i wdrożenie bierzemy na siebie. Jeśli chcesz, możesz być na pierwszym spotkaniu.
+  (button) Co, jeśli polecona firma już się z wami kontaktowała?
+  (p) Prowizja dotyczy nowych klientów, czyli firm, z którymi nie rozmawialiśmy o współpracy w ostatnich 12 miesiącach. Jeśli ktoś był już u nas, powiemy Ci o tym zaraz po zgłoszeniu polecenia.
+  (button) Czy jest limit poleceń albo zarobków?
+  (p) Nie. Możesz polecić dowolną liczbę firm z całej Polski, a prowizja należy się od każdej z nich.
+  (text) Kiedy dostanę prowizję?
+  (text) W ciągu 14 dni od opłacenia faktury przez klienta.
+
+[H2] Dołącz do programu
+  (p) Zgłoszenie zajmuje minutę. W ciągu 24 godzin odezwiemy się z kodem partnera i umową do przejrzenia.
+  (p) Twoje imię i nazwisko
+  (p) Partner Netizo
+  (text) 15%
+  (label) Imię i nazwisko*
+  (label) E-mail*
+  (label) Telefon (opcjonalnie)
+  (text) Kim jesteś? *
+  (label) Biuro rachunkowe
+  (label) Agencja marketingowa
+  (label) Grafik, fotograf, copywriter
+  (label) Doradca, konsultant
+  (label) Klient Netizo
+  (label) Ktoś inny
+  (label) Kogo chcesz nam polecić? (opcjonalnie)
+  (p) Zgłoszenie do niczego Cię nie zobowiązuje. Pola oznaczone *gwiazdką są wymagane.
+  (button) Wyślij zgłoszenie
+  (p) Tworzymy strony WWW dla ambitnych. Zbudujmy to razem, od pomysłu do wdrożenia. Opieka techniczna, SEO i optymalizacja kosztów utrzymania.
+
+[H2] Informacje
+  (li) Panel klienta (otwiera się w nowej karcie)
+  (li) Program partnerski
+  (li) Utrzymanie
+  (li) Regulamin
+  (li) Polityka prywatności
+
+[H2] Kontakt
+  (li) [email protected]
+  (li) +48 884 343 924
+
+[H2] Obserwuj nas
+  (li) Facebook (otwiera się w nowej karcie)
+  (li) Instagram (otwiera się w nowej karcie)
+  (li) TikTok (otwiera się w nowej karcie)
+  (p) © 2026 Netizo. Wszelkie prawa zastrzeżone.
+  (text) EnglishenEnglish
+
+[H2] Korzystamy z plików cookie
+  (p) Ta witryna używa plików cookie w celu ulepszenia ogólnej wygody użytkowania.
+  (button) Tylko niezbędne
+  (button) Zaakceptuj wszystko
+  (text) Dostosuj
+  (label) Niezbędne pliki cookie
+  (p) Istnieją pliki cookie, które są niezbędne dla funkcjonowania niektórych stron internetowych. Z tego powodu nie wymagają one twojej zgody.
+  (p) netizopl_cookie_consent
+  (p) 1 rok
+  (p) Służy do przechowywania zgód użytkownika na pliki cookie.
+  (p) netizopl-session
+  (p) 2 godziny
+  (p) Służy do identyfikacji sesji użytkownika w przeglądarce.
+  (p) XSRF-TOKEN
+  (p) 2 godziny
+  (p) Służy do zabezpieczenia użytkownika oraz jednocześnie naszej witryny przed atakami fałszerstwa żądań między witrynami (CSRF).
+  (text) Więcej szczegółów
+  (label) Analityczne pliki cookie
+  (p) Używamy ich do wewnętrznych badań nad tym, jak możemy poprawić usługi świadczone dla wszystkich naszych użytkowników. Pliki te oceniają, w jaki sposób korzystasz z naszej witryny.
+  (p) _ga
+  (p) 1 rok
+  (p) Główny plik cookie używany przez Google Analytics, umożliwia usłudze rozróżnianie odwiedających.
+  (p) _ga_
+  (p) 1 rok
+  (p) Używany przez Google Analytics do utrzymania infromacji o stanie sesji.
+  (p) _gid
+  (p) 1 dzień
+  (p) Używany przez Google Analytics do identyfikacji użytkownika.
+  (p) _gat
+  (p) 1 minuta
+  (p) Używany przez Google Analytics do ograniczania częstotliwości żądań.
+  (text) Więcej szczegółów
+  (button) Zapisz ustawienia

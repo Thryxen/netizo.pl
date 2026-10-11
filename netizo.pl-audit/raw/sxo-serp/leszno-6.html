@@ -1,0 +1,1932 @@
+<style media="screen">
+/* lightbox */
+.lightbox-window {
+position: fixed;
+background-color: rgba(50, 50, 50, 0.95);
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+z-index: 99999;
+visibility: hidden;
+opacity: 0;
+pointer-events: none;
+transition: all 0.3s;
+}
+.lightbox-window:target {
+visibility: visible;
+opacity: 1;
+pointer-events: auto;
+}
+.lightbox-window > div {
+width: 1200px;
+max-width: 70%;
+max-height: 90%;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.lightbox-close{
+position: absolute;
+right: 15px;
+text-align: center;
+top: 10px;
+}
+@media (max-width: 575.98px) {
+.lightbox-window > div{
+max-width: 95%;
+}
+.lightbox-close img{
+width: 1rem;
+height: 1rem;
+}
+}
+/* mockupy w ofercie - animacje na scroll */
+.img-rotate {
+position: absolute;
+top: -5rem;
+right: 5rem;
+transform: rotate(var(--r));
+transition: transform 0.1s linear;
+will-change: transform;
+}
+.img-rotate2 {
+position: absolute;
+top: -15%;
+right: 3%;
+transform: rotate(var(--rr));
+transition: transform 0.1s linear;
+will-change: transform;
+}
+.img-fadein{
+position: absolute;
+right: 50%;
+top: 50%;
+transform: translate(50%,-50%);
+max-width: 150%;
+z-index: -1;
+display: block;
+margin: 0 auto;
+opacity: var(--o);
+transition: opacity 0.1s linear;
+will-change: opacity;
+}
+.img-fadein2{
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);
+max-width: 130%;
+z-index: -1;
+display: block;
+margin: 0 auto;
+opacity: var(--oo);
+transition: opacity 0.1s linear;
+will-change: opacity;
+}
+.img-fadein3{
+position: absolute;
+transform: translateX(-50%);
+left: 50%;
+bottom: 0;
+width: 90%;
+z-index: -1;
+display: block;
+margin: 0 auto;
+animation: scale-up-down 2s linear infinite alternate;
+}
+.img-iskry{
+position: absolute;
+transform: translateX(-50%);
+left: 50%;
+bottom: 0;
+width: 90%;
+z-index: -1;
+display: block;
+margin: 0 auto;
+animation: elfadeIn 2s linear infinite alternate;
+}
+.img-fadeup{
+position: absolute;
+bottom: -3%;
+left: 30%;
+transform: translateY(var(--ty));
+transition: transform 0.1s linear;
+will-change: transform;
+}
+.img-fadeup2{
+position: absolute;
+bottom: -2%;
+left: 30%;
+transform: translateY(var(--yy));
+transition: transform 0.1s linear;
+will-change: transform;
+}
+.img-faderight{
+position: absolute;
+bottom: 0;
+right: 0;
+width: 12rem;
+transform: translateX(var(--tx));
+transition: transform 0.1s linear;
+will-change: transform;
+}
+.img-fadeleft{
+position: absolute;
+bottom: 0;
+left: 0;
+width: 16rem;
+transform: translateX(var(--xx));
+transition: transform 0.1s linear;
+will-change: transform;
+}
+/* menu z ikonkami */
+.candy-offer-menu .candy-offer-icon{
+height: 2.5rem;
+width: auto;
+object-fit: contain;
+display: block;
+margin: 0 auto;
+margin-bottom: 1rem;
+transition: all .5s;
+}
+.candy-offer-box{
+border: 1px solid #E5E5E5;
+border-radius: 5px;
+padding: 12px 5px;
+transition: all .5s;
+}
+.candy-offer-icon-white{
+height: 2.5rem;
+width: auto;
+object-fit: contain;
+display: block;
+margin: 0 auto;
+margin-bottom: 1rem;
+display: none;
+opacity: 0;
+transition: all .5s;
+}
+.candy-offer-box-text{
+font-size: 12px;
+font-weight: 600;
+text-transform: uppercase;
+line-height: 1.4;
+margin-bottom: 0;
+}
+.candy-offer-link:hover .candy-offer-box{
+border: 1px solid #F9A71F;
+background: #F9A71F;
+color: #fff;
+}
+.candy-offer-link:hover .candy-offer-icon{
+display: none;
+opacity: 0;
+}
+.candy-offer-link:hover .candy-offer-icon-white{
+display: block;
+opacity: 1;
+}
+.candy-offer-menu .col-xl-3{
+padding-left: 5px;
+padding-right: 5px;
+margin-bottom: 10px;
+}
+@media (max-width: 1480px) {
+.candy-offer-box-text{
+font-size: 11px;
+}
+}
+@media (max-width: 576px) {
+.candy-offer-menu .row{
+margin-left: -5px;
+margin-right: -5px;
+}
+.typ-oferty .inner-html h3{
+text-align: center;
+}
+}
+</style>
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="pl-PL"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="pl-PL"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="pl-PL"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="pl-PL"> <!--<![endif]-->
+<head>
+<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=6Le3qWArAAAAANSCI547ECmR-X9DyLLSVvUxcHII"></script>
+<meta name="msvalidate.01" content="3E3EB14EE8ED1010F8E42A8E2A2961F6" />
+<meta name="msvalidate.01" content="78AB9241FC8078DC76478FE76A055FCE" />
+<meta name="p:domain_verify" content="cbc1ec720d1d3959ee9cb2ef851e8933"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="facebook-domain-verification" content="u1ilh4h4bm44ifipy6da0ojqk4nugg" />
+<meta name="theme-color" content="#222222"/>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WSJS3VZ');</script>
+<!-- End Google Tag Manager -->
+<title>Strony internetowe Leszno, tworzenie stron Leszno - agencja interaktywna Leszno</title>
+<link rel="icon" type="image/ico" href="https://candyweb.pl/wp-content/uploads/2019/09/favicon.ico" />
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="https://candyweb.pl/xmlrpc.php" />
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<!-- This site is optimized with the Yoast SEO Premium plugin v25.0 (Yoast SEO v28.4) - https://yoast.com/product/yoast-seo-premium-wordpress/ -->
+<meta name="description" content="Tworzymy strony internetowe w Lesznie i okolicach. Zrealizowaliśmy ponad 700 projektów. Zadzwoń 579 642 600 lub napisz kontakt@candyweb.pl" />
+<link rel="canonical" href="https://candyweb.pl/strony-internetowe-leszno/" />
+<meta property="og:locale" content="pl_PL" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Strony internetowe Leszno, tworzenie stron Leszno" />
+<meta property="og:description" content="Tworzymy strony internetowe w Lesznie i okolicach. Zrealizowaliśmy ponad 700 projektów. Zadzwoń 579 642 600 lub napisz kontakt@candyweb.pl" />
+<meta property="og:url" content="https://candyweb.pl/strony-internetowe-leszno/" />
+<meta property="og:site_name" content="- candyweb.pl" />
+<meta property="article:publisher" content="https://www.facebook.com/reklamacandyweb" />
+<meta property="article:modified_time" content="2025-01-09T13:43:48+00:00" />
+<meta property="og:image" content="https://candyweb.pl/wp-content/uploads/2025/05/opengraph_candy.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content="image/png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:label1" content="Szacowany czas czytania" />
+<meta name="twitter:data1" content="6 minut" />
+<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/candyweb.pl\/strony-internetowe-leszno\/","url":"https:\/\/candyweb.pl\/strony-internetowe-leszno\/","name":"Strony internetowe Leszno, tworzenie stron Leszno - agencja interaktywna Leszno","isPartOf":{"@id":"https:\/\/candyweb.pl\/#website"},"datePublished":"2024-02-14T12:18:42+00:00","dateModified":"2025-01-09T13:43:48+00:00","description":"Tworzymy strony internetowe w Lesznie i okolicach. Zrealizowaliśmy ponad 700 projektów. Zadzwoń 579 642 600 lub napisz kontakt@candyweb.pl","breadcrumb":{"@id":"https:\/\/candyweb.pl\/strony-internetowe-leszno\/#breadcrumb"},"inLanguage":"pl-PL","potentialAction":[{"@type":"ReadAction","target":["https:\/\/candyweb.pl\/strony-internetowe-leszno\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/candyweb.pl\/strony-internetowe-leszno\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Strona główna","item":"https:\/\/candyweb.pl\/"},{"@type":"ListItem","position":2,"name":"Strony internetowe Leszno, tworzenie stron Leszno"}]},{"@type":"WebSite","@id":"https:\/\/candyweb.pl\/#website","url":"https:\/\/candyweb.pl\/","name":"- candyweb.pl","description":"","publisher":{"@id":"https:\/\/candyweb.pl\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/candyweb.pl\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"pl-PL"},{"@type":"Organization","@id":"https:\/\/candyweb.pl\/#organization","name":"Agencja interaktywna Candyweb","alternateName":"Candyweb","url":"https:\/\/candyweb.pl\/","logo":{"@type":"ImageObject","inLanguage":"pl-PL","@id":"https:\/\/candyweb.pl\/#\/schema\/logo\/image\/","url":"https:\/\/candyweb.pl\/wp-content\/uploads\/2025\/05\/Logo-Candyweb.jpg","contentUrl":"https:\/\/candyweb.pl\/wp-content\/uploads\/2025\/05\/Logo-Candyweb.jpg","width":800,"height":800,"caption":"Agencja interaktywna Candyweb"},"image":{"@id":"https:\/\/candyweb.pl\/#\/schema\/logo\/image\/"},"sameAs":["https:\/\/www.facebook.com\/reklamacandyweb"],"email":"kontakt@candyweb.pl","telephone":"579642600","numberOfEmployees":{"@type":"QuantitativeValue","minValue":"1","maxValue":"10"}}]}</script>
+<!-- / Yoast SEO Premium plugin. -->
+<link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+<link rel='dns-prefetch' href='//cdn.jsdelivr.net' />
+<link rel='dns-prefetch' href='//unpkg.com' />
+<link rel="alternate" type="application/rss+xml" title="- candyweb.pl &raquo; Kanał z wpisami" href="https://candyweb.pl/feed/" />
+<link rel="alternate" type="application/rss+xml" title="- candyweb.pl &raquo; Kanał z komentarzami" href="https://candyweb.pl/comments/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://candyweb.pl/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcandyweb.pl%2Fstrony-internetowe-leszno%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://candyweb.pl/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcandyweb.pl%2Fstrony-internetowe-leszno%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<!-- <link rel='stylesheet' id='contact-form-7-css' href='https://candyweb.pl/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=6.1.7' media='all' /> -->
+<!-- <link rel='stylesheet' id='wp-pagenavi-css' href='https://candyweb.pl/wp-content/plugins/wp-pagenavi/css/wp-pagenavi.css?ver=3.0.1' media='all' /> -->
+<!-- <link rel='stylesheet' id='megamenu-css' href='https://candyweb.pl/wp-content/uploads/maxmegamenu/style.css?ver=dbb446' media='all' /> -->
+<!-- <link rel='stylesheet' id='dashicons-css' href='https://candyweb.pl/wp-includes/css/dashicons.min.css?ver=7.1.3' media='all' /> -->
+<!-- <link rel='stylesheet' id='megamenu-fontawesome6-css' href='https://candyweb.pl/wp-content/plugins/megamenu-pro/icons/fontawesome6/css/all.min.css?ver=2.4.3' media='all' /> -->
+<link rel="stylesheet" type="text/css" href="//candyweb.pl/wp-content/cache/wpfc-minified/22c6jhyt/bt9cd.css" media="all"/>
+<link rel='stylesheet' id='bootstrap-css' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css?ver=7.1.3' media='all' />
+<!-- <link rel='stylesheet' id='theme-style-css' href='https://candyweb.pl/wp-content/themes/motyw/style.css?ver=3.0.3' media='all' /> -->
+<link rel="stylesheet" type="text/css" href="//candyweb.pl/wp-content/cache/wpfc-minified/7uws7zee/bt9cd.css" media="all"/>
+<link rel='stylesheet' id='slick-css' href='//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css?ver=7.1.3' media='all' />
+<link rel='stylesheet' id='aos-css' href='https://unpkg.com/aos@2.3.1/dist/aos.css?ver=all' media='all' />
+<!-- <link rel='stylesheet' id='jquery-lazyloadxt-fadein-css-css' href='//candyweb.pl/wp-content/plugins/a3-lazy-load/assets/css/jquery.lazyloadxt.fadein.css?ver=7.1.3' media='all' /> -->
+<!-- <link rel='stylesheet' id='a3a3_lazy_load-css' href='//candyweb.pl/wp-content/uploads/sass/a3_lazy_load.min.css?ver=1683028393' media='all' /> -->
+<link rel="stylesheet" type="text/css" href="//candyweb.pl/wp-content/cache/wpfc-minified/etho8pw2/bt9cd.css" media="all"/>
+<script id="jquery-js" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js?ver=3.6.s"></script>
+<script id="aos-js" src="https://unpkg.com/aos@2.3.1/dist/aos.js?ver=1"></script>
+<script id="aos-js-after">
+document.addEventListener("DOMContentLoaded", ()=>{AOS.init({
+disable: function() {
+var maxWidth = 800;
+return window.innerWidth < maxWidth;
+}
+});})
+//# sourceURL=aos-js-after
+</script>
+<link rel="https://api.w.org/" href="https://candyweb.pl/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://candyweb.pl/wp-json/wp/v2/pages/9693" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://candyweb.pl/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.1.3" />
+<link rel='shortlink' href='https://candyweb.pl/?p=9693' />
+<link rel="icon" href="https://candyweb.pl/wp-content/uploads/2025/02/cropped-android-chrome-512x512-1-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://candyweb.pl/wp-content/uploads/2025/02/cropped-android-chrome-512x512-1-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://candyweb.pl/wp-content/uploads/2025/02/cropped-android-chrome-512x512-1-180x180.png" />
+<meta name="msapplication-TileImage" content="https://candyweb.pl/wp-content/uploads/2025/02/cropped-android-chrome-512x512-1-270x270.png" />
+<style id="wp-custom-css">
+.blog-page ul,
+.blog-page ol {
+margin-bottom: 1.5rem;
+}
+.blog-page blockquote {
+margin: 2rem 0;
+padding: 1.5rem 1.75rem;
+background: #f9f9f9;
+border-left: 4px solid #F9A71F;
+font-size: 1.1rem;
+line-height: 1.7;
+font-weight: 500;
+color: #1f2937;
+}
+.blog-page blockquote p {
+margin: 0;
+}
+.blog-page blockquote strong {
+color: #1B645B;
+}
+@media (max-width: 767px) {
+.blog-page blockquote {
+padding: 1.25rem;
+font-size: 1rem;
+}
+}
+ol.przypisy{
+list-style:numbers;
+font-size:1rem;
+padding-left:1.22rem;
+}
+.menuh *{
+font-weight:bold;
+text-transform:uppercase !important;
+font-size:16px !important;
+}
+.menuh *:hover{
+color:#000 !important;
+pointer-events:none !important;
+}
+#mega-menu-wrap-top-bar #mega-menu-top-bar > li.mega-menu-megamenu > ul.mega-sub-menu{
+padding-left:3%;
+padding-right:3%;
+}
+.single-post .wp-block-list{
+margin-bottom:20px;
+}
+.single-post ol.wp-block-list{
+list-style:numbers !important;
+padding-left:20px;
+}
+@media(min-width:992px){
+.page-template-template-homepage .main-class1{
+min-height:300px;
+margin-bottom:140px;
+}
+}
+#countdown{
+font-size:2rem;
+font-weight:700;
+color:#dc1010;
+}
+#red_info{
+font-size:1.1rem;
+color:#dc1010;
+font-weight:600;
+}
+@media(max-width:768px){
+#countdown{
+font-size:1.3rem;
+font-weight:700;
+color:#dc1010;
+}
+#red_info{
+font-size:1rem;
+color:#dc1010;
+font-weight:600;
+}
+}
+</style>
+<script>
+function lazyloadBackgrounds() {
+const lazyBackgrounds = [...document.querySelectorAll("[data-lazy-background]")];
+if (!lazyBackgrounds.length) return;
+const observer = new IntersectionObserver(function (entries, self) {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+const lazyBackground = entry.target;
+lazyBackground.style.backgroundImage = `url(${lazyBackground.dataset.lazyBackground})`;
+self.unobserve(entry.target);
+}
+});
+})
+lazyBackgrounds.forEach(lazyBackground => {
+observer.observe(lazyBackground);
+})
+}
+$(document).ready(function () {
+lazyloadBackgrounds();
+$('img.mega-menu-logo').css('width', '135px');
+$('img.mega-menu-logo').css('height', '40px');
+var aboveHeight = $('header.fixed-top').outerHeight();
+$(window).scroll(function () {
+if ($(window).scrollTop() > aboveHeight) {
+$('header.fixed-top').addClass('menu-white');
+}
+if ($(window).scrollTop() < aboveHeight) {
+$('header.fixed-top').removeClass('menu-white');
+}
+});
+$('.logo-slider').slick({
+dots: false,
+arrows: false,
+autoplay:true,
+autoplaySpeed: 0,
+speed:8000,
+slidesToShow: 7,
+slidesToScroll: 1,
+cssEase: 'linear',
+responsive: [
+{
+breakpoint: 1454,
+settings: {
+slidesToShow: 6,
+slidesToScroll: 1,
+infinite: true,
+}
+},
+{
+breakpoint: 1200,
+settings: {
+slidesToShow: 4,
+slidesToScroll: 1,
+infinite: true,
+}
+},
+{
+breakpoint: 992,
+settings: {
+slidesToShow: 3,
+slidesToScroll: 1
+}
+},
+{
+breakpoint: 576,
+settings: {
+slidesToShow: 2,
+slidesToScroll: 1
+}
+}
+]
+});
+});
+</script>
+</head>
+<body class="wp-singular page-template page-template-template-miastka page-template-template-miastka-php page page-id-9693 wp-theme-motyw mega-menu-top-bar">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WSJS3VZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header class="fixed-top">
+<nav role="navigation">
+<div class="container">
+<div class="row">
+<div class="navbar-header col-8 col-md-3">
+<div id="logo">
+<a href="https://candyweb.pl/" title="tworzenie stron Warszawa, strony www Warszawa, strony www Pabianice - candyweb.pl" rel="home">
+<img src="https://candyweb.pl/wp-content/uploads/2025/02/logo_pomaranczowy.svg" alt="&#8211; candyweb.pl" width="200" height="60">
+</a>
+</div>
+</div>
+<div class="col-4 col-md-9">
+<div id="mega-menu-wrap-top-bar" class="mega-menu-wrap"><div class="mega-menu-toggle"><div class="mega-toggle-blocks-left"></div><div class="mega-toggle-blocks-center"></div><div class="mega-toggle-blocks-right"><div class='mega-toggle-block mega-menu-toggle-animated-block mega-toggle-block-1' id='mega-toggle-block-1'><button aria-controls="mega-menu-top-bar" aria-expanded="false" aria-haspopup="true" aria-label="Toggle Menu" class="mega-toggle-animated mega-toggle-animated-slider" type="button">
+<span class="mega-toggle-animated-box">
+<span class="mega-toggle-animated-inner"></span>
+</span>
+</button></div></div></div><ul id="mega-menu-top-bar" class="mega-menu max-mega-menu mega-menu-horizontal mega-no-js" data-event="hover_intent" data-effect="fade_up" data-effect-speed="200" data-effect-mobile="slide_right" data-effect-speed-mobile="400" data-mobile-force-width="false" data-second-click="go" data-document-click="collapse" data-vertical-behaviour="standard" data-breakpoint="1200" data-unbind="true" data-mobile-state="collapse_all" data-mobile-direction="vertical" data-overlay-desktop="false" data-overlay-mobile="false"><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-home mega-menu-item-14" id="mega-menu-item-14"><a class="mega-menu-link" href="https://candyweb.pl/">Home</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-8591" id="mega-menu-item-8591"><a class="mega-menu-link" href="https://candyweb.pl/portfolio-kafelki/">Realizacje</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-align-bottom-left mega-menu-flyout mega-has-icon mega-icon-left mega-menu-item-267" id="mega-menu-item-267"><a class="mega-custom-icon mega-menu-link" href="https://candyweb.pl/o-nas/" aria-expanded="false" aria-controls="mega-sub-menu-267">O firmie<span class="mega-indicator" aria-hidden="true"></span></a>
+<ul class="mega-sub-menu" id='mega-sub-menu-267'>
+<li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-item-5602" id="mega-menu-item-5602"><a class="mega-custom-icon mega-menu-link" href="/o-nas/#rekomendacje">Rekomendacje</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-menu-item-5603" id="mega-menu-item-5603"><a class="mega-custom-icon mega-menu-link" href="/o-nas/#nasz-zespol">Nasz zespół</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-has-icon mega-icon-left mega-menu-item-1662" id="mega-menu-item-1662"><a class="mega-custom-icon mega-menu-link" href="https://candyweb.pl/kariera/">Kariera</a></li></ul>
+</li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-7784" id="mega-menu-item-7784"><a class="mega-menu-link" href="https://candyweb.pl/referencje/">Referencje</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-menu-megamenu mega-menu-grid mega-align-bottom-left mega-has-icon mega-icon-left mega-menu-item-266" id="mega-menu-item-266"><a class="mega-custom-icon mega-menu-link" href="https://candyweb.pl/oferta/" aria-expanded="false" aria-controls="mega-sub-menu-266">Oferta<span class="mega-indicator" aria-hidden="true"></span></a>
+<ul class="mega-sub-menu" role='presentation' id='mega-sub-menu-266'>
+<li class="mega-menu-row" id="mega-menu-266-0">
+<ul class="mega-sub-menu" style='--columns:12' role='presentation'>
+<li class="mega-menu-column mega-menu-columns-4-of-12" style="--columns:12; --span:4" id="mega-menu-266-0-0">
+<ul class="mega-sub-menu">
+<li class="mega-menuh mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-disable-link mega-menu-item-10865 menuh" id="mega-menu-item-10865"><a class="mega-menu-link" tabindex="0">Programowanie i grafika</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-oferta mega-has-icon mega-icon-left mega-menu-item-567" id="mega-menu-item-567"><a class="mega-custom-icon mega-menu-link" href="https://candyweb.pl/oferta/strony-www/">Tworzenie stron internetowych</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-oferta mega-has-icon mega-icon-left mega-menu-item-568" id="mega-menu-item-568"><a class="mega-custom-icon mega-menu-link" href="https://candyweb.pl/oferta/sklepy-internetowe/">Tworzenie sklepów internetowych</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-9441" id="mega-menu-item-9441"><a class="mega-menu-link" href="https://candyweb.pl/oferta/tworzenie-platform-edukacyjnych/">Tworzenie platform edukacyjnych</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-oferta mega-has-icon mega-icon-left mega-menu-item-3466" id="mega-menu-item-3466"><a class="mega-custom-icon mega-menu-link" href="https://candyweb.pl/oferta/grafika/">Projektowanie graficzne</a></li>		</ul>
+</li><li class="mega-menu-column mega-menu-columns-4-of-12" style="--columns:12; --span:4" id="mega-menu-266-0-1">
+<ul class="mega-sub-menu">
+<li class="mega-menuh mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-disable-link mega-menu-item-10874 menuh" id="mega-menu-item-10874"><a class="mega-menu-link" tabindex="0">Marketing</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-oferta mega-has-icon mega-icon-left mega-menu-item-569" id="mega-menu-item-569"><a class="mega-custom-icon mega-menu-link" href="https://candyweb.pl/oferta/pozycjonowanie/">Pozycjonowanie i SEO</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-oferta mega-has-icon mega-icon-left mega-menu-item-570" id="mega-menu-item-570"><a class="mega-custom-icon mega-menu-link" href="https://candyweb.pl/oferta/reklama-google-ads/">Reklama Google Ads</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-oferta mega-menu-item-11441" id="mega-menu-item-11441"><a class="mega-menu-link" href="https://candyweb.pl/oferta/reklama-meta-ads/">Reklama Meta Ads (Facebook &#038; Instagram)</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-oferta mega-menu-item-11442" id="mega-menu-item-11442"><a class="mega-menu-link" href="https://candyweb.pl/oferta/reklama-tiktok-ads/">Reklama TikTok Ads</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-oferta mega-has-icon mega-icon-left mega-menu-item-628" id="mega-menu-item-628"><a class="mega-custom-icon mega-menu-link" href="https://candyweb.pl/oferta/social-media/">Prowadzenie Social Media</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-oferta mega-has-icon mega-icon-left mega-menu-item-637" id="mega-menu-item-637"><a class="mega-custom-icon mega-menu-link" href="https://candyweb.pl/oferta/copywriting/">Copywriting</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-oferta mega-has-icon mega-icon-left mega-menu-item-571" id="mega-menu-item-571"><a class="mega-custom-icon mega-menu-link" href="https://candyweb.pl/oferta/kompleksowy-marketing-internetowy/">Kompleksowy marketing internetowy</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-8801" id="mega-menu-item-8801"><a class="mega-menu-link" href="https://sklepcandyweb.pl">Sklep Candyweb</a></li>		</ul>
+</li><li class="mega-menu-column mega-menu-columns-4-of-12" style="--columns:12; --span:4" id="mega-menu-266-0-2">
+<ul class="mega-sub-menu">
+<li class="mega-menuh mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-disable-link mega-menu-item-10873 menuh" id="mega-menu-item-10873"><a class="mega-menu-link" tabindex="0">Integracje indywidualne</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-oferta mega-menu-item-10875" id="mega-menu-item-10875"><a class="mega-menu-link" href="https://candyweb.pl/oferta/kompleksowa-usluga-raportowania-cen-mieszkan-zgodnie-z-ustawa-deweloperska/">Integracja Jawność cen</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-oferta mega-menu-item-11105" id="mega-menu-item-11105"><a class="mega-menu-link" href="https://candyweb.pl/oferta/asystent-ai-na-twoja-strone/">Asystent AI na Twoją stronę internetową</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-oferta mega-menu-item-10979" id="mega-menu-item-10979"><a class="mega-menu-link" href="https://candyweb.pl/oferta/integracja-wordpressa-z-asari-crm/">Integracja WordPressa z Asari CRM</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-oferta mega-menu-item-10503" id="mega-menu-item-10503"><a class="mega-menu-link" href="https://candyweb.pl/oferta/wdrozenie-dostepnosci-cyfrowej-wcag-2-1/">Wdrożenie WCAG 2.1</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-oferta mega-menu-item-10505" id="mega-menu-item-10505"><a class="mega-menu-link" href="https://candyweb.pl/oferta/wdrozenie-consent-mode-v2/">Wdrożenie Consent Mode v2</a></li>		</ul>
+</li>	</ul>
+</li></ul>
+</li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-8985" id="mega-menu-item-8985"><a class="mega-menu-link" href="https://candyweb.pl/blog/">Blog</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-15" id="mega-menu-item-15"><a class="mega-menu-link" href="https://candyweb.pl/kontakt/">Kontakt</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-hide-on-desktop mega-menu-item-6943" id="mega-menu-item-6943"><a class="mega-menu-link" href="#">Bezpłatna wycena</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-has-icon mega-icon-left mega-hide-on-desktop mega-menu-item-6941" id="mega-menu-item-6941"><a class="mega-custom-icon mega-menu-link" href="tel:579642600">579 642 600</a></li></ul><button aria-controls="mega-menu-top-bar" aria-label="Close" class='mega-close'></button></div>                  </div>
+</div>
+</div>
+</nav>
+</header>
+<div id="wrapper">
+<main>
+<div class="red2">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<div class="bread-bg">
+<section class="breadcrumb-wrap">
+<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Przejdź do - candyweb.pl." href="https://candyweb.pl" class="home" ><span property="name">Home</span></a><meta property="position" content="1"></span> / <span property="itemListElement" typeof="ListItem"><span property="name" class="post post-page current-item">Strony internetowe Leszno, tworzenie stron Leszno</span><meta property="url" content="https://candyweb.pl/strony-internetowe-leszno/"><meta property="position" content="2"></span>
+</section>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section  class="mb-5">
+<div class="container">
+<div class="row pb-5">
+<div class="col-lg-5 col-xs-12">
+<h1 class="mb-5">Strony internetowe Leszno, tworzenie stron Leszno</h1>
+<p class="bold-intro">Potrzebujesz efektywnej strony internetowej, która skutecznie przyciągnie do Ciebie klientów? Nasza agencja interaktywna Candyweb to właśnie to, czego szukasz.</p><p> Jako specjaliści w dziedzinie projektowania stron internetowych i marketingu online rozwiążemy Twoje problemy z brakiem klientów. </p>
+<p><b>Mamy świetne rekomendacje od klientów i ponad 700 zrealizowanych projektów. Jeśli to za mało, co możemy zrobić aby z Tobą współpracować?</b></p>
+<p><a href="https://g.page/agencjacandyweb/review" target="_blank"  title="sprawdź opinie Google" ><img src="https://candyweb.pl/wp-content/uploads/2026/03/Group-124.png" style="max-height:80px;width:auto;border-radius:5px" alt="google opinie candyweb"></a></p>
+<nav class="candy-offer-menu my-5">
+<div class="row text-center">
+<div class="col-6 col-xl-3">
+<a href="#realizacje" class="candy-offer-link">
+<div class="candy-offer-box">
+<img src="/images/realizacje.svg" alt="ikonka" class="candy-offer-icon">
+<img src="/images/realizacje-b.svg" alt="ikonka" class="candy-offer-icon-white">
+<p class="candy-offer-box-text"> Realizacje</p>
+</div>
+</a>
+</div>
+<div class="col-6 col-xl-3">
+<a href="#co-zawiera-oferta" class="candy-offer-link">
+<div class="candy-offer-box">
+<img src="/images/co-zawiera-oferta.svg" alt="ikonka" class="candy-offer-icon">
+<img src="/images/co-zawiera-oferta-b.svg" alt="ikonka" class="candy-offer-icon-white">
+<p class="candy-offer-box-text"> Oferta zawiera</p>
+</div>
+</a>
+</div>
+<div class="col-6 col-xl-3">
+<a href="#opinie" class="candy-offer-link">
+<div class="candy-offer-box">
+<img src="/images/opinie.svg" alt="ikonka" class="candy-offer-icon">
+<img src="/images/opinie-b.svg" alt="ikonka" class="candy-offer-icon-white">
+<p class="candy-offer-box-text">Opinie</p>
+</div>
+</a>
+</div>
+</div>
+</nav>
+</div>
+<div class="col-lg-4 offset-lg-2">
+<div class="contact-details p-0">
+<h2 class="my-4">Wyślij zapytanie</h2>
+<div class="wpcf7 no-js" id="wpcf7-f255-o1" lang="pl-PL" dir="ltr" data-wpcf7-id="255">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/strony-internetowe-leszno/#wpcf7-f255-o1" method="post" class="wpcf7-form init" aria-label="Formularz kontaktowy" novalidate="novalidate" data-status="init">
+<fieldset class="hidden-fields-container"><input type="hidden" name="_wpcf7" value="255" /><input type="hidden" name="_wpcf7_version" value="6.1.7" /><input type="hidden" name="_wpcf7_locale" value="pl_PL" /><input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f255-o1" /><input type="hidden" name="_wpcf7_container_post" value="0" /><input type="hidden" name="_wpcf7_posted_data_hash" value="" /><input type="hidden" name="_wpcf7_recaptcha_response" value="" />
+</fieldset>
+<div class="wpcf7-response-output" aria-hidden="true"></div>
+<input class="wpcf7-form-control wpcf7-hidden" value="" type="hidden" name="zgodado" />
+<div class="row">
+<div class="col-md-12">
+<p><label for="name" class="input-label">Imię / Nazwa Firmy</label><br />
+<span class="wpcf7-form-control-wrap" data-name="text-77"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-control" id="name" aria-invalid="false" value="" type="text" name="text-77" /></span>
+</p>
+</div>
+<div class="col-md-12">
+<p><label for="emailorphone" class="input-label"> *E-mail / Telefon </label><br />
+<span class="wpcf7-form-control-wrap" data-name="your-email-phone"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" id="emailorphone" aria-required="true" aria-invalid="false" value="" type="text" name="your-email-phone" /></span>
+</p>
+</div>
+<div class="col-md-12">
+<p><label for="subject" class="input-label"> Temat </label><br />
+<span class="wpcf7-form-control-wrap" data-name="your-subject"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-control" id="subject" aria-invalid="false" value="" type="text" name="your-subject" /></span>
+</p>
+</div>
+<div class="col-md-12 mt-2">
+<p><span class="wpcf7-form-control-wrap" data-name="accept-this-5"><span class="wpcf7-form-control wpcf7-acceptance"><span class="wpcf7-list-item"><label><input type="checkbox" name="accept-this-5" value="1" class="form-check-input" aria-invalid="false" /><span class="wpcf7-list-item-label"><span class="accept-label"> *Akceptuję <a href="/polityka-prywatnosci/" target="_blank">Politykę prywatności</a> i znam prawa przysługujące mi z RODO.</span></span></label></span></span></span>
+</p>
+<div class="data-safe">
+<p><img src="/images/icon-lock.svg" alt="kłódka" loading="eager" />
+</p>
+<p class="ms-2">Twoje dane są bezpieczne
+</p>
+</div>
+</div>
+<div class="col-md-12 text-center" style="margin-top:10px;">
+<div class="submit-wrapper text-center">
+<p><button type="submit" class="wpcf7-form-control wpcf7-submit btn-form-landing" disabled="">Wyślij zapytanie</button>
+</p>
+</div>
+</div>
+</div>
+</form>
+</div>
+<div class="form-footer mt-3">
+<div class="form-footer-header text-center mb-3">
+<p class="text-center">Napisz / Zadzwoń</p>
+</div>
+<div class="d-flex align-items-center mt-2">
+<div class="">
+<img src="/images/zbi2.webp" class="person-img">
+</div>
+<div class="ps-3">
+<p>Zbigniew Chojnowski</p>
+<div class="d-flex align-items-center mb-2">
+<img src="/images/tel.svg" alt="telefon" loading="eager">
+<a href="tel:579642600" class="mb-0 ms-2"> 579 642 600</a>
+</div>
+<div class="d-flex align-items-center">
+<img src="/images/mail.svg" alt="email" loading="eager">
+<a href="mailto:kontakt@candyweb.pl" class="mb-0 ms-2"> kontakt@candyweb.pl</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="realizacje">
+<div class="row">
+<div class="col-md-6">
+<h2>Zobacz nasze przykładowe <br/><span class="orange9">projekty stron WordPress i sklepy WooCommerce</span></h2>
+<p class="bold-intro"><b>Zanurz się</b> w naszym <b>kreatywnym świecie</b>, pełnym różnorodnych projektów - od małych po duże, od niszowych po globalne, od stonowanych po przepełnione energią.</p> <p>Zachęcamy Cię do zgłębienia naszego <b>inspirującego portfolio</b>, w którym z pasją i polotem tworzymy niezwykłe sklepy oraz strony internetowe. Przekonaj się sam/a, jak nieustannie <b>podnosimy poprzeczkę</b>, realizując marzenia naszych klientów. </p>
+</div> <div class="col-md-6"></div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/portal-internetowy-dla-inzynierow-sterownik-stag-500-go-ac-sa-lider-instalacji-gazowych-w-polsce/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2025/02/stagmockup.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Portal internetowy dla inżynierów &#8211; sterownik STAG 500 GO &#8211; AC SA lider instalacji gazowych w Polsce</strong></p>
+<p class="orange-subtitle">Strona katalog producenta, 2025</p>               <a href="https://candyweb.pl/portfolio/portal-internetowy-dla-inzynierow-sterownik-stag-500-go-ac-sa-lider-instalacji-gazowych-w-polsce/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/strona-internetowa-dla-biura-projektowego-i-generalnego-wykonawcy/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2026/10/ak-1.png" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Strona internetowa dla biura projektowego i generalnego wykonawcy</strong></p>
+<p class="orange-subtitle">Rozbudowana strona informacyjna, 2026</p>               <a href="https://candyweb.pl/portfolio/strona-internetowa-dla-biura-projektowego-i-generalnego-wykonawcy/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/strona-internetowa-dla-stag-ev-producenta-ladowarek-typu-wallbox/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2025/05/mockup_zew_stag_Ev.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Strona i sklep www dla STAG EV &#8211; producenta ładowarek typu wallbox</strong></p>
+<p class="orange-subtitle">Rozbudowana strona informacyjna, 2025</p>               <a href="https://candyweb.pl/portfolio/strona-internetowa-dla-stag-ev-producenta-ladowarek-typu-wallbox/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/strona-internetowa-dla-parku-trampolin-jump-ostroda/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2026/04/jump_zew.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Strona internetowa dla parku trampolin Jump Ostróda</strong></p>
+<p class="orange-subtitle">Strona wizytówka, 2026</p>               <a href="https://candyweb.pl/portfolio/strona-internetowa-dla-parku-trampolin-jump-ostroda/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/producent-rowerow-tabou-nowa-odslona-sklepu-internetowego/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2025/11/tabou_mockup_zeew.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Producent rowerów Tabou &#8211; nowa odsłona sklepu internetowego</strong></p>
+<p class="orange-subtitle">Sklep internetowy i katalog, 2025</p>               <a href="https://candyweb.pl/portfolio/producent-rowerow-tabou-nowa-odslona-sklepu-internetowego/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/realizacja-rozbudowanej-strony-dla-dewelopera/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2025/11/vinci_mockup_zew.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Realizacja rozbudowanej strony dla dewelopera</strong></p>
+<p class="orange-subtitle">Strona dewelopera, 2025</p>               <a href="https://candyweb.pl/portfolio/realizacja-rozbudowanej-strony-dla-dewelopera/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/lynve-sklep-internetowy-dla-nowej-marki-kosmetykow/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2025/03/mockupy.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>LYNVE &#8211; sklep internetowy dla nowej marki kosmetyków</strong></p>
+<p class="orange-subtitle">Sklep internetowy, 2025</p>               <a href="https://candyweb.pl/portfolio/lynve-sklep-internetowy-dla-nowej-marki-kosmetykow/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/sklep-internetowy-z-artykulami-przemyslowymi-koral/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2026/09/koral_zew.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Sklep internetowy z artykułami przemysłowymi &#8211; KORAL</strong></p>
+<p class="orange-subtitle">Sklep internetowy, 2026</p>               <a href="https://candyweb.pl/portfolio/sklep-internetowy-z-artykulami-przemyslowymi-koral/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/redesign-strony-stag-diesel-i-nowe-funkcjonalnosci/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2022/03/stagdiesel.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Redesign strony STAG DIESEL i nowe funkcjonalności</strong></p>
+<p class="orange-subtitle">Strona wizerunkowa, 2026</p>               <a href="https://candyweb.pl/portfolio/redesign-strony-stag-diesel-i-nowe-funkcjonalnosci/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/strona-internetowa-nowoczesnego-biura-rachunkowego/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2025/12/irozliczone_mockup_zew.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Strona internetowa nowoczesnego biura rachunkowego</strong></p>
+<p class="orange-subtitle">Strona wizytówka, 2025</p>               <a href="https://candyweb.pl/portfolio/strona-internetowa-nowoczesnego-biura-rachunkowego/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/strona-internetowa-dla-kongres-erp/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2026/01/erp_mockup_zew.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Strona internetowa dla Kongres ERP</strong></p>
+<p class="orange-subtitle">Strona wizytówka, 2025</p>               <a href="https://candyweb.pl/portfolio/strona-internetowa-dla-kongres-erp/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/strona-www-dla-kancelarii-prawnej/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2026/10/rzewinsak_zew.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Strona www dla kancelarii prawnej</strong></p>
+<p class="orange-subtitle">Strona wizerunkowa, 2026</p>               <a href="https://candyweb.pl/portfolio/strona-www-dla-kancelarii-prawnej/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/nowa-odslona-dla-szkoly-hipnoterapii-hypnosense/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2026/10/hypno_mockup_zew.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Nowa odsłona dla szkoły hipnoterapii HypnoSense</strong></p>
+<p class="orange-subtitle">Strona wizerunkowa, 2026</p>               <a href="https://candyweb.pl/portfolio/nowa-odslona-dla-szkoly-hipnoterapii-hypnosense/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/strona-katalog-dla-firmy-z-branzy-medycznej-pulinno/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2025/11/pullino1.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Strona katalog dla firmy z branży medycznej Pulinno</strong></p>
+<p class="orange-subtitle">Strona katalog, 2025</p>               <a href="https://candyweb.pl/portfolio/strona-katalog-dla-firmy-z-branzy-medycznej-pulinno/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/odswiezenie-strony-internetowej-dla-kancelarii-adwokackiej-w-warszawie/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2026/10/dobies_zew.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Odświeżenie strony internetowej dla kancelarii adwokackiej w Warszawie</strong></p>
+<p class="orange-subtitle">Strona wizerunkowa, 2026</p>               <a href="https://candyweb.pl/portfolio/odswiezenie-strony-internetowej-dla-kancelarii-adwokackiej-w-warszawie/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/strona-internetowa-adwokat-warszawa/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2026/01/adwokaatka_zew_mockup.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Strona internetowa Adwokat Warszawa</strong></p>
+<p class="orange-subtitle">Strona wizytówka, 2025</p>               <a href="https://candyweb.pl/portfolio/strona-internetowa-adwokat-warszawa/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/sklep-internetowy-z-grami-karciankami-i-planszowkami/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2025/11/niedzwiadek_zew_mockup.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Sklep internetowy z grami, karciankami i planszówkami</strong></p>
+<p class="orange-subtitle">Sklep internetowy, 2025</p>               <a href="https://candyweb.pl/portfolio/sklep-internetowy-z-grami-karciankami-i-planszowkami/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/sklep-internetowy-dla-premium-cateringu-trylogia/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2025/04/mockup_trylogia.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Sklep internetowy dla premium Cateringu Trylogia</strong></p>
+<p class="orange-subtitle">Sklep internetowy, 2025</p>               <a href="https://candyweb.pl/portfolio/sklep-internetowy-dla-premium-cateringu-trylogia/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/strona-internetowa-dla-mini-zoo-i-kj-camelowo/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2025/11/camelowo_mockup_zew.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Strona internetowa dla mini zoo i KJ Camelowo</strong></p>
+<p class="orange-subtitle">Strona wizytówka, 2025</p>               <a href="https://candyweb.pl/portfolio/strona-internetowa-dla-mini-zoo-i-kj-camelowo/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/ostrowska-nieruchomosci-portal-z-ogloszeniami-nieruchomosci/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2024/09/mockup_z.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Ostrowska Nieruchomości &#8211; portal z ogłoszeniami nieruchomości</strong></p>
+<p class="orange-subtitle">Portal z ogłoszeniami nieruchomości, 2024</p>               <a href="https://candyweb.pl/portfolio/ostrowska-nieruchomosci-portal-z-ogloszeniami-nieruchomosci/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/izoservice-sklep-z-akcesoriami-do-iniekcji/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2026/07/izo_zew.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>IZOSERVICE &#8211; sklep z akcesoriami do iniekcji</strong></p>
+<p class="orange-subtitle">Rozbudowany sklep, 2026</p>               <a href="https://candyweb.pl/portfolio/izoservice-sklep-z-akcesoriami-do-iniekcji/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/screen-network/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2022/12/sn-mockup.png" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>20 000 ekranów reklamowych w całej Polsce. Strona internetowa dla Screen Network.</strong></p>
+<p class="orange-subtitle">Strona wizerunkowa katalog, 2022</p>               <a href="https://candyweb.pl/portfolio/screen-network/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/strona-internetowa-dla-producenta-palet-i-uslug-branzy-drzewnej/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2025/05/pakpol_mockup_zew.png" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Strona internetowa dla producenta palet i usług branży drzewnej</strong></p>
+<p class="orange-subtitle">Rozbudowana strona informacyjna, 2025</p>               <a href="https://candyweb.pl/portfolio/strona-internetowa-dla-producenta-palet-i-uslug-branzy-drzewnej/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/stag-400/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2023/02/stag400-mockup.png" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Portal internetowy dla inżynierów &#8211; sterownik STAG 400 DPI &#8211; AC SA lider instalacji gazowych w Polsce</strong></p>
+<p class="orange-subtitle">Strona katalog producenta, 2023</p>               <a href="https://candyweb.pl/portfolio/stag-400/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/strona-internetowa-dla-solid-wood/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2025/11/solid_wood_mockup_zew.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Strona internetowa dla Solid Wood</strong></p>
+<p class="orange-subtitle">Strona wizytówka, 2025</p>               <a href="https://candyweb.pl/portfolio/strona-internetowa-dla-solid-wood/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/realizacja-rozbudowanej-strony-dla-dewelopera-wroclaw/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2025/11/triada_zew_mockup_n.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Realizacja rozbudowanej strony dla dewelopera Wrocław</strong></p>
+<p class="orange-subtitle">Strona dewelopera, 2025</p>               <a href="https://candyweb.pl/portfolio/realizacja-rozbudowanej-strony-dla-dewelopera-wroclaw/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/projekt-sklepu-internetowego-dla-producenta-palet-glf/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2025/02/mockup_glf.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Sklep internetowy dla producenta palet &#8211; GLF</strong></p>
+<p class="orange-subtitle">Sklep internetowy i katalog, 2025</p>               <a href="https://candyweb.pl/portfolio/projekt-sklepu-internetowego-dla-producenta-palet-glf/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/rozbudowany-sklep-internetowy-transmet/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2025/10/transmet.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Rozbudowany sklep internetowy z narzędziami &#8211;  Transmet</strong></p>
+<p class="orange-subtitle">Sklep internetowy, 2025</p>               <a href="https://candyweb.pl/portfolio/rozbudowany-sklep-internetowy-transmet/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/apartamenty-felsztynskiego-w-lodzi-strona-www-inwestycji/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2025/03/mockkup_fer.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Apartamenty Verde Casa w Łodzi &#8211; strona www inwestycji</strong></p>
+<p class="orange-subtitle">Strona inwestycji deweloperskiej, 2025</p>               <a href="https://candyweb.pl/portfolio/apartamenty-felsztynskiego-w-lodzi-strona-www-inwestycji/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-4  ">
+<a href="https://candyweb.pl/portfolio/szukasz-pomyslu-na-ciekawe-spedzenie-czasu-w-olsztynie-zagladnij-na-strone-internetowa-hali-widowiskowo-sportowej-urania/" style="margin-top:30px;display:block">
+<!-- the_post_thumbnail('default',['class' => 'img-portf center-block']); ?> -->
+<div class="image-container" data-lazy-background="https://candyweb.pl/wp-content/uploads/2024/06/urania_mockup.jpg" style="background-size: contain; background-repeat: no-repeat; width:100%; height:auto; border-radius:5px;">
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' class="placeholder">
+<circle transform='rotate(0)' transform-origin='center' fill='none' stroke='#f9a71f' stroke-width='5' stroke-linecap='round' stroke-dasharray='230 1000' stroke-dashoffset='0' cx='100' cy='100' r='38'>
+<animateTransform
+attributeName='transform'
+type='rotate'
+from='0'
+to='360'
+dur='2'
+repeatCount='indefinite'>
+</animateTransform>
+</circle>
+</svg>
+</div>
+</a>
+<div class="text-center">
+<p class="mt-3 mb-1"> <strong>Szukasz pomysłu na ciekawe spędzenie czasu w Olsztynie? &#8211; zaglądnij na stronę internetową Hali Widowiskowo-Sportowej Urania</strong></p>
+<p class="orange-subtitle">Rozbudowana strona informacyjna z wyszukiwarką, 2024</p>               <a href="https://candyweb.pl/portfolio/szukasz-pomyslu-na-ciekawe-spedzenie-czasu-w-olsztynie-zagladnij-na-strone-internetowa-hali-widowiskowo-sportowej-urania/" class="btn btn-more06 mt-0" target="_blank" >Zobacz projekt</a>
+</div>
+</div>
+</div>
+<p class="text-center mt-4"><a href="https://candyweb.pl/portfolio-kafelki" class="btn btn-more06"  target="_blank">Więcej realizacji</a></p>
+</div></div>
+</section>
+<div id="co-zawiera-oferta">
+<script type="text/javascript">
+$(document).ready(function() {
+$('.offer-tabs .tab-content .tab-pane:first-child').addClass('show active');
+$('.offer-tabs .nav-pills .nav-item:first-child .nav-link').addClass('active');
+});
+</script>
+<section class="py-5 offer-tabs">
+<div class="container">
+<div class="row">
+<h2 class="mb-5 text-center">Co zawiera oferta</h2>
+</div>
+<div class="row">
+<div class="col-12">
+<ul class="nav nav-pills mb-5 justify-content-center" id="pills-tab" role="tablist">
+<li class="nav-item">
+<button class="nav-link" id="number0-tab" type="button"  data-bs-toggle="pill" data-bs-target="#number0" role="tab" aria-controls="number0" aria-selected="true">Strony internetowe</button>
+</li>
+<li class="nav-item">
+<button class="nav-link" id="number1-tab" type="button"  data-bs-toggle="pill" data-bs-target="#number1" role="tab" aria-controls="number1" aria-selected="true">Sklepy internetowe</button>
+</li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+<div class="tab-pane fade" id="number0" role="tabpanel" aria-labelledby="number0-tab">
+<div class="row justify-content-center priceInclude">
+<div class="col-md-6 col-xl-5 mb-4">
+<div class="priceIncludeBox">
+<div class="d-flex align-items-center" style="height:120px;">
+<img src="https://candyweb.pl/wp-content/uploads/2017/12/guarantee-certificate.svg" alt="ikonka" class="d-block mx-auto mb-4" loading="lazy">
+</div>
+<h3 class="text-center candy-color">Zawsze otrzymujesz</h3>
+<p><ul>
+<li>autorski projekt graficzny według przesłanych wytycznych, uwzględniając standardy UX/UI, z naciskiem na użyteczność strony na urządzeniach mobilnych. <strong>Nie pracujemy na gotowych szablonach!</strong>🙂</li>
+<li>responsywność (RWD) – strona będzie bardzo dobrze wyglądać na telefonach, tabletach czy komputerach,</li>
+<li>system CMS WordPress z utworzonym pod Twoje potrzeby szablonem,</li>
+<li>optymalizacja SEO oraz szybkości ładowania strony,</li>
+<li>prawa autorskie,</li>
+<li>szkolenie z zarządzania stroną,</li>
+<li>2 lata gwarancji na stronę,</li>
+<li>kopia zapasowa strony,</li>
+<li>strona dostosowana technicznie pod wymagania RODO (zbieranie zapytań, checkboxy, utworzenie podstron do polityki cookies i polityki prywatności),</li>
+<li>interaktywna mapa google,</li>
+<li>podłączenie google analytics 4(GA4), google tag manager (GTM), google search console (GSC),</li>
+<li>slajdery i animacje elementów,</li>
+<li>moduł moderowanych opinii klientów,</li>
+<li>moduł nasz zespół,</li>
+<li>formularz kontaktowy,</li>
+<li>linki do social media,</li>
+<li>moduł FAQ,</li>
+<li>stworzenie do 5 podstron np. strona główna, o firmie/o mnie, oferta/usługi, galeria, kontakt,</li>
+</ul>
+</p>
+</div>
+</div>
+<div class="col-md-6 col-xl-5 mb-4">
+<div class="priceIncludeBox">
+<div class="d-flex align-items-center" style="height:120px;">
+<img src="https://candyweb.pl/wp-content/uploads/2017/12/Group-1244.svg" alt="ikonka" class="d-block mx-auto mb-4" loading="lazy">
+</div>
+<h3 class="text-center candy-color">Opcjonalne dodatki</h3>
+<p><ul>
+<li>Dodatkowe wersje językowe,</li>
+<li>Rozbudowany moduł bloga i aktualności (aktywny spis treści, kategorie, tagi, powiązane usługi)</li>
+<li>Moduł rezerwacji wizyty/terminu,</li>
+<li>Zaawansowane konfiguratory produktowe,</li>
+<li>Newsletter (mailer lite, freshmail, mailchimp, getresponse),</li>
+<li>Instagram Feed (zdjęcia z instagrama na stronie),</li>
+<li>Zaawansowane animacje gif/mp4,</li>
+<li>Rozbudowane moduły pobierania plików,</li>
+<li>Moduł kariery (oferty pracy + formularz CV),</li>
+<li>Wyszukiwarka treści,</li>
+<li>Kalkulatory,</li>
+<li>Formularze zgłoszeniowe,</li>
+<li>Moduły Google Maps API,</li>
+<li>Moduł video,</li>
+<li>Generowanie pdf ofertowych,</li>
+<li>Wdrożenie Google Consent Mode v2 + platformy CMP,</li>
+<li>Inne indywidualne funkcjonalności,</li>
+</ul>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-pane fade" id="number1" role="tabpanel" aria-labelledby="number1-tab">
+<div class="row justify-content-center priceInclude">
+<div class="col-md-6 col-xl-5 mb-4">
+<div class="priceIncludeBox">
+<div class="d-flex align-items-center" style="height:120px;">
+<img src="https://candyweb.pl/wp-content/uploads/2017/12/guarantee-certificate.svg" alt="ikonka" class="d-block mx-auto mb-4" loading="lazy">
+</div>
+<h3 class="text-center candy-color">Zawsze otrzymujesz</h3>
+<p><ul>
+<li>Autorski projekt graficzny według przesłanych wytycznych, uwzględniając standardy UX/UI, z naciskiem na użyteczność sklepu na urządzeniach mobilnych.<strong> Nie pracujemy na gotowych szablonach!</strong> 🙂</li>
+<li>Responsywność (RWD) – sklep będzie bardzo dobrze wyglądać na telefonach, tabletach czy komputerach,</li>
+<li>System CMS WordPress + Woocommerce z utworzonym pod Twoje potrzeby szablonem,</li>
+<li>Optymalizacja SEO oraz szybkości ładowania strony,</li>
+<li>Prawa autorskie,</li>
+<li>Szkolenie z zarządzania sklepem,</li>
+<li>2 lata gwarancji na sklep,</li>
+<li>Kopia zapasowa sklepu,</li>
+<li>Sklep dostosowany technicznie pod wymagania RODO(zbieranie zapytań, checkboxy, utworzenie podstron do polityki cookies i polityki prywatności),</li>
+<li>Interaktywna mapa google,</li>
+<li>Podłączenie google analytics 4(GA4), google tag manager (GTM), google search console (GSC),</li>
+<li>Główny baner/slajder z produktami/ofertami,</li>
+<li>Moduł moderowanych opinii klientów,</li>
+<li>Formularz kontaktowy,</li>
+<li>Linki do social media,</li>
+<li>Wyszukiwarka produktów,</li>
+<li>Moduł polecane produkty,</li>
+<li>Moduł kategorie na stronie głównej,</li>
+<li>Moduł sprawdź także produkty,</li>
+<li>Moduł kupony i rabaty,</li>
+<li>Warianty produktów,</li>
+<li>Zoptymalizowany proces zakupowy,</li>
+<li>Podłączenie płatności online (<a href="https://candyweb.pl/ranking-platnosci-online/">sprawdź ranking płatności online</a>),</li>
+<li>Filtrowanie produktów,</li>
+<li>Moduł FAQ,</li>
+<li>Zakupy gości oraz tworzenie kont użytkowników,</li>
+</ul>
+</p>
+</div>
+</div>
+<div class="col-md-6 col-xl-5 mb-4">
+<div class="priceIncludeBox">
+<div class="d-flex align-items-center" style="height:120px;">
+<img src="https://candyweb.pl/wp-content/uploads/2017/12/Group-1244.svg" alt="ikonka" class="d-block mx-auto mb-4" loading="lazy">
+</div>
+<h3 class="text-center candy-color">Opcjonalne dodatki</h3>
+<p><ul>
+<li>Dodatkowe wersje językowe,</li>
+<li>Rozbudowany moduł bloga i aktualności (aktywny spis treści, kategorie, tagi, powiązane usługi)</li>
+<li>Moduł rezerwacji wizyty/terminu,</li>
+<li>Zaawansowane konfiguratory produktowe,</li>
+<li>Newsletter (mailer lite, freshmail, mailchimp, getresponse),</li>
+<li>Instagram Feed (zdjęcia z instagrama na stronie),</li>
+<li>Zaawansowane animacje gif/mp4,</li>
+<li>Rozbudowane moduły pobierania plików,</li>
+<li>Moduł kariery (oferty pracy + formularz CV),</li>
+<li>Wyszukiwarka treści,</li>
+<li>Kalkulatory,</li>
+<li>Formularze zgłoszeniowe,</li>
+<li>Moduły Google Maps API,</li>
+<li>Moduł video,</li>
+<li>Generowanie pdf ofertowych,</li>
+<li>Wdrożenie Google Consent Mode v2 + platformy CMP,</li>
+<li>Stworzenie dokumentów do sklepu internetowego (regulaminu, polityka prywatności, reklamacje, polityka zwrotów),</li>
+<li>Inne indywidualne funkcjonalności,</li>
+</ul>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<section class="contact-page">
+<div class="container">
+<h2>Opinie od <br/><span class="orange9">naszych klientów</span></h2>
+<div id="opinie">
+<div class="reference-list">
+<div class="ref-border-bottom">
+<div class="row ref">
+<div class="img-box col-xl-2">
+<img src="https://candyweb.pl/wp-content/uploads/2023/11/stag-ac-logo.png" alt="referencje candyweb">
+</div>
+<div class="col-xl-2">
+<p class="text-start text-xl-center">STAG Autogas Systems AC S.A.</p>
+<p class="stan text-start text-xl-center">stag.pl, stagdiesel.pl stag400.pl  stag500go.com  stag-ev.com</p>
+<div class="text-start text-xl-center mt-2">
+<img src="/images/stars.svg" alt="gwiazdki">
+</div>
+<p class="text-start text-xl-center"><a href="https://g.page/agencjacandyweb/" target="_blank" rel="nofollow" class="btn-more06 btn">Zobacz opinię</a></p>
+</div>
+<div class="col-xl-8">
+<p>"Bardzo polecamy współpracę z <strong>Candyweb</strong>. Oprócz <strong>profesjonalnej obsługi</strong> i <strong>wysokiej jakości usług</strong>, z Candyweb po prostu <strong>przyjemnie</strong> pracować. Kontakt jest <strong>szybki i nienaganny</strong>, firma czuje <strong>potrzeby klienta</strong> i proponuje <strong>dopasowane na miarę rozwiązania</strong>.<br />
+Jesteśmy bardzo zadowoleni ze współpracy i na pewno będziemy ją <strong>kontynuować</strong>."</p>
+<div class="ref-verified d-flex align-items-center my-3">
+<img src="/images/opinion-check.svg" alt="ikonka">
+<p>Opinia zweryfikowana </p>
+</div>
+</div>
+</div>
+</div>
+<div class="ref-border-bottom">
+<div class="row ref">
+<div class="img-box col-xl-2">
+<img src="https://candyweb.pl/wp-content/uploads/2023/11/logo-ha.png" alt="referencje candyweb">
+</div>
+<div class="col-xl-2">
+<p class="text-start text-xl-center">Małgorzata Drzazgowska</p>
+<p class="stan text-start text-xl-center">healthin.com, adamedtechnology.com</p>
+<div class="text-start text-xl-center mt-2">
+<img src="/images/stars.svg" alt="gwiazdki">
+</div>
+<p class="text-start text-xl-center"><a href="https://g.page/agencjacandyweb/" target="_blank" rel="nofollow" class="btn-more06 btn">Zobacz opinię</a></p>
+</div>
+<div class="col-xl-8">
+<p>"<strong>Szczerze polecam</strong> współpracę z <strong>Candyweb.pl</strong>! <strong>Profesjonalne i indywidualne podejście</strong> do klienta, <strong>doradztwo w zakresie tworzenia stron www</strong>. Wszystko na <strong>najwyższym poziomie</strong>!"</p>
+<div class="ref-verified d-flex align-items-center my-3">
+<img src="/images/opinion-check.svg" alt="ikonka">
+<p>Opinia zweryfikowana </p>
+</div>
+</div>
+</div>
+</div>
+<div class="ref-border-bottom">
+<div class="row ref">
+<div class="img-box col-xl-2">
+<img src="https://candyweb.pl/wp-content/uploads/2023/11/nf-logo.png" alt="referencje candyweb">
+</div>
+<div class="col-xl-2">
+<p class="text-start text-xl-center">Sylwia Andrzejewska</p>
+<p class="stan text-start text-xl-center">Akademia Nowej Farmacji, zdrowekorzysci.pl</p>
+<div class="text-start text-xl-center mt-2">
+<img src="/images/stars.svg" alt="gwiazdki">
+</div>
+<p class="text-start text-xl-center"><a href="https://g.page/agencjacandyweb/" target="_blank" rel="nofollow" class="btn-more06 btn">Zobacz opinię</a></p>
+</div>
+<div class="col-xl-8">
+<p>"Z agencją <strong>Candyweb</strong> pracuję i pracowałam przy wielu projektach stron internetowych wraz z późniejszą ich obsługą. Muszę przyznać, że jeżeli pojawi się kolejny projekt, to zlecę tylko i wyłącznie w tej agencji, która charakteryzuje się <strong>świetną jakością wykonania</strong>, <strong>świetnymi pracami graficznymi</strong> i <strong>wspaniałym wsparciem merytorycznym</strong> nawet po zakończeniu projektu. <strong>Candyweb</strong>, to <strong>kompleksowa obsługa</strong> od budowy strony poprzez późniejszą obsługę i działania marketingowe mające na celu <strong>wypromowanie strony</strong>. Szczerze polecam."</p>
+<div class="ref-verified d-flex align-items-center my-3">
+<img src="/images/opinion-check.svg" alt="ikonka">
+<p>Opinia zweryfikowana </p>
+</div>
+</div>
+</div>
+</div>
+<div class="ref-border-bottom">
+<div class="row ref">
+<div class="img-box col-xl-2">
+<img src="https://candyweb.pl/wp-content/uploads/2022/05/medee.png" alt="referencje candyweb">
+</div>
+<div class="col-xl-2">
+<p class="text-start text-xl-center">Agnieszka Kruk</p>
+<p class="stan text-start text-xl-center">hr-store.pl, wncl.pl, iwonawencel.com, medeine.pl</p>
+<div class="text-start text-xl-center mt-2">
+<img src="/images/stars.svg" alt="gwiazdki">
+</div>
+<p class="text-start text-xl-center"><a href="https://g.page/agencjacandyweb/" target="_blank" rel="nofollow" class="btn-more06 btn">Zobacz opinię</a></p>
+</div>
+<div class="col-xl-8">
+<p>"Jesteśmy <strong>bardzo zadowoleni</strong> ze współpracy i z projektów, które wyszły spod ręki <strong>Candyweb</strong>. <strong>Profesjonalizm</strong> na każdym etapie projektu, <strong>bardzo dobry kontakt</strong>, <strong>zaangażowanie</strong> i <strong>sumienność</strong> - te cechy wyróżniają ich na tle innych firm, z którymi dotychczas pracowałam. <strong>Polecam</strong>!"</p>
+<div class="ref-verified d-flex align-items-center my-3">
+<img src="/images/opinion-check.svg" alt="ikonka">
+<p>Opinia zweryfikowana </p>
+</div>
+</div>
+</div>
+</div>
+<div class="ref-border-bottom">
+<div class="row ref">
+<div class="img-box col-xl-2">
+<img src="https://candyweb.pl/wp-content/uploads/2022/02/logo-prawnik.png" alt="referencje candyweb">
+</div>
+<div class="col-xl-2">
+<p class="text-start text-xl-center">Jakub Al-Shaick</p>
+<p class="stan text-start text-xl-center">prawnik-nieruchomosci.pl</p>
+<div class="text-start text-xl-center mt-2">
+<img src="/images/stars.svg" alt="gwiazdki">
+</div>
+<p class="text-start text-xl-center"><a href="https://g.page/agencjacandyweb/" target="_blank" rel="nofollow" class="btn-more06 btn">Zobacz opinię</a></p>
+</div>
+<div class="col-xl-8">
+<p><strong>Zdecydowanie polecam współpracę z Candyweb</strong>. Bardzo sprawny kontakt, zaangażowanie i <strong>profesjonalna obsługa</strong> wyróżniają Candyweb na tle konkurencji.</p>
+<div class="ref-verified d-flex align-items-center my-3">
+<img src="/images/opinion-check.svg" alt="ikonka">
+<p>Opinia zweryfikowana </p>
+</div>
+</div>
+</div>
+</div>
+<div class="ref-border-bottom">
+<div class="row ref">
+<div class="img-box col-xl-2">
+<img src="https://candyweb.pl/wp-content/uploads/2022/07/digital.png" alt="referencje candyweb">
+</div>
+<div class="col-xl-2">
+<p class="text-start text-xl-center">Tymon Betlej</p>
+<p class="stan text-start text-xl-center">digitalnetwork.pl</p>
+<div class="text-start text-xl-center mt-2">
+<img src="/images/stars.svg" alt="gwiazdki">
+</div>
+<p class="text-start text-xl-center"><a href="https://g.page/agencjacandyweb/" target="_blank" rel="nofollow" class="btn-more06 btn">Zobacz opinię</a></p>
+</div>
+<div class="col-xl-8">
+<p>"Bardzo dobrze oceniam dotychczasową współpracę z firmą <strong>Candyweb.pl</strong>. <strong>Wysoka jakość usług</strong>, a co równie ważne <strong>wzorowa jakość obsługi klienta</strong>. <strong>Profesjonalizm</strong>, <strong>elastyczność</strong>, ale i <strong>kreatywność rozwiązań</strong>, wszystko za <strong>rozsądną cenę</strong>. Dodatkowym atutem współpracy jest osoba <strong>Pana Zbigniewa</strong>, szefa agencji. Świetny fachowiec, <strong>słuchający klienta</strong> i <strong>rozumiejący jego potrzeby</strong>. <strong>Szczerze polecam</strong>!"</p>
+<div class="ref-verified d-flex align-items-center my-3">
+<img src="/images/opinion-check.svg" alt="ikonka">
+<p>Opinia zweryfikowana </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<br/>
+<p class="text-center"><a href="https://candyweb.pl/referencje/" class="btn btn-more06"  target="_blank">Więcej opinii</a></p>
+</div>
+<div class="row contact-details-container">
+<div class="col-lg-4 pe-lg-5">
+<div class="contact-details">
+<h2 data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">Wyślij zapytanie</h2>
+<div class="wpcf7 no-js" id="wpcf7-f255-o2" lang="pl-PL" dir="ltr" data-wpcf7-id="255">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/strony-internetowe-leszno/#wpcf7-f255-o2" method="post" class="wpcf7-form init" aria-label="Formularz kontaktowy" novalidate="novalidate" data-status="init">
+<fieldset class="hidden-fields-container"><input type="hidden" name="_wpcf7" value="255" /><input type="hidden" name="_wpcf7_version" value="6.1.7" /><input type="hidden" name="_wpcf7_locale" value="pl_PL" /><input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f255-o2" /><input type="hidden" name="_wpcf7_container_post" value="0" /><input type="hidden" name="_wpcf7_posted_data_hash" value="" /><input type="hidden" name="_wpcf7_recaptcha_response" value="" />
+</fieldset>
+<div class="wpcf7-response-output" aria-hidden="true"></div>
+<input class="wpcf7-form-control wpcf7-hidden" value="" type="hidden" name="zgodado" />
+<div class="row">
+<div class="col-md-12">
+<p><label for="name" class="input-label">Imię / Nazwa Firmy</label><br />
+<span class="wpcf7-form-control-wrap" data-name="text-77"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-control" aria-invalid="false" value="" type="text" name="text-77" /></span>
+</p>
+</div>
+<div class="col-md-12">
+<p><label for="emailorphone" class="input-label"> *E-mail / Telefon </label><br />
+<span class="wpcf7-form-control-wrap" data-name="your-email-phone"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" value="" type="text" name="your-email-phone" /></span>
+</p>
+</div>
+<div class="col-md-12">
+<p><label for="subject" class="input-label"> Temat </label><br />
+<span class="wpcf7-form-control-wrap" data-name="your-subject"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text form-control" aria-invalid="false" value="" type="text" name="your-subject" /></span>
+</p>
+</div>
+<div class="col-md-12 mt-2">
+<p><span class="wpcf7-form-control-wrap" data-name="accept-this-5"><span class="wpcf7-form-control wpcf7-acceptance"><span class="wpcf7-list-item"><label><input type="checkbox" name="accept-this-5" value="1" class="form-check-input" aria-invalid="false" /><span class="wpcf7-list-item-label"><span class="accept-label"> *Akceptuję <a href="/polityka-prywatnosci/" target="_blank">Politykę prywatności</a> i znam prawa przysługujące mi z RODO.</span></span></label></span></span></span>
+</p>
+<div class="data-safe">
+<p><img src="/images/icon-lock.svg" alt="kłódka" loading="eager" />
+</p>
+<p class="ms-2">Twoje dane są bezpieczne
+</p>
+</div>
+</div>
+<div class="col-md-12 text-center" style="margin-top:10px;">
+<div class="submit-wrapper text-center">
+<p><button type="submit" class="wpcf7-form-control wpcf7-submit btn-form-landing" disabled="">Wyślij zapytanie</button>
+</p>
+</div>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="col-lg-4 mt-4 mt-lg-0">
+<div class="contact-details">
+<h2 data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">Dane kontaktowe</h2>
+<div class="person-box3">
+<img src="/images/piotr-mini.png" class="person-img">
+<div style="display:inline-block; margin-left:1rem;">
+<p class="e1">Piotr Balcerzak</p>
+<p class="stanowisko">Account Manager</p>
+<div class="d-flex align-items-center mt-3 mb-2">
+<img src="/images/mail.svg">
+<p class="mail mb-0 ms-2">
+<a href="mailto:piotr@candyweb.pl">piotr@candyweb.pl</a>
+</p>
+</div>
+<div class="d-flex align-items-center">
+<img src="/images/tel.svg">
+<p class="tel mb-0 ms-2">
+<a href="tel:572508258"> 572 508 258</a>
+</p>
+</div>
+</div>
+</div>
+<div class="">
+<img src="/images/zbi2.webp" class="person-img">
+<div style="display:inline-block; margin-left:1rem;">
+<p class="e1">Zbigniew Chojnowski</p>
+<p class="stanowisko">CEO Candyweb</p>
+<div class="d-flex align-items-center mt-3 mb-2">
+<img src="/images/mail.svg">
+<p class="mail mb-0 ms-2">
+<a href="mailto:kontakt@candyweb.pl"> kontakt@candyweb.pl</a>
+</p>
+</div>
+<div class="d-flex align-items-center">
+<img src="/images/tel.svg">
+<p class="tel mb-0 ms-2">
+<a href="tel:579642600"> 579 642 600</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-4 mt-4 mt-lg-0">
+<div class="contact-details">
+<h2 data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">Gdzie jesteśmy?</h2>
+<div class="d-flex align-items-center" style="margin-top:45px;">
+<img src="/images/pin.svg" style="width:79px;display:inline-block;vertical-align: top; width:22px; height:22px;">
+<div  style="display:inline-block; margin-left:1rem;">
+<p class="stanowisko">Tutaj jesteśmy</p>
+<p class="e1">ul. Zamkowa 27 (I piętro)</p>
+<p class="e1">95-200 Pabianice </p>
+</div>
+</div>
+<div  class="d-flex align-items-center" style="margin-top:20px;">
+<img src="/images/hours.svg" style="width:79px;display:inline-block;vertical-align: top; width:22px; height:22px;">
+<div  style="display:inline-block; margin-left:1rem;">
+<p class="stanowisko">Godziny otwarcia biura Pabianice</p>
+<p class="e1">Pon. - Pt. 8:00 - 16:00<br/></p>
+<p class="e1">Sob. indywidualnie<br/></p>
+</div>
+</div>
+<div class="d-flex align-items-center" style="margin-top:20px;">
+<img src="/images/fb.svg" style="width:79px;display:inline-block;vertical-align:middle; width:22px; height:22px;">
+<div  style="display:inline-block; margin-left:1rem;">
+<p class="e1"> <a href="https://www.facebook.com/reklamacandyweb" target="_blank">/reklamacandyweb</a> </p>
+</div>
+</div>
+<div class="d-flex align-items-center" style="margin-top:20px;">
+<img src="/images/ig.svg" style="width:79px;display:inline-block;vertical-align:middle; width:22px; height:22px;">
+<div  style="display:inline-block; margin-left:1rem;">
+<p class="e1"> <a href="https://www.instagram.com/candyweb.pl/" target="_blank">/candyweb.pl</a> </p>
+</div>
+</div>
+<div class="d-flex align-items-center" style="margin-top:20px;">
+<img src="/images/ig.svg" style="width:79px;display:inline-block;vertical-align:middle; width:22px; height:22px;">
+<div  style="display:inline-block; margin-left:1rem;">
+<p class="e1"> <a href="https://www.tiktok.com/@candyweb.pl" target="_blank">Tiktok candyweb.pl</a> </p>
+</div>
+</div>
+<div style="margin-top:20px;">
+<p style="font-size:1rem;">
+Agencja interaktywna Candyweb należy do firmy AZ MEDIA sp z o.o.
+NIP: 5691887823 
+</p>
+</div>
+<!-- <img src="https://candyweb.pl/wp-content/uploads/2023/07/kolaz-candyweb.jpg" class="img-responsive center-block" style="border-radius:5px;" alt="agencja interaktywna biuro Mława"> -->
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="main-class">
+<div class="container">
+<div class="row pt-5 pb-4">
+<div class="col-md-6">
+<h2 class=>Nasz <span class="orange9">zespół</span></h2>
+<p class="bold-intro">Stanowimy zgrany zespół kreatywnych osób, którzy posiadają bogatą wiedzę i doświadczenie w branży IT.</p> <p>Nasza pasja do projektowania i marketingu online opiera się na <b>pełnym zaangażowaniu</b> w każde zlecenie. Współpraca z nami to <b>wzajemne zaufanie i otwarta komunikacja</b>, co przekłada się na najlepsze wyniki dla Twojego biznesu.</p>
+</div>
+</div>
+<div class="row pb-5">
+<div class="col-md-6 mb-4 mb-md-0">
+<img src="https://candyweb.pl/wp-content/uploads/2022/07/fotka1.jpg" class="img-responsive center-block">
+</div>
+<div class="col-md-6">
+<img src="https://candyweb.pl/wp-content/uploads/2025/05/biuro-candyweb-pabianice.png" class="img-responsive center-block">
+</div>
+</div>
+<div class="city-about-info">
+<div class="row">
+<div class="col-lg-8 col-xl-7 col-xxl-6">
+<div class="box-icon">
+<h2 class="mb-4">Miasto Leszno </h2>
+<div class="row">
+<div class="col-7"><p>Liczba ludności:</p></div>
+<div class="col-5"><p> <strong> 64 000</strong></p> </div>
+</div>
+<div class="row">
+<div class="col-7"><p>Tablica rejestracyjna:</p></div>
+<div class="col-5"> <p><strong>PL</strong> </p></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+Witaj w naszej <strong>agencji interaktywnej z Leszna</strong>, gdzie tworzenie stron internetowych to nasza pasja i specjalność! Jeśli poszukujesz profesjonalnego partnera do stworzenia unikalnej strony internetowej w Lesznie, to trafiłeś we właściwe miejsce.
+Jesteśmy doświadczoną <strong>agencją interaktywną z Leszna</strong>, która specjalizuje się w projektowaniu i tworzeniu stron www dla klientów z różnych branż i sektorów. Nasz zespół składa się z utalentowanych projektantów, programistów i specjalistów od marketingu internetowego, którzy wspólnie pracują nad każdym projektem, aby dostarczyć naszym klientom najlepsze rozwiązania.
+Dlaczego warto nam zaufać w kwestii tworzenia <strong>stron www w Lesznie</strong>? Nasze podejście opiera się na głębokim zrozumieniu potrzeb i celów naszych klientów. Przed przystąpieniem do pracy przeprowadzamy dokładną analizę, aby lepiej poznać Twoją firmę, Twoją branżę oraz Twoją grupę docelową. Dzięki temu możemy zaprojektować i zaimplementować stronę internetową, która nie tylko wygląda świetnie, ale także skutecznie przyciąga klientów i generuje konwersje.
+<h2>Nasze usługi w zakresie tworzenia stron internetowych obejmują:</h2>
+<ul>
+<li><strong>Projektowanie responsywnych stron www:</strong> Nasza <strong>agencja interaktywna z Leszna</strong> specjalizuje się w projektowaniu responsywnych stron internetowych, które doskonale wyglądają i działają na różnych urządzeniach. Tworzymy <strong>strony internetowe</strong>, które nie tylko zachwycają estetyką, ale także zapewniają optymalne doświadczenie użytkownika, niezależnie od tego, czy odwiedza ją klient przy użyciu komputera stacjonarnego, smartfona czy tabletu.</li>
+<li><strong>Optymalizacja pod kątem SEO:</strong> Nasze podejście do <strong>tworzenia stron internetowych </strong> obejmuje również kompleksową optymalizację pod kątem SEO. Dzięki zastosowaniu odpowiednich strategii i technik SEO, nasze <strong>strony internetowe </strong> są łatwiejsze do znalezienia w wyszukiwarkach internetowych, co zwiększa ich widoczność i generuje większy ruch na stronie.</li>
+<li><strong>Integracja mediów społecznościowych:</strong> Rozumiejąc znaczenie interakcji z klientami, nasze<strong> strony</strong> są zaprojektowane z myślą o integracji mediów społecznościowych. Dzięki temu użytkownicy mogą łatwo udostępniać treści ze strony w swoich mediach społecznościowych, co zwiększa zasięg marki i zaangażowanie użytkowników z Leszna i nie tylko.</li>
+<li><strong>E-commerce:</strong> Jeśli planujesz rozwijać swój biznes online, nasza <strong>agencja interaktywna działająca na terenie Leszna</strong> oferuje kompleksowe rozwiązania e-commerce. Projektujemy i implementujemy sklepy internetowe, które nie tylko wyglądają atrakcyjnie, ale także są funkcjonalne i intuicyjne w obsłudze, zachęcając klientów z Leszna do dokonywania zakupów.</li>
+<li><strong>Wsparcie techniczne i utrzymanie:</strong> Po wdrożeniu Twojej strony internetowej oferujemy ciągłe wsparcie techniczne i utrzymanie. Nasza <strong>agencja interaktywna z Leszna</strong> zapewnia kompleksową opiekę nad Twoją stroną www, dbając o jej bezpieczeństwo, aktualizacje oraz wydajność, abyś mógł skupić się na prowadzeniu swojego biznesu w Lesznie bez martwienia się o techniczne szczegóły.</li>
+</ul>
+Niezależnie od tego, czy potrzebujesz prostego portfolio online, czy też zaawansowanego sklepu internetowego, nasza <strong>agencja interaktywna z Leszna</strong> ma odpowiednie doświadczenie i wiedzę, aby zrealizować Twoje potrzeby. Zaufaj nam swoją stronę internetową, a zapewnimy Ci profesjonalne podejście, kreatywne podejście i solidne wykonanie.
+<h2>Rozwiązania cyfrowe szyte na miarę</h2>
+<h3>Twoja Wizja &#8211; nasza Misja</h3>
+W naszej <strong>agencji reklamowej z Leszna</strong>, rozumiemy, że każdy klient jest wyjątkowy i indywidualnie podchodzimy do jego potrzeb. Nie ograniczamy się tylko do tworzenia stron internetowych. Nasz zespół to młodzi, kreatywni ludzie, którzy z zaangażowaniem podchodzą do wykonywanej pracy. Jesteśmy szybcy (bo tego wymagają obecne czasy), ale dokładni i wzajemnie zarażamy się pozytywną energią! Ważne dla nas jest to, aby zrozumieć Twoje cele biznesowe i przekształcić je w realne rozwiązania, które przynoszą wyniki. Od projektowania stron internetowych po kompleksowe strategie marketingowe online – zapewniamy narzędzia i wiedzę, które pozwolą Twojej firmie wyróżnić się i rozwijać.
+<h3>Innowacje i kreatywność</h3>
+W świecie cyfrowym innowacje technologiczne i kreatywne podejście do projektowania są kluczem do sukcesu. Nasza <strong>agencja interaktywna z Leszna</strong> kładzie duży nacisk na najnowsze trendy w projektowaniu, aby zapewnić, że Twoja strona internetowa nie tylko przyciągnie uwagę, ale również będzie zgodna z najnowszymi standardami i praktykami. Lubimy nowinki technologiczne i nie zawahamy się ich użyć w projekcie skrojonym dla Ciebie!
+<h2>Strategie marketingowe</h2>
+<h3>Zintegrowane kampanie marketingowe</h3>
+Tworzenie strony internetowej to dopiero początek. Aby naprawdę odnieść sukces w cyfrowym świecie, potrzebujesz zintegrowanej strategii marketingowej, która promuje Twoją markę, produkty i usługi. Oferujemy szeroki zakres usług marketingowych, od SEO i marketingu w mediach społecznościowych po kampanie e-mailowe i reklamę PPC. Dzięki naszej pomocy, Twoja strona nie tylko zyska na popularności, ale stanie się głównym narzędziem generowania leadów i sprzedaży.
+<h3>SEO i widoczność w sieci</h3>
+Pozycjonowanie strony w wyszukiwarkach to klucz do zwiększenia jej widoczności i przyciągnięcia większej liczby odwiedzających. Nasza <strong>agencja interaktywna</strong> specjalizuje się w optymalizacji SEO, używając sprawdzonych metod i strategii, aby Twoja strona znalazła się na czołowych pozycjach w wynikach wyszukiwania. Dzięki temu, klienci łatwiej znajdą Twoją firmę, co bezpośrednio przekłada się na zwiększenie ruchu na stronie i lepsze wyniki biznesowe.
+<h2>Twój partner w cyfrowym świecie</h2>
+<h3>Personalizacja i zaangażowanie</h3>
+Rozumiemy, że sukces w Internecie zależy nie tylko od technologii, ale także od budowania relacji z klientami. Dlatego nasze rozwiązania są zawsze dostosowane do indywidualnych potrzeb i preferencji Twojej grupy docelowej. Przykładamy dużą wagę do personalizacji i zaangażowania.  Dzięki temu nasze <strong>strony</strong> budują lojalność wobec Twojej marki.
+<h3>Rozwój i innowacja</h3>
+W naszej <strong>agencji interaktywnej z Leszna</strong>, stale poszukujemy nowych sposobów na rozwój i innowacje. Śledzimy najnowsze trendy i technologie, aby nasze rozwiązania były nie tylko aktualne, ale również przyszłościowe. Tworzymy <strong>strony internetowe</strong> na najwyższym poziomie. Z nami, Twoja firma nie tylko dotrzyma kroku zmieniającemu się światu cyfrowemu, ale będzie krok do przodu przed konkurencją.
+<h2>Skontaktuj się z naszą agencją interaktywną</h2>
+<strong>Tworzenie stron internetowych w Lesznie</strong> to nasza pasja i zobowiązanie. Jeśli potrzebujesz profesjonalnego wsparcia w projektowaniu i wdrażaniu witryny internetowej, nie wahaj się skontaktować z naszą agencją reklamową. Nasz zespół z przyjemnością pomoże Ci w realizacji Twoich celów online. Skontaktuj się z nami, aby dowiedzieć się więcej o tym, jak nasza <strong>agencja reklamowa i interaktywna z Leszna</strong> może pomóc Twojej firmie osiągnąć cele online. Niezależnie od tego, czy potrzebujesz nowej strony internetowej, chcesz poprawić swoją widoczność w sieci, czy szukasz kompleksowych strategii marketingowych, jesteśmy tutaj dla Ciebie.          </div>
+</div>
+</div>
+</section>
+</main>
+</div><!-- end of wrapper-->
+<footer id="footer">
+<div class="container" id='contact'>
+<div class="row">
+<div class="col-sm-6 col-lg-4"><h3>Menu</h3>
+<div id="nav_menu-2" class="widget-wrapper widget_nav_menu"><div class="menu-menu2-container"><ul id="menu-menu2" class="menu"><li id="menu-item-8590" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8590"><a href="https://candyweb.pl/portfolio-kafelki/">Realizacje</a></li>
+<li id="menu-item-274" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-274"><a href="https://candyweb.pl/o-nas/">O firmie</a></li>
+<li id="menu-item-8373" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8373"><a href="https://candyweb.pl/referencje/">Referencje i opinie</a></li>
+<li id="menu-item-583" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-583"><a href="https://candyweb.pl/blog/">Blog</a></li>
+<li id="menu-item-277" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-277"><a href="https://candyweb.pl/kontakt/">Kontakt</a></li>
+</ul></div></div>    </div>
+<div class="col-sm-6 col-lg-4">
+<h3 class="kontakt">Kontakt</h3>
+<ul class="contact-links">
+<li class="m1"> <a href="mailto:kontakt@candyweb.pl">kontakt@candyweb.pl</a></li>
+<li class="m1"> <a href="mailto:piotr@candyweb.pl">piotr@candyweb.pl</a></li>
+<li class="m2"> <a href="tel:579642600">579 642 600</a></li>
+<li class="m2"> <a href="tel:572508258">572 508 258</a></li>
+<li class="m2">ul. Zamkowa 27 (I piętro), 95-200 Pabianice, </li>
+</ul>
+</div>
+<div class="col-lg-4">
+<img src="https://candyweb.pl/wp-content/uploads/2025/02/logo_pomaranczowy.svg" alt="logo Candyweb.pl" style="width:200px;height:59px">
+<br/>
+<p class="textme1">Agencja interaktywna Candyweb.pl - budujemy dział marketingu i optymalizujemy procesy w Twojej firmie. Budujemy widoczność firm w całej Polsce. Kompleksowy marketing internetowy wspierany przez AI, tworzenie stron i sklepów internetowych. Agencja interaktywna Pabianice</p>
+<p><a href="https://g.co/kgs/UXK77d9" target="_blank"  title="sprawdź opinie Google" ><img src="https://candyweb.pl/wp-content/uploads/2026/03/Group-124.png" style="max-height:70px;width:auto;border-radius:5px" alt="google opinie candyweb" width="266" height="70"></a></p>
+</div>
+</div>
+</div>
+</footer><!-- end #footer -->
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/motyw/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script id="wp-hooks-js" src="https://candyweb.pl/wp-includes/js/dist/hooks.min.js?ver=f0f188028580e8dc1255"></script>
+<script id="wp-i18n-js" src="https://candyweb.pl/wp-includes/js/dist/i18n.min.js?ver=1dfe7db3940c23ea9216"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="swv-js" src="https://candyweb.pl/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=6.1.7"></script>
+<script id="contact-form-7-js-translations">
+( function( domain, translations ) {
+var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+localeData[""].domain = domain;
+wp.i18n.setLocaleData( localeData, domain );
+} )( "contact-form-7", {"translation-revision-date":"2026-08-26 11:14:47+0000","generator":"GlotPress\/4.1.0","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","plural-forms":"nplurals=3; plural=(n == 1) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);","lang":"pl"},"This contact form is placed in the wrong place.":["Ten formularz kontaktowy zosta\u0142 umieszczony w niew\u0142a\u015bciwym miejscu."],"Error:":["B\u0142\u0105d:"]}},"comment":{"reference":"includes\/js\/index.js"}} );
+//# sourceURL=contact-form-7-js-translations
+</script>
+<script id="contact-form-7-js-before">
+var wpcf7 = {
+"api": {
+"root": "https:\/\/candyweb.pl\/wp-json\/",
+"namespace": "contact-form-7\/v1"
+}
+};
+//# sourceURL=contact-form-7-js-before
+</script>
+<script id="contact-form-7-js" src="https://candyweb.pl/wp-content/plugins/contact-form-7/includes/js/index.js?ver=6.1.7"></script>
+<script id="bootstrap-script-js" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js?ver=7.1.3"></script>
+<script id="slick-js" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js?ver=7.1.3"></script>
+<script id="jquery-lazyloadxt-js-extra">
+var a3_lazyload_params = {"apply_images":"1","apply_videos":"1"};
+//# sourceURL=jquery-lazyloadxt-js-extra
+</script>
+<script id="jquery-lazyloadxt-js" src="//candyweb.pl/wp-content/plugins/a3-lazy-load/assets/js/jquery.lazyloadxt.extra.min.js?ver=2.7.9"></script>
+<script id="jquery-lazyloadxt-srcset-js" src="//candyweb.pl/wp-content/plugins/a3-lazy-load/assets/js/jquery.lazyloadxt.srcset.min.js?ver=2.7.9"></script>
+<script id="jquery-lazyloadxt-extend-js-extra">
+var a3_lazyload_extend_params = {"edgeY":"0","horizontal_container_classnames":""};
+//# sourceURL=jquery-lazyloadxt-extend-js-extra
+</script>
+<script id="jquery-lazyloadxt-extend-js" src="//candyweb.pl/wp-content/plugins/a3-lazy-load/assets/js/jquery.lazyloadxt.extend.js?ver=2.7.9"></script>
+<script id="google-recaptcha-js" src="https://www.google.com/recaptcha/api.js?render=6Le3qWArAAAAANSCI547ECmR-X9DyLLSVvUxcHII&#038;ver=3.0"></script>
+<script id="wp-polyfill-js" src="https://candyweb.pl/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0"></script>
+<script id="wpcf7-recaptcha-js-before">
+var wpcf7_recaptcha = {
+"sitekey": "6Le3qWArAAAAANSCI547ECmR-X9DyLLSVvUxcHII",
+"actions": {
+"homepage": "homepage",
+"contactform": "contactform"
+}
+};
+//# sourceURL=wpcf7-recaptcha-js-before
+</script>
+<script id="wpcf7-recaptcha-js" src="https://candyweb.pl/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=6.1.7"></script>
+<script id="hoverIntent-js" src="https://candyweb.pl/wp-includes/js/hoverIntent.min.js?ver=1.10.2"></script>
+<script id="megamenu-js" src="https://candyweb.pl/wp-content/plugins/megamenu/js/maxmegamenu.js?ver=3.10.6"></script>
+<script id="megamenu-pro-js" src="https://candyweb.pl/wp-content/plugins/megamenu-pro/assets/public.js?ver=2.4.3"></script>
+</body>
+</html><!-- WP Fastest Cache file was created in 0.569 seconds, on 7 October 2026 @ 21:40 -->

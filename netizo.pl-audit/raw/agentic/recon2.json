@@ -1,0 +1,220 @@
+{
+ "newsletter": "- form \"Zapis do newslettera\":\n  - text: Adres e-mail\n  - textbox \"Adres e-mail\":\n    - /placeholder: ty@firma.pl\n  - button \"Zapisz się\"\n  - paragraph: Zero spamu. Możesz wypisać się w dowolnym momencie.",
+ "tabs_count": 4,
+ "tab_attrs": [
+  {
+   "txt": "Projekt na zlecenie",
+   "sel": "true",
+   "ctrls": "radix-_R_19r_-content-project",
+   "tabindex": -1,
+   "id": "radix-_R_19r_-trigger-project"
+  },
+  {
+   "txt": "Stała współpraca",
+   "sel": "false",
+   "ctrls": "radix-_R_19r_-content-retainer",
+   "tabindex": -1,
+   "id": "radix-_R_19r_-trigger-retainer"
+  },
+  {
+   "txt": "Brief projektuSzczegółowa wycena",
+   "sel": "true",
+   "ctrls": "radix-_R_far_-content-brief",
+   "tabindex": -1,
+   "id": "radix-_R_far_-trigger-brief"
+  },
+  {
+   "txt": "Szybka wiadomośćOdpowiemy w 24 h",
+   "sel": "false",
+   "ctrls": "radix-_R_far_-content-quick",
+   "tabindex": -1,
+   "id": "radix-_R_far_-trigger-quick"
+  }
+ ],
+ "tabpanels": [
+  {
+   "id": "radix-_R_19r_-content-project",
+   "labelledby": "radix-_R_19r_-trigger-project",
+   "hidden": false,
+   "display": "block",
+   "state": "active",
+   "tabindex": 0
+  },
+  {
+   "id": "radix-_R_19r_-content-retainer",
+   "labelledby": "radix-_R_19r_-trigger-retainer",
+   "hidden": false,
+   "display": "block",
+   "state": "inactive",
+   "tabindex": 0
+  },
+  {
+   "id": "radix-_R_far_-content-brief",
+   "labelledby": "radix-_R_far_-trigger-brief",
+   "hidden": false,
+   "display": "block",
+   "state": "active",
+   "tabindex": 0
+  },
+  {
+   "id": "radix-_R_far_-content-quick",
+   "labelledby": "radix-_R_far_-trigger-quick",
+   "hidden": false,
+   "display": "none",
+   "state": "inactive",
+   "tabindex": -1
+  }
+ ],
+ "step1_alert": [
+  "brief-types-website:brief-types-error",
+  "brief-types-webapp:brief-types-error",
+  "brief-types-ecommerce:brief-types-error",
+  "brief-types-mobile:brief-types-error",
+  "brief-types-redesign:brief-types-error",
+  "brief-types-other:brief-types-error"
+ ],
+ "step1_error_focus": "brief-types-website",
+ "checkbox_check_ok": "Locator.check: Timeout 5000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"checkbox\", name=\"Strona WWW\")\n    - locator resolved to <input name=\"types[]\" type=\"checkbox\" class=\"sr-only\" value=\"website\" aria-invalid=\"true\" id=\"brief-types-website\" aria-describedby=\"brief-types-error\"/>\n  - attempt",
+ "checkbox_box": {
+  "input": [
+   1,
+   1
+  ],
+  "label": [
+   240,
+   128
+  ],
+  "id": "brief-types-website"
+ },
+ "focus_after_step2": "INPUT:",
+ "focus_after_step3": "INPUT:",
+ "focus_after_step4": "INPUT:",
+ "focus_after_step5": "INPUT:",
+ "focus_after_step6": "INPUT:",
+ "step6_submit_present": 0,
+ "unnamed_controls_step6": [],
+ "step6_select_roles": [
+  {
+   "id": "contact-subject",
+   "name": "Temat",
+   "aria_expanded": "false",
+   "tag": "BUTTON",
+   "hasNativeSelect": true
+  }
+ ],
+ "hidden_native_selects": 1,
+ "quick": "- form \"Szybka wiadomość\":\n  - text: Imię i nazwisko\n  - textbox \"Imię i nazwisko\":\n    - /placeholder: Jan Kowalski\n  - text: E-mail\n  - textbox \"E-mail\":\n    - /placeholder: jan@firma.pl\n  - text: Temat\n  - combobox \"Temat\": Wybierz temat…\n  - text: Wiadomość\n  - textbox \"Wiadomość\":\n    - /placeholder: W czym możemy pomóc?\n  - paragraph: Pola oznaczone gwiazdką są wymagane.\n  - button \"Wyślij wiadomość\"",
+ "quick_select": {
+  "role": "combobox",
+  "tag": "BUTTON",
+  "expanded": "false",
+  "label": "Temat"
+ },
+ "quick_attrs": [
+  {
+   "id": "contact-name",
+   "name": "name",
+   "type": "text",
+   "req": false,
+   "ariaReq": "true",
+   "ac": "name",
+   "label": "Imię i nazwisko*"
+  },
+  {
+   "id": "contact-email",
+   "name": "email",
+   "type": "email",
+   "req": false,
+   "ariaReq": "true",
+   "ac": "email",
+   "label": "E-mail*"
+  },
+  {
+   "id": "contact-message",
+   "name": "message",
+   "type": "textarea",
+   "req": false,
+   "ariaReq": "true",
+   "ac": "",
+   "label": "Wiadomość*"
+  }
+ ],
+ "listbox": [
+  "listbox:[data-radix-select-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-select-viewport]::-webkit-scrollbar{display:none}Nowy projektWspółpracaKarieraInne",
+  "option:Nowy projekt",
+  "option:Współpraca",
+  "option:Kariera",
+  "option:Inne"
+ ],
+ "callback_buttons": [
+  {
+   "txt": "",
+   "aria": "Zamów rozmowę telefoniczną",
+   "r": {
+    "x": 0,
+    "y": 0,
+    "width": 0,
+    "height": 0,
+    "top": 0,
+    "right": 0,
+    "bottom": 0,
+    "left": 0
+   },
+   "vis": false
+  },
+  {
+   "txt": "Zadzwońcie do mnie",
+   "aria": null,
+   "r": {
+    "x": 952.328125,
+    "y": 932.1875,
+    "width": 167.453125,
+    "height": 36,
+    "top": 932.1875,
+    "right": 1119.78125,
+    "bottom": 968.1875,
+    "left": 952.328125
+   },
+   "vis": true
+  },
+  {
+   "txt": "",
+   "aria": "Zamów rozmowę telefoniczną",
+   "r": {
+    "x": 1368,
+    "y": 700,
+    "width": 52,
+    "height": 52,
+    "top": 700,
+    "right": 1420,
+    "bottom": 752,
+    "left": 1368
+   },
+   "vis": false
+  }
+ ],
+ "dialog_count": 1,
+ "dialog": "- dialog \"Oddzwonimy do Ciebie\":\n  - heading \"Oddzwonimy do Ciebie\" [level=2]\n  - paragraph: Zostaw numer telefonu, a oddzwonimy najszybciej, jak to możliwe.\n  - form \"Oddzwonimy do Ciebie\":\n    - text: Numer telefonu\n    - textbox \"Numer telefonu\":\n      - /placeholder: +48 000 000 000\n    - button \"Zadzwońcie do mnie\"\n    - paragraph:\n      - text: Wolisz zadzwonić od razu?\n      - link \"+48 884 343 924\":\n        - /url: tel:+48884343924\n  - button \"Zamknij\"",
+ "dialog_attrs": {
+  "labelledby": "radix-_R_6H1_",
+  "describedby": "radix-_R_6H2_",
+  "modal": null,
+  "focus": "INPUT:callback-phone",
+  "inertSiblings": [
+   "SPAN:aria-hidden",
+   "NOSCRIPT:aria-hidden",
+   "SCRIPT",
+   "DIV:aria-hidden",
+   "ASIDE:aria-hidden",
+   "SCRIPT",
+   "SCRIPT",
+   "STYLE:aria-hidden",
+   "SCRIPT",
+   "DIV:aria-hidden",
+   "DIV",
+   "SPAN:aria-hidden"
+  ]
+ },
+ "dialog_closed_count": 0,
+ "focus_after_dialog_close": "BUTTON:Zadzwońcie do mnie"
+}

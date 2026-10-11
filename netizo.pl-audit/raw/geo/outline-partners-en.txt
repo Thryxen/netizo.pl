@@ -1,0 +1,197 @@
+  (text) Skip to content
+  (text) Partner program
+  (li) How it works
+  (li) Calculator
+  (li) Terms
+  (li) FAQ
+  (text) PolskiplPolski
+  (button) Switch to dark themeSwitch to light theme
+  (text) JoinJoin the program
+
+[H1] Refer us, earn 15% of every order.
+  (p) Know a company that needs a website, an online store or an app? Pass their contact details on to us. We handle the calls, the quote and the build, and you get 15% of the net value of every invoice that client pays.
+  (text) Join the programCalculate your commission
+  (p) Joining is free. We reply within 24 hours.
+  (p) Contact Netizo and mention my code: ANNA15
+  (text) Incoming transferNetizo partner commission+PLN 1,800
+  (text) New orderANNA15Ruch Physio, booking websitePLN 12,000
+  (text) Netizo 85%Your 15%: PLN 1,800
+  (li) 15%of the net value of every paid invoice
+  (li) 1 yearof commission on the client’s orders
+  (li) 14 daysto payout after the invoice is paid
+  (li) PLN 0to join the program
+
+[H2] How it works
+  (p) Four steps. You refer, we take care of the rest.
+  (li) 01
+
+[H3] You sign up
+  (p) You fill in a short form. Within 24 hours you get your partner code and an agreement to sign.
+  (li) 02
+
+[H3] You refer us
+  (p) You give a company you know your code, or pass their contact details on to us. No selling or negotiating needed.
+  (li) 03
+
+[H3] We do the rest
+  (p) We talk to the client, then quote, design and build. You get an email about every order placed with your code.
+  (li) 04
+
+[H3] You get 15%
+  (p) After every client invoice is paid, we transfer 15% of its net value to you within 14 days at the latest.
+  (p) Your part ends at step two.
+  (text) See how much you could earn
+
+[H2] Calculate your commission
+  (p) Add the companies you could refer to us. The amounts are typical quotes from our projects; the final price depends on the project’s scope.
+
+[H3] Add a referred company
+  (button) Simple websitePLN 4,000
+  (button) Company websitePLN 10,000
+  (button) Online storePLN 15,000
+  (button) Web applicationPLN 30,000
+  (p) Click a bar in the chart to remove it.
+  (button) Clear
+  (button) PLN 1,500
+  (button) PLN 4,500
+  (button) PLN 2,250
+  (p) Each bar is one order. The filled part is your 15%.
+  (p) 3 companies, orders worth PLN 55,000 net.
+  (p) Your commissionPLN 8,250PLN 8,250
+  (p) Plus 15% of these companies’ further orders for 12 months, for example for extensions or technical care.
+
+[H2] Who the program is for
+  (p) All it takes is talking to business owners. Referrals usually come up on their own, in moments like these:
+
+[H3] Accounting firm
+  (p) A client is starting a business and asks who could build their website. You answer with one contact.
+
+[H3] Marketing agency
+  (p) You run the campaigns, but the client has no website or store to turn that traffic into orders.
+
+[H3] Designer, photographer, copywriter
+  (p) You create logos, photos or copy. A website is usually your client’s next step.
+
+[H3] Advisor, consultant
+  (p) You help companies streamline how they work and see where a system or an app would help.
+
+[H3] Netizo client
+  (p) Someone asks who built your website. From now on, that answer pays off.
+
+[H3] Someone who knows businesses
+  (p) You know business owners from work, your industry or your neighborhood. That’s enough.
+
+[H2] Program terms
+  (p) You get the full agreement to review before you start. Here are the key points.
+  (dt) Commission
+  (dd) 15% of the net value of every invoice paid by the referred client.
+  (dt) How long
+  (dd) 12 months from the client’s first order: the project, extensions, technical care.
+  (dt) Payout
+  (dd) By bank transfer, no later than 14 days after the client pays the invoice.
+  (dt) Invoicing
+  (dd) You invoice us if you run a business. If you don’t, we pay you under a signed agreement.
+  (dt) Who counts
+  (dd) A new company we haven’t talked to about working together in the last 12 months.
+  (dt) Attribution
+  (dd) Your partner code given by the client, or contact details you pass on with the client’s consent.
+  (dt) Client’s price
+  (dd) The same as without a referral. We pay the commission out of our margin.
+  (dt) Limit
+  (dd) None. Refer as many companies as you like.
+
+[H2] Common questions
+  (p) Can’t find your question? Write to us and we’ll reply within 24 hours.
+  (text) Email us
+  (button) Who can become a partner?
+  (p) Anyone who knows business owners: an accounting firm, a marketing agency, a graphic designer, a consultant, one of our clients or a private person. You don’t need sales experience or any knowledge of websites.
+  (button) Do I need to run a business?
+  (p) No. Companies invoice us, and with a private person we sign an agreement and pay the commission under it.
+  (button) What is the commission based on?
+  (p) On the net value of every invoice the referred client pays within 12 months of their first order: for the project, its extensions and technical care. If the client orders a website for PLN 10,000 net, you get PLN 1,500.
+  (button) When will I get paid?
+  (p) Within 14 days of the day the client pays the invoice. With every payout you get a statement: which order it is for and what amount it is based on.
+  (button) How will you know the client came from me?
+  (p) The client gives your partner code in the brief or on the first call. You can also pass their contact details to us yourself, with their consent. We confirm every referral to you by email.
+  (button) Will the referred client pay more because of it?
+  (p) No. We pay the commission out of our margin, so the client gets the same quote as without a referral.
+  (button) Do I have to take part in the calls and the quote?
+  (p) No. Passing on the contact is enough. We handle the calls, the quote, the design and the launch. If you like, you can join the first meeting.
+  (button) What if the referred company has already been in touch with you?
+  (p) The commission applies to new clients: companies we haven’t talked to about working together in the last 12 months. If someone has already been in touch, we tell you right after you report the referral.
+  (button) Is there a limit on referrals or earnings?
+  (p) No. You can refer any number of companies, and you earn a commission on each of them.
+  (text) When do I get my commission?
+  (text) Within 14 days of the client paying the invoice.
+
+[H2] Join the program
+  (p) Applying takes a minute. Within 24 hours we’ll get back to you with your partner code and an agreement to review.
+  (p) Your full name
+  (p) Netizo partner
+  (text) 15%
+  (label) Full name*
+  (label) Email*
+  (label) Phone (optional)
+  (text) What best describes you? *
+  (label) Accounting firm
+  (label) Marketing agency
+  (label) Designer, photographer, copywriter
+  (label) Advisor, consultant
+  (label) Netizo client
+  (label) Someone else
+  (label) Who would you like to refer? (optional)
+  (p) Applying doesn’t commit you to anything. Fields marked *with an asterisk are required.
+  (button) Send application
+  (p) We build websites for ambitious companies. Let’s build it together, from idea to launch. Technical care, SEO and lower running costs.
+
+[H2] Information
+  (li) Client portal (opens in a new tab)
+  (li) Partner program
+  (li) Maintenancepl (in Polish)
+  (li) Terms of servicepl (in Polish)
+  (li) Privacy policypl (in Polish)
+
+[H2] Contact
+  (li) [email protected]
+  (li) +48 884 343 924
+
+[H2] Follow us
+  (li) Facebook (opens in a new tab)
+  (li) Instagram (opens in a new tab)
+  (li) TikTok (opens in a new tab)
+  (p) © 2026 Netizo. All rights reserved.
+  (text) PolskiplPolski
+
+[H2] We use cookies
+  (p) This website uses cookies in order to enhance the overall user experience.
+  (button) Only essentials
+  (button) Accept all
+  (text) Customize
+  (label) Essential cookies
+  (p) There are some cookies that we have to include in order for certain web pages to function. For this reason, they do not require your consent.
+  (p) netizopl_cookie_consent
+  (p) 1 year
+  (p) Used to store the user's cookie consent preferences.
+  (p) netizopl-session
+  (p) 2 hours
+  (p) Used to identify the user's browsing session.
+  (p) XSRF-TOKEN
+  (p) 2 hours
+  (p) Used to secure both the user and our website against cross-site request forgery attacks.
+  (text) More details
+  (label) Analytics cookies
+  (p) We use these for internal research on how we can improve the service we provide for all our users. These cookies assess how you interact with our website.
+  (p) _ga
+  (p) 1 year
+  (p) Main cookie used by Google Analytics, enables a service to distinguish one visitor from another.
+  (p) _ga_
+  (p) 1 year
+  (p) Used by Google Analytics to persist session state.
+  (p) _gid
+  (p) 1 day
+  (p) Used by Google Analytics to identify the user.
+  (p) _gat
+  (p) 1 minute
+  (p) Used by Google Analytics to throttle the request rate.
+  (text) More details
+  (button) Save settings

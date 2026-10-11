@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CallbackRequestController;
 use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\HomeController;
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Route;
  */
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/partnerzy', [PartnerProgramController::class, 'index'])->name('partners');
+Route::get('/o-nas', [AboutController::class, 'index'])->name('about');
 
 Route::middleware('throttle:forms')->group(function () {
     Route::post('/kontakt', [ContactMessageController::class, 'store'])->name('contact-messages.store');
@@ -27,6 +29,7 @@ Route::middleware('throttle:forms')->group(function () {
 Route::prefix('en')->name('en.')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/partners', [PartnerProgramController::class, 'index'])->name('partners');
+    Route::get('/about', [AboutController::class, 'index'])->name('about');
 
     Route::middleware('throttle:forms')->group(function () {
         Route::post('/contact', [ContactMessageController::class, 'store'])->name('contact-messages.store');

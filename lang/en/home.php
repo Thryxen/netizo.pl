@@ -58,8 +58,8 @@ return [
             'answer' => 'Yes. From day one you have access to the client portal: you see the tasks and the stage of each one, the time spent and the documents, and you chat with the team. Every two weeks we show the progress on a staging version.',
         ],
         [
-            'question' => 'Do you work with clients outside Poland?',
-            'answer' => 'Yes. We are based in Leszno, in western Poland, and we work with companies from all over the country and from abroad. Most things happen online, over video calls and in the client portal, in Polish or English. If you are near Leszno, we are happy to meet in person.',
+            'question' => 'Do you work with companies from all over Poland?',
+            'answer' => 'Yes. Most projects run remotely: we talk over video calls and by phone, and you follow the progress in the client portal. With companies in and around Leszno, including Rydzyna, Wschowa, Kościan, Gostyń and Rawicz, we can also meet in person: we come to you. We have no office for clients to visit: Kępno is our registered business address.',
         ],
         [
             'question' => 'What technologies do you use?',

@@ -1,0 +1,842 @@
+{
+ "desktop https://netizo.pl/": {
+  "total": 76,
+  "small": [
+   {
+    "tag": "A",
+    "name": "Przejdź do treści",
+    "w": 34,
+    "h": 18,
+    "href": "#main-content"
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Strona WWWLanding page, firmowa, portfol",
+    "w": 1,
+    "h": 1,
+    "labelW": 240,
+    "labelH": 128
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Aplikacja webSaaS, panel, dashboard, CRM",
+    "w": 1,
+    "h": 1,
+    "labelW": 240,
+    "labelH": 128
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "E-commerceSklep, marketplace, B2B",
+    "w": 1,
+    "h": 1,
+    "labelW": 240,
+    "labelH": 128
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Aplikacja mobilnaiOS, Android, cross-pla",
+    "w": 1,
+    "h": 1,
+    "labelW": 240,
+    "labelH": 128
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "RedesignModernizacja istniejącego projek",
+    "w": 1,
+    "h": 1,
+    "labelW": 240,
+    "labelH": 128
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "InneAPI, integracje, automatyzacje",
+    "w": 1,
+    "h": 1,
+    "labelW": 240,
+    "labelH": 128
+   },
+   {
+    "tag": "A",
+    "name": "kontakt@netizo.pl",
+    "w": 147,
+    "h": 20,
+    "href": "mailto:kontakt@netizo.pl"
+   },
+   {
+    "tag": "A",
+    "name": "+48 884 343 924",
+    "w": 142,
+    "h": 20,
+    "href": "tel:+48884343924"
+   },
+   {
+    "tag": "A",
+    "name": "Panel klienta (otwiera się w nowej karci",
+    "w": 82,
+    "h": 20,
+    "href": "https://panel-klienta.netizo.pl"
+   },
+   {
+    "tag": "A",
+    "name": "Program partnerski",
+    "w": 123,
+    "h": 20,
+    "href": "/partnerzy"
+   },
+   {
+    "tag": "A",
+    "name": "Utrzymanie",
+    "w": 73,
+    "h": 20,
+    "href": "/utrzymanie"
+   },
+   {
+    "tag": "A",
+    "name": "Regulamin",
+    "w": 69,
+    "h": 20,
+    "href": "/regulamin"
+   },
+   {
+    "tag": "A",
+    "name": "Polityka prywatności",
+    "w": 133,
+    "h": 20,
+    "href": "/polityka-prywatnosci"
+   },
+   {
+    "tag": "A",
+    "name": "kontakt@netizo.pl",
+    "w": 116,
+    "h": 20,
+    "href": "mailto:kontakt@netizo.pl"
+   },
+   {
+    "tag": "A",
+    "name": "+48 884 343 924",
+    "w": 111,
+    "h": 20,
+    "href": "tel:+48884343924"
+   },
+   {
+    "tag": "A",
+    "name": "Facebook (otwiera się w nowej karcie)",
+    "w": 87,
+    "h": 20,
+    "href": "https://www.facebook.com/netizo.agency"
+   },
+   {
+    "tag": "A",
+    "name": "Instagram (otwiera się w nowej karcie)",
+    "w": 89,
+    "h": 20,
+    "href": "https://www.instagram.com/netizo.agency"
+   },
+   {
+    "tag": "A",
+    "name": "TikTok (otwiera się w nowej karcie)",
+    "w": 65,
+    "h": 20,
+    "href": "https://www.tiktok.com/@netizo.agency"
+   },
+   {
+    "tag": "A",
+    "name": "EnglishenEnglish",
+    "w": 69,
+    "h": 20,
+    "href": "https://netizo.pl/en"
+   }
+  ],
+  "unnamed": [],
+  "clickableDivs": [],
+  "overlapCookie": []
+ },
+ "desktop https://netizo.pl/partnerzy": {
+  "total": 56,
+  "small": [
+   {
+    "tag": "A",
+    "name": "Przejdź do treści",
+    "w": 34,
+    "h": 18,
+    "href": "#main-content"
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Biuro rachunkowe",
+    "w": 1,
+    "h": 1,
+    "labelW": 157,
+    "labelH": 36
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Agencja marketingowa",
+    "w": 1,
+    "h": 1,
+    "labelW": 188,
+    "labelH": 36
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Grafik, fotograf, copywriter",
+    "w": 1,
+    "h": 1,
+    "labelW": 212,
+    "labelH": 36
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Doradca, konsultant",
+    "w": 1,
+    "h": 1,
+    "labelW": 170,
+    "labelH": 36
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Klient Netizo",
+    "w": 1,
+    "h": 1,
+    "labelW": 124,
+    "labelH": 36
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Ktoś inny",
+    "w": 1,
+    "h": 1,
+    "labelW": 101,
+    "labelH": 36
+   },
+   {
+    "tag": "A",
+    "name": "Panel klienta (otwiera się w nowej karci",
+    "w": 82,
+    "h": 20,
+    "href": "https://panel-klienta.netizo.pl"
+   },
+   {
+    "tag": "A",
+    "name": "Program partnerski",
+    "w": 123,
+    "h": 20,
+    "href": "/partnerzy"
+   },
+   {
+    "tag": "A",
+    "name": "Utrzymanie",
+    "w": 73,
+    "h": 20,
+    "href": "/utrzymanie"
+   },
+   {
+    "tag": "A",
+    "name": "Regulamin",
+    "w": 69,
+    "h": 20,
+    "href": "/regulamin"
+   },
+   {
+    "tag": "A",
+    "name": "Polityka prywatności",
+    "w": 133,
+    "h": 20,
+    "href": "/polityka-prywatnosci"
+   },
+   {
+    "tag": "A",
+    "name": "kontakt@netizo.pl",
+    "w": 116,
+    "h": 20,
+    "href": "mailto:kontakt@netizo.pl"
+   },
+   {
+    "tag": "A",
+    "name": "+48 884 343 924",
+    "w": 111,
+    "h": 20,
+    "href": "tel:+48884343924"
+   },
+   {
+    "tag": "A",
+    "name": "Facebook (otwiera się w nowej karcie)",
+    "w": 87,
+    "h": 20,
+    "href": "https://www.facebook.com/netizo.agency"
+   },
+   {
+    "tag": "A",
+    "name": "Instagram (otwiera się w nowej karcie)",
+    "w": 89,
+    "h": 20,
+    "href": "https://www.instagram.com/netizo.agency"
+   },
+   {
+    "tag": "A",
+    "name": "TikTok (otwiera się w nowej karcie)",
+    "w": 65,
+    "h": 20,
+    "href": "https://www.tiktok.com/@netizo.agency"
+   },
+   {
+    "tag": "A",
+    "name": "EnglishenEnglish",
+    "w": 69,
+    "h": 20,
+    "href": "https://netizo.pl/en/partners"
+   }
+  ],
+  "unnamed": [],
+  "clickableDivs": [],
+  "overlapCookie": []
+ },
+ "desktop https://netizo.pl/en": {
+  "total": 76,
+  "small": [
+   {
+    "tag": "A",
+    "name": "Skip to content",
+    "w": 34,
+    "h": 18,
+    "href": "#main-content"
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "WebsiteLanding page, company site, portf",
+    "w": 1,
+    "h": 1,
+    "labelW": 240,
+    "labelH": 128
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Web appSaaS, admin panel, dashboard, CRM",
+    "w": 1,
+    "h": 1,
+    "labelW": 240,
+    "labelH": 128
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "E-commerceOnline store, marketplace, B2B",
+    "w": 1,
+    "h": 1,
+    "labelW": 240,
+    "labelH": 128
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Mobile appiOS, Android, cross-platform",
+    "w": 1,
+    "h": 1,
+    "labelW": 240,
+    "labelH": 128
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "RedesignModernizing an existing project",
+    "w": 1,
+    "h": 1,
+    "labelW": 240,
+    "labelH": 128
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "OtherAPIs, integrations, automation",
+    "w": 1,
+    "h": 1,
+    "labelW": 240,
+    "labelH": 128
+   },
+   {
+    "tag": "A",
+    "name": "kontakt@netizo.pl",
+    "w": 147,
+    "h": 20,
+    "href": "mailto:kontakt@netizo.pl"
+   },
+   {
+    "tag": "A",
+    "name": "+48 884 343 924",
+    "w": 142,
+    "h": 20,
+    "href": "tel:+48884343924"
+   },
+   {
+    "tag": "A",
+    "name": "Client portal (opens in a new tab)",
+    "w": 78,
+    "h": 20,
+    "href": "https://panel-klienta.netizo.pl"
+   },
+   {
+    "tag": "A",
+    "name": "Partner program",
+    "w": 105,
+    "h": 20,
+    "href": "/en/partners"
+   },
+   {
+    "tag": "A",
+    "name": "Maintenancepl (in Polish)",
+    "w": 104,
+    "h": 20,
+    "href": "/utrzymanie"
+   },
+   {
+    "tag": "A",
+    "name": "Terms of servicepl (in Polish)",
+    "w": 125,
+    "h": 20,
+    "href": "/regulamin"
+   },
+   {
+    "tag": "A",
+    "name": "Privacy policypl (in Polish)",
+    "w": 109,
+    "h": 20,
+    "href": "/polityka-prywatnosci"
+   },
+   {
+    "tag": "A",
+    "name": "kontakt@netizo.pl",
+    "w": 116,
+    "h": 20,
+    "href": "mailto:kontakt@netizo.pl"
+   },
+   {
+    "tag": "A",
+    "name": "+48 884 343 924",
+    "w": 111,
+    "h": 20,
+    "href": "tel:+48884343924"
+   },
+   {
+    "tag": "A",
+    "name": "Facebook (opens in a new tab)",
+    "w": 87,
+    "h": 20,
+    "href": "https://www.facebook.com/netizo.agency"
+   },
+   {
+    "tag": "A",
+    "name": "Instagram (opens in a new tab)",
+    "w": 89,
+    "h": 20,
+    "href": "https://www.instagram.com/netizo.agency"
+   },
+   {
+    "tag": "A",
+    "name": "TikTok (opens in a new tab)",
+    "w": 65,
+    "h": 20,
+    "href": "https://www.tiktok.com/@netizo.agency"
+   },
+   {
+    "tag": "A",
+    "name": "PolskiplPolski",
+    "w": 60,
+    "h": 20,
+    "href": "https://netizo.pl"
+   }
+  ],
+  "unnamed": [],
+  "clickableDivs": [],
+  "overlapCookie": []
+ },
+ "desktop https://netizo.pl/en/partners": {
+  "total": 56,
+  "small": [
+   {
+    "tag": "A",
+    "name": "Skip to content",
+    "w": 34,
+    "h": 18,
+    "href": "#main-content"
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Accounting firm",
+    "w": 1,
+    "h": 1,
+    "labelW": 144,
+    "labelH": 36
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Marketing agency",
+    "w": 1,
+    "h": 1,
+    "labelW": 157,
+    "labelH": 36
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Designer, photographer, copywriter",
+    "w": 1,
+    "h": 1,
+    "labelW": 265,
+    "labelH": 36
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Advisor, consultant",
+    "w": 1,
+    "h": 1,
+    "labelW": 163,
+    "labelH": 36
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Netizo client",
+    "w": 1,
+    "h": 1,
+    "labelW": 122,
+    "labelH": 36
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Someone else",
+    "w": 1,
+    "h": 1,
+    "labelW": 133,
+    "labelH": 36
+   },
+   {
+    "tag": "A",
+    "name": "Client portal (opens in a new tab)",
+    "w": 78,
+    "h": 20,
+    "href": "https://panel-klienta.netizo.pl"
+   },
+   {
+    "tag": "A",
+    "name": "Partner program",
+    "w": 105,
+    "h": 20,
+    "href": "/en/partners"
+   },
+   {
+    "tag": "A",
+    "name": "Maintenancepl (in Polish)",
+    "w": 104,
+    "h": 20,
+    "href": "/utrzymanie"
+   },
+   {
+    "tag": "A",
+    "name": "Terms of servicepl (in Polish)",
+    "w": 125,
+    "h": 20,
+    "href": "/regulamin"
+   },
+   {
+    "tag": "A",
+    "name": "Privacy policypl (in Polish)",
+    "w": 109,
+    "h": 20,
+    "href": "/polityka-prywatnosci"
+   },
+   {
+    "tag": "A",
+    "name": "kontakt@netizo.pl",
+    "w": 116,
+    "h": 20,
+    "href": "mailto:kontakt@netizo.pl"
+   },
+   {
+    "tag": "A",
+    "name": "+48 884 343 924",
+    "w": 111,
+    "h": 20,
+    "href": "tel:+48884343924"
+   },
+   {
+    "tag": "A",
+    "name": "Facebook (opens in a new tab)",
+    "w": 87,
+    "h": 20,
+    "href": "https://www.facebook.com/netizo.agency"
+   },
+   {
+    "tag": "A",
+    "name": "Instagram (opens in a new tab)",
+    "w": 89,
+    "h": 20,
+    "href": "https://www.instagram.com/netizo.agency"
+   },
+   {
+    "tag": "A",
+    "name": "TikTok (opens in a new tab)",
+    "w": 65,
+    "h": 20,
+    "href": "https://www.tiktok.com/@netizo.agency"
+   },
+   {
+    "tag": "A",
+    "name": "PolskiplPolski",
+    "w": 60,
+    "h": 20,
+    "href": "https://netizo.pl/partnerzy"
+   }
+  ],
+  "unnamed": [],
+  "clickableDivs": [],
+  "overlapCookie": []
+ },
+ "mobile https://netizo.pl/": {
+  "total": 69,
+  "small": [
+   {
+    "tag": "A",
+    "name": "Przejdź do treści",
+    "w": 34,
+    "h": 18,
+    "href": "#main-content"
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Strona WWWLanding page, firmowa, portfol",
+    "w": 1,
+    "h": 1,
+    "labelW": 358,
+    "labelH": 109
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Aplikacja webSaaS, panel, dashboard, CRM",
+    "w": 1,
+    "h": 1,
+    "labelW": 358,
+    "labelH": 109
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "E-commerceSklep, marketplace, B2B",
+    "w": 1,
+    "h": 1,
+    "labelW": 358,
+    "labelH": 109
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Aplikacja mobilnaiOS, Android, cross-pla",
+    "w": 1,
+    "h": 1,
+    "labelW": 358,
+    "labelH": 109
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "RedesignModernizacja istniejącego projek",
+    "w": 1,
+    "h": 1,
+    "labelW": 358,
+    "labelH": 109
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "InneAPI, integracje, automatyzacje",
+    "w": 1,
+    "h": 1,
+    "labelW": 358,
+    "labelH": 109
+   }
+  ],
+  "unnamed": [],
+  "clickableDivs": [],
+  "overlapCookie": []
+ },
+ "mobile https://netizo.pl/partnerzy": {
+  "total": 51,
+  "small": [
+   {
+    "tag": "A",
+    "name": "Przejdź do treści",
+    "w": 34,
+    "h": 18,
+    "href": "#main-content"
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Biuro rachunkowe",
+    "w": 1,
+    "h": 1,
+    "labelW": 157,
+    "labelH": 44
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Agencja marketingowa",
+    "w": 1,
+    "h": 1,
+    "labelW": 188,
+    "labelH": 44
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Grafik, fotograf, copywriter",
+    "w": 1,
+    "h": 1,
+    "labelW": 212,
+    "labelH": 44
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Doradca, konsultant",
+    "w": 1,
+    "h": 1,
+    "labelW": 170,
+    "labelH": 44
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Klient Netizo",
+    "w": 1,
+    "h": 1,
+    "labelW": 124,
+    "labelH": 44
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Ktoś inny",
+    "w": 1,
+    "h": 1,
+    "labelW": 101,
+    "labelH": 44
+   }
+  ],
+  "unnamed": [],
+  "clickableDivs": [],
+  "overlapCookie": []
+ },
+ "mobile https://netizo.pl/en": {
+  "total": 69,
+  "small": [
+   {
+    "tag": "A",
+    "name": "Skip to content",
+    "w": 34,
+    "h": 18,
+    "href": "#main-content"
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "WebsiteLanding page, company site, portf",
+    "w": 1,
+    "h": 1,
+    "labelW": 358,
+    "labelH": 109
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Web appSaaS, admin panel, dashboard, CRM",
+    "w": 1,
+    "h": 1,
+    "labelW": 358,
+    "labelH": 109
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "E-commerceOnline store, marketplace, B2B",
+    "w": 1,
+    "h": 1,
+    "labelW": 358,
+    "labelH": 109
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Mobile appiOS, Android, cross-platform",
+    "w": 1,
+    "h": 1,
+    "labelW": 358,
+    "labelH": 109
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "RedesignModernizing an existing project",
+    "w": 1,
+    "h": 1,
+    "labelW": 358,
+    "labelH": 109
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "OtherAPIs, integrations, automation",
+    "w": 1,
+    "h": 1,
+    "labelW": 358,
+    "labelH": 109
+   }
+  ],
+  "unnamed": [],
+  "clickableDivs": [],
+  "overlapCookie": []
+ },
+ "mobile https://netizo.pl/en/partners": {
+  "total": 51,
+  "small": [
+   {
+    "tag": "A",
+    "name": "Skip to content",
+    "w": 34,
+    "h": 18,
+    "href": "#main-content"
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Accounting firm",
+    "w": 1,
+    "h": 1,
+    "labelW": 144,
+    "labelH": 44
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Marketing agency",
+    "w": 1,
+    "h": 1,
+    "labelW": 157,
+    "labelH": 44
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Designer, photographer, copywriter",
+    "w": 1,
+    "h": 1,
+    "labelW": 265,
+    "labelH": 44
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Advisor, consultant",
+    "w": 1,
+    "h": 1,
+    "labelW": 163,
+    "labelH": 44
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Netizo client",
+    "w": 1,
+    "h": 1,
+    "labelW": 122,
+    "labelH": 44
+   },
+   {
+    "tag": "INPUT(sr-only)",
+    "name": "Someone else",
+    "w": 1,
+    "h": 1,
+    "labelW": 133,
+    "labelH": 44
+   }
+  ],
+  "unnamed": [],
+  "clickableDivs": [],
+  "overlapCookie": []
+ }
+}

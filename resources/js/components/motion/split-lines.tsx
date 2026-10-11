@@ -1,9 +1,12 @@
-import { type CSSProperties, Fragment, type HTMLAttributes } from 'react';
+import { type CSSProperties, Fragment, type HTMLAttributes, type ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 
 export type SplitLinesProps = Omit<HTMLAttributes<HTMLHeadingElement>, 'children'> & {
-    /** The heading as its lines (narrow column: phones, and from lg where the heading shares the row with a photo). */
-    lines: string[];
+    /**
+     * The heading as its lines (narrow column: phones, and from lg where the heading shares the row with a photo). A line
+     * may hold inline elements (e.g. an avatar before a name); keep those aria-hidden so the heading reads as text.
+     */
+    lines: ReactNode[];
     /**
      * From md up to lg the heading spans the full column: how the lines above merge there, as groups of line indexes
      * in order (e.g. [[0, 1], [2, 3]] for two lines). Omit to keep the same lines everywhere.

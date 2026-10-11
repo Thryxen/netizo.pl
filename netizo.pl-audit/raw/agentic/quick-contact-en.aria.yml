@@ -1,0 +1,14 @@
+- form "Quick message":
+  - text: Full name
+  - textbox "Full name":
+    - /placeholder: John Smith
+  - text: Email
+  - textbox "Email":
+    - /placeholder: john@company.com
+  - text: Subject
+  - combobox "Subject": Choose a subject…
+  - text: Message
+  - textbox "Message":
+    - /placeholder: How can we help?
+  - paragraph: Fields marked with an asterisk are required.
+  - button "Send message"

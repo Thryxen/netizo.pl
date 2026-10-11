@@ -1,0 +1,121 @@
+{
+ "step1_heading": "Krok 1 z 6: Jakiego typu projekt planujesz?",
+ "step1_controls": {
+  "total": 7,
+  "nolabel": 0,
+  "required": []
+ },
+ "focus_after_step2": "H3:Krok 2 z 6: Jakich funkcji potrzebujesz?",
+ "step2_heading": "Krok 2 z 6: Jakich funkcji potrzebujesz?",
+ "step2_controls": {
+  "total": 24,
+  "nolabel": 0,
+  "required": []
+ },
+ "focus_after_step3": "H3:Krok 3 z 6: Szczegóły projektu",
+ "step3_heading": "Krok 3 z 6: Szczegóły projektu",
+ "step3_controls": {
+  "total": 13,
+  "nolabel": 0,
+  "required": []
+ },
+ "focus_after_step4": "H3:Krok 4 z 6: Wymagania techniczne",
+ "step4_heading": "Krok 4 z 6: Wymagania techniczne",
+ "step4_controls": {
+  "total": 16,
+  "nolabel": 0,
+  "required": []
+ },
+ "focus_after_step5": "H3:Krok 5 z 6: Budżet i współpraca",
+ "step5_heading": "Krok 5 z 6: Budżet i współpraca",
+ "step5_controls": {
+  "total": 11,
+  "nolabel": 0,
+  "required": []
+ },
+ "focus_after_step6": "H3:Krok 6 z 6: Dane kontaktowe",
+ "step6_heading": "Krok 6 z 6: Dane kontaktowe",
+ "step6_controls": {
+  "total": 15,
+  "nolabel": 1,
+  "required": [
+   "brief-name",
+   "brief-email",
+   "brief-privacy"
+  ]
+ },
+ "step6_buttons": [
+  "Wstecz",
+  "Wyślij brief"
+ ],
+ "step6_submit_present": 1,
+ "step6_privacy": {
+  "role": "checkbox",
+  "ariaReq": "true",
+  "checked": "false",
+  "label": "Akceptuję politykę prywatności i wyrażam zgodę na kontakt w sprawie zapytania. *",
+  "link": "https://netizo.pl/polityka-prywatnosci",
+  "tag": "BUTTON",
+  "box": {
+   "x": 161,
+   "y": 525.53125,
+   "width": 16,
+   "height": 16,
+   "top": 525.53125,
+   "right": 177,
+   "bottom": 541.53125,
+   "left": 161
+  }
+ },
+ "step6_inputs": [
+  {
+   "id": "brief-name",
+   "type": "text",
+   "ac": "name",
+   "req": false,
+   "ariaReq": "true",
+   "label": "Imię i nazwisko*"
+  },
+  {
+   "id": "brief-email",
+   "type": "email",
+   "ac": "email",
+   "req": false,
+   "ariaReq": "true",
+   "label": "E-mail*"
+  },
+  {
+   "id": "brief-phone",
+   "type": "tel",
+   "ac": "tel",
+   "req": false,
+   "ariaReq": null,
+   "label": "Telefon"
+  },
+  {
+   "id": "brief-company",
+   "type": "text",
+   "ac": "organization",
+   "req": false,
+   "ariaReq": null,
+   "label": "Firma"
+  },
+  {
+   "id": "brief-position",
+   "type": "text",
+   "ac": "organization-title",
+   "req": false,
+   "ariaReq": null,
+   "label": "Stanowisko"
+  },
+  {
+   "id": "brief-website",
+   "type": "url",
+   "ac": "url",
+   "req": false,
+   "ariaReq": null,
+   "label": "Strona WWW"
+  }
+ ],
+ "after_back_heading": "Krok 5 z 6: Budżet i współpraca"
+}

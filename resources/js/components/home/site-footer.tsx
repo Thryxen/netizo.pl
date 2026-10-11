@@ -5,7 +5,7 @@ import { Logo } from '@/components/home/logo';
 import { Container, Rivet } from '@/components/home/section';
 import { SocialIcon } from '@/components/home/social-icon';
 import { localized, useCopy } from '@/lib/i18n';
-import { clientPanelUrl, contact, socialNetworkNames, useInfoLinks, useSocialProfiles } from '@/lib/site';
+import { clientPanelUrl, company, contact, socialNetworkNames, useInfoLinks, useSocialProfiles } from '@/lib/site';
 import { cn } from '@/lib/utils';
 
 const COPY = localized({
@@ -15,8 +15,9 @@ const COPY = localized({
         info: 'Informacje',
         clientPanel: 'Panel klienta',
         contact: 'Kontakt',
+        nip: 'NIP',
+        regon: 'REGON',
         socials: 'Obserwuj nas',
-        rights: 'Wszelkie prawa zastrzeżone.',
     },
     en: {
         home: 'Netizo – home page',
@@ -24,8 +25,9 @@ const COPY = localized({
         info: 'Information',
         clientPanel: 'Client portal',
         contact: 'Contact',
+        nip: 'Tax ID (NIP)',
+        regon: 'REGON',
         socials: 'Follow us',
-        rights: 'All rights reserved.',
     },
 });
 
@@ -34,6 +36,12 @@ const linkClass = cn(
     'inline-flex min-h-11 items-center rounded-sm text-muted-foreground transition-colors hover:text-foreground md:min-h-0',
     'outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
 );
+
+/**
+ * Item of the registry line in the bottom bar, divided from the previous one by a hairline. The list is shifted left
+ * under an overflow clip, so the item that starts a row (the first one, or the first after a wrap) loses its divider.
+ */
+const registryItemClass = '-ml-px border-l border-border px-3';
 
 type SiteFooterProps = {
     /** Where the logo leads: the top of the page on the home page (default), the home page (of the page's language) elsewhere. */
@@ -116,10 +124,23 @@ export function SiteFooter({ homeHref = '#' }: SiteFooterProps) {
                 <Container className="flex flex-wrap items-center justify-between gap-4 py-6">
                     <Rivet side="left" />
                     <Rivet side="right" />
-                    {/* The SSR server and the browser may disagree on the year around New Year (or across time zones). */}
-                    <p suppressHydrationWarning className="text-sm text-muted-foreground">
-                        © {new Date().getFullYear()} Netizo. {copy.rights}
-                    </p>
+                    <div className="overflow-hidden">
+                        <ul className="-ml-3 flex flex-wrap gap-y-1 text-sm text-muted-foreground">
+                            {/* The SSR server and the browser may disagree on the year around New Year (or across time zones). */}
+                            <li suppressHydrationWarning className={registryItemClass}>
+                                © {new Date().getFullYear()} {company.name}
+                            </li>
+                            <li className={registryItemClass}>
+                                {company.street}, {company.postalCode} {company.city}
+                            </li>
+                            <li className={cn(registryItemClass, 'tabular-nums')}>
+                                {copy.nip} {company.nip}
+                            </li>
+                            <li className={cn(registryItemClass, 'tabular-nums')}>
+                                {copy.regon} {company.regon}
+                            </li>
+                        </ul>
+                    </div>
                     <LanguageSwitcher variant="link" />
                 </Container>
             </div>

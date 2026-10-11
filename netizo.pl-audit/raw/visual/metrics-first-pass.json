@@ -1,0 +1,9832 @@
+{
+ "home-pl-desktop-light": {
+  "vw": 1440,
+  "vh": 900,
+  "docScrollWidth": 1440,
+  "bodyScrollWidth": 1440,
+  "docHeight": 12160,
+  "hscroll": false,
+  "lang": "pl",
+  "classes": "js",
+  "bodyFont": "16px",
+  "h1": {
+   "text": "Tworzymy strony WWW dla ambitnych.",
+   "rect": {
+    "x": 161,
+    "y": 213,
+    "w": 426,
+    "h": 177
+   },
+   "fontSize": "53.2285px"
+  },
+  "interactiveTotal": 77,
+  "aboveFold": [
+   {
+    "tag": "a",
+    "text": "Przejdź do treści",
+    "href": "#main-content",
+    "rect": {
+     "x": -1,
+     "y": -1,
+     "w": 34,
+     "h": 18
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Netizo – strona główna",
+    "href": "#",
+    "rect": {
+     "x": 157,
+     "y": 10,
+     "w": 158,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Usługi",
+    "href": "#uslugi",
+    "rect": {
+     "x": 371,
+     "y": 14,
+     "w": 61,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Projekty",
+    "href": "#projekty",
+    "rect": {
+     "x": 436,
+     "y": 14,
+     "w": 75,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Proces",
+    "href": "#proces",
+    "rect": {
+     "x": 515,
+     "y": 14,
+     "w": 65,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "FAQ",
+    "href": "#faq",
+    "rect": {
+     "x": 585,
+     "y": 14,
+     "w": 47,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Kontakt",
+    "href": "#kontakt",
+    "rect": {
+     "x": 635,
+     "y": 14,
+     "w": 71,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "English English",
+    "href": "https://netizo.pl/en",
+    "rect": {
+     "x": 886,
+     "y": 14,
+     "w": 90,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Włącz ciemny motyw",
+    "href": "",
+    "rect": {
+     "x": 984,
+     "y": 14,
+     "w": 36,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Panel klienta (otwiera się w nowej karcie)",
+    "href": "https://panel-klienta.netizo.pl",
+    "rect": {
+     "x": 1028,
+     "y": 14,
+     "w": 117,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Wyceń projekt",
+    "href": "",
+    "rect": {
+     "x": 1153,
+     "y": 14,
+     "w": 126,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Wyceń projekt",
+    "href": "",
+    "rect": {
+     "x": 161,
+     "y": 533,
+     "w": 142,
+     "h": 40
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Zobacz realizacje",
+    "href": "#projekty",
+    "rect": {
+     "x": 315,
+     "y": 533,
+     "w": 163,
+     "h": 40
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Zamów rozmowę telefoniczną",
+    "href": "",
+    "rect": {
+     "x": 1368,
+     "y": 700,
+     "w": 52,
+     "h": 52
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Tylko niezbędne",
+    "href": "",
+    "rect": {
+     "x": 960,
+     "y": 798,
+     "w": 140,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Zaakceptuj wszystko",
+    "href": "",
+    "rect": {
+     "x": 1108,
+     "y": 798,
+     "w": 172,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Dostosuj",
+    "href": "#cookies-policy-customize",
+    "rect": {
+     "x": 0,
+     "y": 860,
+     "w": 1440,
+     "h": 41
+    },
+    "fixed": false
+   }
+  ],
+  "smallTargets": [
+   {
+    "tag": "a",
+    "text": "Przejdź do treści",
+    "href": "#main-content",
+    "rect": {
+     "x": -1,
+     "y": -1,
+     "w": 34,
+     "h": 18
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Usługi",
+    "href": "#uslugi",
+    "rect": {
+     "x": 371,
+     "y": 14,
+     "w": 61,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Projekty",
+    "href": "#projekty",
+    "rect": {
+     "x": 436,
+     "y": 14,
+     "w": 75,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Proces",
+    "href": "#proces",
+    "rect": {
+     "x": 515,
+     "y": 14,
+     "w": 65,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "FAQ",
+    "href": "#faq",
+    "rect": {
+     "x": 585,
+     "y": 14,
+     "w": 47,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Kontakt",
+    "href": "#kontakt",
+    "rect": {
+     "x": 635,
+     "y": 14,
+     "w": 71,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "English English",
+    "href": "https://netizo.pl/en",
+    "rect": {
+     "x": 886,
+     "y": 14,
+     "w": 90,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Włącz ciemny motyw",
+    "href": "",
+    "rect": {
+     "x": 984,
+     "y": 14,
+     "w": 36,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Panel klienta (otwiera się w nowej karcie)",
+    "href": "https://panel-klienta.netizo.pl",
+    "rect": {
+     "x": 1028,
+     "y": 14,
+     "w": 117,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Wyceń projekt",
+    "href": "",
+    "rect": {
+     "x": 1153,
+     "y": 14,
+     "w": 126,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Wyceń projekt",
+    "href": "",
+    "rect": {
+     "x": 161,
+     "y": 533,
+     "w": 142,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Zobacz realizacje",
+    "href": "#projekty",
+    "rect": {
+     "x": 315,
+     "y": 533,
+     "w": 163,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zobacz case study projektu Treepro.pl",
+    "href": "",
+    "rect": {
+     "x": 841,
+     "y": 3066,
+     "w": 156,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zobacz case study projektu Vetly.pl",
+    "href": "",
+    "rect": {
+     "x": 841,
+     "y": 3615,
+     "w": 156,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zobacz case study projektu energizo.pl",
+    "href": "",
+    "rect": {
+     "x": 841,
+     "y": 4243,
+     "w": 156,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zobacz case study projektu nakazdaokazje.pl",
+    "href": "",
+    "rect": {
+     "x": 841,
+     "y": 4790,
+     "w": 156,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zobacz case study projektu KrainaMT2.pl",
+    "href": "",
+    "rect": {
+     "x": 841,
+     "y": 5342,
+     "w": 156,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Zobacz, jak wygląda panel",
+    "href": "#panel",
+    "rect": {
+     "x": 1056,
+     "y": 7382,
+     "w": 223,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Projekt na zlecenie",
+    "href": "",
+    "rect": {
+     "x": 164,
+     "y": 7883,
+     "w": 159,
+     "h": 34
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Stała współpraca",
+    "href": "",
+    "rect": {
+     "x": 323,
+     "y": 7883,
+     "w": 159,
+     "h": 34
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Zaloguj się do panelu (otwiera się w nowej karcie)",
+    "href": "https://panel-klienta.netizo.pl",
+    "rect": {
+     "x": 161,
+     "y": 8238,
+     "w": 186,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zapytaj o dostęp",
+    "href": "",
+    "rect": {
+     "x": 359,
+     "y": 8238,
+     "w": 160,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Zostań partnerem",
+    "href": "/partnerzy",
+    "rect": {
+     "x": 161,
+     "y": 10023,
+     "w": 164,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 860,
+     "y": 10525,
+     "w": 283,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zapisz się",
+    "href": "",
+    "rect": {
+     "x": 1151,
+     "y": 10525,
+     "w": 128,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 177,
+     "y": 11271,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 416,
+     "y": 11271,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 655,
+     "y": 11271,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 177,
+     "y": 11397,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 416,
+     "y": 11397,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 655,
+     "y": 11397,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Dalej",
+    "href": "",
+    "rect": {
+     "x": 767,
+     "y": 11566,
+     "w": 112,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "kontakt@netizo.pl",
+    "href": "mailto:kontakt@netizo.pl",
+    "rect": {
+     "x": 952,
+     "y": 11475,
+     "w": 147,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "rect": {
+     "x": 952,
+     "y": 11516,
+     "w": 142,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zadzwońcie do mnie",
+    "href": "",
+    "rect": {
+     "x": 952,
+     "y": 11565,
+     "w": 167,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Panel klienta (otwiera się w nowej karcie)",
+    "href": "https://panel-klienta.netizo.pl",
+    "rect": {
+     "x": 544,
+     "y": 11751,
+     "w": 82,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Program partnerski",
+    "href": "/partnerzy",
+    "rect": {
+     "x": 544,
+     "y": 11783,
+     "w": 123,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Utrzymanie",
+    "href": "/utrzymanie",
+    "rect": {
+     "x": 544,
+     "y": 11815,
+     "w": 73,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Regulamin",
+    "href": "/regulamin",
+    "rect": {
+     "x": 544,
+     "y": 11847,
+     "w": 69,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Polityka prywatności",
+    "href": "/polityka-prywatnosci",
+    "rect": {
+     "x": 544,
+     "y": 11879,
+     "w": 133,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "kontakt@netizo.pl",
+    "href": "mailto:kontakt@netizo.pl",
+    "rect": {
+     "x": 832,
+     "y": 11751,
+     "w": 116,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "rect": {
+     "x": 832,
+     "y": 11783,
+     "w": 111,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Facebook (otwiera się w nowej karcie)",
+    "href": "https://www.facebook.com/netizo.agency",
+    "rect": {
+     "x": 1119,
+     "y": 11751,
+     "w": 87,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Instagram (otwiera się w nowej karcie)",
+    "href": "https://www.instagram.com/netizo.agency",
+    "rect": {
+     "x": 1119,
+     "y": 11786,
+     "w": 89,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "TikTok (otwiera się w nowej karcie)",
+    "href": "https://www.tiktok.com/@netizo.agency",
+    "rect": {
+     "x": 1119,
+     "y": 11821,
+     "w": 65,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "English English",
+    "href": "https://netizo.pl/en",
+    "rect": {
+     "x": 1210,
+     "y": 11988,
+     "w": 69,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Tylko niezbędne",
+    "href": "",
+    "rect": {
+     "x": 960,
+     "y": 798,
+     "w": 140,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zaakceptuj wszystko",
+    "href": "",
+    "rect": {
+     "x": 1108,
+     "y": 798,
+     "w": 172,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Dostosuj",
+    "href": "#cookies-policy-customize",
+    "rect": {
+     "x": 0,
+     "y": 860,
+     "w": 1440,
+     "h": 41
+    },
+    "inline": false
+   }
+  ],
+  "fixed": [
+   {
+    "tag": "header",
+    "id": "",
+    "cls": "sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-md suppo",
+    "pos": "sticky",
+    "z": "40",
+    "rect": {
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 65
+    },
+    "text": "Usługi Projekty Proces FAQ Kontakt English English Włącz cie"
+   },
+   {
+    "tag": "div",
+    "id": "",
+    "cls": "@container relative overflow-hidden border bg-muted aspect-[4/3] sm:aspect-[16/9",
+    "pos": "sticky",
+    "z": "auto",
+    "rect": {
+     "x": 161,
+     "y": 9276,
+     "w": 330,
+     "h": 413
+    },
+    "text": "Ile trwa zrobienie strony firmowej? Zwykle 4–6 tygodni. Dokł"
+   },
+   {
+    "tag": "button",
+    "id": "",
+    "cls": "inline-flex shrink-0 items-center justify-center gap-2 text-sm font-medium white",
+    "pos": "fixed",
+    "z": "30",
+    "rect": {
+     "x": 1368,
+     "y": 700,
+     "w": 52,
+     "h": 52
+    },
+    "text": "Zamów rozmowę telefoniczną"
+   },
+   {
+    "tag": "aside",
+    "id": "cookies-policy",
+    "cls": "cookies",
+    "pos": "fixed",
+    "z": "45",
+    "rect": {
+     "x": 0,
+     "y": 772,
+     "w": 1440,
+     "h": 128
+    },
+    "text": "Korzystamy z plików cookie Ta witryna używa plików cookie w "
+   }
+  ],
+  "cookieBanner": {
+   "x": 0,
+   "y": 772,
+   "w": 1440,
+   "h": 128
+  },
+  "cookieBannerVar": "128px",
+  "overflowing": [
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1020,
+     "y": 1817,
+     "w": 598,
+     "h": 80
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1020,
+     "y": 1839,
+     "w": 598,
+     "h": 58
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1020,
+     "y": 1839,
+     "w": 598,
+     "h": 46
+    },
+    "text": ""
+   },
+   {
+    "tag": "div",
+    "cls": "flex w-max",
+    "rect": {
+     "x": 121,
+     "y": 6362,
+     "w": 3923,
+     "h": 146
+    },
+    "text": "treepro.pl (otwiera się w nowe"
+   },
+   {
+    "tag": "div",
+    "cls": "flex shrink-0 items-center gap-[var(--marquee-gap,3rem)] pr-",
+    "rect": {
+     "x": 121,
+     "y": 6362,
+     "w": 1961,
+     "h": 146
+    },
+    "text": "treepro.pl (otwiera się w nowe"
+   },
+   {
+    "tag": "ul",
+    "cls": "flex items-center gap-[var(--marquee-gap)]",
+    "rect": {
+     "x": 121,
+     "y": 6418,
+     "w": 1913,
+     "h": 34
+    },
+    "text": "treepro.pl (otwiera się w nowe"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 1279,
+     "y": 6419,
+     "w": 198,
+     "h": 32
+    },
+    "text": "temar-mt.pl (otwiera się w now"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 1279,
+     "y": 6411,
+     "w": 198,
+     "h": 48
+    },
+    "text": "temar-mt.pl (otwiera się w now"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 1279,
+     "y": 6419,
+     "w": 174,
+     "h": 32
+    },
+    "text": "temar-mt.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1457,
+     "y": 6419,
+     "w": 20,
+     "h": 20
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1463,
+     "y": 6425,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1463,
+     "y": 6425,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 1525,
+     "y": 6419,
+     "w": 184,
+     "h": 32
+    },
+    "text": "energizo.pl (otwiera się w now"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 1525,
+     "y": 6411,
+     "w": 184,
+     "h": 48
+    },
+    "text": "energizo.pl (otwiera się w now"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 1525,
+     "y": 6419,
+     "w": 160,
+     "h": 32
+    },
+    "text": "energizo.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1688,
+     "y": 6419,
+     "w": 20,
+     "h": 20
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1694,
+     "y": 6425,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1694,
+     "y": 6425,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "span",
+    "cls": "sr-only",
+    "rect": {
+     "x": 1524,
+     "y": 6418,
+     "w": 1,
+     "h": 1
+    },
+    "text": "(otwiera się w nowej karcie)"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 1756,
+     "y": 6419,
+     "w": 278,
+     "h": 32
+    },
+    "text": "nakazdaokazje.pl (otwiera się "
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 1756,
+     "y": 6411,
+     "w": 278,
+     "h": 48
+    },
+    "text": "nakazdaokazje.pl (otwiera się "
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 1756,
+     "y": 6419,
+     "w": 254,
+     "h": 32
+    },
+    "text": "nakazdaokazje.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 2014,
+     "y": 6419,
+     "w": 20,
+     "h": 20
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 2020,
+     "y": 6425,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 2020,
+     "y": 6425,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "span",
+    "cls": "sr-only",
+    "rect": {
+     "x": 1755,
+     "y": 6418,
+     "w": 1,
+     "h": 1
+    },
+    "text": "(otwiera się w nowej karcie)"
+   },
+   {
+    "tag": "div",
+    "cls": "flex shrink-0 items-center gap-[var(--marquee-gap,3rem)] pr-",
+    "rect": {
+     "x": 2082,
+     "y": 6362,
+     "w": 1961,
+     "h": 146
+    },
+    "text": "treepro.pl (otwiera się w nowe"
+   },
+   {
+    "tag": "ul",
+    "cls": "flex items-center gap-[var(--marquee-gap)]",
+    "rect": {
+     "x": 2082,
+     "y": 6418,
+     "w": 1913,
+     "h": 34
+    },
+    "text": "treepro.pl (otwiera się w nowe"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 2082,
+     "y": 6419,
+     "w": 166,
+     "h": 32
+    },
+    "text": "treepro.pl (otwiera się w nowe"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 2082,
+     "y": 6411,
+     "w": 166,
+     "h": 48
+    },
+    "text": "treepro.pl (otwiera się w nowe"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 2082,
+     "y": 6419,
+     "w": 142,
+     "h": 32
+    },
+    "text": "treepro.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 2228,
+     "y": 6419,
+     "w": 20,
+     "h": 20
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 2234,
+     "y": 6425,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 2234,
+     "y": 6425,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "span",
+    "cls": "sr-only",
+    "rect": {
+     "x": 2081,
+     "y": 6418,
+     "w": 1,
+     "h": 1
+    },
+    "text": "(otwiera się w nowej karcie)"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 2296,
+     "y": 6418,
+     "w": 105,
+     "h": 34
+    },
+    "text": "vetly.pl"
+   },
+   {
+    "tag": "span",
+    "cls": "text-foreground/80",
+    "rect": {
+     "x": 2296,
+     "y": 6418,
+     "w": 105,
+     "h": 34
+    },
+    "text": "vetly.pl"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 2296,
+     "y": 6413,
+     "w": 105,
+     "h": 41
+    },
+    "text": "vetly.pl"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 2449,
+     "y": 6419,
+     "w": 255,
+     "h": 32
+    },
+    "text": "leasingodreki.pl (otwiera się "
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 2449,
+     "y": 6411,
+     "w": 255,
+     "h": 48
+    },
+    "text": "leasingodreki.pl (otwiera się "
+   }
+  ],
+  "text": {
+   "total": 591,
+   "below12": 210,
+   "below14": 338,
+   "samples": [
+    {
+     "fs": 9.27161,
+     "text": "twojafirma.pl"
+    },
+    {
+     "fs": 10.9574,
+     "text": "Twoja marka"
+    },
+    {
+     "fs": 9.27161,
+     "text": "Sklep"
+    },
+    {
+     "fs": 9.27161,
+     "text": "O nas"
+    },
+    {
+     "fs": 9.27161,
+     "text": "Kontakt"
+    },
+    {
+     "fs": 6.32155,
+     "text": "2"
+    },
+    {
+     "fs": 9.69304,
+     "text": "Małe serie z naturalnej wełny."
+    },
+    {
+     "fs": 9.27161,
+     "text": "Zobacz kolekcję"
+    },
+    {
+     "fs": 8.0073,
+     "text": "<Hero />"
+    },
+    {
+     "fs": 9.69304,
+     "text": "Sweter Bałtyk"
+    },
+    {
+     "fs": 9.69304,
+     "text": "349 zł"
+    },
+    {
+     "fs": 9.69304,
+     "text": "Szal Mgła"
+    }
+   ]
+  },
+  "images": {
+   "total": 22,
+   "noAlt": 0,
+   "emptyAlt": 17,
+   "noDims": 0,
+   "broken": []
+  },
+  "cls": 0.0003874421296296296,
+  "lcp": 368,
+  "langSwitch": [
+   {
+    "text": "English English",
+    "href": "https://netizo.pl/en",
+    "rect": {
+     "x": 886,
+     "y": 14,
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "English English",
+    "href": "https://netizo.pl/en",
+    "rect": {
+     "x": 1210,
+     "y": 11988,
+     "w": 69,
+     "h": 20
+    }
+   }
+  ],
+  "tel": [
+   {
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "visible": true,
+    "rect": {
+     "x": 952,
+     "y": 11516,
+     "w": 142,
+     "h": 20
+    }
+   },
+   {
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "visible": true,
+    "rect": {
+     "x": 832,
+     "y": 11783,
+     "w": 111,
+     "h": 20
+    }
+   }
+  ],
+  "dialogs": [],
+  "errors": []
+ },
+ "home-pl-desktop-dark": {
+  "vw": 1440,
+  "vh": 900,
+  "docScrollWidth": 1440,
+  "bodyScrollWidth": 1440,
+  "docHeight": 12160,
+  "hscroll": false,
+  "lang": "pl",
+  "classes": "dark js",
+  "bodyFont": "16px",
+  "h1": {
+   "text": "Tworzymy strony WWW dla ambitnych.",
+   "rect": {
+    "x": 161,
+    "y": 213,
+    "w": 426,
+    "h": 177
+   },
+   "fontSize": "53.2285px"
+  },
+  "interactiveTotal": 77,
+  "aboveFold": [
+   {
+    "tag": "a",
+    "text": "Przejdź do treści",
+    "href": "#main-content",
+    "rect": {
+     "x": -1,
+     "y": -1,
+     "w": 34,
+     "h": 18
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Netizo – strona główna",
+    "href": "#",
+    "rect": {
+     "x": 157,
+     "y": 10,
+     "w": 158,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Usługi",
+    "href": "#uslugi",
+    "rect": {
+     "x": 371,
+     "y": 14,
+     "w": 61,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Projekty",
+    "href": "#projekty",
+    "rect": {
+     "x": 436,
+     "y": 14,
+     "w": 75,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Proces",
+    "href": "#proces",
+    "rect": {
+     "x": 515,
+     "y": 14,
+     "w": 65,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "FAQ",
+    "href": "#faq",
+    "rect": {
+     "x": 585,
+     "y": 14,
+     "w": 47,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Kontakt",
+    "href": "#kontakt",
+    "rect": {
+     "x": 635,
+     "y": 14,
+     "w": 71,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "English English",
+    "href": "https://netizo.pl/en",
+    "rect": {
+     "x": 886,
+     "y": 14,
+     "w": 90,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Włącz jasny motyw",
+    "href": "",
+    "rect": {
+     "x": 984,
+     "y": 14,
+     "w": 36,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Panel klienta (otwiera się w nowej karcie)",
+    "href": "https://panel-klienta.netizo.pl",
+    "rect": {
+     "x": 1028,
+     "y": 14,
+     "w": 117,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Wyceń projekt",
+    "href": "",
+    "rect": {
+     "x": 1153,
+     "y": 14,
+     "w": 126,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Wyceń projekt",
+    "href": "",
+    "rect": {
+     "x": 161,
+     "y": 533,
+     "w": 142,
+     "h": 40
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Zobacz realizacje",
+    "href": "#projekty",
+    "rect": {
+     "x": 315,
+     "y": 533,
+     "w": 163,
+     "h": 40
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Zamów rozmowę telefoniczną",
+    "href": "",
+    "rect": {
+     "x": 1368,
+     "y": 700,
+     "w": 52,
+     "h": 52
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Tylko niezbędne",
+    "href": "",
+    "rect": {
+     "x": 960,
+     "y": 798,
+     "w": 140,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Zaakceptuj wszystko",
+    "href": "",
+    "rect": {
+     "x": 1108,
+     "y": 798,
+     "w": 172,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Dostosuj",
+    "href": "#cookies-policy-customize",
+    "rect": {
+     "x": 0,
+     "y": 860,
+     "w": 1440,
+     "h": 41
+    },
+    "fixed": false
+   }
+  ],
+  "smallTargets": [
+   {
+    "tag": "a",
+    "text": "Przejdź do treści",
+    "href": "#main-content",
+    "rect": {
+     "x": -1,
+     "y": -1,
+     "w": 34,
+     "h": 18
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Usługi",
+    "href": "#uslugi",
+    "rect": {
+     "x": 371,
+     "y": 14,
+     "w": 61,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Projekty",
+    "href": "#projekty",
+    "rect": {
+     "x": 436,
+     "y": 14,
+     "w": 75,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Proces",
+    "href": "#proces",
+    "rect": {
+     "x": 515,
+     "y": 14,
+     "w": 65,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "FAQ",
+    "href": "#faq",
+    "rect": {
+     "x": 585,
+     "y": 14,
+     "w": 47,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Kontakt",
+    "href": "#kontakt",
+    "rect": {
+     "x": 635,
+     "y": 14,
+     "w": 71,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "English English",
+    "href": "https://netizo.pl/en",
+    "rect": {
+     "x": 886,
+     "y": 14,
+     "w": 90,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Włącz jasny motyw",
+    "href": "",
+    "rect": {
+     "x": 984,
+     "y": 14,
+     "w": 36,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Panel klienta (otwiera się w nowej karcie)",
+    "href": "https://panel-klienta.netizo.pl",
+    "rect": {
+     "x": 1028,
+     "y": 14,
+     "w": 117,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Wyceń projekt",
+    "href": "",
+    "rect": {
+     "x": 1153,
+     "y": 14,
+     "w": 126,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Wyceń projekt",
+    "href": "",
+    "rect": {
+     "x": 161,
+     "y": 533,
+     "w": 142,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Zobacz realizacje",
+    "href": "#projekty",
+    "rect": {
+     "x": 315,
+     "y": 533,
+     "w": 163,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zobacz case study projektu Treepro.pl",
+    "href": "",
+    "rect": {
+     "x": 841,
+     "y": 3066,
+     "w": 156,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zobacz case study projektu Vetly.pl",
+    "href": "",
+    "rect": {
+     "x": 841,
+     "y": 3615,
+     "w": 156,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zobacz case study projektu energizo.pl",
+    "href": "",
+    "rect": {
+     "x": 841,
+     "y": 4243,
+     "w": 156,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zobacz case study projektu nakazdaokazje.pl",
+    "href": "",
+    "rect": {
+     "x": 841,
+     "y": 4790,
+     "w": 156,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zobacz case study projektu KrainaMT2.pl",
+    "href": "",
+    "rect": {
+     "x": 841,
+     "y": 5342,
+     "w": 156,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Zobacz, jak wygląda panel",
+    "href": "#panel",
+    "rect": {
+     "x": 1056,
+     "y": 7382,
+     "w": 223,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Projekt na zlecenie",
+    "href": "",
+    "rect": {
+     "x": 164,
+     "y": 7883,
+     "w": 159,
+     "h": 34
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Stała współpraca",
+    "href": "",
+    "rect": {
+     "x": 323,
+     "y": 7883,
+     "w": 159,
+     "h": 34
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Zaloguj się do panelu (otwiera się w nowej karcie)",
+    "href": "https://panel-klienta.netizo.pl",
+    "rect": {
+     "x": 161,
+     "y": 8238,
+     "w": 186,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zapytaj o dostęp",
+    "href": "",
+    "rect": {
+     "x": 359,
+     "y": 8238,
+     "w": 160,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Zostań partnerem",
+    "href": "/partnerzy",
+    "rect": {
+     "x": 161,
+     "y": 10023,
+     "w": 164,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 860,
+     "y": 10525,
+     "w": 283,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zapisz się",
+    "href": "",
+    "rect": {
+     "x": 1151,
+     "y": 10525,
+     "w": 128,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 177,
+     "y": 11271,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 416,
+     "y": 11271,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 655,
+     "y": 11271,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 177,
+     "y": 11397,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 416,
+     "y": 11397,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 655,
+     "y": 11397,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Dalej",
+    "href": "",
+    "rect": {
+     "x": 767,
+     "y": 11566,
+     "w": 112,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "kontakt@netizo.pl",
+    "href": "mailto:kontakt@netizo.pl",
+    "rect": {
+     "x": 952,
+     "y": 11475,
+     "w": 147,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "rect": {
+     "x": 952,
+     "y": 11516,
+     "w": 142,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zadzwońcie do mnie",
+    "href": "",
+    "rect": {
+     "x": 952,
+     "y": 11565,
+     "w": 167,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Panel klienta (otwiera się w nowej karcie)",
+    "href": "https://panel-klienta.netizo.pl",
+    "rect": {
+     "x": 544,
+     "y": 11751,
+     "w": 82,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Program partnerski",
+    "href": "/partnerzy",
+    "rect": {
+     "x": 544,
+     "y": 11783,
+     "w": 123,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Utrzymanie",
+    "href": "/utrzymanie",
+    "rect": {
+     "x": 544,
+     "y": 11815,
+     "w": 73,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Regulamin",
+    "href": "/regulamin",
+    "rect": {
+     "x": 544,
+     "y": 11847,
+     "w": 69,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Polityka prywatności",
+    "href": "/polityka-prywatnosci",
+    "rect": {
+     "x": 544,
+     "y": 11879,
+     "w": 133,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "kontakt@netizo.pl",
+    "href": "mailto:kontakt@netizo.pl",
+    "rect": {
+     "x": 832,
+     "y": 11751,
+     "w": 116,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "rect": {
+     "x": 832,
+     "y": 11783,
+     "w": 111,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Facebook (otwiera się w nowej karcie)",
+    "href": "https://www.facebook.com/netizo.agency",
+    "rect": {
+     "x": 1119,
+     "y": 11751,
+     "w": 87,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Instagram (otwiera się w nowej karcie)",
+    "href": "https://www.instagram.com/netizo.agency",
+    "rect": {
+     "x": 1119,
+     "y": 11786,
+     "w": 89,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "TikTok (otwiera się w nowej karcie)",
+    "href": "https://www.tiktok.com/@netizo.agency",
+    "rect": {
+     "x": 1119,
+     "y": 11821,
+     "w": 65,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "English English",
+    "href": "https://netizo.pl/en",
+    "rect": {
+     "x": 1210,
+     "y": 11988,
+     "w": 69,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Tylko niezbędne",
+    "href": "",
+    "rect": {
+     "x": 960,
+     "y": 798,
+     "w": 140,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zaakceptuj wszystko",
+    "href": "",
+    "rect": {
+     "x": 1108,
+     "y": 798,
+     "w": 172,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Dostosuj",
+    "href": "#cookies-policy-customize",
+    "rect": {
+     "x": 0,
+     "y": 860,
+     "w": 1440,
+     "h": 41
+    },
+    "inline": false
+   }
+  ],
+  "fixed": [
+   {
+    "tag": "header",
+    "id": "",
+    "cls": "sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-md suppo",
+    "pos": "sticky",
+    "z": "40",
+    "rect": {
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 65
+    },
+    "text": "Usługi Projekty Proces FAQ Kontakt English English Włącz jas"
+   },
+   {
+    "tag": "div",
+    "id": "",
+    "cls": "@container relative overflow-hidden border bg-muted aspect-[4/3] sm:aspect-[16/9",
+    "pos": "sticky",
+    "z": "auto",
+    "rect": {
+     "x": 161,
+     "y": 9276,
+     "w": 330,
+     "h": 413
+    },
+    "text": "Ile trwa zrobienie strony firmowej? Zwykle 4–6 tygodni. Dokł"
+   },
+   {
+    "tag": "button",
+    "id": "",
+    "cls": "inline-flex shrink-0 items-center justify-center gap-2 text-sm font-medium white",
+    "pos": "fixed",
+    "z": "30",
+    "rect": {
+     "x": 1368,
+     "y": 700,
+     "w": 52,
+     "h": 52
+    },
+    "text": "Zamów rozmowę telefoniczną"
+   },
+   {
+    "tag": "aside",
+    "id": "cookies-policy",
+    "cls": "cookies",
+    "pos": "fixed",
+    "z": "45",
+    "rect": {
+     "x": 0,
+     "y": 772,
+     "w": 1440,
+     "h": 128
+    },
+    "text": "Korzystamy z plików cookie Ta witryna używa plików cookie w "
+   }
+  ],
+  "cookieBanner": {
+   "x": 0,
+   "y": 772,
+   "w": 1440,
+   "h": 128
+  },
+  "cookieBannerVar": "128px",
+  "overflowing": [
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1020,
+     "y": 1817,
+     "w": 598,
+     "h": 80
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1020,
+     "y": 1839,
+     "w": 598,
+     "h": 58
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1020,
+     "y": 1839,
+     "w": 598,
+     "h": 46
+    },
+    "text": ""
+   },
+   {
+    "tag": "div",
+    "cls": "flex w-max",
+    "rect": {
+     "x": 121,
+     "y": 6362,
+     "w": 3923,
+     "h": 146
+    },
+    "text": "treepro.pl (otwiera się w nowe"
+   },
+   {
+    "tag": "div",
+    "cls": "flex shrink-0 items-center gap-[var(--marquee-gap,3rem)] pr-",
+    "rect": {
+     "x": 121,
+     "y": 6362,
+     "w": 1961,
+     "h": 146
+    },
+    "text": "treepro.pl (otwiera się w nowe"
+   },
+   {
+    "tag": "ul",
+    "cls": "flex items-center gap-[var(--marquee-gap)]",
+    "rect": {
+     "x": 121,
+     "y": 6418,
+     "w": 1913,
+     "h": 34
+    },
+    "text": "treepro.pl (otwiera się w nowe"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 1279,
+     "y": 6419,
+     "w": 198,
+     "h": 32
+    },
+    "text": "temar-mt.pl (otwiera się w now"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 1279,
+     "y": 6411,
+     "w": 198,
+     "h": 48
+    },
+    "text": "temar-mt.pl (otwiera się w now"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 1279,
+     "y": 6419,
+     "w": 174,
+     "h": 32
+    },
+    "text": "temar-mt.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1457,
+     "y": 6419,
+     "w": 20,
+     "h": 20
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1463,
+     "y": 6425,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1463,
+     "y": 6425,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 1525,
+     "y": 6419,
+     "w": 184,
+     "h": 32
+    },
+    "text": "energizo.pl (otwiera się w now"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 1525,
+     "y": 6411,
+     "w": 184,
+     "h": 48
+    },
+    "text": "energizo.pl (otwiera się w now"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 1525,
+     "y": 6419,
+     "w": 160,
+     "h": 32
+    },
+    "text": "energizo.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1688,
+     "y": 6419,
+     "w": 20,
+     "h": 20
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1694,
+     "y": 6425,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1694,
+     "y": 6425,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "span",
+    "cls": "sr-only",
+    "rect": {
+     "x": 1524,
+     "y": 6418,
+     "w": 1,
+     "h": 1
+    },
+    "text": "(otwiera się w nowej karcie)"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 1756,
+     "y": 6419,
+     "w": 278,
+     "h": 32
+    },
+    "text": "nakazdaokazje.pl (otwiera się "
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 1756,
+     "y": 6411,
+     "w": 278,
+     "h": 48
+    },
+    "text": "nakazdaokazje.pl (otwiera się "
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 1756,
+     "y": 6419,
+     "w": 254,
+     "h": 32
+    },
+    "text": "nakazdaokazje.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 2014,
+     "y": 6419,
+     "w": 20,
+     "h": 20
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 2020,
+     "y": 6425,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 2020,
+     "y": 6425,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "span",
+    "cls": "sr-only",
+    "rect": {
+     "x": 1755,
+     "y": 6418,
+     "w": 1,
+     "h": 1
+    },
+    "text": "(otwiera się w nowej karcie)"
+   },
+   {
+    "tag": "div",
+    "cls": "flex shrink-0 items-center gap-[var(--marquee-gap,3rem)] pr-",
+    "rect": {
+     "x": 2082,
+     "y": 6362,
+     "w": 1961,
+     "h": 146
+    },
+    "text": "treepro.pl (otwiera się w nowe"
+   },
+   {
+    "tag": "ul",
+    "cls": "flex items-center gap-[var(--marquee-gap)]",
+    "rect": {
+     "x": 2082,
+     "y": 6418,
+     "w": 1913,
+     "h": 34
+    },
+    "text": "treepro.pl (otwiera się w nowe"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 2082,
+     "y": 6419,
+     "w": 166,
+     "h": 32
+    },
+    "text": "treepro.pl (otwiera się w nowe"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 2082,
+     "y": 6411,
+     "w": 166,
+     "h": 48
+    },
+    "text": "treepro.pl (otwiera się w nowe"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 2082,
+     "y": 6419,
+     "w": 142,
+     "h": 32
+    },
+    "text": "treepro.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 2228,
+     "y": 6419,
+     "w": 20,
+     "h": 20
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 2234,
+     "y": 6425,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 2234,
+     "y": 6425,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "span",
+    "cls": "sr-only",
+    "rect": {
+     "x": 2081,
+     "y": 6418,
+     "w": 1,
+     "h": 1
+    },
+    "text": "(otwiera się w nowej karcie)"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 2296,
+     "y": 6418,
+     "w": 105,
+     "h": 34
+    },
+    "text": "vetly.pl"
+   },
+   {
+    "tag": "span",
+    "cls": "text-foreground/80",
+    "rect": {
+     "x": 2296,
+     "y": 6418,
+     "w": 105,
+     "h": 34
+    },
+    "text": "vetly.pl"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 2296,
+     "y": 6413,
+     "w": 105,
+     "h": 41
+    },
+    "text": "vetly.pl"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 2449,
+     "y": 6419,
+     "w": 255,
+     "h": 32
+    },
+    "text": "leasingodreki.pl (otwiera się "
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 2449,
+     "y": 6411,
+     "w": 255,
+     "h": 48
+    },
+    "text": "leasingodreki.pl (otwiera się "
+   }
+  ],
+  "text": {
+   "total": 591,
+   "below12": 210,
+   "below14": 338,
+   "samples": [
+    {
+     "fs": 9.27161,
+     "text": "twojafirma.pl"
+    },
+    {
+     "fs": 10.9574,
+     "text": "Twoja marka"
+    },
+    {
+     "fs": 9.27161,
+     "text": "Sklep"
+    },
+    {
+     "fs": 9.27161,
+     "text": "O nas"
+    },
+    {
+     "fs": 9.27161,
+     "text": "Kontakt"
+    },
+    {
+     "fs": 6.32155,
+     "text": "2"
+    },
+    {
+     "fs": 9.69304,
+     "text": "Małe serie z naturalnej wełny."
+    },
+    {
+     "fs": 9.27161,
+     "text": "Zobacz kolekcję"
+    },
+    {
+     "fs": 8.0073,
+     "text": "<Hero />"
+    },
+    {
+     "fs": 9.69304,
+     "text": "Sweter Bałtyk"
+    },
+    {
+     "fs": 9.69304,
+     "text": "349 zł"
+    },
+    {
+     "fs": 9.69304,
+     "text": "Szal Mgła"
+    }
+   ]
+  },
+  "images": {
+   "total": 22,
+   "noAlt": 0,
+   "emptyAlt": 17,
+   "noDims": 0,
+   "broken": []
+  },
+  "cls": 0,
+  "lcp": 396,
+  "langSwitch": [
+   {
+    "text": "English English",
+    "href": "https://netizo.pl/en",
+    "rect": {
+     "x": 886,
+     "y": 14,
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "English English",
+    "href": "https://netizo.pl/en",
+    "rect": {
+     "x": 1210,
+     "y": 11988,
+     "w": 69,
+     "h": 20
+    }
+   }
+  ],
+  "tel": [
+   {
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "visible": true,
+    "rect": {
+     "x": 952,
+     "y": 11516,
+     "w": 142,
+     "h": 20
+    }
+   },
+   {
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "visible": true,
+    "rect": {
+     "x": 832,
+     "y": 11783,
+     "w": 111,
+     "h": 20
+    }
+   }
+  ],
+  "dialogs": [],
+  "errors": []
+ },
+ "partnerzy-pl-desktop-light": {
+  "vw": 1440,
+  "vh": 900,
+  "docScrollWidth": 1440,
+  "bodyScrollWidth": 1440,
+  "docHeight": 6198,
+  "hscroll": false,
+  "lang": "pl",
+  "classes": "js",
+  "bodyFont": "16px",
+  "h1": {
+   "text": "Polecasz nas, dostajesz 15% od każdego zamówienia.",
+   "rect": {
+    "x": 161,
+    "y": 153,
+    "w": 426,
+    "h": 237
+   },
+   "fontSize": "53.2285px"
+  },
+  "interactiveTotal": 55,
+  "aboveFold": [
+   {
+    "tag": "a",
+    "text": "Przejdź do treści",
+    "href": "#main-content",
+    "rect": {
+     "x": -1,
+     "y": -1,
+     "w": 34,
+     "h": 18
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Netizo – strona główna",
+    "href": "/",
+    "rect": {
+     "x": 157,
+     "y": 10,
+     "w": 158,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Jak to działa",
+    "href": "#jak-to-dziala",
+    "rect": {
+     "x": 522,
+     "y": 14,
+     "w": 105,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Kalkulator",
+    "href": "#kalkulator",
+    "rect": {
+     "x": 631,
+     "y": 14,
+     "w": 87,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Zasady",
+    "href": "#zasady",
+    "rect": {
+     "x": 722,
+     "y": 14,
+     "w": 67,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "FAQ",
+    "href": "#faq",
+    "rect": {
+     "x": 793,
+     "y": 14,
+     "w": 47,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "English English",
+    "href": "https://netizo.pl/en/partners",
+    "rect": {
+     "x": 973,
+     "y": 14,
+     "w": 90,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Włącz ciemny motyw",
+    "href": "",
+    "rect": {
+     "x": 1071,
+     "y": 14,
+     "w": 36,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Dołącz do programu",
+    "href": "#dolacz",
+    "rect": {
+     "x": 1115,
+     "y": 14,
+     "w": 164,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Dołącz do programu",
+    "href": "#dolacz",
+    "rect": {
+     "x": 161,
+     "y": 593,
+     "w": 180,
+     "h": 40
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Policz swoją prowizję",
+    "href": "#kalkulator",
+    "rect": {
+     "x": 353,
+     "y": 593,
+     "w": 190,
+     "h": 40
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Tylko niezbędne",
+    "href": "",
+    "rect": {
+     "x": 960,
+     "y": 798,
+     "w": 140,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Zaakceptuj wszystko",
+    "href": "",
+    "rect": {
+     "x": 1108,
+     "y": 798,
+     "w": 172,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Dostosuj",
+    "href": "#cookies-policy-customize",
+    "rect": {
+     "x": 0,
+     "y": 860,
+     "w": 1440,
+     "h": 41
+    },
+    "fixed": false
+   }
+  ],
+  "smallTargets": [
+   {
+    "tag": "a",
+    "text": "Przejdź do treści",
+    "href": "#main-content",
+    "rect": {
+     "x": -1,
+     "y": -1,
+     "w": 34,
+     "h": 18
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Jak to działa",
+    "href": "#jak-to-dziala",
+    "rect": {
+     "x": 522,
+     "y": 14,
+     "w": 105,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Kalkulator",
+    "href": "#kalkulator",
+    "rect": {
+     "x": 631,
+     "y": 14,
+     "w": 87,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Zasady",
+    "href": "#zasady",
+    "rect": {
+     "x": 722,
+     "y": 14,
+     "w": 67,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "FAQ",
+    "href": "#faq",
+    "rect": {
+     "x": 793,
+     "y": 14,
+     "w": 47,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "English English",
+    "href": "https://netizo.pl/en/partners",
+    "rect": {
+     "x": 973,
+     "y": 14,
+     "w": 90,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Włącz ciemny motyw",
+    "href": "",
+    "rect": {
+     "x": 1071,
+     "y": 14,
+     "w": 36,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Dołącz do programu",
+    "href": "#dolacz",
+    "rect": {
+     "x": 1115,
+     "y": 14,
+     "w": 164,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Dołącz do programu",
+    "href": "#dolacz",
+    "rect": {
+     "x": 161,
+     "y": 593,
+     "w": 180,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Policz swoją prowizję",
+    "href": "#kalkulator",
+    "rect": {
+     "x": 353,
+     "y": 593,
+     "w": 190,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Policz, ile możesz zarobić",
+    "href": "#kalkulator",
+    "rect": {
+     "x": 1062,
+     "y": 1498,
+     "w": 217,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Wyczyść",
+    "href": "",
+    "rect": {
+     "x": 505,
+     "y": 2217,
+     "w": 82,
+     "h": 32
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 661,
+     "y": 5081,
+     "w": 299,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 980,
+     "y": 5081,
+     "w": 299,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 661,
+     "y": 5163,
+     "w": 299,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 673,
+     "y": 5266,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 838,
+     "y": 5266,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 1034,
+     "y": 5266,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 673,
+     "y": 5310,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 851,
+     "y": 5310,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 982,
+     "y": 5310,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Wyślij zgłoszenie",
+    "href": "",
+    "rect": {
+     "x": 1134,
+     "y": 5538,
+     "w": 145,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Panel klienta (otwiera się w nowej karcie)",
+    "href": "https://panel-klienta.netizo.pl",
+    "rect": {
+     "x": 544,
+     "y": 5789,
+     "w": 82,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Program partnerski",
+    "href": "/partnerzy",
+    "rect": {
+     "x": 544,
+     "y": 5821,
+     "w": 123,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Utrzymanie",
+    "href": "/utrzymanie",
+    "rect": {
+     "x": 544,
+     "y": 5853,
+     "w": 73,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Regulamin",
+    "href": "/regulamin",
+    "rect": {
+     "x": 544,
+     "y": 5885,
+     "w": 69,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Polityka prywatności",
+    "href": "/polityka-prywatnosci",
+    "rect": {
+     "x": 544,
+     "y": 5917,
+     "w": 133,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "kontakt@netizo.pl",
+    "href": "mailto:kontakt@netizo.pl",
+    "rect": {
+     "x": 832,
+     "y": 5789,
+     "w": 116,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "rect": {
+     "x": 832,
+     "y": 5821,
+     "w": 111,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Facebook (otwiera się w nowej karcie)",
+    "href": "https://www.facebook.com/netizo.agency",
+    "rect": {
+     "x": 1119,
+     "y": 5789,
+     "w": 87,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Instagram (otwiera się w nowej karcie)",
+    "href": "https://www.instagram.com/netizo.agency",
+    "rect": {
+     "x": 1119,
+     "y": 5824,
+     "w": 89,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "TikTok (otwiera się w nowej karcie)",
+    "href": "https://www.tiktok.com/@netizo.agency",
+    "rect": {
+     "x": 1119,
+     "y": 5859,
+     "w": 65,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "English English",
+    "href": "https://netizo.pl/en/partners",
+    "rect": {
+     "x": 1210,
+     "y": 6026,
+     "w": 69,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Tylko niezbędne",
+    "href": "",
+    "rect": {
+     "x": 960,
+     "y": 798,
+     "w": 140,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zaakceptuj wszystko",
+    "href": "",
+    "rect": {
+     "x": 1108,
+     "y": 798,
+     "w": 172,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Dostosuj",
+    "href": "#cookies-policy-customize",
+    "rect": {
+     "x": 0,
+     "y": 860,
+     "w": 1440,
+     "h": 41
+    },
+    "inline": false
+   }
+  ],
+  "fixed": [
+   {
+    "tag": "header",
+    "id": "",
+    "cls": "sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-md suppo",
+    "pos": "sticky",
+    "z": "40",
+    "rect": {
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 65
+    },
+    "text": "Program partnerski Jak to działa Kalkulator Zasady FAQ Engli"
+   },
+   {
+    "tag": "div",
+    "id": "",
+    "cls": "@container relative overflow-hidden border bg-muted aspect-[4/3] sm:aspect-[16/9",
+    "pos": "sticky",
+    "z": "auto",
+    "rect": {
+     "x": 161,
+     "y": 4421,
+     "w": 330,
+     "h": 413
+    },
+    "text": "Kiedy dostanę prowizję? W ciągu 14 dni od opłacenia faktury "
+   },
+   {
+    "tag": "aside",
+    "id": "cookies-policy",
+    "cls": "cookies",
+    "pos": "fixed",
+    "z": "45",
+    "rect": {
+     "x": 0,
+     "y": 772,
+     "w": 1440,
+     "h": 128
+    },
+    "text": "Korzystamy z plików cookie Ta witryna używa plików cookie w "
+   }
+  ],
+  "cookieBanner": {
+   "x": 0,
+   "y": 772,
+   "w": 1440,
+   "h": 128
+  },
+  "cookieBannerVar": "128px",
+  "overflowing": [],
+  "text": {
+   "total": 162,
+   "below12": 4,
+   "below14": 18,
+   "samples": [
+    {
+     "fs": 10,
+     "text": "ANNA15"
+    },
+    {
+     "fs": 11,
+     "text": "Netizo 85%"
+    },
+    {
+     "fs": 11,
+     "text": "Twoje 15%:"
+    },
+    {
+     "fs": 11,
+     "text": "2 700 zł"
+    }
+   ]
+  },
+  "images": {
+   "total": 2,
+   "noAlt": 0,
+   "emptyAlt": 2,
+   "noDims": 0,
+   "broken": []
+  },
+  "cls": 2.2429189171810705e-05,
+  "lcp": 280,
+  "langSwitch": [
+   {
+    "text": "English English",
+    "href": "https://netizo.pl/en/partners",
+    "rect": {
+     "x": 973,
+     "y": 14,
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "English English",
+    "href": "https://netizo.pl/en/partners",
+    "rect": {
+     "x": 1210,
+     "y": 6026,
+     "w": 69,
+     "h": 20
+    }
+   }
+  ],
+  "tel": [
+   {
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "visible": true,
+    "rect": {
+     "x": 832,
+     "y": 5821,
+     "w": 111,
+     "h": 20
+    }
+   }
+  ],
+  "dialogs": [],
+  "errors": []
+ },
+ "home-en-desktop-light": {
+  "vw": 1440,
+  "vh": 900,
+  "docScrollWidth": 1440,
+  "bodyScrollWidth": 1440,
+  "docHeight": 12163,
+  "hscroll": false,
+  "lang": "en",
+  "classes": "js",
+  "bodyFont": "16px",
+  "h1": {
+   "text": "We build websites for the ambitious.",
+   "rect": {
+    "x": 161,
+    "y": 213,
+    "w": 426,
+    "h": 177
+   },
+   "fontSize": "53.2285px"
+  },
+  "interactiveTotal": 77,
+  "aboveFold": [
+   {
+    "tag": "a",
+    "text": "Skip to content",
+    "href": "#main-content",
+    "rect": {
+     "x": -1,
+     "y": -1,
+     "w": 34,
+     "h": 18
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Netizo – home page",
+    "href": "#",
+    "rect": {
+     "x": 157,
+     "y": 10,
+     "w": 158,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Services",
+    "href": "#services",
+    "rect": {
+     "x": 371,
+     "y": 14,
+     "w": 77,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Projects",
+    "href": "#projects",
+    "rect": {
+     "x": 452,
+     "y": 14,
+     "w": 74,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Process",
+    "href": "#process",
+    "rect": {
+     "x": 530,
+     "y": 14,
+     "w": 73,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "FAQ",
+    "href": "#faq",
+    "rect": {
+     "x": 607,
+     "y": 14,
+     "w": 47,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Contact",
+    "href": "#contact",
+    "rect": {
+     "x": 658,
+     "y": 14,
+     "w": 72,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Polski Polski",
+    "href": "https://netizo.pl",
+    "rect": {
+     "x": 917,
+     "y": 14,
+     "w": 82,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Switch to dark theme",
+    "href": "",
+    "rect": {
+     "x": 1006,
+     "y": 14,
+     "w": 36,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Client portal (opens in a new tab)",
+    "href": "https://panel-klienta.netizo.pl",
+    "rect": {
+     "x": 1050,
+     "y": 14,
+     "w": 113,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Get a quote",
+    "href": "",
+    "rect": {
+     "x": 1171,
+     "y": 14,
+     "w": 108,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Get a quote",
+    "href": "",
+    "rect": {
+     "x": 161,
+     "y": 533,
+     "w": 124,
+     "h": 40
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "See our work",
+    "href": "#projects",
+    "rect": {
+     "x": 297,
+     "y": 533,
+     "w": 137,
+     "h": 40
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Request a phone call",
+    "href": "",
+    "rect": {
+     "x": 1368,
+     "y": 700,
+     "w": 52,
+     "h": 52
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Only essentials",
+    "href": "",
+    "rect": {
+     "x": 1039,
+     "y": 798,
+     "w": 134,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Accept all",
+    "href": "",
+    "rect": {
+     "x": 1180,
+     "y": 798,
+     "w": 100,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Customize",
+    "href": "#cookies-policy-customize",
+    "rect": {
+     "x": 0,
+     "y": 860,
+     "w": 1440,
+     "h": 41
+    },
+    "fixed": false
+   }
+  ],
+  "smallTargets": [
+   {
+    "tag": "a",
+    "text": "Skip to content",
+    "href": "#main-content",
+    "rect": {
+     "x": -1,
+     "y": -1,
+     "w": 34,
+     "h": 18
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Services",
+    "href": "#services",
+    "rect": {
+     "x": 371,
+     "y": 14,
+     "w": 77,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Projects",
+    "href": "#projects",
+    "rect": {
+     "x": 452,
+     "y": 14,
+     "w": 74,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Process",
+    "href": "#process",
+    "rect": {
+     "x": 530,
+     "y": 14,
+     "w": 73,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "FAQ",
+    "href": "#faq",
+    "rect": {
+     "x": 607,
+     "y": 14,
+     "w": 47,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Contact",
+    "href": "#contact",
+    "rect": {
+     "x": 658,
+     "y": 14,
+     "w": 72,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Polski Polski",
+    "href": "https://netizo.pl",
+    "rect": {
+     "x": 917,
+     "y": 14,
+     "w": 82,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Switch to dark theme",
+    "href": "",
+    "rect": {
+     "x": 1006,
+     "y": 14,
+     "w": 36,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Client portal (opens in a new tab)",
+    "href": "https://panel-klienta.netizo.pl",
+    "rect": {
+     "x": 1050,
+     "y": 14,
+     "w": 113,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Get a quote",
+    "href": "",
+    "rect": {
+     "x": 1171,
+     "y": 14,
+     "w": 108,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Get a quote",
+    "href": "",
+    "rect": {
+     "x": 161,
+     "y": 533,
+     "w": 124,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "See our work",
+    "href": "#projects",
+    "rect": {
+     "x": 297,
+     "y": 533,
+     "w": 137,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "See the case study of Treepro.pl",
+    "href": "",
+    "rect": {
+     "x": 841,
+     "y": 3082,
+     "w": 159,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "See the case study of Vetly.pl",
+    "href": "",
+    "rect": {
+     "x": 841,
+     "y": 3631,
+     "w": 159,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "See the case study of energizo.pl",
+    "href": "",
+    "rect": {
+     "x": 841,
+     "y": 4267,
+     "w": 159,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "See the case study of nakazdaokazje.pl",
+    "href": "",
+    "rect": {
+     "x": 841,
+     "y": 4831,
+     "w": 159,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "See the case study of KrainaMT2.pl",
+    "href": "",
+    "rect": {
+     "x": 841,
+     "y": 5381,
+     "w": 159,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "See what the portal looks like",
+    "href": "#client-portal",
+    "rect": {
+     "x": 1036,
+     "y": 7399,
+     "w": 244,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "One-off project",
+    "href": "",
+    "rect": {
+     "x": 164,
+     "y": 7900,
+     "w": 144,
+     "h": 34
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Ongoing retainer",
+    "href": "",
+    "rect": {
+     "x": 308,
+     "y": 7900,
+     "w": 144,
+     "h": 34
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Log in to the portal (opens in a new tab)",
+    "href": "https://panel-klienta.netizo.pl",
+    "rect": {
+     "x": 161,
+     "y": 8255,
+     "w": 172,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Ask about access",
+    "href": "",
+    "rect": {
+     "x": 345,
+     "y": 8255,
+     "w": 166,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Become a partner",
+    "href": "/en/partners",
+    "rect": {
+     "x": 161,
+     "y": 10144,
+     "w": 165,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 860,
+     "y": 10580,
+     "w": 283,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Subscribe",
+    "href": "",
+    "rect": {
+     "x": 1151,
+     "y": 10580,
+     "w": 128,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 177,
+     "y": 11274,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 416,
+     "y": 11274,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 655,
+     "y": 11274,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 177,
+     "y": 11401,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 416,
+     "y": 11401,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 655,
+     "y": 11401,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Next",
+    "href": "",
+    "rect": {
+     "x": 767,
+     "y": 11569,
+     "w": 112,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "kontakt@netizo.pl",
+    "href": "mailto:kontakt@netizo.pl",
+    "rect": {
+     "x": 952,
+     "y": 11478,
+     "w": 147,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "rect": {
+     "x": 952,
+     "y": 11519,
+     "w": 142,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Call me back",
+    "href": "",
+    "rect": {
+     "x": 952,
+     "y": 11568,
+     "w": 119,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Client portal (opens in a new tab)",
+    "href": "https://panel-klienta.netizo.pl",
+    "rect": {
+     "x": 544,
+     "y": 11754,
+     "w": 78,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Partner program",
+    "href": "/en/partners",
+    "rect": {
+     "x": 544,
+     "y": 11786,
+     "w": 105,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Maintenance PL (in Polish)",
+    "href": "/utrzymanie",
+    "rect": {
+     "x": 544,
+     "y": 11818,
+     "w": 104,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Terms of service PL (in Polish)",
+    "href": "/regulamin",
+    "rect": {
+     "x": 544,
+     "y": 11850,
+     "w": 125,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Privacy policy PL (in Polish)",
+    "href": "/polityka-prywatnosci",
+    "rect": {
+     "x": 544,
+     "y": 11882,
+     "w": 109,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "kontakt@netizo.pl",
+    "href": "mailto:kontakt@netizo.pl",
+    "rect": {
+     "x": 832,
+     "y": 11754,
+     "w": 116,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "rect": {
+     "x": 832,
+     "y": 11786,
+     "w": 111,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Facebook (opens in a new tab)",
+    "href": "https://www.facebook.com/netizo.agency",
+    "rect": {
+     "x": 1119,
+     "y": 11754,
+     "w": 87,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Instagram (opens in a new tab)",
+    "href": "https://www.instagram.com/netizo.agency",
+    "rect": {
+     "x": 1119,
+     "y": 11789,
+     "w": 89,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "TikTok (opens in a new tab)",
+    "href": "https://www.tiktok.com/@netizo.agency",
+    "rect": {
+     "x": 1119,
+     "y": 11824,
+     "w": 65,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Polski Polski",
+    "href": "https://netizo.pl",
+    "rect": {
+     "x": 1219,
+     "y": 11991,
+     "w": 60,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Only essentials",
+    "href": "",
+    "rect": {
+     "x": 1039,
+     "y": 798,
+     "w": 134,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Accept all",
+    "href": "",
+    "rect": {
+     "x": 1180,
+     "y": 798,
+     "w": 100,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Customize",
+    "href": "#cookies-policy-customize",
+    "rect": {
+     "x": 0,
+     "y": 860,
+     "w": 1440,
+     "h": 41
+    },
+    "inline": false
+   }
+  ],
+  "fixed": [
+   {
+    "tag": "header",
+    "id": "",
+    "cls": "sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-md suppo",
+    "pos": "sticky",
+    "z": "40",
+    "rect": {
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 65
+    },
+    "text": "Services Projects Process FAQ Contact Polski Polski Switch t"
+   },
+   {
+    "tag": "div",
+    "id": "",
+    "cls": "@container relative overflow-hidden border bg-muted aspect-[4/3] sm:aspect-[16/9",
+    "pos": "sticky",
+    "z": "auto",
+    "rect": {
+     "x": 161,
+     "y": 9374,
+     "w": 330,
+     "h": 413
+    },
+    "text": "How long does a company website take? Usually 4–6 weeks. We "
+   },
+   {
+    "tag": "button",
+    "id": "",
+    "cls": "inline-flex shrink-0 items-center justify-center gap-2 text-sm font-medium white",
+    "pos": "fixed",
+    "z": "30",
+    "rect": {
+     "x": 1368,
+     "y": 700,
+     "w": 52,
+     "h": 52
+    },
+    "text": "Request a phone call"
+   },
+   {
+    "tag": "aside",
+    "id": "cookies-policy",
+    "cls": "cookies",
+    "pos": "fixed",
+    "z": "45",
+    "rect": {
+     "x": 0,
+     "y": 772,
+     "w": 1440,
+     "h": 128
+    },
+    "text": "We use cookies This website uses cookies in order to enhance"
+   }
+  ],
+  "cookieBanner": {
+   "x": 0,
+   "y": 772,
+   "w": 1440,
+   "h": 128
+  },
+  "cookieBannerVar": "128px",
+  "overflowing": [
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1020,
+     "y": 1834,
+     "w": 598,
+     "h": 80
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1020,
+     "y": 1856,
+     "w": 598,
+     "h": 58
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1020,
+     "y": 1856,
+     "w": 598,
+     "h": 46
+    },
+    "text": ""
+   },
+   {
+    "tag": "div",
+    "cls": "flex w-max",
+    "rect": {
+     "x": 121,
+     "y": 6401,
+     "w": 3923,
+     "h": 146
+    },
+    "text": "treepro.pl (opens in a new tab"
+   },
+   {
+    "tag": "div",
+    "cls": "flex shrink-0 items-center gap-[var(--marquee-gap,3rem)] pr-",
+    "rect": {
+     "x": 121,
+     "y": 6401,
+     "w": 1961,
+     "h": 146
+    },
+    "text": "treepro.pl (opens in a new tab"
+   },
+   {
+    "tag": "ul",
+    "cls": "flex items-center gap-[var(--marquee-gap)]",
+    "rect": {
+     "x": 121,
+     "y": 6457,
+     "w": 1913,
+     "h": 34
+    },
+    "text": "treepro.pl (opens in a new tab"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 1279,
+     "y": 6458,
+     "w": 198,
+     "h": 32
+    },
+    "text": "temar-mt.pl (opens in a new ta"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 1279,
+     "y": 6450,
+     "w": 198,
+     "h": 48
+    },
+    "text": "temar-mt.pl (opens in a new ta"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 1279,
+     "y": 6458,
+     "w": 174,
+     "h": 32
+    },
+    "text": "temar-mt.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1457,
+     "y": 6458,
+     "w": 20,
+     "h": 20
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1463,
+     "y": 6464,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1463,
+     "y": 6464,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 1525,
+     "y": 6458,
+     "w": 184,
+     "h": 32
+    },
+    "text": "energizo.pl (opens in a new ta"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 1525,
+     "y": 6450,
+     "w": 184,
+     "h": 48
+    },
+    "text": "energizo.pl (opens in a new ta"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 1525,
+     "y": 6458,
+     "w": 160,
+     "h": 32
+    },
+    "text": "energizo.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1688,
+     "y": 6458,
+     "w": 20,
+     "h": 20
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1694,
+     "y": 6464,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1694,
+     "y": 6464,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "span",
+    "cls": "sr-only",
+    "rect": {
+     "x": 1524,
+     "y": 6457,
+     "w": 1,
+     "h": 1
+    },
+    "text": "(opens in a new tab)"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 1756,
+     "y": 6458,
+     "w": 278,
+     "h": 32
+    },
+    "text": "nakazdaokazje.pl (opens in a n"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 1756,
+     "y": 6450,
+     "w": 278,
+     "h": 48
+    },
+    "text": "nakazdaokazje.pl (opens in a n"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 1756,
+     "y": 6458,
+     "w": 254,
+     "h": 32
+    },
+    "text": "nakazdaokazje.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 2014,
+     "y": 6458,
+     "w": 20,
+     "h": 20
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 2020,
+     "y": 6464,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 2020,
+     "y": 6464,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "span",
+    "cls": "sr-only",
+    "rect": {
+     "x": 1755,
+     "y": 6457,
+     "w": 1,
+     "h": 1
+    },
+    "text": "(opens in a new tab)"
+   },
+   {
+    "tag": "div",
+    "cls": "flex shrink-0 items-center gap-[var(--marquee-gap,3rem)] pr-",
+    "rect": {
+     "x": 2082,
+     "y": 6401,
+     "w": 1961,
+     "h": 146
+    },
+    "text": "treepro.pl (opens in a new tab"
+   },
+   {
+    "tag": "ul",
+    "cls": "flex items-center gap-[var(--marquee-gap)]",
+    "rect": {
+     "x": 2082,
+     "y": 6457,
+     "w": 1913,
+     "h": 34
+    },
+    "text": "treepro.pl (opens in a new tab"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 2082,
+     "y": 6458,
+     "w": 166,
+     "h": 32
+    },
+    "text": "treepro.pl (opens in a new tab"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 2082,
+     "y": 6450,
+     "w": 166,
+     "h": 48
+    },
+    "text": "treepro.pl (opens in a new tab"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 2082,
+     "y": 6458,
+     "w": 142,
+     "h": 32
+    },
+    "text": "treepro.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 2228,
+     "y": 6458,
+     "w": 20,
+     "h": 20
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 2234,
+     "y": 6464,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 2234,
+     "y": 6464,
+     "w": 8,
+     "h": 8
+    },
+    "text": ""
+   },
+   {
+    "tag": "span",
+    "cls": "sr-only",
+    "rect": {
+     "x": 2081,
+     "y": 6457,
+     "w": 1,
+     "h": 1
+    },
+    "text": "(opens in a new tab)"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 2296,
+     "y": 6457,
+     "w": 105,
+     "h": 34
+    },
+    "text": "vetly.pl"
+   },
+   {
+    "tag": "span",
+    "cls": "text-foreground/80",
+    "rect": {
+     "x": 2296,
+     "y": 6457,
+     "w": 105,
+     "h": 34
+    },
+    "text": "vetly.pl"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 2296,
+     "y": 6452,
+     "w": 105,
+     "h": 41
+    },
+    "text": "vetly.pl"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 2449,
+     "y": 6458,
+     "w": 255,
+     "h": 32
+    },
+    "text": "leasingodreki.pl (opens in a n"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 2449,
+     "y": 6450,
+     "w": 255,
+     "h": 48
+    },
+    "text": "leasingodreki.pl (opens in a n"
+   }
+  ],
+  "text": {
+   "total": 594,
+   "below12": 208,
+   "below14": 338,
+   "samples": [
+    {
+     "fs": 9.27161,
+     "text": "yourcompany.com"
+    },
+    {
+     "fs": 10.9574,
+     "text": "Your brand"
+    },
+    {
+     "fs": 9.27161,
+     "text": "Shop"
+    },
+    {
+     "fs": 9.27161,
+     "text": "About"
+    },
+    {
+     "fs": 9.27161,
+     "text": "Contact"
+    },
+    {
+     "fs": 6.32155,
+     "text": "2"
+    },
+    {
+     "fs": 9.69304,
+     "text": "Small batches of natural wool."
+    },
+    {
+     "fs": 9.27161,
+     "text": "Shop the collection"
+    },
+    {
+     "fs": 8.0073,
+     "text": "<Hero />"
+    },
+    {
+     "fs": 9.69304,
+     "text": "Baltic Sweater"
+    },
+    {
+     "fs": 9.69304,
+     "text": "PLN 349"
+    },
+    {
+     "fs": 9.69304,
+     "text": "Mist Scarf"
+    }
+   ]
+  },
+  "images": {
+   "total": 22,
+   "noAlt": 0,
+   "emptyAlt": 17,
+   "noDims": 0,
+   "broken": []
+  },
+  "cls": 0,
+  "lcp": 340,
+  "langSwitch": [
+   {
+    "text": "Polski Polski",
+    "href": "https://netizo.pl",
+    "rect": {
+     "x": 917,
+     "y": 14,
+     "w": 82,
+     "h": 36
+    }
+   },
+   {
+    "text": "Maintenance PL (in Polish)",
+    "href": "/utrzymanie",
+    "rect": {
+     "x": 544,
+     "y": 11818,
+     "w": 104,
+     "h": 20
+    }
+   },
+   {
+    "text": "Terms of service PL (in Polish)",
+    "href": "/regulamin",
+    "rect": {
+     "x": 544,
+     "y": 11850,
+     "w": 125,
+     "h": 20
+    }
+   },
+   {
+    "text": "Privacy policy PL (in Polish)",
+    "href": "/polityka-prywatnosci",
+    "rect": {
+     "x": 544,
+     "y": 11882,
+     "w": 109,
+     "h": 20
+    }
+   },
+   {
+    "text": "Polski Polski",
+    "href": "https://netizo.pl",
+    "rect": {
+     "x": 1219,
+     "y": 11991,
+     "w": 60,
+     "h": 20
+    }
+   }
+  ],
+  "tel": [
+   {
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "visible": true,
+    "rect": {
+     "x": 952,
+     "y": 11519,
+     "w": 142,
+     "h": 20
+    }
+   },
+   {
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "visible": true,
+    "rect": {
+     "x": 832,
+     "y": 11786,
+     "w": 111,
+     "h": 20
+    }
+   }
+  ],
+  "dialogs": [],
+  "errors": []
+ },
+ "partners-en-desktop-light": {
+  "vw": 1440,
+  "vh": 900,
+  "docScrollWidth": 1440,
+  "bodyScrollWidth": 1440,
+  "docHeight": 6243,
+  "hscroll": false,
+  "lang": "en",
+  "classes": "js",
+  "bodyFont": "16px",
+  "h1": {
+   "text": "Refer us, earn 15% of every order.",
+   "rect": {
+    "x": 161,
+    "y": 153,
+    "w": 426,
+    "h": 237
+   },
+   "fontSize": "53.2285px"
+  },
+  "interactiveTotal": 55,
+  "aboveFold": [
+   {
+    "tag": "a",
+    "text": "Skip to content",
+    "href": "#main-content",
+    "rect": {
+     "x": -1,
+     "y": -1,
+     "w": 34,
+     "h": 18
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Netizo – home page",
+    "href": "/en",
+    "rect": {
+     "x": 157,
+     "y": 10,
+     "w": 158,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "How it works",
+    "href": "#how-it-works",
+    "rect": {
+     "x": 504,
+     "y": 14,
+     "w": 105,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Calculator",
+    "href": "#calculator",
+    "rect": {
+     "x": 612,
+     "y": 14,
+     "w": 88,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Terms",
+    "href": "#terms",
+    "rect": {
+     "x": 704,
+     "y": 14,
+     "w": 60,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "FAQ",
+    "href": "#faq",
+    "rect": {
+     "x": 768,
+     "y": 14,
+     "w": 47,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Polski Polski",
+    "href": "https://netizo.pl/partnerzy",
+    "rect": {
+     "x": 1001,
+     "y": 14,
+     "w": 82,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Switch to dark theme",
+    "href": "",
+    "rect": {
+     "x": 1091,
+     "y": 14,
+     "w": 36,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Join the program",
+    "href": "#join",
+    "rect": {
+     "x": 1135,
+     "y": 14,
+     "w": 144,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Join the program",
+    "href": "#join",
+    "rect": {
+     "x": 161,
+     "y": 593,
+     "w": 160,
+     "h": 40
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Calculate your commission",
+    "href": "#calculator",
+    "rect": {
+     "x": 333,
+     "y": 593,
+     "w": 227,
+     "h": 40
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Only essentials",
+    "href": "",
+    "rect": {
+     "x": 1039,
+     "y": 798,
+     "w": 134,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Accept all",
+    "href": "",
+    "rect": {
+     "x": 1180,
+     "y": 798,
+     "w": 100,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Customize",
+    "href": "#cookies-policy-customize",
+    "rect": {
+     "x": 0,
+     "y": 860,
+     "w": 1440,
+     "h": 41
+    },
+    "fixed": false
+   }
+  ],
+  "smallTargets": [
+   {
+    "tag": "a",
+    "text": "Skip to content",
+    "href": "#main-content",
+    "rect": {
+     "x": -1,
+     "y": -1,
+     "w": 34,
+     "h": 18
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "How it works",
+    "href": "#how-it-works",
+    "rect": {
+     "x": 504,
+     "y": 14,
+     "w": 105,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Calculator",
+    "href": "#calculator",
+    "rect": {
+     "x": 612,
+     "y": 14,
+     "w": 88,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Terms",
+    "href": "#terms",
+    "rect": {
+     "x": 704,
+     "y": 14,
+     "w": 60,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "FAQ",
+    "href": "#faq",
+    "rect": {
+     "x": 768,
+     "y": 14,
+     "w": 47,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Polski Polski",
+    "href": "https://netizo.pl/partnerzy",
+    "rect": {
+     "x": 1001,
+     "y": 14,
+     "w": 82,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Switch to dark theme",
+    "href": "",
+    "rect": {
+     "x": 1091,
+     "y": 14,
+     "w": 36,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Join the program",
+    "href": "#join",
+    "rect": {
+     "x": 1135,
+     "y": 14,
+     "w": 144,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Join the program",
+    "href": "#join",
+    "rect": {
+     "x": 161,
+     "y": 593,
+     "w": 160,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Calculate your commission",
+    "href": "#calculator",
+    "rect": {
+     "x": 333,
+     "y": 593,
+     "w": 227,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "See how much you could earn",
+    "href": "#calculator",
+    "rect": {
+     "x": 1034,
+     "y": 1492,
+     "w": 245,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Clear",
+    "href": "",
+    "rect": {
+     "x": 528,
+     "y": 2210,
+     "w": 59,
+     "h": 32
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 661,
+     "y": 5126,
+     "w": 299,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 980,
+     "y": 5126,
+     "w": 299,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 661,
+     "y": 5208,
+     "w": 299,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 673,
+     "y": 5312,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 824,
+     "y": 5312,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 989,
+     "y": 5312,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 673,
+     "y": 5356,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 844,
+     "y": 5356,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 974,
+     "y": 5356,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Send application",
+    "href": "",
+    "rect": {
+     "x": 1137,
+     "y": 5583,
+     "w": 142,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Client portal (opens in a new tab)",
+    "href": "https://panel-klienta.netizo.pl",
+    "rect": {
+     "x": 544,
+     "y": 5834,
+     "w": 78,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Partner program",
+    "href": "/en/partners",
+    "rect": {
+     "x": 544,
+     "y": 5866,
+     "w": 105,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Maintenance PL (in Polish)",
+    "href": "/utrzymanie",
+    "rect": {
+     "x": 544,
+     "y": 5898,
+     "w": 104,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Terms of service PL (in Polish)",
+    "href": "/regulamin",
+    "rect": {
+     "x": 544,
+     "y": 5930,
+     "w": 125,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Privacy policy PL (in Polish)",
+    "href": "/polityka-prywatnosci",
+    "rect": {
+     "x": 544,
+     "y": 5962,
+     "w": 109,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "kontakt@netizo.pl",
+    "href": "mailto:kontakt@netizo.pl",
+    "rect": {
+     "x": 832,
+     "y": 5834,
+     "w": 116,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "rect": {
+     "x": 832,
+     "y": 5866,
+     "w": 111,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Facebook (opens in a new tab)",
+    "href": "https://www.facebook.com/netizo.agency",
+    "rect": {
+     "x": 1119,
+     "y": 5834,
+     "w": 87,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Instagram (opens in a new tab)",
+    "href": "https://www.instagram.com/netizo.agency",
+    "rect": {
+     "x": 1119,
+     "y": 5869,
+     "w": 89,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "TikTok (opens in a new tab)",
+    "href": "https://www.tiktok.com/@netizo.agency",
+    "rect": {
+     "x": 1119,
+     "y": 5904,
+     "w": 65,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Polski Polski",
+    "href": "https://netizo.pl/partnerzy",
+    "rect": {
+     "x": 1219,
+     "y": 6071,
+     "w": 60,
+     "h": 20
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Only essentials",
+    "href": "",
+    "rect": {
+     "x": 1039,
+     "y": 798,
+     "w": 134,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Accept all",
+    "href": "",
+    "rect": {
+     "x": 1180,
+     "y": 798,
+     "w": 100,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Customize",
+    "href": "#cookies-policy-customize",
+    "rect": {
+     "x": 0,
+     "y": 860,
+     "w": 1440,
+     "h": 41
+    },
+    "inline": false
+   }
+  ],
+  "fixed": [
+   {
+    "tag": "header",
+    "id": "",
+    "cls": "sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-md suppo",
+    "pos": "sticky",
+    "z": "40",
+    "rect": {
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 65
+    },
+    "text": "Partner program How it works Calculator Terms FAQ Polski Pol"
+   },
+   {
+    "tag": "div",
+    "id": "",
+    "cls": "@container relative overflow-hidden border bg-muted aspect-[4/3] sm:aspect-[16/9",
+    "pos": "sticky",
+    "z": "auto",
+    "rect": {
+     "x": 161,
+     "y": 4467,
+     "w": 330,
+     "h": 413
+    },
+    "text": "When do I get my commission? Within 14 days of the client pa"
+   },
+   {
+    "tag": "aside",
+    "id": "cookies-policy",
+    "cls": "cookies",
+    "pos": "fixed",
+    "z": "45",
+    "rect": {
+     "x": 0,
+     "y": 772,
+     "w": 1440,
+     "h": 128
+    },
+    "text": "We use cookies This website uses cookies in order to enhance"
+   }
+  ],
+  "cookieBanner": {
+   "x": 0,
+   "y": 772,
+   "w": 1440,
+   "h": 128
+  },
+  "cookieBannerVar": "128px",
+  "overflowing": [],
+  "text": {
+   "total": 168,
+   "below12": 7,
+   "below14": 21,
+   "samples": [
+    {
+     "fs": 10,
+     "text": "ANNA15"
+    },
+    {
+     "fs": 11,
+     "text": "Netizo 85%"
+    },
+    {
+     "fs": 11,
+     "text": "Your 15%:"
+    },
+    {
+     "fs": 11,
+     "text": "PLN 2,700"
+    },
+    {
+     "fs": 11,
+     "text": "pl"
+    },
+    {
+     "fs": 11,
+     "text": "pl"
+    },
+    {
+     "fs": 11,
+     "text": "pl"
+    }
+   ]
+  },
+  "images": {
+   "total": 2,
+   "noAlt": 0,
+   "emptyAlt": 2,
+   "noDims": 0,
+   "broken": []
+  },
+  "cls": 1.13728673696845e-05,
+  "lcp": 280,
+  "langSwitch": [
+   {
+    "text": "Polski Polski",
+    "href": "https://netizo.pl/partnerzy",
+    "rect": {
+     "x": 1001,
+     "y": 14,
+     "w": 82,
+     "h": 36
+    }
+   },
+   {
+    "text": "Maintenance PL (in Polish)",
+    "href": "/utrzymanie",
+    "rect": {
+     "x": 544,
+     "y": 5898,
+     "w": 104,
+     "h": 20
+    }
+   },
+   {
+    "text": "Terms of service PL (in Polish)",
+    "href": "/regulamin",
+    "rect": {
+     "x": 544,
+     "y": 5930,
+     "w": 125,
+     "h": 20
+    }
+   },
+   {
+    "text": "Privacy policy PL (in Polish)",
+    "href": "/polityka-prywatnosci",
+    "rect": {
+     "x": 544,
+     "y": 5962,
+     "w": 109,
+     "h": 20
+    }
+   },
+   {
+    "text": "Polski Polski",
+    "href": "https://netizo.pl/partnerzy",
+    "rect": {
+     "x": 1219,
+     "y": 6071,
+     "w": 60,
+     "h": 20
+    }
+   }
+  ],
+  "tel": [
+   {
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "visible": true,
+    "rect": {
+     "x": 832,
+     "y": 5866,
+     "w": 111,
+     "h": 20
+    }
+   }
+  ],
+  "dialogs": [],
+  "errors": []
+ },
+ "home-pl-mobile-light": {
+  "vw": 390,
+  "vh": 844,
+  "docScrollWidth": 390,
+  "bodyScrollWidth": 390,
+  "docHeight": 20809,
+  "hscroll": false,
+  "lang": "pl",
+  "classes": "js",
+  "bodyFont": "16px",
+  "h1": {
+   "text": "Tworzymy strony WWW dla ambitnych.",
+   "rect": {
+    "x": 16,
+    "y": 93,
+    "w": 358,
+    "h": 135
+   },
+   "fontSize": "38px"
+  },
+  "interactiveTotal": 70,
+  "aboveFold": [
+   {
+    "tag": "a",
+    "text": "Przejdź do treści",
+    "href": "#main-content",
+    "rect": {
+     "x": -1,
+     "y": -1,
+     "w": 34,
+     "h": 18
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Netizo – strona główna",
+    "href": "#",
+    "rect": {
+     "x": 12,
+     "y": 10,
+     "w": 158,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "English EN",
+    "href": "https://netizo.pl/en",
+    "rect": {
+     "x": 227,
+     "y": 10,
+     "w": 61,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Zamów rozmowę telefoniczną",
+    "href": "",
+    "rect": {
+     "x": 292,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Otwórz menu",
+    "href": "",
+    "rect": {
+     "x": 340,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Wyceń projekt",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 400,
+     "w": 142,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Zobacz realizacje",
+    "href": "#projekty",
+    "rect": {
+     "x": 170,
+     "y": 400,
+     "w": 163,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Tylko niezbędne",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 708,
+     "w": 358,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Zaakceptuj wszystko",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 752,
+     "w": 358,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Dostosuj",
+    "href": "#cookies-policy-customize",
+    "rect": {
+     "x": 0,
+     "y": 804,
+     "w": 390,
+     "h": 41
+    },
+    "fixed": false
+   }
+  ],
+  "smallTargets": [
+   {
+    "tag": "a",
+    "text": "Przejdź do treści",
+    "href": "#main-content",
+    "rect": {
+     "x": -1,
+     "y": -1,
+     "w": 34,
+     "h": 18
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "treepro.pl (otwiera się w nowej karcie)",
+    "href": "https://treepro.pl",
+    "rect": {
+     "x": 0,
+     "y": 9557,
+     "w": 126,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "leasingodreki.pl (otwiera się w nowej karcie)",
+    "href": "https://leasingodreki.pl",
+    "rect": {
+     "x": 269,
+     "y": 9557,
+     "w": 193,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "krainamt2.pl (otwiera się w nowej karcie)",
+    "href": "https://krainamt2.pl",
+    "rect": {
+     "x": 494,
+     "y": 9557,
+     "w": 158,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "temar-mt.pl (otwiera się w nowej karcie)",
+    "href": "https://temar-mt.pl",
+    "rect": {
+     "x": 855,
+     "y": 9557,
+     "w": 150,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "energizo.pl (otwiera się w nowej karcie)",
+    "href": "https://energizo.pl",
+    "rect": {
+     "x": 1037,
+     "y": 9557,
+     "w": 140,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "nakazdaokazje.pl (otwiera się w nowej karcie)",
+    "href": "https://nakazdaokazje.pl",
+    "rect": {
+     "x": 1209,
+     "y": 9557,
+     "w": 210,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "treepro.pl (otwiera się w nowej karcie)",
+    "href": "https://treepro.pl",
+    "rect": {
+     "x": 1451,
+     "y": 9557,
+     "w": 126,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "leasingodreki.pl (otwiera się w nowej karcie)",
+    "href": "https://leasingodreki.pl",
+    "rect": {
+     "x": 1720,
+     "y": 9557,
+     "w": 193,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "krainamt2.pl (otwiera się w nowej karcie)",
+    "href": "https://krainamt2.pl",
+    "rect": {
+     "x": 1945,
+     "y": 9557,
+     "w": 158,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "temar-mt.pl (otwiera się w nowej karcie)",
+    "href": "https://temar-mt.pl",
+    "rect": {
+     "x": 2306,
+     "y": 9557,
+     "w": 150,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "energizo.pl (otwiera się w nowej karcie)",
+    "href": "https://energizo.pl",
+    "rect": {
+     "x": 2488,
+     "y": 9557,
+     "w": 140,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "nakazdaokazje.pl (otwiera się w nowej karcie)",
+    "href": "https://nakazdaokazje.pl",
+    "rect": {
+     "x": 2660,
+     "y": 9557,
+     "w": 210,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Projekt na zlecenie",
+    "href": "",
+    "rect": {
+     "x": 19,
+     "y": 12598,
+     "w": 176,
+     "h": 38
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Stała współpraca",
+    "href": "",
+    "rect": {
+     "x": 195,
+     "y": 12598,
+     "w": 176,
+     "h": 38
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 32,
+     "y": 18452,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 32,
+     "y": 18560,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 32,
+     "y": 18667,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 32,
+     "y": 18775,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 32,
+     "y": 18882,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 32,
+     "y": 18990,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Tylko niezbędne",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 708,
+     "w": 358,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zaakceptuj wszystko",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 752,
+     "w": 358,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Dostosuj",
+    "href": "#cookies-policy-customize",
+    "rect": {
+     "x": 0,
+     "y": 804,
+     "w": 390,
+     "h": 41
+    },
+    "inline": false
+   }
+  ],
+  "fixed": [
+   {
+    "tag": "header",
+    "id": "",
+    "cls": "sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-md suppo",
+    "pos": "sticky",
+    "z": "40",
+    "rect": {
+     "x": 0,
+     "y": 0,
+     "w": 390,
+     "h": 65
+    },
+    "text": "English EN"
+   },
+   {
+    "tag": "aside",
+    "id": "cookies-policy",
+    "cls": "cookies",
+    "pos": "fixed",
+    "z": "45",
+    "rect": {
+     "x": 0,
+     "y": 608,
+     "w": 390,
+     "h": 236
+    },
+    "text": "Korzystamy z plików cookie Ta witryna używa plików cookie w "
+   }
+  ],
+  "cookieBanner": {
+   "x": 0,
+   "y": 608,
+   "w": 390,
+   "h": 236
+  },
+  "cookieBannerVar": "236px",
+  "overflowing": [
+   {
+    "tag": "img",
+    "cls": "size-full object-cover object-[50%_45%]",
+    "rect": {
+     "x": -1,
+     "y": 492,
+     "w": 392,
+     "h": 424
+    },
+    "text": ""
+   },
+   {
+    "tag": "span",
+    "cls": "absolute inset-y-0 left-0 w-full bg-[oklch(0.2_0_0)] dark:bg",
+    "rect": {
+     "x": 360,
+     "y": 828,
+     "w": 176,
+     "h": 10
+    },
+    "text": ""
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 0,
+     "y": 3040,
+     "w": 780,
+     "h": 80
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 0,
+     "y": 3062,
+     "w": 780,
+     "h": 58
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 0,
+     "y": 3062,
+     "w": 780,
+     "h": 46
+    },
+    "text": ""
+   },
+   {
+    "tag": "div",
+    "cls": "flex w-max",
+    "rect": {
+     "x": 0,
+     "y": 9524,
+     "w": 2902,
+     "h": 107
+    },
+    "text": "treepro.pl (otwiera się w nowe"
+   },
+   {
+    "tag": "div",
+    "cls": "flex shrink-0 items-center gap-[var(--marquee-gap,3rem)] pr-",
+    "rect": {
+     "x": 0,
+     "y": 9524,
+     "w": 1451,
+     "h": 107
+    },
+    "text": "treepro.pl (otwiera się w nowe"
+   },
+   {
+    "tag": "ul",
+    "cls": "flex items-center gap-[var(--marquee-gap)]",
+    "rect": {
+     "x": 0,
+     "y": 9564,
+     "w": 1419,
+     "h": 27
+    },
+    "text": "treepro.pl (otwiera się w nowe"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 269,
+     "y": 9565,
+     "w": 193,
+     "h": 24
+    },
+    "text": "leasingodreki.pl (otwiera się "
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 269,
+     "y": 9557,
+     "w": 193,
+     "h": 40
+    },
+    "text": "leasingodreki.pl (otwiera się "
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 269,
+     "y": 9565,
+     "w": 173,
+     "h": 24
+    },
+    "text": "leasingodreki.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 446,
+     "y": 9565,
+     "w": 16,
+     "h": 16
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 451,
+     "y": 9570,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 451,
+     "y": 9570,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 494,
+     "y": 9565,
+     "w": 158,
+     "h": 24
+    },
+    "text": "krainamt2.pl (otwiera się w no"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 494,
+     "y": 9557,
+     "w": 158,
+     "h": 40
+    },
+    "text": "krainamt2.pl (otwiera się w no"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 494,
+     "y": 9565,
+     "w": 138,
+     "h": 24
+    },
+    "text": "krainamt2.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 636,
+     "y": 9565,
+     "w": 16,
+     "h": 16
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 640,
+     "y": 9570,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 640,
+     "y": 9570,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "span",
+    "cls": "sr-only",
+    "rect": {
+     "x": 493,
+     "y": 9564,
+     "w": 1,
+     "h": 1
+    },
+    "text": "(otwiera się w nowej karcie)"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 684,
+     "y": 9564,
+     "w": 139,
+     "h": 27
+    },
+    "text": "lavaforyou.is"
+   },
+   {
+    "tag": "span",
+    "cls": "text-foreground/80",
+    "rect": {
+     "x": 684,
+     "y": 9564,
+     "w": 139,
+     "h": 27
+    },
+    "text": "lavaforyou.is"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 684,
+     "y": 9560,
+     "w": 139,
+     "h": 31
+    },
+    "text": "lavaforyou.is"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 855,
+     "y": 9565,
+     "w": 150,
+     "h": 24
+    },
+    "text": "temar-mt.pl (otwiera się w now"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 855,
+     "y": 9557,
+     "w": 150,
+     "h": 40
+    },
+    "text": "temar-mt.pl (otwiera się w now"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 855,
+     "y": 9565,
+     "w": 130,
+     "h": 24
+    },
+    "text": "temar-mt.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 989,
+     "y": 9565,
+     "w": 16,
+     "h": 16
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 993,
+     "y": 9570,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 993,
+     "y": 9570,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "span",
+    "cls": "sr-only",
+    "rect": {
+     "x": 854,
+     "y": 9564,
+     "w": 1,
+     "h": 1
+    },
+    "text": "(otwiera się w nowej karcie)"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 1037,
+     "y": 9565,
+     "w": 140,
+     "h": 24
+    },
+    "text": "energizo.pl (otwiera się w now"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 1037,
+     "y": 9557,
+     "w": 140,
+     "h": 40
+    },
+    "text": "energizo.pl (otwiera się w now"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 1037,
+     "y": 9565,
+     "w": 120,
+     "h": 24
+    },
+    "text": "energizo.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1161,
+     "y": 9565,
+     "w": 16,
+     "h": 16
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1165,
+     "y": 9570,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1165,
+     "y": 9570,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "span",
+    "cls": "sr-only",
+    "rect": {
+     "x": 1036,
+     "y": 9564,
+     "w": 1,
+     "h": 1
+    },
+    "text": "(otwiera się w nowej karcie)"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 1209,
+     "y": 9565,
+     "w": 210,
+     "h": 24
+    },
+    "text": "nakazdaokazje.pl (otwiera się "
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 1209,
+     "y": 9557,
+     "w": 210,
+     "h": 40
+    },
+    "text": "nakazdaokazje.pl (otwiera się "
+   }
+  ],
+  "text": {
+   "total": 552,
+   "below12": 185,
+   "below14": 327,
+   "samples": [
+    {
+     "fs": 6.91935,
+     "text": "twojafirma.pl"
+    },
+    {
+     "fs": 8.17742,
+     "text": "Twoja marka"
+    },
+    {
+     "fs": 6.91935,
+     "text": "Sklep"
+    },
+    {
+     "fs": 6.91935,
+     "text": "O nas"
+    },
+    {
+     "fs": 6.91935,
+     "text": "Kontakt"
+    },
+    {
+     "fs": 4.71774,
+     "text": "2"
+    },
+    {
+     "fs": 7.23387,
+     "text": "Małe serie z naturalnej wełny."
+    },
+    {
+     "fs": 6.91935,
+     "text": "Zobacz kolekcję"
+    },
+    {
+     "fs": 5.97581,
+     "text": "<Hero />"
+    },
+    {
+     "fs": 7.23387,
+     "text": "Sweter Bałtyk"
+    },
+    {
+     "fs": 7.23387,
+     "text": "349 zł"
+    },
+    {
+     "fs": 7.23387,
+     "text": "Szal Mgła"
+    }
+   ]
+  },
+  "images": {
+   "total": 22,
+   "noAlt": 0,
+   "emptyAlt": 17,
+   "noDims": 0,
+   "broken": []
+  },
+  "cls": 0,
+  "lcp": 272,
+  "langSwitch": [
+   {
+    "text": "English EN",
+    "href": "https://netizo.pl/en",
+    "rect": {
+     "x": 227,
+     "y": 10,
+     "w": 61,
+     "h": 44
+    }
+   },
+   {
+    "text": "English English",
+    "href": "https://netizo.pl/en",
+    "rect": {
+     "x": 16,
+     "y": 20505,
+     "w": 69,
+     "h": 44
+    }
+   }
+  ],
+  "tel": [
+   {
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "visible": true,
+    "rect": {
+     "x": 16,
+     "y": 19364,
+     "w": 142,
+     "h": 44
+    }
+   },
+   {
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "visible": true,
+    "rect": {
+     "x": 16,
+     "y": 20144,
+     "w": 111,
+     "h": 44
+    }
+   }
+  ],
+  "dialogs": [],
+  "errors": []
+ },
+ "home-pl-mobile-dark": {
+  "vw": 390,
+  "vh": 844,
+  "docScrollWidth": 390,
+  "bodyScrollWidth": 390,
+  "docHeight": 20809,
+  "hscroll": false,
+  "lang": "pl",
+  "classes": "dark js",
+  "bodyFont": "16px",
+  "h1": {
+   "text": "Tworzymy strony WWW dla ambitnych.",
+   "rect": {
+    "x": 16,
+    "y": 93,
+    "w": 358,
+    "h": 135
+   },
+   "fontSize": "38px"
+  },
+  "interactiveTotal": 70,
+  "aboveFold": [
+   {
+    "tag": "a",
+    "text": "Przejdź do treści",
+    "href": "#main-content",
+    "rect": {
+     "x": -1,
+     "y": -1,
+     "w": 34,
+     "h": 18
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Netizo – strona główna",
+    "href": "#",
+    "rect": {
+     "x": 12,
+     "y": 10,
+     "w": 158,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "English EN",
+    "href": "https://netizo.pl/en",
+    "rect": {
+     "x": 227,
+     "y": 10,
+     "w": 61,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Zamów rozmowę telefoniczną",
+    "href": "",
+    "rect": {
+     "x": 292,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Otwórz menu",
+    "href": "",
+    "rect": {
+     "x": 340,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Wyceń projekt",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 400,
+     "w": 142,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Zobacz realizacje",
+    "href": "#projekty",
+    "rect": {
+     "x": 170,
+     "y": 400,
+     "w": 163,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Tylko niezbędne",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 708,
+     "w": 358,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Zaakceptuj wszystko",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 752,
+     "w": 358,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Dostosuj",
+    "href": "#cookies-policy-customize",
+    "rect": {
+     "x": 0,
+     "y": 804,
+     "w": 390,
+     "h": 41
+    },
+    "fixed": false
+   }
+  ],
+  "smallTargets": [
+   {
+    "tag": "a",
+    "text": "Przejdź do treści",
+    "href": "#main-content",
+    "rect": {
+     "x": -1,
+     "y": -1,
+     "w": 34,
+     "h": 18
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "treepro.pl (otwiera się w nowej karcie)",
+    "href": "https://treepro.pl",
+    "rect": {
+     "x": 0,
+     "y": 9557,
+     "w": 126,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "leasingodreki.pl (otwiera się w nowej karcie)",
+    "href": "https://leasingodreki.pl",
+    "rect": {
+     "x": 269,
+     "y": 9557,
+     "w": 193,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "krainamt2.pl (otwiera się w nowej karcie)",
+    "href": "https://krainamt2.pl",
+    "rect": {
+     "x": 494,
+     "y": 9557,
+     "w": 158,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "temar-mt.pl (otwiera się w nowej karcie)",
+    "href": "https://temar-mt.pl",
+    "rect": {
+     "x": 855,
+     "y": 9557,
+     "w": 150,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "energizo.pl (otwiera się w nowej karcie)",
+    "href": "https://energizo.pl",
+    "rect": {
+     "x": 1037,
+     "y": 9557,
+     "w": 140,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "nakazdaokazje.pl (otwiera się w nowej karcie)",
+    "href": "https://nakazdaokazje.pl",
+    "rect": {
+     "x": 1209,
+     "y": 9557,
+     "w": 210,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "treepro.pl (otwiera się w nowej karcie)",
+    "href": "https://treepro.pl",
+    "rect": {
+     "x": 1451,
+     "y": 9557,
+     "w": 126,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "leasingodreki.pl (otwiera się w nowej karcie)",
+    "href": "https://leasingodreki.pl",
+    "rect": {
+     "x": 1720,
+     "y": 9557,
+     "w": 193,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "krainamt2.pl (otwiera się w nowej karcie)",
+    "href": "https://krainamt2.pl",
+    "rect": {
+     "x": 1945,
+     "y": 9557,
+     "w": 158,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "temar-mt.pl (otwiera się w nowej karcie)",
+    "href": "https://temar-mt.pl",
+    "rect": {
+     "x": 2306,
+     "y": 9557,
+     "w": 150,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "energizo.pl (otwiera się w nowej karcie)",
+    "href": "https://energizo.pl",
+    "rect": {
+     "x": 2488,
+     "y": 9557,
+     "w": 140,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "nakazdaokazje.pl (otwiera się w nowej karcie)",
+    "href": "https://nakazdaokazje.pl",
+    "rect": {
+     "x": 2660,
+     "y": 9557,
+     "w": 210,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Projekt na zlecenie",
+    "href": "",
+    "rect": {
+     "x": 19,
+     "y": 12598,
+     "w": 176,
+     "h": 38
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Stała współpraca",
+    "href": "",
+    "rect": {
+     "x": 195,
+     "y": 12598,
+     "w": 176,
+     "h": 38
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 32,
+     "y": 18452,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 32,
+     "y": 18560,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 32,
+     "y": 18667,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 32,
+     "y": 18775,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 32,
+     "y": 18882,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 32,
+     "y": 18990,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Tylko niezbędne",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 708,
+     "w": 358,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zaakceptuj wszystko",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 752,
+     "w": 358,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Dostosuj",
+    "href": "#cookies-policy-customize",
+    "rect": {
+     "x": 0,
+     "y": 804,
+     "w": 390,
+     "h": 41
+    },
+    "inline": false
+   }
+  ],
+  "fixed": [
+   {
+    "tag": "header",
+    "id": "",
+    "cls": "sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-md suppo",
+    "pos": "sticky",
+    "z": "40",
+    "rect": {
+     "x": 0,
+     "y": 0,
+     "w": 390,
+     "h": 65
+    },
+    "text": "English EN"
+   },
+   {
+    "tag": "aside",
+    "id": "cookies-policy",
+    "cls": "cookies",
+    "pos": "fixed",
+    "z": "45",
+    "rect": {
+     "x": 0,
+     "y": 608,
+     "w": 390,
+     "h": 236
+    },
+    "text": "Korzystamy z plików cookie Ta witryna używa plików cookie w "
+   }
+  ],
+  "cookieBanner": {
+   "x": 0,
+   "y": 608,
+   "w": 390,
+   "h": 236
+  },
+  "cookieBannerVar": "236px",
+  "overflowing": [
+   {
+    "tag": "img",
+    "cls": "size-full object-cover object-[50%_45%]",
+    "rect": {
+     "x": -1,
+     "y": 492,
+     "w": 392,
+     "h": 424
+    },
+    "text": ""
+   },
+   {
+    "tag": "span",
+    "cls": "absolute inset-y-0 left-0 w-full bg-[oklch(0.2_0_0)] dark:bg",
+    "rect": {
+     "x": 360,
+     "y": 828,
+     "w": 176,
+     "h": 10
+    },
+    "text": ""
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 0,
+     "y": 3040,
+     "w": 780,
+     "h": 80
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 0,
+     "y": 3062,
+     "w": 780,
+     "h": 58
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 0,
+     "y": 3062,
+     "w": 780,
+     "h": 46
+    },
+    "text": ""
+   },
+   {
+    "tag": "div",
+    "cls": "flex w-max",
+    "rect": {
+     "x": 0,
+     "y": 9524,
+     "w": 2902,
+     "h": 107
+    },
+    "text": "treepro.pl (otwiera się w nowe"
+   },
+   {
+    "tag": "div",
+    "cls": "flex shrink-0 items-center gap-[var(--marquee-gap,3rem)] pr-",
+    "rect": {
+     "x": 0,
+     "y": 9524,
+     "w": 1451,
+     "h": 107
+    },
+    "text": "treepro.pl (otwiera się w nowe"
+   },
+   {
+    "tag": "ul",
+    "cls": "flex items-center gap-[var(--marquee-gap)]",
+    "rect": {
+     "x": 0,
+     "y": 9564,
+     "w": 1419,
+     "h": 27
+    },
+    "text": "treepro.pl (otwiera się w nowe"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 269,
+     "y": 9565,
+     "w": 193,
+     "h": 24
+    },
+    "text": "leasingodreki.pl (otwiera się "
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 269,
+     "y": 9557,
+     "w": 193,
+     "h": 40
+    },
+    "text": "leasingodreki.pl (otwiera się "
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 269,
+     "y": 9565,
+     "w": 173,
+     "h": 24
+    },
+    "text": "leasingodreki.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 446,
+     "y": 9565,
+     "w": 16,
+     "h": 16
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 451,
+     "y": 9570,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 451,
+     "y": 9570,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 494,
+     "y": 9565,
+     "w": 158,
+     "h": 24
+    },
+    "text": "krainamt2.pl (otwiera się w no"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 494,
+     "y": 9557,
+     "w": 158,
+     "h": 40
+    },
+    "text": "krainamt2.pl (otwiera się w no"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 494,
+     "y": 9565,
+     "w": 138,
+     "h": 24
+    },
+    "text": "krainamt2.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 636,
+     "y": 9565,
+     "w": 16,
+     "h": 16
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 640,
+     "y": 9570,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 640,
+     "y": 9570,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "span",
+    "cls": "sr-only",
+    "rect": {
+     "x": 493,
+     "y": 9564,
+     "w": 1,
+     "h": 1
+    },
+    "text": "(otwiera się w nowej karcie)"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 684,
+     "y": 9564,
+     "w": 139,
+     "h": 27
+    },
+    "text": "lavaforyou.is"
+   },
+   {
+    "tag": "span",
+    "cls": "text-foreground/80",
+    "rect": {
+     "x": 684,
+     "y": 9564,
+     "w": 139,
+     "h": 27
+    },
+    "text": "lavaforyou.is"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 684,
+     "y": 9560,
+     "w": 139,
+     "h": 31
+    },
+    "text": "lavaforyou.is"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 855,
+     "y": 9565,
+     "w": 150,
+     "h": 24
+    },
+    "text": "temar-mt.pl (otwiera się w now"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 855,
+     "y": 9557,
+     "w": 150,
+     "h": 40
+    },
+    "text": "temar-mt.pl (otwiera się w now"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 855,
+     "y": 9565,
+     "w": 130,
+     "h": 24
+    },
+    "text": "temar-mt.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 989,
+     "y": 9565,
+     "w": 16,
+     "h": 16
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 993,
+     "y": 9570,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 993,
+     "y": 9570,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "span",
+    "cls": "sr-only",
+    "rect": {
+     "x": 854,
+     "y": 9564,
+     "w": 1,
+     "h": 1
+    },
+    "text": "(otwiera się w nowej karcie)"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 1037,
+     "y": 9565,
+     "w": 140,
+     "h": 24
+    },
+    "text": "energizo.pl (otwiera się w now"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 1037,
+     "y": 9557,
+     "w": 140,
+     "h": 40
+    },
+    "text": "energizo.pl (otwiera się w now"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 1037,
+     "y": 9565,
+     "w": 120,
+     "h": 24
+    },
+    "text": "energizo.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1161,
+     "y": 9565,
+     "w": 16,
+     "h": 16
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1165,
+     "y": 9570,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1165,
+     "y": 9570,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "span",
+    "cls": "sr-only",
+    "rect": {
+     "x": 1036,
+     "y": 9564,
+     "w": 1,
+     "h": 1
+    },
+    "text": "(otwiera się w nowej karcie)"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 1209,
+     "y": 9565,
+     "w": 210,
+     "h": 24
+    },
+    "text": "nakazdaokazje.pl (otwiera się "
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 1209,
+     "y": 9557,
+     "w": 210,
+     "h": 40
+    },
+    "text": "nakazdaokazje.pl (otwiera się "
+   }
+  ],
+  "text": {
+   "total": 552,
+   "below12": 185,
+   "below14": 327,
+   "samples": [
+    {
+     "fs": 6.91935,
+     "text": "twojafirma.pl"
+    },
+    {
+     "fs": 8.17742,
+     "text": "Twoja marka"
+    },
+    {
+     "fs": 6.91935,
+     "text": "Sklep"
+    },
+    {
+     "fs": 6.91935,
+     "text": "O nas"
+    },
+    {
+     "fs": 6.91935,
+     "text": "Kontakt"
+    },
+    {
+     "fs": 4.71774,
+     "text": "2"
+    },
+    {
+     "fs": 7.23387,
+     "text": "Małe serie z naturalnej wełny."
+    },
+    {
+     "fs": 6.91935,
+     "text": "Zobacz kolekcję"
+    },
+    {
+     "fs": 5.97581,
+     "text": "<Hero />"
+    },
+    {
+     "fs": 7.23387,
+     "text": "Sweter Bałtyk"
+    },
+    {
+     "fs": 7.23387,
+     "text": "349 zł"
+    },
+    {
+     "fs": 7.23387,
+     "text": "Szal Mgła"
+    }
+   ]
+  },
+  "images": {
+   "total": 22,
+   "noAlt": 0,
+   "emptyAlt": 17,
+   "noDims": 0,
+   "broken": []
+  },
+  "cls": 0,
+  "lcp": 300,
+  "langSwitch": [
+   {
+    "text": "English EN",
+    "href": "https://netizo.pl/en",
+    "rect": {
+     "x": 227,
+     "y": 10,
+     "w": 61,
+     "h": 44
+    }
+   },
+   {
+    "text": "English English",
+    "href": "https://netizo.pl/en",
+    "rect": {
+     "x": 16,
+     "y": 20505,
+     "w": 69,
+     "h": 44
+    }
+   }
+  ],
+  "tel": [
+   {
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "visible": true,
+    "rect": {
+     "x": 16,
+     "y": 19364,
+     "w": 142,
+     "h": 44
+    }
+   },
+   {
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "visible": true,
+    "rect": {
+     "x": 16,
+     "y": 20144,
+     "w": 111,
+     "h": 44
+    }
+   }
+  ],
+  "dialogs": [],
+  "errors": []
+ },
+ "partnerzy-pl-mobile-light": {
+  "vw": 390,
+  "vh": 844,
+  "docScrollWidth": 390,
+  "bodyScrollWidth": 390,
+  "docHeight": 10638,
+  "hscroll": false,
+  "lang": "pl",
+  "classes": "js",
+  "bodyFont": "16px",
+  "h1": {
+   "text": "Polecasz nas, dostajesz 15% od każdego zamówienia.",
+   "rect": {
+    "x": 16,
+    "y": 93,
+    "w": 358,
+    "h": 179
+   },
+   "fontSize": "38px"
+  },
+  "interactiveTotal": 50,
+  "aboveFold": [
+   {
+    "tag": "a",
+    "text": "Przejdź do treści",
+    "href": "#main-content",
+    "rect": {
+     "x": -1,
+     "y": -1,
+     "w": 34,
+     "h": 18
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Netizo – strona główna",
+    "href": "/",
+    "rect": {
+     "x": 12,
+     "y": 10,
+     "w": 158,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "English EN",
+    "href": "https://netizo.pl/en/partners",
+    "rect": {
+     "x": 232,
+     "y": 10,
+     "w": 61,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Dołącz",
+    "href": "#dolacz",
+    "rect": {
+     "x": 297,
+     "y": 10,
+     "w": 77,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Dołącz do programu",
+    "href": "#dolacz",
+    "rect": {
+     "x": 16,
+     "y": 473,
+     "w": 180,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Policz swoją prowizję",
+    "href": "#kalkulator",
+    "rect": {
+     "x": 16,
+     "y": 529,
+     "w": 190,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Tylko niezbędne",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 708,
+     "w": 358,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Zaakceptuj wszystko",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 752,
+     "w": 358,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Dostosuj",
+    "href": "#cookies-policy-customize",
+    "rect": {
+     "x": 0,
+     "y": 804,
+     "w": 390,
+     "h": 41
+    },
+    "fixed": false
+   }
+  ],
+  "smallTargets": [
+   {
+    "tag": "a",
+    "text": "Przejdź do treści",
+    "href": "#main-content",
+    "rect": {
+     "x": -1,
+     "y": -1,
+     "w": 34,
+     "h": 18
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 8544,
+     "w": 358,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 8622,
+     "w": 358,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 8704,
+     "w": 358,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 28,
+     "y": 8811,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 193,
+     "y": 8811,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 28,
+     "y": 8863,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 28,
+     "y": 8915,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 206,
+     "y": 8915,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 28,
+     "y": 8967,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Tylko niezbędne",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 708,
+     "w": 358,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Zaakceptuj wszystko",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 752,
+     "w": 358,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Dostosuj",
+    "href": "#cookies-policy-customize",
+    "rect": {
+     "x": 0,
+     "y": 804,
+     "w": 390,
+     "h": 41
+    },
+    "inline": false
+   }
+  ],
+  "fixed": [
+   {
+    "tag": "header",
+    "id": "",
+    "cls": "sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-md suppo",
+    "pos": "sticky",
+    "z": "40",
+    "rect": {
+     "x": 0,
+     "y": 0,
+     "w": 390,
+     "h": 65
+    },
+    "text": "English EN Dołącz"
+   },
+   {
+    "tag": "aside",
+    "id": "cookies-policy",
+    "cls": "cookies",
+    "pos": "fixed",
+    "z": "45",
+    "rect": {
+     "x": 0,
+     "y": 608,
+     "w": 390,
+     "h": 236
+    },
+    "text": "Korzystamy z plików cookie Ta witryna używa plików cookie w "
+   }
+  ],
+  "cookieBanner": {
+   "x": 0,
+   "y": 608,
+   "w": 390,
+   "h": 236
+  },
+  "cookieBannerVar": "236px",
+  "overflowing": [
+   {
+    "tag": "img",
+    "cls": "size-full object-cover object-[36%_50%] lg:object-[40%_50%]",
+    "rect": {
+     "x": -1,
+     "y": 664,
+     "w": 392,
+     "h": 488
+    },
+    "text": ""
+   }
+  ],
+  "text": {
+   "total": 154,
+   "below12": 4,
+   "below14": 17,
+   "samples": [
+    {
+     "fs": 10,
+     "text": "ANNA15"
+    },
+    {
+     "fs": 11,
+     "text": "Netizo 85%"
+    },
+    {
+     "fs": 11,
+     "text": "Twoje 15%:"
+    },
+    {
+     "fs": 11,
+     "text": "2 700 zł"
+    }
+   ]
+  },
+  "images": {
+   "total": 2,
+   "noAlt": 0,
+   "emptyAlt": 2,
+   "noDims": 0,
+   "broken": []
+  },
+  "cls": 0,
+  "lcp": 328,
+  "langSwitch": [
+   {
+    "text": "English EN",
+    "href": "https://netizo.pl/en/partners",
+    "rect": {
+     "x": 232,
+     "y": 10,
+     "w": 61,
+     "h": 44
+    }
+   },
+   {
+    "text": "English English",
+    "href": "https://netizo.pl/en/partners",
+    "rect": {
+     "x": 16,
+     "y": 10334,
+     "w": 69,
+     "h": 44
+    }
+   }
+  ],
+  "tel": [
+   {
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "visible": true,
+    "rect": {
+     "x": 16,
+     "y": 9973,
+     "w": 111,
+     "h": 44
+    }
+   }
+  ],
+  "dialogs": [],
+  "errors": []
+ },
+ "home-en-mobile-light": {
+  "vw": 390,
+  "vh": 844,
+  "docScrollWidth": 390,
+  "bodyScrollWidth": 390,
+  "docHeight": 20510,
+  "hscroll": false,
+  "lang": "en",
+  "classes": "js",
+  "bodyFont": "16px",
+  "h1": {
+   "text": "We build websites for the ambitious.",
+   "rect": {
+    "x": 16,
+    "y": 93,
+    "w": 358,
+    "h": 135
+   },
+   "fontSize": "38px"
+  },
+  "interactiveTotal": 70,
+  "aboveFold": [
+   {
+    "tag": "a",
+    "text": "Skip to content",
+    "href": "#main-content",
+    "rect": {
+     "x": -1,
+     "y": -1,
+     "w": 34,
+     "h": 18
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Netizo – home page",
+    "href": "#",
+    "rect": {
+     "x": 12,
+     "y": 10,
+     "w": 158,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Polski PL",
+    "href": "https://netizo.pl",
+    "rect": {
+     "x": 229,
+     "y": 10,
+     "w": 59,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Request a phone call",
+    "href": "",
+    "rect": {
+     "x": 292,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Open menu",
+    "href": "",
+    "rect": {
+     "x": 340,
+     "y": 10,
+     "w": 44,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Get a quote",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 400,
+     "w": 124,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "See our work",
+    "href": "#projects",
+    "rect": {
+     "x": 152,
+     "y": 400,
+     "w": 137,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Only essentials",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 708,
+     "w": 358,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Accept all",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 752,
+     "w": 358,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Customize",
+    "href": "#cookies-policy-customize",
+    "rect": {
+     "x": 0,
+     "y": 804,
+     "w": 390,
+     "h": 41
+    },
+    "fixed": false
+   }
+  ],
+  "smallTargets": [
+   {
+    "tag": "a",
+    "text": "Skip to content",
+    "href": "#main-content",
+    "rect": {
+     "x": -1,
+     "y": -1,
+     "w": 34,
+     "h": 18
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "treepro.pl (opens in a new tab)",
+    "href": "https://treepro.pl",
+    "rect": {
+     "x": 0,
+     "y": 9446,
+     "w": 126,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "leasingodreki.pl (opens in a new tab)",
+    "href": "https://leasingodreki.pl",
+    "rect": {
+     "x": 269,
+     "y": 9446,
+     "w": 193,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "krainamt2.pl (opens in a new tab)",
+    "href": "https://krainamt2.pl",
+    "rect": {
+     "x": 494,
+     "y": 9446,
+     "w": 158,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "temar-mt.pl (opens in a new tab)",
+    "href": "https://temar-mt.pl",
+    "rect": {
+     "x": 855,
+     "y": 9446,
+     "w": 150,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "energizo.pl (opens in a new tab)",
+    "href": "https://energizo.pl",
+    "rect": {
+     "x": 1037,
+     "y": 9446,
+     "w": 140,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "nakazdaokazje.pl (opens in a new tab)",
+    "href": "https://nakazdaokazje.pl",
+    "rect": {
+     "x": 1209,
+     "y": 9446,
+     "w": 210,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "treepro.pl (opens in a new tab)",
+    "href": "https://treepro.pl",
+    "rect": {
+     "x": 1451,
+     "y": 9446,
+     "w": 126,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "leasingodreki.pl (opens in a new tab)",
+    "href": "https://leasingodreki.pl",
+    "rect": {
+     "x": 1720,
+     "y": 9446,
+     "w": 193,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "krainamt2.pl (opens in a new tab)",
+    "href": "https://krainamt2.pl",
+    "rect": {
+     "x": 1945,
+     "y": 9446,
+     "w": 158,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "temar-mt.pl (opens in a new tab)",
+    "href": "https://temar-mt.pl",
+    "rect": {
+     "x": 2306,
+     "y": 9446,
+     "w": 150,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "energizo.pl (opens in a new tab)",
+    "href": "https://energizo.pl",
+    "rect": {
+     "x": 2488,
+     "y": 9446,
+     "w": 140,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "nakazdaokazje.pl (opens in a new tab)",
+    "href": "https://nakazdaokazje.pl",
+    "rect": {
+     "x": 2660,
+     "y": 9446,
+     "w": 210,
+     "h": 40
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "One-off project",
+    "href": "",
+    "rect": {
+     "x": 19,
+     "y": 12454,
+     "w": 176,
+     "h": 38
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Ongoing retainer",
+    "href": "",
+    "rect": {
+     "x": 195,
+     "y": 12454,
+     "w": 176,
+     "h": 38
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 32,
+     "y": 18215,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 32,
+     "y": 18322,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 32,
+     "y": 18430,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 32,
+     "y": 18537,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 32,
+     "y": 18645,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 32,
+     "y": 18752,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Only essentials",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 708,
+     "w": 358,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Accept all",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 752,
+     "w": 358,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Customize",
+    "href": "#cookies-policy-customize",
+    "rect": {
+     "x": 0,
+     "y": 804,
+     "w": 390,
+     "h": 41
+    },
+    "inline": false
+   }
+  ],
+  "fixed": [
+   {
+    "tag": "header",
+    "id": "",
+    "cls": "sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-md suppo",
+    "pos": "sticky",
+    "z": "40",
+    "rect": {
+     "x": 0,
+     "y": 0,
+     "w": 390,
+     "h": 65
+    },
+    "text": "Polski PL"
+   },
+   {
+    "tag": "aside",
+    "id": "cookies-policy",
+    "cls": "cookies",
+    "pos": "fixed",
+    "z": "45",
+    "rect": {
+     "x": 0,
+     "y": 608,
+     "w": 390,
+     "h": 236
+    },
+    "text": "We use cookies This website uses cookies in order to enhance"
+   }
+  ],
+  "cookieBanner": {
+   "x": 0,
+   "y": 608,
+   "w": 390,
+   "h": 236
+  },
+  "cookieBannerVar": "236px",
+  "overflowing": [
+   {
+    "tag": "img",
+    "cls": "size-full object-cover object-[50%_45%]",
+    "rect": {
+     "x": -1,
+     "y": 492,
+     "w": 392,
+     "h": 424
+    },
+    "text": ""
+   },
+   {
+    "tag": "span",
+    "cls": "absolute inset-y-0 left-0 w-full bg-[oklch(0.2_0_0)] dark:bg",
+    "rect": {
+     "x": 360,
+     "y": 828,
+     "w": 176,
+     "h": 10
+    },
+    "text": ""
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 0,
+     "y": 2988,
+     "w": 780,
+     "h": 80
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 0,
+     "y": 3010,
+     "w": 780,
+     "h": 58
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 0,
+     "y": 3010,
+     "w": 780,
+     "h": 46
+    },
+    "text": ""
+   },
+   {
+    "tag": "div",
+    "cls": "flex w-max",
+    "rect": {
+     "x": 0,
+     "y": 9413,
+     "w": 2902,
+     "h": 107
+    },
+    "text": "treepro.pl (opens in a new tab"
+   },
+   {
+    "tag": "div",
+    "cls": "flex shrink-0 items-center gap-[var(--marquee-gap,3rem)] pr-",
+    "rect": {
+     "x": 0,
+     "y": 9413,
+     "w": 1451,
+     "h": 107
+    },
+    "text": "treepro.pl (opens in a new tab"
+   },
+   {
+    "tag": "ul",
+    "cls": "flex items-center gap-[var(--marquee-gap)]",
+    "rect": {
+     "x": 0,
+     "y": 9453,
+     "w": 1419,
+     "h": 27
+    },
+    "text": "treepro.pl (opens in a new tab"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 269,
+     "y": 9454,
+     "w": 193,
+     "h": 24
+    },
+    "text": "leasingodreki.pl (opens in a n"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 269,
+     "y": 9446,
+     "w": 193,
+     "h": 40
+    },
+    "text": "leasingodreki.pl (opens in a n"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 269,
+     "y": 9454,
+     "w": 173,
+     "h": 24
+    },
+    "text": "leasingodreki.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 446,
+     "y": 9454,
+     "w": 16,
+     "h": 16
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 451,
+     "y": 9459,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 451,
+     "y": 9459,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 494,
+     "y": 9454,
+     "w": 158,
+     "h": 24
+    },
+    "text": "krainamt2.pl (opens in a new t"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 494,
+     "y": 9446,
+     "w": 158,
+     "h": 40
+    },
+    "text": "krainamt2.pl (opens in a new t"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 494,
+     "y": 9454,
+     "w": 138,
+     "h": 24
+    },
+    "text": "krainamt2.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 636,
+     "y": 9454,
+     "w": 16,
+     "h": 16
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 640,
+     "y": 9459,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 640,
+     "y": 9459,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "span",
+    "cls": "sr-only",
+    "rect": {
+     "x": 493,
+     "y": 9453,
+     "w": 1,
+     "h": 1
+    },
+    "text": "(opens in a new tab)"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 684,
+     "y": 9453,
+     "w": 139,
+     "h": 27
+    },
+    "text": "lavaforyou.is"
+   },
+   {
+    "tag": "span",
+    "cls": "text-foreground/80",
+    "rect": {
+     "x": 684,
+     "y": 9453,
+     "w": 139,
+     "h": 27
+    },
+    "text": "lavaforyou.is"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 684,
+     "y": 9449,
+     "w": 139,
+     "h": 31
+    },
+    "text": "lavaforyou.is"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 855,
+     "y": 9454,
+     "w": 150,
+     "h": 24
+    },
+    "text": "temar-mt.pl (opens in a new ta"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 855,
+     "y": 9446,
+     "w": 150,
+     "h": 40
+    },
+    "text": "temar-mt.pl (opens in a new ta"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 855,
+     "y": 9454,
+     "w": 130,
+     "h": 24
+    },
+    "text": "temar-mt.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 989,
+     "y": 9454,
+     "w": 16,
+     "h": 16
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 993,
+     "y": 9459,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 993,
+     "y": 9459,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "span",
+    "cls": "sr-only",
+    "rect": {
+     "x": 854,
+     "y": 9453,
+     "w": 1,
+     "h": 1
+    },
+    "text": "(opens in a new tab)"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 1037,
+     "y": 9454,
+     "w": 140,
+     "h": 24
+    },
+    "text": "energizo.pl (opens in a new ta"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 1037,
+     "y": 9446,
+     "w": 140,
+     "h": 40
+    },
+    "text": "energizo.pl (opens in a new ta"
+   },
+   {
+    "tag": "span",
+    "cls": "text-2xl leading-none font-semibold tracking-tight whitespac",
+    "rect": {
+     "x": 1037,
+     "y": 9454,
+     "w": 120,
+     "h": 24
+    },
+    "text": "energizo.pl"
+   },
+   {
+    "tag": "svg",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1161,
+     "y": 9454,
+     "w": 16,
+     "h": 16
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1165,
+     "y": 9459,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "path",
+    "cls": "[object SVGAnimatedString]",
+    "rect": {
+     "x": 1165,
+     "y": 9459,
+     "w": 7,
+     "h": 7
+    },
+    "text": ""
+   },
+   {
+    "tag": "span",
+    "cls": "sr-only",
+    "rect": {
+     "x": 1036,
+     "y": 9453,
+     "w": 1,
+     "h": 1
+    },
+    "text": "(opens in a new tab)"
+   },
+   {
+    "tag": "li",
+    "cls": "flex shrink-0 items-center",
+    "rect": {
+     "x": 1209,
+     "y": 9454,
+     "w": 210,
+     "h": 24
+    },
+    "text": "nakazdaokazje.pl (opens in a n"
+   },
+   {
+    "tag": "a",
+    "cls": "group -my-2 inline-flex items-start gap-1 rounded-sm py-2 te",
+    "rect": {
+     "x": 1209,
+     "y": 9446,
+     "w": 210,
+     "h": 40
+    },
+    "text": "nakazdaokazje.pl (opens in a n"
+   }
+  ],
+  "text": {
+   "total": 555,
+   "below12": 183,
+   "below14": 327,
+   "samples": [
+    {
+     "fs": 6.91935,
+     "text": "yourcompany.com"
+    },
+    {
+     "fs": 8.17742,
+     "text": "Your brand"
+    },
+    {
+     "fs": 6.91935,
+     "text": "Shop"
+    },
+    {
+     "fs": 6.91935,
+     "text": "About"
+    },
+    {
+     "fs": 6.91935,
+     "text": "Contact"
+    },
+    {
+     "fs": 4.71774,
+     "text": "2"
+    },
+    {
+     "fs": 7.23387,
+     "text": "Small batches of natural wool."
+    },
+    {
+     "fs": 6.91935,
+     "text": "Shop the collection"
+    },
+    {
+     "fs": 5.97581,
+     "text": "<Hero />"
+    },
+    {
+     "fs": 7.23387,
+     "text": "Baltic Sweater"
+    },
+    {
+     "fs": 7.23387,
+     "text": "PLN 349"
+    },
+    {
+     "fs": 7.23387,
+     "text": "Mist Scarf"
+    }
+   ]
+  },
+  "images": {
+   "total": 22,
+   "noAlt": 0,
+   "emptyAlt": 17,
+   "noDims": 0,
+   "broken": []
+  },
+  "cls": 0,
+  "lcp": 300,
+  "langSwitch": [
+   {
+    "text": "Polski PL",
+    "href": "https://netizo.pl",
+    "rect": {
+     "x": 229,
+     "y": 10,
+     "w": 59,
+     "h": 44
+    }
+   },
+   {
+    "text": "Maintenance PL (in Polish)",
+    "href": "/utrzymanie",
+    "rect": {
+     "x": 16,
+     "y": 19637,
+     "w": 104,
+     "h": 44
+    }
+   },
+   {
+    "text": "Terms of service PL (in Polish)",
+    "href": "/regulamin",
+    "rect": {
+     "x": 16,
+     "y": 19681,
+     "w": 125,
+     "h": 44
+    }
+   },
+   {
+    "text": "Privacy policy PL (in Polish)",
+    "href": "/polityka-prywatnosci",
+    "rect": {
+     "x": 16,
+     "y": 19725,
+     "w": 109,
+     "h": 44
+    }
+   },
+   {
+    "text": "Polski Polski",
+    "href": "https://netizo.pl",
+    "rect": {
+     "x": 314,
+     "y": 20206,
+     "w": 60,
+     "h": 44
+    }
+   }
+  ],
+  "tel": [
+   {
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "visible": true,
+    "rect": {
+     "x": 16,
+     "y": 19127,
+     "w": 142,
+     "h": 44
+    }
+   },
+   {
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "visible": true,
+    "rect": {
+     "x": 16,
+     "y": 19881,
+     "w": 111,
+     "h": 44
+    }
+   }
+  ],
+  "dialogs": [],
+  "errors": []
+ },
+ "partners-en-mobile-light": {
+  "vw": 390,
+  "vh": 844,
+  "docScrollWidth": 390,
+  "bodyScrollWidth": 390,
+  "docHeight": 10512,
+  "hscroll": false,
+  "lang": "en",
+  "classes": "js",
+  "bodyFont": "16px",
+  "h1": {
+   "text": "Refer us, earn 15% of every order.",
+   "rect": {
+    "x": 16,
+    "y": 93,
+    "w": 358,
+    "h": 179
+   },
+   "fontSize": "38px"
+  },
+  "interactiveTotal": 50,
+  "aboveFold": [
+   {
+    "tag": "a",
+    "text": "Skip to content",
+    "href": "#main-content",
+    "rect": {
+     "x": -1,
+     "y": -1,
+     "w": 34,
+     "h": 18
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Netizo – home page",
+    "href": "/en",
+    "rect": {
+     "x": 12,
+     "y": 10,
+     "w": 158,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Polski PL",
+    "href": "https://netizo.pl/partnerzy",
+    "rect": {
+     "x": 250,
+     "y": 10,
+     "w": 59,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Join",
+    "href": "#join",
+    "rect": {
+     "x": 314,
+     "y": 10,
+     "w": 60,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Join the program",
+    "href": "#join",
+    "rect": {
+     "x": 16,
+     "y": 473,
+     "w": 160,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Calculate your commission",
+    "href": "#calculator",
+    "rect": {
+     "x": 16,
+     "y": 529,
+     "w": 227,
+     "h": 44
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Only essentials",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 708,
+     "w": 358,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "button",
+    "text": "Accept all",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 752,
+     "w": 358,
+     "h": 36
+    },
+    "fixed": false
+   },
+   {
+    "tag": "a",
+    "text": "Customize",
+    "href": "#cookies-policy-customize",
+    "rect": {
+     "x": 0,
+     "y": 804,
+     "w": 390,
+     "h": 41
+    },
+    "fixed": false
+   }
+  ],
+  "smallTargets": [
+   {
+    "tag": "a",
+    "text": "Skip to content",
+    "href": "#main-content",
+    "rect": {
+     "x": -1,
+     "y": -1,
+     "w": 34,
+     "h": 18
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 8480,
+     "w": 358,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 8558,
+     "w": 358,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 8640,
+     "w": 358,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 28,
+     "y": 8747,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 180,
+     "y": 8747,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 28,
+     "y": 8799,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 28,
+     "y": 8851,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 199,
+     "y": 8851,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "href": "",
+    "rect": {
+     "x": 28,
+     "y": 8903,
+     "w": 1,
+     "h": 1
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Only essentials",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 708,
+     "w": 358,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "button",
+    "text": "Accept all",
+    "href": "",
+    "rect": {
+     "x": 16,
+     "y": 752,
+     "w": 358,
+     "h": 36
+    },
+    "inline": false
+   },
+   {
+    "tag": "a",
+    "text": "Customize",
+    "href": "#cookies-policy-customize",
+    "rect": {
+     "x": 0,
+     "y": 804,
+     "w": 390,
+     "h": 41
+    },
+    "inline": false
+   }
+  ],
+  "fixed": [
+   {
+    "tag": "header",
+    "id": "",
+    "cls": "sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-md suppo",
+    "pos": "sticky",
+    "z": "40",
+    "rect": {
+     "x": 0,
+     "y": 0,
+     "w": 390,
+     "h": 65
+    },
+    "text": "Polski PL Join"
+   },
+   {
+    "tag": "aside",
+    "id": "cookies-policy",
+    "cls": "cookies",
+    "pos": "fixed",
+    "z": "45",
+    "rect": {
+     "x": 0,
+     "y": 608,
+     "w": 390,
+     "h": 236
+    },
+    "text": "We use cookies This website uses cookies in order to enhance"
+   }
+  ],
+  "cookieBanner": {
+   "x": 0,
+   "y": 608,
+   "w": 390,
+   "h": 236
+  },
+  "cookieBannerVar": "236px",
+  "overflowing": [],
+  "text": {
+   "total": 160,
+   "below12": 7,
+   "below14": 20,
+   "samples": [
+    {
+     "fs": 10,
+     "text": "ANNA15"
+    },
+    {
+     "fs": 11,
+     "text": "Netizo 85%"
+    },
+    {
+     "fs": 11,
+     "text": "Your 15%:"
+    },
+    {
+     "fs": 11,
+     "text": "PLN 2,700"
+    },
+    {
+     "fs": 11,
+     "text": "pl"
+    },
+    {
+     "fs": 11,
+     "text": "pl"
+    },
+    {
+     "fs": 11,
+     "text": "pl"
+    }
+   ]
+  },
+  "images": {
+   "total": 2,
+   "noAlt": 0,
+   "emptyAlt": 2,
+   "noDims": 0,
+   "broken": []
+  },
+  "cls": 0,
+  "lcp": 248,
+  "langSwitch": [
+   {
+    "text": "Polski PL",
+    "href": "https://netizo.pl/partnerzy",
+    "rect": {
+     "x": 250,
+     "y": 10,
+     "w": 59,
+     "h": 44
+    }
+   },
+   {
+    "text": "Maintenance PL (in Polish)",
+    "href": "/utrzymanie",
+    "rect": {
+     "x": 16,
+     "y": 9639,
+     "w": 104,
+     "h": 44
+    }
+   },
+   {
+    "text": "Terms of service PL (in Polish)",
+    "href": "/regulamin",
+    "rect": {
+     "x": 16,
+     "y": 9683,
+     "w": 125,
+     "h": 44
+    }
+   },
+   {
+    "text": "Privacy policy PL (in Polish)",
+    "href": "/polityka-prywatnosci",
+    "rect": {
+     "x": 16,
+     "y": 9727,
+     "w": 109,
+     "h": 44
+    }
+   },
+   {
+    "text": "Polski Polski",
+    "href": "https://netizo.pl/partnerzy",
+    "rect": {
+     "x": 314,
+     "y": 10208,
+     "w": 60,
+     "h": 44
+    }
+   }
+  ],
+  "tel": [
+   {
+    "text": "+48 884 343 924",
+    "href": "tel:+48884343924",
+    "visible": true,
+    "rect": {
+     "x": 16,
+     "y": 9883,
+     "w": 111,
+     "h": 44
+    }
+   }
+  ],
+  "dialogs": [],
+  "errors": []
+ }
+}

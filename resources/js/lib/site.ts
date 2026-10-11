@@ -13,6 +13,16 @@ export const contact = {
     },
 } as const;
 
+/** Registered company details shown in the footer, the same in both languages. */
+export const company = {
+    name: 'Netizo',
+    street: 'ul. Wiosny Ludów 12 lok. 8',
+    postalCode: '63-600',
+    city: 'Kępno',
+    nip: '6192060508',
+    regon: '527974955',
+} as const;
+
 export const clientPanelUrl = 'https://panel-klienta.netizo.pl';
 
 /** Brand names of the social networks with an icon (components/home/social-icon.tsx), the same in both languages. */
@@ -43,8 +53,8 @@ export function useSocialProfiles(): SocialProfile[] {
 
 /** Pages of the site in each language (routes/web.php). */
 export const pageUrls = localized({
-    pl: { home: '/', partners: '/partnerzy' },
-    en: { home: '/en', partners: '/en/partners' },
+    pl: { home: '/', partners: '/partnerzy', about: '/o-nas' },
+    en: { home: '/en', partners: '/en/partners', about: '/en/about' },
 });
 
 export type InfoLink = {
@@ -59,12 +69,14 @@ export type InfoLink = {
 
 export const infoLinks = localized<InfoLink[]>({
     pl: [
+        { href: '/o-nas', label: 'O nas' },
         { href: '/partnerzy', label: 'Program partnerski' },
         { href: '/utrzymanie', label: 'Utrzymanie' },
         { href: '/regulamin', label: 'Regulamin' },
         { href: '/polityka-prywatnosci', label: 'Polityka prywatności' },
     ],
     en: [
+        { href: '/en/about', label: 'About us' },
         { href: '/en/partners', label: 'Partner program' },
         { href: '/utrzymanie', label: 'Maintenance', hrefLang: 'pl' },
         { href: '/regulamin', label: 'Terms of service', hrefLang: 'pl' },

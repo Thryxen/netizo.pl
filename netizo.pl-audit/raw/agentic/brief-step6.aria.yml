@@ -1,0 +1,40 @@
+- 'form "Krok 6 z 6: Dane kontaktowe"':
+  - progressbar "Postęp briefu"
+  - 'heading "Krok 6 z 6: Dane kontaktowe" [level=3]'
+  - paragraph: Zostaw dane, a przygotujemy wycenę.
+  - text: Imię i nazwisko
+  - textbox "Imię i nazwisko":
+    - /placeholder: Jan Kowalski
+  - text: E-mail
+  - textbox "E-mail":
+    - /placeholder: jan@firma.pl
+  - text: Telefon
+  - textbox "Telefon":
+    - /placeholder: +48 000 000 000
+  - text: Firma
+  - textbox "Firma":
+    - /placeholder: Nazwa firmy
+  - text: Stanowisko
+  - textbox "Stanowisko":
+    - /placeholder: CEO, CTO, PM…
+  - text: Strona WWW
+  - textbox "Strona WWW":
+    - /placeholder: https://…
+  - text: Skąd o nas wiesz?
+  - combobox "Skąd o nas wiesz?": Wybierz…
+  - group "Preferowany kontakt":
+    - text: Preferowany kontakt
+    - checkbox "E-mail"
+    - text: E-mail
+    - checkbox "Telefon"
+    - text: Telefon
+    - checkbox "Video call"
+    - text: Video call
+  - checkbox "Akceptuję politykę prywatności i wyrażam zgodę na kontakt w sprawie zapytania."
+  - text: Akceptuję
+  - link "politykę prywatności":
+    - /url: /polityka-prywatnosci
+  - text: i wyrażam zgodę na kontakt w sprawie zapytania.
+  - paragraph: Pola oznaczone gwiazdką są wymagane.
+  - button "Wstecz"
+  - button "Wyślij brief"

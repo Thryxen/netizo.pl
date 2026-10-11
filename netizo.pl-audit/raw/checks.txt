@@ -1,0 +1,28 @@
+=== redirects
+http://netizo.pl -> 301 https://netizo.pl/ (0)
+http://www.netizo.pl -> 301 https://www.netizo.pl/ (0)
+https://www.netizo.pl -> 301 https://netizo.pl/ (0)
+https://netizo.pl/en/ -> 200  (0)
+https://netizo.pl/partnerzy/ -> 200  (0)
+https://netizo.pl/PARTNERZY -> 404  (0)
+https://netizo.pl/index.php -> 200  (0)
+https://netizo.pl/?utm_source=test -> 200  (0)
+https://netizo.pl/nie-istnieje -> 404  (0)
+https://netizo.pl/en/nope -> 404  (0)
+https://netizo.pl/admin -> 302 https://netizo.pl/admin/login (0)
+https://netizo.pl/polityka-prywatnosci -> 404  (0)
+=== HSTS / headers on apex
+=== bot UA access
+200 size=455004  Googlebot/2.1 (+http://www.google.com/bot.html)
+200 size=455004  Mozilla/5.0 (compatible; GPTBot/1.2; +https://openai.com/gptbot)
+200 size=455004  Mozilla/5.0 (compatible; ClaudeBot/1.0; +claudebot@anthropic.com)
+200 size=455004  Mozilla/5.0 (compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)
+200 size=455004  Mozilla/5.0 (compatible; OAI-SearchBot/1.0; +https://openai.com/searchbot)
+200 size=455004  Mozilla/5.0 (compatible; Bingbot/2.0; +http://www.bing.com/bingbot.htm)
+200 size=455004  CCBot/2.0 (https://commoncrawl.org/faq/)
+200 size=455004  Mozilla/5.0 (compatible; Applebot/0.1)
+=== robots as GPTBot
+User-agent: *
+Allow: /
+
+Sitemap: https://netizo.pl/sitemap.xml

@@ -1,0 +1,29 @@
+- form "Zgłoszenie do programu partnerskiego":
+  - text: Imię i nazwisko
+  - textbox "Imię i nazwisko":
+    - /placeholder: Anna Kowalska
+  - text: E-mail
+  - textbox "E-mail":
+    - /placeholder: anna@firma.pl
+  - text: Telefon (opcjonalnie)
+  - textbox "Telefon (opcjonalnie)":
+    - /placeholder: +48 600 000 000
+  - group "Kim jesteś?":
+    - text: Kim jesteś?
+    - radio "Biuro rachunkowe"
+    - text: Biuro rachunkowe
+    - radio "Agencja marketingowa"
+    - text: Agencja marketingowa
+    - radio "Grafik, fotograf, copywriter"
+    - text: Grafik, fotograf, copywriter
+    - radio "Doradca, konsultant"
+    - text: Doradca, konsultant
+    - radio "Klient Netizo"
+    - text: Klient Netizo
+    - radio "Ktoś inny"
+    - text: Ktoś inny
+  - text: Kogo chcesz nam polecić? (opcjonalnie)
+  - textbox "Kogo chcesz nam polecić? (opcjonalnie)":
+    - /placeholder: "Na przykład: znam kilka firm budowlanych, które potrzebują nowych stron."
+  - paragraph: Zgłoszenie do niczego Cię nie zobowiązuje. Pola oznaczone gwiazdką są wymagane.
+  - button "Wyślij zgłoszenie"

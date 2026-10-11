@@ -1,0 +1,240 @@
+<!doctype html>
+<!--
+    Obraz do podglądów linków angielskiej strony „O nas” (/en/about): 1200 × 630 px, jasny motyw netizo.pl.
+    Ta sama rama co szablon.html (logo, poziome linie, szyna z nitami, sygnet N ton w ton), podzielona pionową linią
+    jak szablon-partnerzy-en.html: po lewej nagłówek hero strony, po prawej współwłaściciele z awatarami (jak PersonAvatar)
+    i czas odpowiedzi. Imiona, role i treści muszą się zgadzać z components/about/about-data.ts i about-hero.tsx.
+    Znaczniki w podwójnych klamrach (logo i sygnet) wypełnia generuj.cjs; nie wpisuj ich w komentarzach.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OG image netizo, about us</title>
+    <style>
+        @font-face {
+            font-family: 'Geist';
+            font-weight: 400;
+            src: url('fonts/geist-400.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Geist';
+            font-weight: 600;
+            src: url('fonts/geist-600.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Geist Mono';
+            font-weight: 400;
+            src: url('fonts/geist-mono-400.ttf') format('truetype');
+        }
+
+        :root {
+            /* Tokeny strony netizo.pl (jasny motyw), jak w szablon.html. */
+            --ink: #0a0a0a;
+            --paper: #ffffff;
+            --muted: #6e6e6e;
+            --line: #d6d6d6;
+            --rivet: #b3b3b3;
+            --mark: #f0f0f0;
+
+            --rail-x: 64px;
+            --column-x: 680px;
+            --content-x: 104px;
+            --example-x: 728px;
+            --line-top: 140px;
+            --line-bottom: 500px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        html,
+        body {
+            width: 1200px;
+            height: 630px;
+            background: var(--paper);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .canvas {
+            position: relative;
+            width: 1200px;
+            height: 630px;
+            overflow: hidden;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: 'Geist', sans-serif;
+        }
+
+        /* Wstawione SVG skalują się do wysokości kontenera; overflow: visible chroni zaokrąglone końce N. */
+        .svg-fit svg {
+            display: block;
+            width: auto;
+            height: 100%;
+            overflow: visible;
+        }
+
+        /* Wielki sygnet ton w ton w prawej kolumnie, przycięty prawą krawędzią; linie i przykład leżą na nim. */
+        .mark {
+            position: absolute;
+            left: 700px;
+            top: -5px;
+            height: 640px;
+            color: var(--mark);
+        }
+
+        .hairline {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--line);
+        }
+
+        .rail {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--line);
+        }
+
+        .rivet {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--rivet);
+        }
+
+        .logo {
+            position: absolute;
+            left: var(--content-x);
+            top: 34px;
+            height: 72px;
+            color: var(--ink);
+        }
+
+        .headline {
+            position: absolute;
+            left: var(--content-x);
+            top: var(--line-top);
+            height: calc(var(--line-bottom) - var(--line-top));
+            display: flex;
+            align-items: center;
+            font-size: 80px;
+            font-weight: 600;
+            line-height: 1.04;
+            letter-spacing: -0.04em;
+        }
+
+        .people {
+            position: absolute;
+            left: var(--example-x);
+            right: 64px;
+            top: var(--line-top);
+            height: calc(var(--line-bottom) - var(--line-top));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .person {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        /* Awatar jak PersonAvatar na stronie: kolor tekstu z inicjałami w kolorze tła. */
+        .avatar {
+            flex: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            background: var(--ink);
+            color: var(--paper);
+            font-size: 26px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .name {
+            font-size: 38px;
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+
+        .role {
+            margin-top: 4px;
+            font-size: 23px;
+            line-height: 1.3;
+            color: var(--muted);
+        }
+
+        .reply {
+            padding-top: 26px;
+            border-top: 2px solid var(--line);
+            font-family: 'Geist Mono', monospace;
+            font-size: 21px;
+            color: var(--muted);
+        }
+
+        .url {
+            position: absolute;
+            left: var(--content-x);
+            top: var(--line-bottom);
+            height: calc(630px - var(--line-bottom));
+            display: flex;
+            align-items: center;
+            font-family: 'Geist Mono', monospace;
+            font-size: 34px;
+            color: var(--muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas">
+        <div class="mark svg-fit">{{sygnet}}</div>
+
+        <span class="hairline" style="top: calc(var(--line-top) - 1px)"></span>
+        <span class="hairline" style="top: calc(var(--line-bottom) - 1px)"></span>
+        <span class="rail" style="left: calc(var(--rail-x) - 1px)"></span>
+        <span class="rail" style="left: calc(var(--column-x) - 1px)"></span>
+        <span class="rivet" style="left: calc(var(--rail-x) - 5px); top: calc(var(--line-top) - 5px)"></span>
+        <span class="rivet" style="left: calc(var(--rail-x) - 5px); top: calc(var(--line-bottom) - 5px)"></span>
+        <span class="rivet" style="left: calc(var(--column-x) - 5px); top: calc(var(--line-top) - 5px)"></span>
+        <span class="rivet" style="left: calc(var(--column-x) - 5px); top: calc(var(--line-bottom) - 5px)"></span>
+
+        <div class="logo svg-fit">{{logo}}</div>
+
+        <p class="headline">Netizo is<br>Damian<br>and Kamil.</p>
+
+        <div class="people">
+            <div class="person">
+                <span class="avatar">DI</span>
+                <div>
+                    <p class="name">Damian Idzik</p>
+                    <p class="role">Co-owner, technology</p>
+                </div>
+            </div>
+            <div class="person">
+                <span class="avatar">KN</span>
+                <div>
+                    <p class="name">Kamil Nawrot</p>
+                    <p class="role">Co-owner, operations</p>
+                </div>
+            </div>
+            <p class="reply">We reply within 24 hours</p>
+        </div>
+
+        <p class="url">netizo.pl/en/about</p>
+    </div>
+</body>
+</html>

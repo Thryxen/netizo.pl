@@ -1,0 +1,647 @@
+{
+  "title": "Tworzymy Strony WWW dla Ambitnych Firm | Netizo",
+  "meta_description": "Profesjonalne tworzenie stron internetowych i aplikacji webowych dla firm. Nowoczesny design, szybko\u015b\u0107 i SEO w standardzie. React, Next.js, Laravel. 150+ projekt\u00f3w, 8 lat do\u015bwiadczenia. Bezp\u0142atna wycena!",
+  "meta_robots": "index, follow",
+  "canonical": "https://netizo.pl",
+  "h1": [
+    "Tworzymystrony WWWdla ambitnych."
+  ],
+  "h2": [
+    "Co dla Ciebie zbudujemy",
+    "Ostatnie wdro\u017cenia",
+    "Nasza misja",
+    "Zaufali nam",
+    "Jak pracujemy",
+    "Tw\u00f3j projekt w jednym panelu",
+    "Cz\u0119ste pytania",
+    "Pole\u0107 nas i zyskaj 15%",
+    "Newsletter raz w miesi\u0105cu",
+    "Rozpocznij wsp\u00f3\u0142prac\u0119",
+    "Informacje",
+    "Kontakt",
+    "Obserwuj nas",
+    "Korzystamy z plik\u00f3w cookie"
+  ],
+  "h3": [
+    "Aplikacje webowe",
+    "Aplikacje mobilne",
+    "AI & Automatyzacja",
+    "Systemy backend",
+    "DevOps & Cloud",
+    "E-commerce",
+    "Treepro.pl",
+    "Vetly.pl",
+    "energizo.pl",
+    "nakazdaokazje.pl",
+    "KrainaMT2.pl",
+    "Odkrywanie",
+    "Projektowanie",
+    "Rozw\u00f3j",
+    "Wdro\u017cenie",
+    "Czat z zespo\u0142em",
+    "Dokumenty na \u017cywo",
+    "Sejf dost\u0119p\u00f3w",
+    "Powiadomienia",
+    "Pe\u0142na historia",
+    "Bezpieczne logowanie",
+    "Ile kosztuje strona internetowa lub aplikacja?",
+    "Ile trwa stworzenie strony lub aplikacji?",
+    "Czy strona b\u0119dzie widoczna w Google?",
+    "Czy mog\u0119 samodzielnie zmienia\u0107 tre\u015bci na stronie?",
+    "Czy zaprojektujecie wygl\u0105d strony, je\u015bli nie mam projektu?",
+    "Czy mo\u017cecie od\u015bwie\u017cy\u0107 moj\u0105 obecn\u0105 stron\u0119, zamiast budowa\u0107 now\u0105?",
+    "Czy zajmiecie si\u0119 domen\u0105, hostingiem i poczt\u0105 firmow\u0105?",
+    "Czy zapewniacie opiek\u0119 nad stron\u0105 po wdro\u017ceniu?",
+    "Czy mog\u0119 zobaczy\u0107 post\u0119py w trakcie pracy?",
+    "Czy pracujecie tylko z firmami z Leszna?",
+    "Jakie technologie wykorzystujecie?",
+    "Krok 1 z 6:Jakiego typu projekt planujesz?",
+    "Wolisz porozmawia\u0107?"
+  ],
+  "images": [
+    {
+      "src": "https://netizo.pl/assets/images/photos/backdrop-workshop.webp",
+      "alt": "",
+      "width": "1536",
+      "height": "1024",
+      "loading": "eager",
+      "lazy_method": "none"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/shop-hero.webp",
+      "alt": "",
+      "width": "1536",
+      "height": "1024",
+      "loading": "eager",
+      "lazy_method": "none"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/shop-sweater.webp",
+      "alt": "",
+      "width": "1024",
+      "height": "1024",
+      "loading": "eager",
+      "lazy_method": "none"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/shop-scarf.webp",
+      "alt": "",
+      "width": "1024",
+      "height": "1024",
+      "loading": "eager",
+      "lazy_method": "none"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/shop-hat.webp",
+      "alt": "",
+      "width": "1024",
+      "height": "1024",
+      "loading": "eager",
+      "lazy_method": "none"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/shop-hero.webp",
+      "alt": "",
+      "width": "1536",
+      "height": "1024",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/shop-sweater.webp",
+      "alt": "",
+      "width": "1024",
+      "height": "1024",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/shop-scarf.webp",
+      "alt": "",
+      "width": "1024",
+      "height": "1024",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/bento-mobile.webp",
+      "alt": "",
+      "width": "1024",
+      "height": "1536",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/bento-ecommerce.webp",
+      "alt": "",
+      "width": "1536",
+      "height": "1024",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/storage/projects/full/01KWVJR4J217JBZ7JR3Q8YXB2R.webp",
+      "alt": "Zrzut ekranu strony Treepro.pl",
+      "width": "1600",
+      "height": "1000",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/storage/projects/full/01KWVJVQ1SE7GM93PQ8HEWVBEW.webp",
+      "alt": "Zrzut ekranu strony Vetly.pl",
+      "width": "1600",
+      "height": "1000",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/storage/projects/full/01M255HNPGZ16M3APXHWSM0CXD.webp",
+      "alt": "Zrzut ekranu strony energizo.pl",
+      "width": "1600",
+      "height": "1000",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/storage/projects/full/01M2562F1Q88GANFJ19RW5XT9F.webp",
+      "alt": "Zrzut ekranu strony nakazdaokazje.pl",
+      "width": "1600",
+      "height": "1000",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/storage/projects/full/01KWVJM4QYMM4E0F124SG90M9G.webp",
+      "alt": "Zrzut ekranu strony KrainaMT2.pl",
+      "width": "1600",
+      "height": "1000",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/mission-workshop.webp",
+      "alt": "",
+      "width": "1536",
+      "height": "1024",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/shop-hero.webp",
+      "alt": "",
+      "width": "1536",
+      "height": "1024",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/backdrop-office.webp",
+      "alt": "",
+      "width": "1536",
+      "height": "1024",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/shop-hero.webp",
+      "alt": "",
+      "width": "1536",
+      "height": "1024",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/world-wool.webp",
+      "alt": "",
+      "width": "1536",
+      "height": "1024",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/newsletter-reading.webp",
+      "alt": "",
+      "width": "1024",
+      "height": "1280",
+      "loading": "lazy",
+      "lazy_method": "native"
+    },
+    {
+      "src": "https://netizo.pl/assets/images/photos/contact-desk.webp",
+      "alt": "",
+      "width": "1024",
+      "height": "1024",
+      "loading": "lazy",
+      "lazy_method": "native"
+    }
+  ],
+  "links": {
+    "internal": [
+      {
+        "href": "https://netizo.pl/en",
+        "text": "EnglishenEnglish",
+        "rel": []
+      },
+      {
+        "href": "https://netizo.pl/partnerzy",
+        "text": "Zosta\u0144 partnerem",
+        "rel": []
+      },
+      {
+        "href": "https://netizo.pl/partnerzy",
+        "text": "Program partnerski",
+        "rel": []
+      },
+      {
+        "href": "https://netizo.pl/utrzymanie",
+        "text": "Utrzymanie",
+        "rel": []
+      },
+      {
+        "href": "https://netizo.pl/regulamin",
+        "text": "Regulamin",
+        "rel": []
+      },
+      {
+        "href": "https://netizo.pl/polityka-prywatnosci",
+        "text": "Polityka prywatno\u015bci",
+        "rel": []
+      },
+      {
+        "href": "https://netizo.pl/en",
+        "text": "EnglishenEnglish",
+        "rel": []
+      }
+    ],
+    "external": [
+      {
+        "href": "https://panel-klienta.netizo.pl",
+        "text": "Panel klienta(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener"
+        ]
+      },
+      {
+        "href": "https://treepro.pl",
+        "text": "treepro.pl(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://leasingodreki.pl",
+        "text": "leasingodreki.pl(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://krainamt2.pl",
+        "text": "krainamt2.pl(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://temar-mt.pl",
+        "text": "temar-mt.pl(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://energizo.pl",
+        "text": "energizo.pl(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://nakazdaokazje.pl",
+        "text": "nakazdaokazje.pl(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://treepro.pl",
+        "text": "treepro.pl(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://leasingodreki.pl",
+        "text": "leasingodreki.pl(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://krainamt2.pl",
+        "text": "krainamt2.pl(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://temar-mt.pl",
+        "text": "temar-mt.pl(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://energizo.pl",
+        "text": "energizo.pl(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://nakazdaokazje.pl",
+        "text": "nakazdaokazje.pl(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://treepro.pl",
+        "text": "treepro.pl(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://leasingodreki.pl",
+        "text": "leasingodreki.pl(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://krainamt2.pl",
+        "text": "krainamt2.pl(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://temar-mt.pl",
+        "text": "temar-mt.pl(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://energizo.pl",
+        "text": "energizo.pl(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://nakazdaokazje.pl",
+        "text": "nakazdaokazje.pl(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://panel-klienta.netizo.pl",
+        "text": "Zaloguj si\u0119 do panelu(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener"
+        ]
+      },
+      {
+        "href": "mailto:kontakt@netizo.pl",
+        "text": "kontakt@netizo.pl",
+        "rel": []
+      },
+      {
+        "href": "tel:+48884343924",
+        "text": "+48 884 343 924",
+        "rel": []
+      },
+      {
+        "href": "https://panel-klienta.netizo.pl",
+        "text": "Panel klienta(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener"
+        ]
+      },
+      {
+        "href": "mailto:kontakt@netizo.pl",
+        "text": "kontakt@netizo.pl",
+        "rel": []
+      },
+      {
+        "href": "tel:+48884343924",
+        "text": "+48 884 343 924",
+        "rel": []
+      },
+      {
+        "href": "https://www.facebook.com/netizo.agency",
+        "text": "Facebook(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://www.instagram.com/netizo.agency",
+        "text": "Instagram(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      },
+      {
+        "href": "https://www.tiktok.com/@netizo.agency",
+        "text": "TikTok(otwiera si\u0119 w nowej karcie)",
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      }
+    ]
+  },
+  "schema": [
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Netizo",
+      "description": "Profesjonalne tworzenie stron internetowych i aplikacji webowych dla firm. Nowoczesny design, szybko\u015b\u0107 i SEO w standardzie. 150+ projekt\u00f3w, 8 lat do\u015bwiadczenia.",
+      "url": "https://netizo.pl",
+      "image": "https://netizo.pl/assets/images/og-netizo-2.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Leszno",
+        "addressRegion": "wielkopolskie",
+        "addressCountry": "PL"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Polska"
+      },
+      "knowsLanguage": [
+        "pl",
+        "en"
+      ],
+      "priceRange": "$$",
+      "sameAs": [
+        "https://www.facebook.com/netizo.agency",
+        "https://www.instagram.com/netizo.agency",
+        "https://www.tiktok.com/@netizo.agency"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "pl",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Ile kosztuje strona internetowa lub aplikacja?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prosta strona kosztuje zwykle 1\u2013\u20605\u00a0tys.\u00a0z\u0142, rozbudowana strona lub ma\u0142y sklep 5\u2013\u206015\u00a0tys.\u00a0z\u0142, aplikacja webowa 15\u2013\u206050\u00a0tys.\u00a0z\u0142, a du\u017ce systemy od 50\u00a0tys.\u00a0z\u0142. Ostateczna cena zale\u017cy od zakresu, a dok\u0142adn\u0105 wycen\u0119 dostajesz bezp\u0142atnie po briefie."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ile trwa stworzenie strony lub aplikacji?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Landing page powstaje zwykle w 2\u2013\u20603\u00a0tygodnie, strona firmowa w 4\u2013\u20606\u00a0tygodni, a aplikacja webowa w 2\u2013\u20604\u00a0miesi\u0105ce. Dok\u0142adny termin ustalamy po briefie, gdy znamy zakres prac."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy strona b\u0119dzie widoczna w Google?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak. Ka\u017cd\u0105 stron\u0119 budujemy z my\u015bl\u0105 o wyszukiwarce: szybkie \u0142adowanie, poprawna struktura nag\u0142\u00f3wk\u00f3w, tytu\u0142y i opisy do wynik\u00f3w wyszukiwania, dane strukturalne i mapa witryny. Konkretnej pozycji nikt uczciwie nie zagwarantuje, bo zale\u017cy ona te\u017c od konkurencji i tre\u015bci, ale dostajesz solidne podstawy do pozycjonowania, tak\u017ce lokalnego."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy mog\u0119 samodzielnie zmienia\u0107 tre\u015bci na stronie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak. Je\u015bli chcesz to robi\u0107 we w\u0142asnym zakresie, dodajemy prosty system do zarz\u0105dzania tre\u015bci\u0105 (CMS): zmienisz w nim teksty, zdj\u0119cia i wpisy, a my poka\u017cemy, jak z niego korzysta\u0107. Wi\u0119ksze zmiany zg\u0142aszasz nam jako zadanie w panelu klienta."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy zaprojektujecie wygl\u0105d strony, je\u015bli nie mam projektu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak. Mamy w zespole projektant\u00f3w UI/UX: zaprojektujemy wygl\u0105d od zera albo oprzemy si\u0119 na Twoich szkicach, logo i identyfikacji wizualnej. Zanim zaczniemy programowa\u0107, dostajesz projekt i klikalny prototyp w Figmie do przejrzenia i akceptacji."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy mo\u017cecie od\u015bwie\u017cy\u0107 moj\u0105 obecn\u0105 stron\u0119, zamiast budowa\u0107 now\u0105?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak. Zaczynamy od przegl\u0105du obecnej strony: co dzia\u0142a, co j\u0105 spowalnia i co zniech\u0119ca klient\u00f3w. Potem proponujemy od\u015bwie\u017cenie wygl\u0105du i tre\u015bci albo przebudow\u0119, je\u015bli stara technologia ogranicza rozw\u00f3j. Przy przebudowie przekierowujemy stare adresy na nowe, \u017ceby ograniczy\u0107 ryzyko spadk\u00f3w w Google."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy zajmiecie si\u0119 domen\u0105, hostingiem i poczt\u0105 firmow\u0105?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak. Pomagamy wybra\u0107 i skonfigurowa\u0107 domen\u0119, hosting i firmow\u0105 poczt\u0119 albo pracujemy na tym, co ju\u017c masz. Dost\u0119py trzymasz w zaszyfrowanym sejfie w panelu klienta, a zanim minie termin odnowienia domeny lub hostingu, dostajesz tam przypomnienie."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy zapewniacie opiek\u0119 nad stron\u0105 po wdro\u017ceniu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak. Po publikacji zostajemy z Tob\u0105: dbamy o hosting, aktualizacje bezpiecze\u0144stwa, kopie zapasowe, monitoring i dalszy rozw\u00f3j strony. Poprawki zg\u0142aszasz jako zadania w panelu klienta, a przy sta\u0142ej wsp\u00f3\u0142pracy co miesi\u0105c dostajesz rozliczenie z rozpisanymi godzinami."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy mog\u0119 zobaczy\u0107 post\u0119py w trakcie pracy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak. Od pocz\u0105tku wsp\u00f3\u0142pracy masz dost\u0119p do panelu klienta: widzisz zadania i etap ka\u017cdego z nich, czas pracy i dokumenty, a z zespo\u0142em piszesz na czacie. Co dwa tygodnie pokazujemy post\u0119py na wersji testowej."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy pracujecie tylko z firmami z Leszna?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nie. Jeste\u015bmy z Leszna w Wielkopolsce, ale realizujemy projekty dla firm z ca\u0142ej Polski. Wi\u0119kszo\u015b\u0107 spraw za\u0142atwiamy online: na rozmowach wideo i w panelu klienta. Z firmami z Leszna i okolic ch\u0119tnie spotkamy si\u0119 na miejscu."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jakie technologie wykorzystujecie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Technologie dobieramy do potrzeb projektu. Najcz\u0119\u015bciej pracujemy na takim zestawie: interfejs \u2013 React, Next.js, Vue.js i Tailwind CSS; serwer \u2013 Node.js, Go, Laravel i Python; bazy danych \u2013 PostgreSQL, MongoDB i Redis; chmura \u2013 AWS, GCP i Vercel."
+          }
+        }
+      ]
+    }
+  ],
+  "open_graph": {
+    "og:title": "Tworzymy Strony WWW dla Ambitnych Firm | Netizo",
+    "og:description": "Profesjonalne strony internetowe i aplikacje webowe. Nowoczesny design, szybko\u015b\u0107, SEO. 150+ projekt\u00f3w. Bezp\u0142atna wycena!",
+    "og:type": "website",
+    "og:site_name": "Netizo",
+    "og:locale": "pl_PL",
+    "og:locale:alternate": "en_US",
+    "og:url": "https://netizo.pl",
+    "og:image": "https://netizo.pl/assets/images/og-netizo-2.png",
+    "og:image:width": "1200",
+    "og:image:height": "630"
+  },
+  "twitter_card": {
+    "twitter:card": "summary_large_image",
+    "twitter:image": "https://netizo.pl/assets/images/og-netizo-2.png",
+    "twitter:title": "Tworzymy Strony WWW dla Ambitnych Firm | Netizo",
+    "twitter:description": "Profesjonalne strony internetowe i aplikacje webowe. Nowoczesny design, szybko\u015b\u0107, SEO. 150+ projekt\u00f3w. Bezp\u0142atna wycena!"
+  },
+  "word_count": 2381,
+  "hreflang": [
+    {
+      "lang": "pl",
+      "href": "https://netizo.pl"
+    },
+    {
+      "lang": "en",
+      "href": "https://netizo.pl/en"
+    },
+    {
+      "lang": "x-default",
+      "href": "https://netizo.pl"
+    }
+  ]
+}

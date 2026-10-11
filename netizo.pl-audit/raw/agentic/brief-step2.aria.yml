@@ -1,0 +1,60 @@
+- 'form "Krok 2 z 6: Jakich funkcji potrzebujesz?"':
+  - progressbar "Postęp briefu"
+  - 'heading "Krok 2 z 6: Jakich funkcji potrzebujesz?" [level=3]'
+  - paragraph: Zaznacz wymagane funkcjonalności.
+  - group "Użytkownicy":
+    - text: Użytkownicy
+    - checkbox "Logowanie / rejestracja"
+    - text: Logowanie / rejestracja
+    - checkbox "Social login"
+    - text: Social login
+    - checkbox "Role i uprawnienia"
+    - text: Role i uprawnienia
+    - checkbox "Profile użytkowników"
+    - text: Profile użytkowników
+  - group "Płatności":
+    - text: Płatności
+    - checkbox "Płatności online"
+    - text: Płatności online
+    - checkbox "Subskrypcje"
+    - text: Subskrypcje
+    - checkbox "Faktury"
+    - text: Faktury
+    - checkbox "Koszyk"
+    - text: Koszyk
+  - group "Zarządzanie":
+    - text: Zarządzanie
+    - checkbox "CMS"
+    - text: CMS
+    - checkbox "Panel admina"
+    - text: Panel admina
+    - checkbox "Analityka"
+    - text: Analityka
+    - checkbox "Raporty"
+    - text: Raporty
+  - group "Integracje":
+    - text: Integracje
+    - checkbox "API zewnętrzne"
+    - text: API zewnętrzne
+    - checkbox "Powiadomienia"
+    - text: Powiadomienia
+    - checkbox "Chat"
+    - text: Chat
+    - checkbox "E-mail marketing"
+    - text: E-mail marketing
+  - group "Dodatkowe":
+    - text: Dodatkowe
+    - checkbox "Rezerwacje"
+    - text: Rezerwacje
+    - checkbox "Wyszukiwarka"
+    - text: Wyszukiwarka
+    - checkbox "Wielojęzyczność"
+    - text: Wielojęzyczność
+    - checkbox "Funkcje AI"
+    - text: Funkcje AI
+    - checkbox "Mapy"
+    - text: Mapy
+    - checkbox "Upload plików"
+    - text: Upload plików
+  - button "Wstecz"
+  - button "Dalej"

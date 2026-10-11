@@ -62,3 +62,29 @@ export function useHomeSections(): Record<HomeSection, string> {
 export function usePartnerSections(): Record<PartnerSection, string> {
     return partnerSections[useLocale()];
 }
+
+export const aboutSections = localized({
+    pl: {
+        team: 'zespol',
+        story: 'historia',
+        howWeWork: 'jak-pracujemy',
+        projects: 'realizacje',
+        reviews: 'opinie',
+        company: 'dane-firmy',
+    },
+    en: {
+        team: 'team',
+        story: 'story',
+        howWeWork: 'how-we-work',
+        projects: 'projects',
+        reviews: 'reviews',
+        company: 'company-details',
+    },
+});
+
+export type AboutSection = keyof (typeof aboutSections)['pl'];
+
+/** Anchor ids of the about page sections in the language of the current page. */
+export function useAboutSections(): Record<AboutSection, string> {
+    return aboutSections[useLocale()];
+}

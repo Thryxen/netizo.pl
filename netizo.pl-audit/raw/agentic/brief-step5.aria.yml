@@ -1,0 +1,31 @@
+- 'form "Krok 5 z 6: Budżet i współpraca"':
+  - progressbar "Postęp briefu"
+  - 'heading "Krok 5 z 6: Budżet i współpraca" [level=3]'
+  - paragraph: Pomoże dopasować zakres projektu.
+  - group "Budżet":
+    - text: Budżet
+    - paragraph: Wybierz jedną opcję.
+    - radio "1–5k PLN Landing page, strona wizytówka"
+    - text: 1–5k PLN Landing page, strona wizytówka
+    - radio "5–15k PLN Rozbudowana strona, mały sklep"
+    - text: 5–15k PLN Rozbudowana strona, mały sklep
+    - radio "15–50k PLN Aplikacja, duży e-commerce"
+    - text: 15–50k PLN Aplikacja, duży e-commerce
+    - radio "50k+ PLN System enterprise, platforma"
+    - text: 50k+ PLN System enterprise, platforma
+    - radio "Do ustalenia Chcę poznać wycenę"
+    - text: Do ustalenia Chcę poznać wycenę
+  - group "Model współpracy":
+    - text: Model współpracy
+    - paragraph: Wybierz jedną opcję.
+    - radio "Fixed price Stała cena"
+    - text: Fixed price Stała cena
+    - radio "Time & material Godzinowo"
+    - text: Time & material Godzinowo
+    - radio "Dedicated team Zespół"
+    - text: Dedicated team Zespół
+  - text: Dodatkowe informacje (opcjonalnie)
+  - textbox "Dodatkowe informacje (opcjonalnie)":
+    - /placeholder: Opisz swoją wizję, cele biznesowe, pytania…
+  - button "Wstecz"
+  - button "Dalej"

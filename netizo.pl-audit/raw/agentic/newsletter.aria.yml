@@ -1,0 +1,6 @@
+- form "Zapis do newslettera":
+  - text: Adres e-mail
+  - textbox "Adres e-mail":
+    - /placeholder: ty@firma.pl
+  - button "Zapisz się"
+  - paragraph: Zero spamu. Możesz wypisać się w dowolnym momencie.

@@ -4,6 +4,8 @@
  *   og-netizo-partnerzy.png  program partnerski (/partnerzy), z szablon-partnerzy.html
  *   og-netizo-en.png         angielska strona główna (/en), z szablon-en.html
  *   og-netizo-partners-en.png  angielski program partnerski (/en/partners), z szablon-partnerzy-en.html
+ *   og-netizo-o-nas.png      strona „O nas” (/o-nas), z szablon-o-nas.html
+ *   og-netizo-about-en.png   angielska strona „O nas” (/en/about), z szablon-o-nas-en.html
  * Logo, sygnet i fonty są wspólne z wizytówkami (netizo/wizytowki), więc marka zmienia się w jednym miejscu.
  *
  * Uruchomienie (z katalogu projektu, bez instalowania niczego w projekcie):
@@ -27,6 +29,8 @@ const IMAGES = [
     { template: 'szablon-partnerzy.html', output: 'og-netizo-partnerzy.png' },
     { template: 'szablon-en.html', output: 'og-netizo-en.png' },
     { template: 'szablon-partnerzy-en.html', output: 'og-netizo-partners-en.png' },
+    { template: 'szablon-o-nas.html', output: 'og-netizo-o-nas.png' },
+    { template: 'szablon-o-nas-en.html', output: 'og-netizo-about-en.png' },
 ];
 const SIZE = { width: 1200, height: 630 };
 /** WhatsApp pomija podgląd z obrazem większym niż 300 KB. */

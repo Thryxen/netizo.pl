@@ -411,3 +411,19 @@ html:not(.js) [data-marquee-static] {
         transparent
     );
 }
+
+/*
+ * Unframed pages (the about page, `data-unframed` on its root): no page frame — the rails, the rivets and the hairline
+ * on top of each Section are left out; sections are set apart by space and their content sits in sharp-edged cards.
+ */
+[data-unframed] [data-slot='container'] {
+    border-inline-width: 0;
+}
+
+[data-unframed] [data-slot='rivet'] {
+    display: none;
+}
+
+[data-unframed] [data-slot='section'] {
+    border-top-width: 0;
+}
