@@ -77,7 +77,7 @@ export function AboutHero() {
                         >
                             <span className="flex text-[2rem]">
                                 {people.map((person, index) => (
-                                    <PersonAvatar key={person.lastName} person={person} className={cn(index > 0 && '-ml-[0.2em]')} />
+                                    <PersonAvatar key={person.lastName} person={person} eager className={cn(index > 0 && '-ml-[0.2em]')} />
                                 ))}
                             </span>
                             <span className="font-medium">{copy.pill}</span>
@@ -150,7 +150,7 @@ export function AboutHero() {
                                             index === 0 ? 'top-3 left-3 sm:top-[9%] sm:right-[10%] sm:left-auto' : 'right-3 bottom-3 sm:top-[33%] sm:right-[24%] sm:bottom-auto',
                                         )}
                                     >
-                                        <PersonAvatar person={person} className="text-[2.75rem] ring-0" />
+                                        <PersonAvatar person={person} eager className="text-[2.75rem] ring-0" />
                                         <span className="leading-tight">
                                             <span className="block text-sm font-semibold">{fullName(person)}</span>
                                             <span className="block text-xs text-muted-foreground">{person.role}</span>

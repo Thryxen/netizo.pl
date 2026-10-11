@@ -1,11 +1,10 @@
 import { Mail, Phone } from 'lucide-react';
-import { BriefWizard } from '@/components/home/brief/brief-wizard';
 import { type ContactTab, isContactTab, useHomeUi } from '@/components/home/home-ui-context';
-import { QuickContactForm } from '@/components/home/quick-contact-form';
 import { ContactScene } from '@/components/home/scenes/contact-scene';
 import { bleedClassName, gutterClassName, Rivet, Section, SectionHeading } from '@/components/home/section';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { deferred, DeferredBlock } from '@/lib/deferred';
 import { localized, useCopy } from '@/lib/i18n';
 import { useHomeSections } from '@/lib/sections';
 import { contact } from '@/lib/site';
@@ -35,6 +34,10 @@ const COPY = localized({
         callMe: 'Call me back',
     },
 });
+
+/** Below the fold: their code (the brief alone pulls in Select, Checkbox and the brief options) loads near the form. */
+const briefWizard = deferred(() => import('@/components/home/brief/brief-wizard').then((module) => module.BriefWizard));
+const quickContactForm = deferred(() => import('@/components/home/quick-contact-form').then((module) => module.QuickContactForm));
 
 const contactLinkClass =
     'inline-flex min-h-11 items-center gap-3 rounded-sm text-sm font-medium underline-offset-4 outline-none hover:underline focus-visible:ring-[3px] focus-visible:ring-ring/50 md:min-h-0';
@@ -86,10 +89,10 @@ export function ContactSection() {
                                 forceMount
                                 className="focus-visible:ring-offset-4 focus-visible:ring-offset-background data-[state=inactive]:hidden"
                             >
-                                <BriefWizard />
+                                <DeferredBlock component={briefWizard} />
                             </TabsContent>
                             <TabsContent value="quick" forceMount tabIndex={-1} className="data-[state=inactive]:hidden">
-                                <QuickContactForm />
+                                <DeferredBlock component={quickContactForm} />
                             </TabsContent>
                         </Tabs>
                     </div>

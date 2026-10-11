@@ -20,7 +20,7 @@ const COPY = localized({
 
 /**
  * Zespół (#zespol, #team): a card per co-owner — on one side (alternating) the photo of their part of the work, drifting
- * with the scroll, with their initials as a badge; on the other the name set large in two lines with the role, a short
+ * with the scroll, with their avatar (photo or initials) as a badge; on the other the name set large in two lines with the role, a short
  * bio and what you settle with them — then a muted card with what they share. Stacked on phones.
  */
 export function TeamSection() {
@@ -73,7 +73,7 @@ function PersonCard({ person, topicsLabel, photoOnRight }: PersonCardProps) {
                         alt=""
                         className="aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto lg:size-full lg:min-h-[34rem]"
                     />
-                    {/* Whose part of the work the photo shows: their initials, in the corner by the copy. */}
+                    {/* Whose part of the work the photo shows: their avatar, in the corner by the copy. */}
                     <PersonAvatar
                         person={person}
                         className={cn('absolute bottom-5 text-[4rem] md:bottom-6 md:text-[4.5rem]', photoOnRight ? 'left-5 md:left-6 lg:right-6 lg:left-auto' : 'left-5 md:left-6')}

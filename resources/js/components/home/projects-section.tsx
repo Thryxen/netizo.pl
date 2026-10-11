@@ -1,10 +1,11 @@
 import { useRef, useState } from 'react';
-import { CaseStudyDialog, ProjectMetrics } from '@/components/home/case-study-dialog';
 import { useHomeUi } from '@/components/home/home-ui-context';
 import { ProjectFrame } from '@/components/home/project-frame';
+import { ProjectMetrics } from '@/components/home/project-metrics';
 import { bleedClassName, gutterClassName, Rivet, Section, SectionHeading } from '@/components/home/section';
 import { TechTag } from '@/components/home/tech-tag';
 import { Button } from '@/components/ui/button';
+import { deferred, useDeferredComponent } from '@/lib/deferred';
 import { localized, useCopy } from '@/lib/i18n';
 import { useHomeSections } from '@/lib/sections';
 import { cn } from '@/lib/utils';
@@ -31,6 +32,9 @@ const COPY = localized({
     },
 });
 
+/** Fetched once the page is idle, or on the first "Zobacz case study" click if that comes sooner. */
+const caseStudyDialog = deferred(() => import('@/components/home/case-study-dialog').then((module) => module.CaseStudyDialog));
+
 /**
  * One full-bleed row per project: hairlines run rail to rail (with rivets) and the section drops its bottom
  * padding so the last row meets the next section's hairline.
@@ -42,6 +46,7 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
     const [activeProject, setActiveProject] = useState<Project | null>(null);
     const [isCaseStudyOpen, setIsCaseStudyOpen] = useState(false);
     const caseStudyTriggerRef = useRef<HTMLElement | null>(null);
+    const CaseStudyDialog = useDeferredComponent(caseStudyDialog, isCaseStudyOpen);
 
     const openCaseStudy = (project: Project, trigger: HTMLElement): void => {
         caseStudyTriggerRef.current = trigger;
@@ -66,12 +71,14 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
                             </li>
                         ))}
                     </ul>
-                    <CaseStudyDialog
-                        project={activeProject}
-                        open={isCaseStudyOpen}
-                        onOpenChange={setIsCaseStudyOpen}
-                        returnFocusRef={caseStudyTriggerRef}
-                    />
+                    {CaseStudyDialog && (
+                        <CaseStudyDialog
+                            project={activeProject}
+                            open={isCaseStudyOpen}
+                            onOpenChange={setIsCaseStudyOpen}
+                            returnFocusRef={caseStudyTriggerRef}
+                        />
+                    )}
                 </>
             ) : (
                 <div className="flex flex-col items-start gap-6 border p-8 md:p-10">

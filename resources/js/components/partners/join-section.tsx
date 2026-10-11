@@ -2,10 +2,10 @@ import { Check } from 'lucide-react';
 import { useCallback, useState } from 'react';
 import { Logo } from '@/components/home/logo';
 import { bleedClassName, gutterClassName, Section, SectionHeading } from '@/components/home/section';
+import { deferred, DeferredBlock } from '@/lib/deferred';
 import { localized, useCopy } from '@/lib/i18n';
 import { usePartnerSections } from '@/lib/sections';
 import { cn } from '@/lib/utils';
-import { PartnerApplicationForm } from './partner-application-form';
 
 const COPY = localized({
     pl: {
@@ -21,6 +21,9 @@ const COPY = localized({
         cardRole: 'Netizo partner',
     },
 });
+
+/** At the bottom of the page: its code loads as the section comes near. */
+const partnerApplicationForm = deferred(() => import('./partner-application-form').then((module) => module.PartnerApplicationForm));
 
 type PartnerCardProps = {
     name: string;
@@ -84,7 +87,7 @@ export function JoinSection() {
                 </div>
 
                 <div className={cn('bg-background py-12 md:py-14 lg:col-span-7 lg:pt-28 lg:pb-28', gutterClassName)}>
-                    <PartnerApplicationForm onNameChange={handleNameChange} onSent={setSentName} />
+                    <DeferredBlock component={partnerApplicationForm} props={{ onNameChange: handleNameChange, onSent: setSentName }} />
                 </div>
             </div>
         </Section>

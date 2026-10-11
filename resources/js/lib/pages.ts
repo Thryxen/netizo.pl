@@ -1,4 +1,5 @@
 import type { ComponentType } from 'react';
+import { loadDeferredComponents } from '@/lib/deferred';
 
 // Page props come from the server at runtime; each page types its own props.
 type PageComponent = ComponentType<any>;
@@ -16,5 +17,12 @@ export async function resolvePage(name: string): Promise<PageComponent> {
         throw new Error(`Page not found: ${name}`);
     }
 
-    return (await importPage()).default;
+    const page = (await importPage()).default;
+
+    // The server renders deferred parts (forms below the fold) in full; the client fetches their code later.
+    if (import.meta.env.SSR) {
+        await loadDeferredComponents();
+    }
+
+    return page;
 }

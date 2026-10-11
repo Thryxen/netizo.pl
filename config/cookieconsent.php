@@ -55,21 +55,18 @@ return [
 
     'policy' => null,
 
-    /* Google Analytics configuration
+    /*
+    |--------------------------------------------------------------------------
+    | Google Analytics 4 (loaded only with consent)
     |--------------------------------------------------------------------------
     |
-    | If you use Google Analytics, you can configure the package to automatically
-    | load the Google Analytics script when the user gives his consent.
-    |
-    | The ID parameter is required and represents your Google Analytics ID.
-    |
-    | The anonymize parameter is optional and determines whether the user's IP
-    | address should be anonymized before being sent to Google Analytics.
+    | The measurement ID. App\Providers\CookiesServiceProvider registers the
+    | GA cookies under the "analytics" category and adds the tag once the
+    | visitor accepts it. An empty ID leaves Google Analytics out entirely.
     |
     */
     'google_analytics' => [
-        'id' => env('GOOGLE_ANALYTICS_ID', ""),
-        'anonymize_ip' => env('GOOGLE_ANALYTICS_ANONYMIZE_IP', true)
+        'id' => env('GOOGLE_ANALYTICS_ID', 'G-YP98QHKF97'),
     ],
 
 ];

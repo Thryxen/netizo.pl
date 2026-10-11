@@ -6,11 +6,16 @@ export type Person = {
     lastName: string;
     /** Shown in the avatars (PersonAvatar): the hero heading, the badge on the photo, the shared band. */
     initials: string;
+    /**
+     * Their photo in the avatars instead of the initials: `{portrait}-96.webp` and `-192.webp` in
+     * public/assets/images/people (netizo/zdjecia/portrety.cjs). Without one the initials stay.
+     */
+    portrait?: string;
     role: string;
     bio: string;
     /** "Z nim omówisz": what you settle with this person. */
     topics: string[];
-    /** The photo of their part of the work (hands and desk, not the person); the initials stay on it as a badge. */
+    /** The photo of their part of the work (hands and desk, not the person); their avatar stays on it as a badge. */
     photo: PhotoName;
 };
 
@@ -21,6 +26,7 @@ export const PEOPLE = localized<Person[]>({
             firstName: 'Damian',
             lastName: 'Idzik',
             initials: 'DI',
+            portrait: 'damian-idzik',
             photo: 'about-code',
             role: 'Współwłaściciel, technologia',
             bio: 'Zajmuje się kwestiami technicznymi projektów i kontaktem z klientami. Pilnuje, żeby strona lub aplikacja działała tak, jak się umówiliśmy.',
@@ -41,6 +47,7 @@ export const PEOPLE = localized<Person[]>({
             firstName: 'Damian',
             lastName: 'Idzik',
             initials: 'DI',
+            portrait: 'damian-idzik',
             photo: 'about-code',
             role: 'Co-owner, technology',
             bio: 'Handles the technical side of our projects and talks to clients. He makes sure your website or app works the way we agreed.',

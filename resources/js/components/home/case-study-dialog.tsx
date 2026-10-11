@@ -3,16 +3,16 @@ import { type RefObject, useRef } from 'react';
 import { ExternalLink } from '@/components/home/external-link';
 import { useHomeUi } from '@/components/home/home-ui-context';
 import { ProjectFrame } from '@/components/home/project-frame';
+import { ProjectMetrics } from '@/components/home/project-metrics';
 import { TechTag } from '@/components/home/tech-tag';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
 import { localized, useCopy } from '@/lib/i18n';
 import { cn } from '@/lib/utils';
-import type { Project, ProjectMetric } from '@/types/home';
+import type { Project } from '@/types/home';
 
 const COPY = localized({
     pl: {
-        metrics: 'Projekt w liczbach',
         close: 'Zamknij',
         about: 'O projekcie',
         stack: 'Stack technologiczny',
@@ -22,7 +22,6 @@ const COPY = localized({
         solutions: 'Rozwiązania',
     },
     en: {
-        metrics: 'The project in numbers',
         close: 'Close',
         about: 'About the project',
         stack: 'Tech stack',
@@ -32,43 +31,6 @@ const COPY = localized({
         solutions: 'Solutions',
     },
 });
-
-type ProjectMetricsProps = {
-    metrics: ProjectMetric[];
-    size?: 'sm' | 'lg';
-    className?: string;
-};
-
-/**
- * Project numbers as a shared-border row (value over label). Renders nothing without metrics.
- */
-export function ProjectMetrics({ metrics, size = 'sm', className }: ProjectMetricsProps) {
-    const copy = useCopy(COPY);
-
-    if (metrics.length === 0) {
-        return null;
-    }
-
-    const columns = metrics.length === 1 ? 'grid-cols-1' : metrics.length === 2 ? 'grid-cols-2' : 'grid-cols-3';
-
-    return (
-        <ul aria-label={copy.metrics} className={cn('grid border-t border-l', columns, className)}>
-            {metrics.map((metric) => (
-                <li key={`${metric.value}-${metric.label}`} className={cn('flex min-w-0 flex-col gap-1 border-r border-b p-3', size === 'lg' ? 'md:p-5' : 'md:p-4')}>
-                    <span
-                        className={cn(
-                            'font-semibold tracking-tight tabular-nums [overflow-wrap:anywhere]',
-                            size === 'lg' ? 'text-xl md:text-2xl' : 'text-lg',
-                        )}
-                    >
-                        {metric.value}
-                    </span>
-                    <span className="text-xs leading-snug hyphens-auto text-muted-foreground [overflow-wrap:anywhere] md:text-sm">{metric.label}</span>
-                </li>
-            ))}
-        </ul>
-    );
-}
 
 type CaseStudyDialogProps = {
     /** The project to show. Keep it set while closing so the exit animation still has content. */
