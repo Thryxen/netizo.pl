@@ -1,11 +1,11 @@
 /**
- * Przygotowuje zdjęcie współwłaściciela do awatara na stronie „O nas” (PersonAvatar): kwadratowy kadr na twarz,
+ * Przygotowuje zdjęcie współwłaściciela do awatara na stronie „O nas” (PersonAvatar): kwadratowy kadr popiersia,
  * WebP 96 px i 192 px (awatar ma 25–56 px CSS, 192 px wystarcza na ekranach 3×) w public/assets/images/people.
  * Nazwę plików wpisz w polu `portrait` osoby w resources/js/components/about/about-data.ts.
  *
  * Uruchomienie (z katalogu projektu, bez instalowania niczego w projekcie):
  *   npx -y -p sharp@0.35.5 node netizo/zdjecia/portrety.cjs <nazwa> <zdjęcie> [lewo,góra,bok]
- * np. `… portrety.cjs damian-idzik damian_idzik.png 258,30,740` (kadr w pikselach oryginału; bez niego środek zdjęcia).
+ * np. `… portrety.cjs damian-idzik damian_idzik.png 77,20,1100` (kadr w pikselach oryginału; bez niego środek zdjęcia).
  */
 const fs = require('fs');
 const path = require('path');
