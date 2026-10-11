@@ -234,45 +234,74 @@ export const NUMBERS = localized<NumberEntry[]>({
     ],
 });
 
+/**
+ * Drafts in a client's plain words, written from the portfolio projects, not words a client said. Send each one to
+ * its client to correct and approve; publish it only with their consent, put the person's name in `author`, and
+ * drop `sample`. Until then they never leave local development.
+ */
 export const TESTIMONIALS = localized<Testimonial[]>({
     pl: [
         {
             sample: true,
-            quote: 'Przykładowa opinia. Tu wpiszesz 2–3 zdania klienta: z czym do Was przyszedł, co zrobiliście i jaki był efekt.',
-            author: 'Imię Nazwisko',
-            company: 'Nazwa firmy, miasto',
+            quote: 'Strona wyszła super, wszystko jest jasno opisane, a numer telefonu widać od razu. Ekipa z Netizo ogarnęła temat szybko i bez zbędnego gadania. Polecam!',
+            author: 'Treepro.pl',
+            company: 'Wycinka drzew, podnośniki i prace ogrodowe, zachodnia Polska',
         },
         {
             sample: true,
-            quote: 'Przykładowa opinia o współpracy: jak wyglądał kontakt, czy terminy były dotrzymane i jak pracowało się w panelu klienta.',
-            author: 'Imię Nazwisko',
-            company: 'Nazwa firmy, miasto',
+            quote: 'Mieliśmy tylko pomysł, a dostaliśmy gotowy projekt, który naprawdę nam się podoba. Wszystko było na bieżąco tłumaczone, więc zawsze wiedzieliśmy, na jakim etapie jesteśmy.',
+            author: 'Vetly.pl',
+            company: 'Platforma rezerwacji wizyt u weterynarza',
         },
         {
             sample: true,
-            quote: 'Przykładowa opinia o opiece po wdrożeniu: aktualizacje, poprawki i czas reakcji na zgłoszenia.',
-            author: 'Imię Nazwisko',
-            company: 'Nazwa firmy, miasto',
+            quote: 'Jesteśmy bardzo zadowoleni. Strona wygląda nowocześnie, a kalkulator oszczędności to strzał w dziesiątkę. Treści zmieniamy sami w panelu, to dla nas duży plus.',
+            author: 'energizo.pl',
+            company: 'Doradztwo OZE i termomodernizacja',
+        },
+        {
+            sample: true,
+            quote: 'Sklep działa bez zarzutu, płatności i paczkomaty śmigają. Klient może sam skomponować bukiet, a na tym zależało nam najbardziej. Dziękujemy za cierpliwość do naszych poprawek!',
+            author: 'nakazdaokazje.pl',
+            company: 'Sklep z prezentami, bukietami i dekoracjami',
+        },
+        {
+            sample: true,
+            quote: 'Portal jest szybki i wygodny, a wszystko, czego chcieliśmy, jest w jednym miejscu. Kontakt bardzo dobry, każdą sprawę dało się załatwić od ręki. Polecam!',
+            author: 'KrainaMT2.pl',
+            company: 'Portal społeczności graczy Metin2',
         },
     ],
     en: [
         {
             sample: true,
-            quote: 'Sample testimonial. Put 2–3 sentences from a client here: what they came with, what you built and what changed.',
-            author: 'First Last',
-            company: 'Company name, town',
+            quote: 'The website turned out great. Everything is clearly laid out and our phone number is right there. The Netizo team handled it fast and without any fuss. Highly recommend!',
+            author: 'Treepro.pl',
+            company: 'Tree removal, lift rental and garden work, western Poland',
         },
         {
             sample: true,
-            quote: 'Sample testimonial about working together: how the communication went, whether deadlines were met and what the client portal was like.',
-            author: 'First Last',
-            company: 'Company name, town',
+            quote: 'We only had an idea and ended up with a finished design we really like. They explained everything as we went, so we always knew where things stood.',
+            author: 'Vetly.pl',
+            company: 'Platform for booking vet appointments',
         },
         {
             sample: true,
-            quote: 'Sample testimonial about care after launch: updates, fixes and how fast requests were handled.',
-            author: 'First Last',
-            company: 'Company name, town',
+            quote: 'We’re very happy. The website looks modern and the savings calculator was a great idea. We change the content ourselves in the panel, which is a big plus for us.',
+            author: 'energizo.pl',
+            company: 'Renewable energy and retrofit advice',
+        },
+        {
+            sample: true,
+            quote: 'The store runs without a hitch, and payments and parcel lockers just work. Customers can put together their own bouquets, which mattered most to us. Thanks for your patience with all our changes!',
+            author: 'nakazdaokazje.pl',
+            company: 'Online store for gifts, bouquets and decorations',
+        },
+        {
+            sample: true,
+            quote: 'The portal is fast and easy to use, and everything we wanted is in one place. Great communication, every issue was sorted out right away. Highly recommend!',
+            author: 'KrainaMT2.pl',
+            company: 'Community portal for Metin2 players',
         },
     ],
 });
