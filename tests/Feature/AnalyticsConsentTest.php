@@ -13,6 +13,7 @@ it('loads no analytics before the visitor consents, with Consent Mode defaulting
         ->assertSee("gtag('consent', 'default'", false)
         ->assertSee("analytics_storage: 'denied'", false)
         ->assertDontSee('googletagmanager.com/gtag/js', false)
+        ->assertDontSee('assets/js/google-analytics.js', false)
         ->assertDontSee('googletagmanager.com/ns.html', false)
         ->assertDontSee('clarity', false);
 })->with(['/', '/en', '/partnerzy', '/o-nas']);
@@ -26,18 +27,27 @@ it('lists the Google Analytics 4 cookies in the cookie banner', function () {
         ->assertDontSee('_clck');
 });
 
-it('adds the Google Analytics tag with the granted consent once the visitor accepts all cookies', function () {
+it('adds the Google Analytics tag as a file once the visitor accepts all cookies', function () {
     $scripts = $this->postJson(route('cookieconsent.accept.all'))
         ->assertOk()
         ->json('scripts');
 
+    // The banner adds the tag to a page whose nonce this response does not know, so it carries no inline code.
     expect($scripts)->toHaveCount(1)
         ->and($scripts[0])
-        ->toContain("w.gtag('consent', 'update', { analytics_storage: 'granted' });")
-        ->toContain("w.gtag('config', \"G-YP98QHKF97\");")
-        ->toContain("'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(\"G-YP98QHKF97\")")
-        ->toContain("w.addEventListener('load', load, { once: true })")
+        ->toMatch('#<script src="[^"]+/assets/js/google-analytics\.js\?v=[0-9a-f]{8}"#')
+        ->toContain('data-measurement-id="G-YP98QHKF97"')
+        ->toMatch('#<script[^>]*></script>#')
         ->not->toContain('clarity');
+});
+
+it('grants the analytics consent and loads gtag.js after the page from the Google Analytics file', function () {
+    expect(file_get_contents(public_path('assets/js/google-analytics.js')))
+        ->toContain('data-measurement-id')
+        ->toContain("w.gtag('consent', 'update', { analytics_storage: 'granted' });")
+        ->toContain("w.gtag('config', measurementId);")
+        ->toContain("'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(measurementId)")
+        ->toContain("w.addEventListener('load', load, { once: true })");
 });
 
 it('adds no analytics when the visitor accepts only the essential cookies', function () {
@@ -53,9 +63,14 @@ it('loads the Google Analytics tag after the page for a visitor who already acce
     // The consent manager reads the cookie when it is first resolved, which in a test happens before the request.
     Facade::clearResolvedInstance(CookiesManager::class);
 
-    $this->withCookie($cookieName, $consent)
+    $response = $this->withCookie($cookieName, $consent)
         ->get('/')
         ->assertOk()
-        ->assertSee('https://www.googletagmanager.com/gtag/js?id=', false)
         ->assertDontSee('id="cookies-policy"', false);
+
+    expect(preg_match('#<script src="[^"]+/assets/js/google-analytics\.js[^>]*>#', (string) $response->getContent(), $tag))->toBe(1)
+        ->and($tag[0])
+        ->toContain('data-measurement-id="G-YP98QHKF97"')
+        ->toContain('nonce="'.scriptNonce($response).'"')
+        ->toContain(' defer');
 });

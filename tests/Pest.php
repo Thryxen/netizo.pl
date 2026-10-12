@@ -1,5 +1,9 @@
 <?php
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Testing\TestResponse;
+use Tests\TestCase;
+
 /*
 |--------------------------------------------------------------------------
 | Test Case
@@ -11,8 +15,8 @@
 |
 */
 
-pest()->extend(Tests\TestCase::class)
-    ->use(Illuminate\Foundation\Testing\RefreshDatabase::class)
+pest()->extend(TestCase::class)
+    ->use(RefreshDatabase::class)
     ->in('Feature');
 
 /*
@@ -44,4 +48,30 @@ expect()->extend('toBeOne', function () {
 function something()
 {
     // ..
+}
+
+/**
+ * The value of one directive of a Content Security Policy, with its name ('' when the policy leaves it out).
+ */
+function cspDirective(string $policy, string $name): string
+{
+    foreach (explode(';', $policy) as $directive) {
+        $directive = trim($directive);
+
+        if ($directive === $name || str_starts_with($directive, $name.' ')) {
+            return $directive;
+        }
+    }
+
+    return '';
+}
+
+/**
+ * The nonce a response's Content Security Policy lets scripts run with ('' when it has none).
+ */
+function scriptNonce(TestResponse $response): string
+{
+    $scriptSources = cspDirective((string) $response->headers->get('Content-Security-Policy'), 'script-src');
+
+    return preg_match("/'nonce-([^']+)'/", $scriptSources, $matches) ? $matches[1] : '';
 }

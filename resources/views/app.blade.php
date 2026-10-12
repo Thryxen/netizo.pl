@@ -2,7 +2,7 @@
 <html lang="{{ app()->getLocale() }}" @class(['dark' => ($appearance ?? 'light') === 'dark'])>
 <head>
     {{-- Trusted Types Policy for XSS Protection --}}
-    <script>
+    <script nonce="{{ Vite::cspNonce() }}">
         if (window.trustedTypes && trustedTypes.createPolicy) {
             trustedTypes.createPolicy('default', {
                 createHTML: (string) => string,
@@ -13,7 +13,7 @@
     </script>
     {{-- Google Consent Mode v2: everything denied until the visitor accepts analytics cookies in the banner. Google
          Analytics is not loaded before that (CookiesServiceProvider adds it with the consent). --}}
-    <script>
+    <script nonce="{{ Vite::cspNonce() }}">
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('consent', 'default', {
@@ -31,7 +31,7 @@
 
     {{-- Light by default; dark only when the visitor switched to it (cookie, or its localStorage copy when the cookie
          is gone). Set before first paint (no flash). --}}
-    <script>
+    <script nonce="{{ Vite::cspNonce() }}">
         (function () {
             var dark = @json(($appearance ?? 'light') === 'dark');
             if (!@json($appearanceFromCookie ?? false)) {
@@ -50,7 +50,7 @@
     </script>
     {{-- Motion gate: CSS hides entrance-animated content only under html.js, so SSR/no-JS output stays visible.
          If the app has not booted in time (blocked or failed bundle), drop the gate so nothing stays hidden. --}}
-    <script>
+    <script nonce="{{ Vite::cspNonce() }}">
         (function (root) {
             root.classList.add('js');
             window.setTimeout(function () {
@@ -92,7 +92,10 @@
     @viteReactRefresh
     @vite(['resources/css/app.css', 'resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
     @inertiaHead
-    @cookieconsentscripts
+    {{-- The cookie banner's script, written here because the package's own tag has no nonce (false leaves it out);
+         the directive adds the tags of the cookies the visitor accepted. --}}
+    <script src="{{ route('cookieconsent.script') }}?id={{ md5((string) filemtime(LCC_ROOT.'/dist/script.js')) }}" nonce="{{ Vite::cspNonce() }}" defer></script>
+    @cookieconsentscripts(false)
 </head>
 <body>
     @inertia

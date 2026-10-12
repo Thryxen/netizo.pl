@@ -41,16 +41,68 @@ it('sends the security headers with a strict content security policy', function 
 
     expect($response->headers->get('Content-Security-Policy'))
         ->toContain("default-src 'self'")
-        ->toContain("script-src 'self'")
+        ->toMatch("/script-src [^;]*'self'/")
         ->toContain("object-src 'none'")
         ->toContain("frame-ancestors 'self'")
         ->toContain("require-trusted-types-for 'script'");
 });
 
-it('lets the Cloudflare Turnstile script and its iframe load', function () {
+it('lets scripts run only with the nonce of their response, never inline or through eval', function () {
+    expect(cspDirective(contentSecurityPolicy(), 'script-src'))
+        ->toMatch("/'nonce-[A-Za-z0-9]{40}'/")
+        ->toContain("'strict-dynamic'")
+        ->not->toContain("'unsafe-inline'")
+        ->not->toContain("'unsafe-eval'");
+});
+
+it('uses a new nonce for every response', function () {
+    $first = scriptNonce($this->get('/_security-headers-probe'));
+    $second = scriptNonce($this->get('/_security-headers-probe'));
+
+    expect($first)->not->toBe('')
+        ->and($second)->not->toBe('')
+        ->and($first)->not->toBe($second);
+});
+
+it('gives every script on the page the nonce of its response', function (string $url) {
+    $response = $this->withoutVite()->get($url)->assertOk();
+
+    preg_match_all('/<script\b[^>]*>/i', (string) $response->getContent(), $matches);
+    $scripts = array_values(array_filter(
+        $matches[0],
+        fn (string $tag): bool => ! preg_match('#type="application/(ld\+)?json"#', $tag),
+    ));
+
+    expect(scriptNonce($response))->not->toBe('')
+        ->and($scripts)->not->toBeEmpty()
+        ->each->toContain('nonce="'.scriptNonce($response).'"');
+})->with(['/', '/en', '/partnerzy', '/o-nas', '/polityka-prywatnosci', '/admin/login']);
+
+it('lets the Cloudflare Turnstile script and its iframe load on the admin panel only', function () {
+    $adminPolicy = (string) $this->withoutVite()->get('/admin/login')
+        ->assertOk()
+        ->headers->get('Content-Security-Policy');
+
+    expect(cspDirective($adminPolicy, 'script-src'))->toContain('https://challenges.cloudflare.com')
+        ->and(cspDirective($adminPolicy, 'frame-src'))->toContain('https://challenges.cloudflare.com')
+        ->and(contentSecurityPolicy())->not->toContain('challenges.cloudflare.com');
+});
+
+it('lets Google Analytics load and send hits on the public site only', function () {
+    $adminPolicy = (string) $this->withoutVite()->get('/admin/login')
+        ->assertOk()
+        ->headers->get('Content-Security-Policy');
+
+    expect(cspDirective(contentSecurityPolicy(), 'script-src'))->toContain('https://www.googletagmanager.com')
+        ->and(cspDirective(contentSecurityPolicy(), 'connect-src'))->toContain('https://region1.google-analytics.com')
+        ->and($adminPolicy)->not->toContain('googletagmanager.com')
+        ->not->toContain('google-analytics.com');
+});
+
+it('allows no Google Fonts hosts, the fonts are self-hosted', function () {
     expect(contentSecurityPolicy())
-        ->toMatch("#script-src [^;]*https://challenges\.cloudflare\.com#")
-        ->toMatch("#frame-src [^;]*https://challenges\.cloudflare\.com#");
+        ->not->toContain('fonts.googleapis.com')
+        ->not->toContain('fonts.gstatic.com');
 });
 
 it('allows no Vite dev server sources when Vite is not running hot', function () {

@@ -2,7 +2,7 @@
 <html lang="pl" @class(['dark' => ($appearance ?? 'light') === 'dark'])>
 <head>
     {{-- Trusted Types default policy, as on the public site (the CSP requires it for scripts). --}}
-    <script>
+    <script nonce="{{ Vite::cspNonce() }}">
         if (window.trustedTypes && trustedTypes.createPolicy) {
             trustedTypes.createPolicy('default', {
                 createHTML: (string) => string,
@@ -19,7 +19,7 @@
     <title inertia>Panel Netizo</title>
 
     {{-- Theme before first paint (no flash): cookie first, its localStorage copy when the cookie is gone. --}}
-    <script>
+    <script nonce="{{ Vite::cspNonce() }}">
         (function () {
             var dark = @json(($appearance ?? 'light') === 'dark');
             if (!@json($appearanceFromCookie ?? false)) {

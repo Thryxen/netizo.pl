@@ -76,11 +76,11 @@
     </div>
 </aside>
 
-<script data-cookie-consent>
+<script data-cookie-consent nonce="{{ Vite::cspNonce() }}">
     {!! file_get_contents(LCC_ROOT . '/dist/script.js') !!}
 </script>
 
-<script data-cookie-consent>
+<script data-cookie-consent nonce="{{ Vite::cspNonce() }}">
     {{-- Publish the banner's height as --cookie-banner-height while it shows, so page content, focused controls and the callback button stay above it. --}}
     (function () {
         var banner = document.getElementById('cookies-policy');

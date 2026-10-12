@@ -16,10 +16,13 @@ class SecurityHeaders
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // A new nonce per response, before the views render: @vite adds it to its tags, Blade to the inline scripts.
+        $nonce = Vite::useCspNonce();
+
         $response = $next($request);
 
         // Build CSP with Trusted Types
-        $csp = $this->buildContentSecurityPolicy();
+        $csp = $this->buildContentSecurityPolicy($nonce, $request->is('admin', 'admin/*'));
 
         $response->headers->set('Content-Security-Policy', $csp);
 
@@ -35,31 +38,37 @@ class SecurityHeaders
     /**
      * Build Content Security Policy header value.
      */
-    private function buildContentSecurityPolicy(): string
+    private function buildContentSecurityPolicy(string $nonce, bool $isAdmin): string
     {
         $devServer = $this->viteDevServerSources();
+
+        // Third parties: Google Analytics on the public site (after consent), Cloudflare Turnstile on the admin login
+        $scriptHosts = $isAdmin ? ' https://challenges.cloudflare.com' : ' https://www.googletagmanager.com';
+        $connectHosts = $isAdmin ? '' : ' https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com';
+        $frameHosts = $isAdmin ? ' https://challenges.cloudflare.com' : ' https://www.googletagmanager.com';
 
         $directives = [
             // Default fallback
             "default-src 'self'",
 
-            // Scripts - allow trusted sources
-            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://fonts.googleapis.com https://challenges.cloudflare.com".$devServer['http'],
+            // Scripts - only those with this response's nonce and the scripts they add ('strict-dynamic'); browsers
+            // that support 'strict-dynamic' ignore 'self' and the hosts, which are the fallback for older ones
+            "script-src 'nonce-{$nonce}' 'strict-dynamic' 'self'".$scriptHosts.$devServer['http'],
 
-            // Styles - allow inline for Tailwind and Google Fonts
-            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com".$devServer['http'],
+            // Styles - allow inline for React style attributes and the <style> blocks of the views
+            "style-src 'self' 'unsafe-inline'".$devServer['http'],
 
             // Images
             "img-src 'self' data: https: blob:".$devServer['http'],
 
-            // Fonts
-            "font-src 'self' https://fonts.gstatic.com".$devServer['http'],
+            // Fonts (self-hosted)
+            "font-src 'self'".$devServer['http'],
 
             // Connect (XHR, fetch, WebSocket)
-            "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com".$devServer['http'].$devServer['ws'],
+            "connect-src 'self'".$connectHosts.$devServer['http'].$devServer['ws'],
 
-            // Frames (Cloudflare Turnstile on the admin login)
-            "frame-src 'self' https://www.googletagmanager.com https://challenges.cloudflare.com",
+            // Frames
+            "frame-src 'self'".$frameHosts,
 
             // Child/worker
             "child-src 'self' blob:",
