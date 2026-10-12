@@ -134,13 +134,10 @@ it('renders the FAQ JSON-LD and SEO tags in the root view', function () {
         ->assertSee('<div id="app"', false)
         ->assertDontSee('livewire', false);
 
-    preg_match_all('/<script type="application\/ld\+json">(.*?)<\/script>/s', $response->getContent(), $matches);
-
-    $faqSchema = collect($matches[1])
-        ->map(fn (string $json): mixed => json_decode(trim($json), true))
-        ->firstWhere('@type', 'FAQPage');
+    $faqSchema = jsonLdGraph($response)->firstWhere('@type', 'FAQPage');
 
     expect($faqSchema)->not->toBeNull()
+        ->and($faqSchema['isPartOf'])->toBe(['@id' => url('/').'/#webpage'])
         ->and($faqSchema['mainEntity'])->toHaveCount(11)
         ->and(collect($faqSchema['mainEntity'])->pluck('name'))->toContain('Czy strona będzie widoczna w Google?')
         ->and($faqSchema['mainEntity'][0]['acceptedAnswer']['@type'])->toBe('Answer');
@@ -158,21 +155,31 @@ it('renders a search result description that opens with the call to action and n
     'english' => ['/en', 'Get a free quote for a website or web app. Speed and SEO as standard, from a team with 150+ projects and 8 years of experience. Based in Leszno, Poland.'],
 ]);
 
-it('renders the organization JSON-LD built in the controller', function () {
-    config(['socials' => ['facebook' => null, 'instagram' => '', 'tiktok' => null, 'discord' => null]]);
+it('describes Netizo in full in the JSON-LD of the home page', function () {
+    config(['socials' => ['facebook' => null, 'instagram' => '', 'tiktok' => null, 'youtube' => null, 'linkedin' => null, 'discord' => null, 'google' => null]]);
 
-    $response = $this->get('/')->assertOk();
-
-    preg_match_all('/<script type="application\/ld\+json">(.*?)<\/script>/s', $response->getContent(), $matches);
-
-    $schemas = collect($matches[1])->map(fn (string $json): mixed => json_decode(trim($json), true));
-    $organization = $schemas->firstWhere('@type', 'ProfessionalService');
+    $graph = jsonLdGraph($this->get('/'));
+    $organization = $graph->firstWhere('@type', 'ProfessionalService');
+    $logo = [
+        '@type' => 'ImageObject',
+        '@id' => url('/').'/#logo',
+        'url' => asset('images/icons/icon-512.png'),
+        'contentUrl' => asset('images/icons/icon-512.png'),
+        'width' => 512,
+        'height' => 512,
+        'caption' => 'Netizo',
+    ];
 
     expect($organization)->not->toBeNull()
+        ->and($organization['@id'])->toBe(url('/').'/#organization')
         ->and($organization['name'])->toBe('Netizo')
+        ->and($organization['alternateName'])->toBe('Netizo.pl')
+        ->and($organization['url'])->toBe(url('/').'/')
         ->and($organization['description'])->toContain('Netizo założyli w 2023 roku Damian Idzik i Kamil Nawrot.')
         ->and($organization['description'])->not->toContain('150+')
-        ->and($organization)->not->toHaveKey('sameAs')
+        ->and($organization)->not->toHaveKeys(['sameAs', 'hasMap'])
+        ->and($organization['logo'])->toBe($logo)
+        ->and($organization['image'])->toBe(['@id' => url('/').'/#logo'])
         ->and($organization['address'])->toBe([
             '@type' => 'PostalAddress',
             'streetAddress' => 'ul. Wiosny Ludów 12 lok. 8',
@@ -183,9 +190,15 @@ it('renders the organization JSON-LD built in the controller', function () {
         ])
         ->and($organization['telephone'])->toBe('+48884343924')
         ->and($organization['email'])->toBe('kontakt@netizo.pl')
+        ->and($organization['contactPoint'])->toBe([
+            '@type' => 'ContactPoint',
+            'contactType' => 'customer service',
+            'email' => 'kontakt@netizo.pl',
+            'telephone' => '+48884343924',
+            'availableLanguage' => ['pl', 'en'],
+        ])
         ->and($organization['taxID'])->toBe('6192060508')
         ->and($organization['identifier'])->toBe(['@type' => 'PropertyValue', 'propertyID' => 'REGON', 'value' => '527974955'])
-        ->and($organization['image'])->toBe(asset('assets/images/og-netizo-2.png'))
         ->and($organization['areaServed'])->toBe([
             ['@type' => 'Country', 'name' => 'Polska'],
             ['@type' => 'City', 'name' => 'Leszno'],
@@ -195,39 +208,79 @@ it('renders the organization JSON-LD built in the controller', function () {
             ['@type' => 'City', 'name' => 'Gostyń'],
             ['@type' => 'City', 'name' => 'Rawicz'],
         ])
-        ->and($organization['priceRange'])->toBe('$$')
-        ->and($schemas->firstWhere('@type', 'WebPage'))->toBeNull();
+        ->and($organization['priceRange'])->toBe('$$');
 });
 
-it('lists the configured social profiles as sameAs in the organization JSON-LD', function (string $path) {
+it('describes the home page as a page of the website about Netizo, with its share image', function () {
+    $graph = jsonLdGraph($this->get('/'));
+    $webPage = $graph->firstWhere('@type', 'WebPage');
+
+    expect($graph->firstWhere('@type', 'WebSite'))->toBe([
+        '@type' => 'WebSite',
+        '@id' => url('/').'/#website',
+        'url' => url('/').'/',
+        'name' => 'Netizo',
+        'alternateName' => 'Netizo.pl',
+        'inLanguage' => ['pl', 'en'],
+        'publisher' => ['@id' => url('/').'/#organization'],
+    ])
+        ->and($webPage['@id'])->toBe(url('/').'/#webpage')
+        ->and($webPage['url'])->toBe(url('/').'/')
+        ->and($webPage['name'])->toBe('Strony internetowe i aplikacje webowe dla firm – Leszno | Netizo')
+        ->and($webPage['inLanguage'])->toBe('pl')
+        ->and($webPage['isPartOf'])->toBe(['@id' => url('/').'/#website'])
+        ->and($webPage['about'])->toBe(['@id' => url('/').'/#organization'])
+        ->and($webPage['primaryImageOfPage']['url'])->toBe(asset('assets/images/og-netizo-2.png'))
+        ->and($webPage['primaryImageOfPage']['width'])->toBe(1200)
+        ->and($webPage['primaryImageOfPage']['height'])->toBe(630)
+        ->and($webPage)->not->toHaveKey('breadcrumb')
+        ->and($graph->firstWhere('@type', 'BreadcrumbList'))->toBeNull();
+});
+
+it('lists the configured profiles as sameAs and the Google Business Profile as the map', function (string $path) {
     config(['socials' => [
         'facebook' => 'https://www.facebook.com/netizo',
         'instagram' => null,
         'tiktok' => 'https://www.tiktok.com/@netizo',
+        'youtube' => 'https://www.youtube.com/@netizo',
+        'linkedin' => 'https://www.linkedin.com/company/netizo',
         'discord' => 'https://discord.gg/netizo',
+        'google' => 'https://www.google.com/maps?cid=123',
     ]]);
 
-    $response = $this->get($path)->assertOk();
-
-    preg_match_all('/<script type="application\/ld\+json">(.*?)<\/script>/s', $response->getContent(), $matches);
-
-    $organization = collect($matches[1])
-        ->map(fn (string $json): mixed => json_decode(trim($json), true))
-        ->firstWhere('@type', 'ProfessionalService');
+    $organization = jsonLdGraph($this->get($path))->firstWhere('@type', 'ProfessionalService');
 
     expect($organization['sameAs'])->toBe([
         'https://www.facebook.com/netizo',
         'https://www.tiktok.com/@netizo',
+        'https://www.youtube.com/@netizo',
+        'https://www.linkedin.com/company/netizo',
         'https://discord.gg/netizo',
-    ]);
+        'https://www.google.com/maps?cid=123',
+    ])
+        ->and($organization['hasMap'])->toBe('https://www.google.com/maps?cid=123');
 })->with(['polish' => '/', 'english' => '/en']);
+
+it('names the same organization and website on the polish and the english home page', function () {
+    $polish = jsonLdGraph($this->get('/'));
+    $english = jsonLdGraph($this->get('/en'));
+
+    expect($english->firstWhere('@type', 'ProfessionalService')['@id'])->toBe($polish->firstWhere('@type', 'ProfessionalService')['@id'])
+        ->and($english->firstWhere('@type', 'ProfessionalService')['url'])->toBe(url('/').'/')
+        ->and($english->firstWhere('@type', 'ProfessionalService')['logo'])->toBe($polish->firstWhere('@type', 'ProfessionalService')['logo'])
+        ->and($english->firstWhere('@type', 'WebSite'))->toBe($polish->firstWhere('@type', 'WebSite'))
+        ->and($english->firstWhere('@type', 'WebPage')['@id'])->toBe(url('/en').'#webpage');
+});
 
 it('shares the configured social profiles in config order without the empty ones', function (string $path) {
     config(['socials' => [
         'facebook' => 'https://www.facebook.com/netizo',
         'instagram' => '',
         'tiktok' => 'https://www.tiktok.com/@netizo',
+        'youtube' => null,
+        'linkedin' => 'https://www.linkedin.com/company/netizo',
         'discord' => null,
+        'google' => 'https://www.google.com/maps?cid=123',
     ]]);
 
     $this->get($path)
@@ -235,11 +288,13 @@ it('shares the configured social profiles in config order without the empty ones
         ->assertInertia(fn (Assert $page) => $page->where('socials', [
             ['network' => 'facebook', 'url' => 'https://www.facebook.com/netizo'],
             ['network' => 'tiktok', 'url' => 'https://www.tiktok.com/@netizo'],
+            ['network' => 'linkedin', 'url' => 'https://www.linkedin.com/company/netizo'],
+            ['network' => 'google', 'url' => 'https://www.google.com/maps?cid=123'],
         ]));
 })->with(['polish' => '/', 'english' => '/en']);
 
 it('shares no social profiles when none is configured', function () {
-    config(['socials' => ['facebook' => null, 'instagram' => null, 'tiktok' => null, 'discord' => null]]);
+    config(['socials' => ['facebook' => null, 'instagram' => null, 'tiktok' => null, 'youtube' => null, 'linkedin' => null, 'discord' => null, 'google' => null]]);
 
     $this->get('/')
         ->assertOk()
@@ -380,16 +435,19 @@ it('renders the english SEO tags, share image and JSON-LD on /en', function () {
         ->assertDontSee('Strony internetowe i aplikacje webowe dla firm – Leszno', false)
         ->assertDontSee('og-netizo-2.png', false);
 
-    preg_match_all('/<script type="application\/ld\+json">(.*?)<\/script>/s', $response->getContent(), $matches);
-
-    $schemas = collect($matches[1])->map(fn (string $json): mixed => json_decode(trim($json), true));
-    $faqSchema = $schemas->firstWhere('@type', 'FAQPage');
-    $organization = $schemas->firstWhere('@type', 'ProfessionalService');
+    $graph = jsonLdGraph($response);
+    $faqSchema = $graph->firstWhere('@type', 'FAQPage');
+    $organization = $graph->firstWhere('@type', 'ProfessionalService');
+    $webPage = $graph->firstWhere('@type', 'WebPage');
 
     expect($faqSchema['inLanguage'])->toBe('en')
+        ->and($faqSchema['isPartOf'])->toBe(['@id' => url('/en').'#webpage'])
         ->and(collect($faqSchema['mainEntity'])->pluck('name')->all())->toBe(array_column($response->viewData('page')['props']['faq'], 'question'))
-        ->and($organization['url'])->toBe(url('/en'))
-        ->and($organization['image'])->toBe($imageUrl)
+        ->and($webPage['url'])->toBe(url('/en'))
+        ->and($webPage['inLanguage'])->toBe('en')
+        ->and($webPage['primaryImageOfPage']['url'])->toBe($imageUrl)
+        ->and($organization['url'])->toBe(url('/').'/')
+        ->and($organization['description'])->toBe(__('home.seo.organization_description', locale: 'en'))
         ->and($organization['areaServed'][0])->toBe(['@type' => 'Country', 'name' => 'Poland'])
         ->and($organization['address']['addressLocality'])->toBe('Kępno')
         ->and($organization['knowsLanguage'])->toBe(['pl', 'en']);

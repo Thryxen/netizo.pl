@@ -52,15 +52,10 @@ it('renders a search result description that opens with the call to action and n
 ]);
 
 it('uses its share image in the WebPage JSON-LD', function () {
-    $response = $this->get('/partnerzy')->assertOk();
+    $webPage = jsonLdGraph($this->get('/partnerzy'))->firstWhere('@type', 'WebPage');
 
-    preg_match_all('/<script type="application\/ld\+json">(.*?)<\/script>/s', $response->getContent(), $matches);
-
-    $webPage = collect($matches[1])
-        ->map(fn (string $json): mixed => json_decode(trim($json), true))
-        ->firstWhere('@type', 'WebPage');
-
-    expect($webPage['image'])->toBe(asset('assets/images/og-netizo-partnerzy.png'));
+    expect($webPage['primaryImageOfPage']['url'])->toBe(asset('assets/images/og-netizo-partnerzy.png'))
+        ->and($webPage['image'])->toBe(['@id' => url('/partnerzy').'#primaryimage']);
 });
 
 it('ships a 1200x630 share image under the size link previews accept', function () {
@@ -73,22 +68,46 @@ it('ships a 1200x630 share image under the size link previews accept', function 
 });
 
 it('renders the FAQ and WebPage JSON-LD from the same questions as the page', function () {
-    $response = $this->get('/partnerzy')->assertOk();
-
-    preg_match_all('/<script type="application\/ld\+json">(.*?)<\/script>/s', $response->getContent(), $matches);
-
-    $schemas = collect($matches[1])->map(fn (string $json): mixed => json_decode(trim($json), true));
-    $faqSchema = $schemas->firstWhere('@type', 'FAQPage');
-    $webPage = $schemas->firstWhere('@type', 'WebPage');
+    $response = $this->get('/partnerzy');
+    $graph = jsonLdGraph($response);
+    $faqSchema = $graph->firstWhere('@type', 'FAQPage');
+    $webPage = $graph->firstWhere('@type', 'WebPage');
     $faq = $response->viewData('page')['props']['faq'];
 
     expect($faqSchema)->not->toBeNull()
+        ->and($faqSchema['isPartOf'])->toBe(['@id' => url('/partnerzy').'#webpage'])
         ->and(collect($faqSchema['mainEntity'])->pluck('name')->all())->toBe(array_column($faq, 'question'))
         ->and($faqSchema['mainEntity'][0]['acceptedAnswer']['text'])->toBe($faq[0]['answer'])
         ->and($webPage['name'])->toBe('Program partnerski Netizo')
         ->and($webPage['url'])->toBe(url('/partnerzy'))
-        ->and($schemas->firstWhere('@type', 'ProfessionalService'))->toBeNull();
+        ->and($graph->firstWhere('@type', 'ProfessionalService'))->toBeNull();
 });
+
+it('links the partner page to Netizo and its website, under the home page in the breadcrumbs', function (string $path, string $crumb) {
+    $graph = jsonLdGraph($this->get($path));
+    $webPage = $graph->firstWhere('@type', 'WebPage');
+    $breadcrumbs = $graph->firstWhere('@type', 'BreadcrumbList');
+    $homeUrl = $path === '/partnerzy' ? url('/').'/' : url('/en');
+
+    expect($webPage['@id'])->toBe(url($path).'#webpage')
+        ->and($webPage['isPartOf'])->toBe(['@id' => url('/').'/#website'])
+        ->and($webPage['publisher'])->toBe(['@id' => url('/').'/#organization'])
+        ->and($webPage['breadcrumb'])->toBe(['@id' => url($path).'#breadcrumb'])
+        ->and($breadcrumbs['@id'])->toBe(url($path).'#breadcrumb')
+        ->and($breadcrumbs['itemListElement'])->toBe([
+            ['@type' => 'ListItem', 'position' => 1, 'name' => 'Netizo', 'item' => $homeUrl],
+            ['@type' => 'ListItem', 'position' => 2, 'name' => $crumb, 'item' => url($path)],
+        ])
+        ->and($graph->firstWhere('@type', 'Organization'))->toMatchArray([
+            '@id' => url('/').'/#organization',
+            'name' => 'Netizo',
+            'url' => url('/').'/',
+        ])
+        ->and($graph->firstWhere('@type', 'WebSite')['@id'])->toBe(url('/').'/#website');
+})->with([
+    'polish' => ['/partnerzy', 'Program partnerski'],
+    'english' => ['/en/partners', 'Partner program'],
+]);
 
 it('states the same commission terms in every answer that mentions them', function () {
     $answers = collect($this->get('/partnerzy')->viewData('page')['props']['faq'])->pluck('answer')->implode(' ');
@@ -173,16 +192,14 @@ it('renders the english SEO tags, share image and WebPage JSON-LD on /en/partner
         ->assertDontSee('og-netizo-partnerzy.png', false)
         ->assertDontSee('Program partnerski: 15% prowizji za polecenie', false);
 
-    preg_match_all('/<script type="application\/ld\+json">(.*?)<\/script>/s', $response->getContent(), $matches);
-
-    $schemas = collect($matches[1])->map(fn (string $json): mixed => json_decode(trim($json), true));
-    $webPage = $schemas->firstWhere('@type', 'WebPage');
+    $graph = jsonLdGraph($response);
+    $webPage = $graph->firstWhere('@type', 'WebPage');
 
     expect($webPage['name'])->toBe('Netizo Partner Program')
         ->and($webPage['url'])->toBe(url('/en/partners'))
-        ->and($webPage['image'])->toBe($imageUrl)
+        ->and($webPage['primaryImageOfPage']['url'])->toBe($imageUrl)
         ->and($webPage['inLanguage'])->toBe('en')
-        ->and($schemas->firstWhere('@type', 'FAQPage')['inLanguage'])->toBe('en');
+        ->and($graph->firstWhere('@type', 'FAQPage')['inLanguage'])->toBe('en');
 
     expect($imagePath)->toBeFile()
         ->and(array_slice(getimagesize($imagePath), 0, 2))->toBe([1200, 630])

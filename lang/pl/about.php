@@ -9,6 +9,7 @@ return [
         'title' => 'O nas: Damian Idzik i Kamil Nawrot – Leszno | Netizo',
         'description' => 'Poznaj Damiana Idzika i Kamila Nawrota z Netizo. Strony, sklepy i aplikacje webowe dla firm z całej Polski, a w Lesznie i okolicach z dojazdem do klienta.',
         'name' => 'O nas – Netizo',
+        'breadcrumb' => 'O nas',
         'image' => 'assets/images/og-netizo-o-nas.png',
     ],
 

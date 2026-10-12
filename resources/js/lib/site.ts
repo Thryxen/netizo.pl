@@ -34,7 +34,10 @@ export const socialNetworkNames = {
     facebook: 'Facebook',
     instagram: 'Instagram',
     tiktok: 'TikTok',
+    youtube: 'YouTube',
+    linkedin: 'LinkedIn',
     discord: 'Discord',
+    google: 'Google',
 } as const;
 
 export type SocialNetwork = keyof typeof socialNetworkNames;

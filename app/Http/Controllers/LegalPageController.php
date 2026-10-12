@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\LocalizedRoutes;
-use Artesaos\SEOTools\Facades\JsonLdMulti;
+use App\Services\StructuredData;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\TwitterCard;
@@ -34,38 +34,46 @@ class LegalPageController extends Controller
 
     public function privacy(): Response
     {
-        $this->seo('privacy', self::PRIVACY_EFFECTIVE_DATE);
+        $this->seo('privacy');
 
         return Inertia::render('privacy-policy', [
             'effectiveDate' => self::PRIVACY_EFFECTIVE_DATE,
             'cookies' => $this->cookies(),
             'cookieSettingsUrl' => route('cookieconsent.reset'),
+        ])->withViewData([
+            'structuredData' => $this->structuredData('privacy', self::PRIVACY_EFFECTIVE_DATE),
         ]);
     }
 
     public function terms(): Response
     {
-        $this->seo('terms', self::TERMS_EFFECTIVE_DATE);
+        $this->seo('terms');
 
         return Inertia::render('terms', [
             'effectiveDate' => self::TERMS_EFFECTIVE_DATE,
+        ])->withViewData([
+            'structuredData' => $this->structuredData('terms', self::TERMS_EFFECTIVE_DATE),
         ]);
     }
 
     public function partnerTerms(): Response
     {
-        $this->seo('partner_terms', self::PARTNER_TERMS_EFFECTIVE_DATE, 'partners.terms');
+        $this->seo('partner_terms', 'partners.terms');
 
         return Inertia::render('partner-terms', [
             'effectiveDate' => self::PARTNER_TERMS_EFFECTIVE_DATE,
+        ])->withViewData([
+            'structuredData' => $this->structuredData('partner_terms', self::PARTNER_TERMS_EFFECTIVE_DATE, 'partners.terms', [
+                ['name' => __('partners.seo.breadcrumb'), 'url' => LocalizedRoutes::url('partners')],
+            ]),
         ]);
     }
 
     /**
-     * Meta tags, the canonical URL with hreflang alternates and the WebPage JSON-LD of the document `$name`
-     * (lang/{pl,en}/legal.php), served by the route `$routeName` (by default the document's name).
+     * Meta tags and the canonical URL with hreflang alternates of the document `$name` (lang/{pl,en}/legal.php),
+     * served by the route `$routeName` (by default the document's name).
      */
-    private function seo(string $name, string $effectiveDate, ?string $routeName = null): void
+    private function seo(string $name, ?string $routeName = null): void
     {
         $routeName ??= $name;
         $title = __("legal.{$name}.title");
@@ -87,18 +95,26 @@ class LegalPageController extends Controller
             ->setImage($imageUrl);
 
         $this->localizedSeo($routeName);
+    }
 
-        JsonLdMulti::setTitle(__("legal.{$name}.name"))
-            ->setDescription($description)
-            ->setType('WebPage')
-            ->setUrl(LocalizedRoutes::url($routeName))
-            ->addValue('inLanguage', app()->getLocale())
-            ->addValue('dateModified', $effectiveDate)
-            ->addValue('publisher', [
-                '@type' => 'Organization',
-                'name' => 'Netizo',
-                'url' => LocalizedRoutes::url('home'),
-            ]);
+    /**
+     * The document `$name` as a WebPage dated with its version, below the pages of `$parents` in the breadcrumb trail.
+     *
+     * @param  list<array{name: string, url: string}>  $parents
+     * @return array<string, mixed>
+     */
+    private function structuredData(string $name, string $effectiveDate, ?string $routeName = null, array $parents = []): array
+    {
+        $pageUrl = LocalizedRoutes::url($routeName ?? $name);
+
+        return StructuredData::document(
+            StructuredData::page('WebPage', $pageUrl, __("legal.{$name}.name"), __("legal.{$name}.description"), asset(__("legal.{$name}.image")), [
+                ...$parents,
+                ['name' => __("legal.{$name}.breadcrumb"), 'url' => $pageUrl],
+            ], [
+                'dateModified' => $effectiveDate,
+            ]),
+        );
     }
 
     /**

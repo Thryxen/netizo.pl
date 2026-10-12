@@ -10,6 +10,7 @@ return [
         'title' => 'Polityka prywatności | Netizo',
         'description' => 'Jakie dane zbiera netizo.pl przez formularze, Google Analytics i cookies, komu je przekazujemy, jak długo je trzymamy i jakie masz prawa.',
         'name' => 'Polityka prywatności – Netizo',
+        'breadcrumb' => 'Polityka prywatności',
         'image' => 'assets/images/og-netizo-polityka-prywatnosci.png',
     ],
 
@@ -17,6 +18,7 @@ return [
         'title' => 'Regulamin serwisu | Netizo',
         'description' => 'Zasady korzystania z netizo.pl: formularze, newsletter, program partnerski, wymagania techniczne, reklamacje i prawa konsumenta.',
         'name' => 'Regulamin serwisu – Netizo',
+        'breadcrumb' => 'Regulamin serwisu',
         'image' => 'assets/images/og-netizo-regulamin.png',
     ],
 
@@ -24,6 +26,7 @@ return [
         'title' => 'Regulamin programu partnerskiego | Netizo',
         'description' => 'Warunki programu partnerskiego Netizo: kto może polecać, kiedy należy się 15% prowizji, jak i kiedy ją wypłacamy oraz jak zakończyć udział.',
         'name' => 'Regulamin programu partnerskiego – Netizo',
+        'breadcrumb' => 'Regulamin',
         'image' => 'assets/images/og-netizo-regulamin-partnerski.png',
     ],
 ];

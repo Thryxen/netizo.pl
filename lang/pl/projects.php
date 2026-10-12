@@ -10,6 +10,7 @@ return [
         'title' => 'Realizacje: strony, sklepy i aplikacje webowe – Leszno | Netizo',
         'description' => 'Zobacz nasze realizacje: strony firmowe, sklepy i aplikacje webowe z opisem wyzwań, rozwiązań i wyników. Wyceń podobny projekt w Netizo.',
         'name' => 'Realizacje – Netizo',
+        'breadcrumb' => 'Realizacje',
         'image' => 'assets/images/og-netizo-realizacje.jpg',
         'image_alt' => 'Realizacje Netizo: strony, sklepy i aplikacje webowe',
     ],
@@ -25,10 +26,5 @@ return [
     // The case study's share image (App\Services\ProjectShareImage): the label in its top right cell.
     'share' => [
         'label' => 'Realizacja',
-    ],
-
-    'breadcrumbs' => [
-        'home' => 'Netizo',
-        'projects' => 'Realizacje',
     ],
 ];

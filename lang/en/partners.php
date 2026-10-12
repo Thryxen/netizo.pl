@@ -9,6 +9,7 @@ return [
         'title' => 'Partner program: 15% per referral – Leszno, Poland | Netizo',
         'description' => 'Join the Netizo partner program and earn 15% (net) of every paid invoice from a referred client for 12 months. No fees and no limit on referrals.',
         'name' => 'Netizo Partner Program',
+        'breadcrumb' => 'Partner program',
         'image' => 'assets/images/og-netizo-partners-en.png',
     ],
 

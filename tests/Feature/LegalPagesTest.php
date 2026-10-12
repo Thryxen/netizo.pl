@@ -8,18 +8,6 @@ beforeEach(function () {
     $this->withoutVite();
 });
 
-/**
- * @return Collection<int, mixed>
- */
-function legalPageSchemas(string $path): Collection
-{
-    $response = test()->get($path)->assertOk();
-
-    preg_match_all('/<script type="application\/ld\+json">(.*?)<\/script>/s', $response->getContent(), $matches);
-
-    return collect($matches[1])->map(fn (string $json): mixed => json_decode(trim($json), true));
-}
-
 it('serves the privacy policy, the terms and the partner program terms in Polish and in English', function (string $name, string $path) {
     expect(route($name, absolute: false))->toBe($path);
 })->with([
@@ -141,17 +129,22 @@ it('keeps the meta descriptions within the length search results show', function
         ->and(mb_strlen($description))->toBeLessThanOrEqual(160);
 })->with(['privacy', 'terms', 'partner_terms'])->with(['pl', 'en']);
 
-it('describes each document as a WebPage with its effective date', function (string $path, string $date) {
-    $webPage = legalPageSchemas($path)->firstWhere('@type', 'WebPage');
+it('describes each document as a WebPage with its effective date, published by Netizo', function (string $path, string $date, array $crumbs) {
+    $graph = jsonLdGraph($this->get($path));
+    $webPage = $graph->firstWhere('@type', 'WebPage');
+    $breadcrumbs = $graph->firstWhere('@type', 'BreadcrumbList');
 
     expect($webPage)->not->toBeNull()
         ->and($webPage['url'])->toBe(url($path))
         ->and($webPage['dateModified'])->toBe($date)
-        ->and($webPage['publisher']['name'])->toBe('Netizo');
+        ->and($webPage['publisher'])->toBe(['@id' => url('/').'/#organization'])
+        ->and($graph->firstWhere('@type', 'Organization')['name'])->toBe('Netizo')
+        ->and(array_column($breadcrumbs['itemListElement'], 'name'))->toBe(array_keys($crumbs))
+        ->and(array_column($breadcrumbs['itemListElement'], 'item'))->toBe(array_values($crumbs));
 })->with([
-    ['/polityka-prywatnosci', LegalPageController::PRIVACY_EFFECTIVE_DATE],
-    ['/en/terms', LegalPageController::TERMS_EFFECTIVE_DATE],
-    ['/partnerzy/regulamin', LegalPageController::PARTNER_TERMS_EFFECTIVE_DATE],
+    ['/polityka-prywatnosci', LegalPageController::PRIVACY_EFFECTIVE_DATE, fn (): array => ['Netizo' => url('/').'/', 'Polityka prywatności' => url('/polityka-prywatnosci')]],
+    ['/en/terms', LegalPageController::TERMS_EFFECTIVE_DATE, fn (): array => ['Netizo' => url('/en'), 'Terms of service' => url('/en/terms')]],
+    ['/partnerzy/regulamin', LegalPageController::PARTNER_TERMS_EFFECTIVE_DATE, fn (): array => ['Netizo' => url('/').'/', 'Program partnerski' => url('/partnerzy'), 'Regulamin' => url('/partnerzy/regulamin')]],
 ]);
 
 it('links the cookie banner to the privacy policy in the language of the page', function (string $path, string $policy) {

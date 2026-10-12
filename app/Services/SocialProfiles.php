@@ -3,8 +3,8 @@
 namespace App\Services;
 
 /**
- * Netizo's profiles on social networks (config/socials.php, set through SOCIAL_*_URL in .env). A network without a
- * URL is left out of both the footer and the organization JSON-LD.
+ * Netizo's profiles on social networks and its Google Business Profile (config/socials.php, set through SOCIAL_*_URL in
+ * .env). A network without a URL is left out of both the footer and the organization JSON-LD.
  */
 class SocialProfiles
 {
@@ -30,5 +30,16 @@ class SocialProfiles
     public static function urls(): array
     {
         return array_column(self::all(), 'url');
+    }
+
+    /**
+     * The Google Business Profile (its address in Google Maps), the `hasMap` of the organization JSON-LD; null when
+     * it is not configured.
+     */
+    public static function googleBusinessProfile(): ?string
+    {
+        $url = config('socials.google');
+
+        return filled($url) ? $url : null;
     }
 }

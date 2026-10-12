@@ -1,24 +1,11 @@
 <?php
 
 use App\Models\Project;
-use Illuminate\Support\Collection;
 use Inertia\Testing\AssertableInertia as Assert;
 
 beforeEach(function () {
     $this->withoutVite();
 });
-
-/**
- * @return Collection<int, mixed>
- */
-function aboutPageSchemas(string $path): Collection
-{
-    $response = test()->get($path)->assertOk();
-
-    preg_match_all('/<script type="application\/ld\+json">(.*?)<\/script>/s', $response->getContent(), $matches);
-
-    return collect($matches[1])->map(fn (string $json): mixed => json_decode(trim($json), true));
-}
 
 it('serves the about page at /o-nas and /en/about', function () {
     expect(route('about', absolute: false))->toBe('/o-nas')
@@ -108,33 +95,39 @@ it('renders a search result description that opens with the call to action and n
 ]);
 
 it('describes the page and the two co-owners in the AboutPage JSON-LD', function () {
-    $aboutPage = aboutPageSchemas('/o-nas')->firstWhere('@type', 'AboutPage');
+    $graph = jsonLdGraph($this->get('/o-nas'));
+    $aboutPage = $graph->firstWhere('@type', 'AboutPage');
+    $organization = $graph->firstWhere('@type', 'Organization');
 
     expect($aboutPage)->not->toBeNull()
         ->and($aboutPage['url'])->toBe(url('/o-nas'))
         ->and($aboutPage['inLanguage'])->toBe('pl')
-        ->and($aboutPage['about']['@type'])->toBe('Organization')
-        ->and($aboutPage['about']['name'])->toBe('Netizo')
-        ->and($aboutPage['about']['url'])->toBe(url('/'))
-        ->and($aboutPage['about']['member'])->toBe([
+        ->and($aboutPage['about'])->toBe(['@id' => url('/').'/#organization'])
+        ->and(array_column($graph->firstWhere('@type', 'BreadcrumbList')['itemListElement'], 'name'))->toBe(['Netizo', 'O nas'])
+        ->and($organization['@id'])->toBe(url('/').'/#organization')
+        ->and($organization['name'])->toBe('Netizo')
+        ->and($organization['url'])->toBe(url('/').'/')
+        ->and($organization['member'])->toBe([
             ['@type' => 'Person', 'name' => 'Damian Idzik', 'jobTitle' => 'Współwłaściciel'],
             ['@type' => 'Person', 'name' => 'Kamil Nawrot', 'jobTitle' => 'Współwłaściciel'],
         ]);
 });
 
-it('uses English job titles and the English home page in the JSON-LD on /en/about', function () {
-    $aboutPage = aboutPageSchemas('/en/about')->firstWhere('@type', 'AboutPage');
+it('uses English job titles and the same organization in the JSON-LD on /en/about', function () {
+    $graph = jsonLdGraph($this->get('/en/about'));
+    $organization = $graph->firstWhere('@type', 'Organization');
 
-    expect($aboutPage['inLanguage'])->toBe('en')
-        ->and($aboutPage['about']['url'])->toBe(url('/en'))
-        ->and(array_column($aboutPage['about']['member'], 'jobTitle'))->toBe(['Co-owner', 'Co-owner']);
+    expect($graph->firstWhere('@type', 'AboutPage')['inLanguage'])->toBe('en')
+        ->and($organization['@id'])->toBe(url('/').'/#organization')
+        ->and($organization['url'])->toBe(url('/').'/')
+        ->and(array_column($organization['member'], 'jobTitle'))->toBe(['Co-owner', 'Co-owner']);
 });
 
 it('does not repeat the home page organization or FAQ JSON-LD', function () {
-    $schemas = aboutPageSchemas('/o-nas');
+    $graph = jsonLdGraph($this->get('/o-nas'));
 
-    expect($schemas->firstWhere('@type', 'ProfessionalService'))->toBeNull()
-        ->and($schemas->firstWhere('@type', 'FAQPage'))->toBeNull();
+    expect($graph->firstWhere('@type', 'ProfessionalService'))->toBeNull()
+        ->and($graph->firstWhere('@type', 'FAQPage'))->toBeNull();
 });
 
 it('ships 1200x630 share images under the size link previews accept', function (string $file) {

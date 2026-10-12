@@ -10,6 +10,7 @@ return [
         'title' => 'Program partnerski: 15% prowizji za polecenie – Leszno | Netizo',
         'description' => 'Dołącz do programu partnerskiego Netizo i dostawaj 15% netto od każdej opłaconej faktury poleconego klienta przez 12 miesięcy. Bez opłat i limitu poleceń.',
         'name' => 'Program partnerski Netizo',
+        'breadcrumb' => 'Program partnerski',
         'image' => 'assets/images/og-netizo-partnerzy.png',
     ],
 

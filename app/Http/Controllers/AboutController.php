@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Concerns\PresentsProjects;
 use App\Models\Project;
 use App\Services\LocalizedRoutes;
-use Artesaos\SEOTools\Facades\JsonLdMulti;
+use App\Services\StructuredData;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\TwitterCard;
@@ -25,6 +25,7 @@ class AboutController extends Controller
         $title = __('about.seo.title');
         $description = __('about.seo.description');
         $imageUrl = asset(__('about.seo.image'));
+        $pageUrl = LocalizedRoutes::url('about');
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($description);
@@ -42,19 +43,6 @@ class AboutController extends Controller
 
         $this->localizedSeo('about');
 
-        JsonLdMulti::setTitle(__('about.seo.name'))
-            ->setDescription($description)
-            ->setType('AboutPage')
-            ->setUrl(LocalizedRoutes::url('about'))
-            ->setImage($imageUrl)
-            ->addValue('inLanguage', app()->getLocale())
-            ->addValue('about', [
-                '@type' => 'Organization',
-                'name' => 'Netizo',
-                'url' => LocalizedRoutes::url('home'),
-                'member' => $this->people(),
-            ]);
-
         $projects = Project::active()->ordered()->limit(self::PROJECT_COUNT)->get();
 
         return Inertia::render('about', [
@@ -63,11 +51,20 @@ class AboutController extends Controller
             ]))->values()->all(),
             // Sample copy (story, numbers, testimonials) is a layout preview: never shown outside local development.
             'previewSamples' => app()->isLocal(),
+        ])->withViewData([
+            'structuredData' => StructuredData::document(
+                StructuredData::page('AboutPage', $pageUrl, __('about.seo.name'), $description, $imageUrl, [
+                    ['name' => __('about.seo.breadcrumb'), 'url' => $pageUrl],
+                ], [
+                    'about' => StructuredData::organizationReference(),
+                ]),
+                StructuredData::organizationSummary(['member' => $this->people()]),
+            ),
         ]);
     }
 
     /**
-     * The co-owners in the current language (lang/{pl,en}/about.php), as schema.org people.
+     * The co-owners in the current language (lang/{pl,en}/about.php), as schema.org people: the members of Netizo.
      *
      * @return list<array{'@type': string, name: string, jobTitle: string}>
      */

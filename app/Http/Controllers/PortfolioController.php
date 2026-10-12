@@ -6,6 +6,7 @@ use App\Http\Controllers\Concerns\PresentsProjects;
 use App\Models\Project;
 use App\Services\LocalizedRoutes;
 use App\Services\ProjectShareImage;
+use App\Services\StructuredData;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\TwitterCard;
@@ -39,18 +40,22 @@ class PortfolioController extends Controller
     {
         $projects = Project::active()->ordered()->get();
         $description = __('projects.index.description');
+        $imageUrl = asset(__('projects.index.image'));
+        $pageUrl = LocalizedRoutes::url('projects.index');
 
-        $this->pageMeta(__('projects.index.title'), $description, asset(__('projects.index.image')), __('projects.index.image_alt'));
+        $this->pageMeta(__('projects.index.title'), $description, $imageUrl, __('projects.index.image_alt'));
         $this->localizedSeo('projects.index');
-        $this->withoutDefaultJsonLd();
 
         return Inertia::render('projects', [
             'projects' => $projects->map(fn (Project $project): array => $this->summary($project))->values()->all(),
         ])->withViewData([
-            'schemas' => [
-                $this->collectionPageSchema($projects, $description),
-                $this->breadcrumbSchema([]),
-            ],
+            'structuredData' => StructuredData::document(
+                StructuredData::page('CollectionPage', $pageUrl, __('projects.index.name'), $description, $imageUrl, [
+                    $this->listCrumb(),
+                ], [
+                    'mainEntity' => $this->projectList($projects),
+                ]),
+            ),
         ]);
     }
 
@@ -60,16 +65,12 @@ class PortfolioController extends Controller
 
         $props = $this->projectProps($project);
         $pageUrl = LocalizedRoutes::url('projects.show', ['project' => $project]);
-        $shareImageUrl = $this->shareImage->url($project, $props['category'], $pageUrl);
+        $title = $this->caseStudyTitle($project->title, $props['category']);
+        $description = $this->caseStudyDescription($props['description'] ?: $props['fullDescription']);
+        $imageUrl = $this->shareImage->url($project, $props['category'], $pageUrl) ?? asset(__('projects.index.image'));
 
-        $this->pageMeta(
-            $this->caseStudyTitle($project->title, $props['category']),
-            $this->caseStudyDescription($props['description'] ?: $props['fullDescription']),
-            $shareImageUrl ?? asset(__('projects.index.image')),
-            __('projects.show.image_alt', ['title' => $project->title]),
-        );
+        $this->pageMeta($title, $description, $imageUrl, __('projects.show.image_alt', ['title' => $project->title]));
         $this->localizedSeo('projects.show', ['project' => $project]);
-        $this->withoutDefaultJsonLd();
 
         $nextProject = $this->nextProject($project);
 
@@ -77,10 +78,15 @@ class PortfolioController extends Controller
             'project' => $props,
             'nextProject' => $nextProject === null ? null : $this->summary($nextProject),
         ])->withViewData([
-            'schemas' => [
-                $this->creativeWorkSchema($project, $props),
-                $this->breadcrumbSchema([['name' => $project->title, 'url' => $pageUrl]]),
-            ],
+            'structuredData' => StructuredData::document([
+                ...StructuredData::page('WebPage', $pageUrl, $title, $description, $imageUrl, [
+                    $this->listCrumb(),
+                    ['name' => $project->title, 'url' => $pageUrl],
+                ], [
+                    'mainEntity' => StructuredData::reference($pageUrl, 'project'),
+                ]),
+                $this->projectSchema($project, $props, $pageUrl),
+            ]),
         ]);
     }
 
@@ -157,95 +163,59 @@ class PortfolioController extends Controller
     }
 
     /**
-     * The list as a CollectionPage whose main entity is an ItemList of the case studies (Google's summary-page format:
-     * each item is the URL of its own page).
+     * The case studies as the ItemList the list's CollectionPage is about (Google's summary-page format: each item is
+     * the URL of its own page).
      *
      * @param  Collection<int, Project>  $projects
      * @return array<string, mixed>
      */
-    private function collectionPageSchema(Collection $projects, string $description): array
+    private function projectList(Collection $projects): array
     {
         return [
-            '@context' => 'https://schema.org',
-            '@type' => 'CollectionPage',
-            'name' => __('projects.index.name'),
-            'description' => $description,
-            'url' => LocalizedRoutes::url('projects.index'),
-            'inLanguage' => app()->getLocale(),
-            'publisher' => $this->organization(),
-            'mainEntity' => [
-                '@type' => 'ItemList',
-                'numberOfItems' => $projects->count(),
-                'itemListElement' => $projects->values()->map(fn (Project $project, int $index): array => [
-                    '@type' => 'ListItem',
-                    'position' => $index + 1,
-                    'name' => $project->title,
-                    'url' => LocalizedRoutes::url('projects.show', ['project' => $project]),
-                ])->all(),
-            ],
+            '@type' => 'ItemList',
+            'numberOfItems' => $projects->count(),
+            'itemListElement' => $projects->values()->map(fn (Project $project, int $index): array => [
+                '@type' => 'ListItem',
+                'position' => $index + 1,
+                'name' => $project->title,
+                'url' => LocalizedRoutes::url('projects.show', ['project' => $project]),
+            ])->all(),
         ];
     }
 
     /**
      * The project itself (the website or app Netizo built) as a CreativeWork: its `url` is the live site, the case study
-     * is the page it is the main entity of.
+     * at `$pageUrl` is the page it is the main entity of.
      *
      * @param  array<string, mixed>  $props  The page's props of the project (current language).
      * @return array<string, mixed>
      */
-    private function creativeWorkSchema(Project $project, array $props): array
+    private function projectSchema(Project $project, array $props, string $pageUrl): array
     {
-        $pageUrl = LocalizedRoutes::url('projects.show', ['project' => $project]);
-
         return array_filter([
-            '@context' => 'https://schema.org',
             '@type' => 'CreativeWork',
-            '@id' => $pageUrl.'#project',
+            '@id' => StructuredData::id($pageUrl, 'project'),
             'name' => $project->title,
             'abstract' => $props['description'] ?: null,
             'description' => $props['fullDescription'] ?: $props['description'] ?: null,
             'genre' => $props['category'] ?: null,
             'url' => $props['liveUrl'] ?: null,
-            'mainEntityOfPage' => $pageUrl,
+            'mainEntityOfPage' => StructuredData::reference($pageUrl, 'webpage'),
             'image' => array_values(array_filter([$props['fullImageUrl'], $props['thumbnailUrl']])) ?: null,
             'keywords' => $props['techStack'] === [] ? null : implode(', ', $props['techStack']),
             'inLanguage' => app()->getLocale(),
-            'creator' => $this->organization(),
+            'creator' => StructuredData::organizationReference(),
             'dateModified' => $project->updated_at?->toDateString(),
         ], fn (mixed $value): bool => $value !== null);
     }
 
     /**
-     * Netizo → Realizacje (Projects) → the given pages.
+     * The list of projects as a crumb of the breadcrumb trail (Netizo → Realizacje → a case study).
      *
-     * @param  list<array{name: string, url: string}>  $trail  The pages below the list of projects.
-     * @return array<string, mixed>
+     * @return array{name: string, url: string}
      */
-    private function breadcrumbSchema(array $trail): array
+    private function listCrumb(): array
     {
-        $crumbs = [
-            ['name' => __('projects.breadcrumbs.home'), 'url' => LocalizedRoutes::url('home')],
-            ['name' => __('projects.breadcrumbs.projects'), 'url' => LocalizedRoutes::url('projects.index')],
-            ...$trail,
-        ];
-
-        return [
-            '@context' => 'https://schema.org',
-            '@type' => 'BreadcrumbList',
-            'itemListElement' => array_map(fn (array $crumb, int $index): array => [
-                '@type' => 'ListItem',
-                'position' => $index + 1,
-                'name' => $crumb['name'],
-                'item' => $crumb['url'],
-            ], $crumbs, array_keys($crumbs)),
-        ];
-    }
-
-    /**
-     * @return array{'@type': string, name: string, url: string}
-     */
-    private function organization(): array
-    {
-        return ['@type' => 'Organization', 'name' => 'Netizo', 'url' => LocalizedRoutes::url('home')];
+        return ['name' => __('projects.index.breadcrumb'), 'url' => LocalizedRoutes::url('projects.index')];
     }
 }

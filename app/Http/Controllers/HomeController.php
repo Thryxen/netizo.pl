@@ -6,8 +6,7 @@ use App\Http\Controllers\Concerns\PresentsProjects;
 use App\Models\Client;
 use App\Models\Project;
 use App\Services\LocalizedRoutes;
-use App\Services\SocialProfiles;
-use Artesaos\SEOTools\Facades\JsonLdMulti;
+use App\Services\StructuredData;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\TwitterCard;
@@ -24,10 +23,12 @@ class HomeController extends Controller
         $clients = Client::active()->ordered()->get();
         $imageUrl = asset(__('home.seo.image'));
         $title = __('home.seo.title');
+        $description = __('home.seo.description');
         $shareDescription = __('home.seo.share_description');
+        $pageUrl = LocalizedRoutes::url('home');
 
         SEOMeta::setTitle($title);
-        SEOMeta::setDescription(__('home.seo.description'));
+        SEOMeta::setDescription($description);
 
         OpenGraph::setTitle($title)
             ->setDescription($shareDescription)
@@ -42,49 +43,6 @@ class HomeController extends Controller
 
         $this->localizedSeo('home');
 
-        // JSON-LD Structured Data - Organization (SEO::generate() renders the JsonLdMulti instance, not JsonLd).
-        // A service-area business with no office: the address is the registered business address (the footer shows
-        // the same details, `company` in resources/js/lib/site.ts); work is remote across Poland, and around Leszno
-        // Netizo travels to the client.
-        JsonLdMulti::setTitle('Netizo')
-            ->setDescription(__('home.seo.organization_description'))
-            ->setType('ProfessionalService')
-            ->setUrl(LocalizedRoutes::url('home'))
-            ->setImage($imageUrl)
-            ->addValue('address', [
-                '@type' => 'PostalAddress',
-                'streetAddress' => 'ul. Wiosny Ludów 12 lok. 8',
-                'postalCode' => '63-600',
-                'addressLocality' => 'Kępno',
-                'addressRegion' => 'wielkopolskie',
-                'addressCountry' => 'PL',
-            ])
-            ->addValue('telephone', '+48884343924')
-            ->addValue('email', 'kontakt@netizo.pl')
-            ->addValue('taxID', '6192060508')
-            ->addValue('identifier', [
-                '@type' => 'PropertyValue',
-                'propertyID' => 'REGON',
-                'value' => '527974955',
-            ])
-            ->addValue('areaServed', [
-                ['@type' => 'Country', 'name' => __('home.seo.country')],
-                ['@type' => 'City', 'name' => 'Leszno'],
-                ['@type' => 'City', 'name' => 'Rydzyna'],
-                ['@type' => 'City', 'name' => 'Wschowa'],
-                ['@type' => 'City', 'name' => 'Kościan'],
-                ['@type' => 'City', 'name' => 'Gostyń'],
-                ['@type' => 'City', 'name' => 'Rawicz'],
-            ])
-            ->addValue('knowsLanguage', LocalizedRoutes::LOCALES)
-            ->addValue('priceRange', '$$');
-
-        $socialProfileUrls = SocialProfiles::urls();
-
-        if ($socialProfileUrls !== []) {
-            JsonLdMulti::addValue('sameAs', $socialProfileUrls);
-        }
-
         $faq = $this->faq();
 
         return Inertia::render('home', [
@@ -92,7 +50,12 @@ class HomeController extends Controller
             'clients' => $clients->map(fn (Client $client): array => $this->clientProps($client))->values()->all(),
             'faq' => $faq,
         ])->withViewData([
-            'faqSchema' => $this->faqSchema($faq),
+            'structuredData' => StructuredData::document([
+                ...StructuredData::page('WebPage', $pageUrl, $title, $description, $imageUrl, properties: [
+                    'about' => StructuredData::organizationReference(),
+                ]),
+                StructuredData::faq($pageUrl, $faq),
+            ], StructuredData::organization()),
         ]);
     }
 

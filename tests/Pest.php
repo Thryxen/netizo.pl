@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Collection;
 use Illuminate\Testing\TestResponse;
 use Tests\TestCase;
 
@@ -74,4 +75,23 @@ function scriptNonce(TestResponse $response): string
     $scriptSources = cspDirective((string) $response->headers->get('Content-Security-Policy'), 'script-src');
 
     return preg_match("/'nonce-([^']+)'/", $scriptSources, $matches) ? $matches[1] : '';
+}
+
+/**
+ * The nodes of a page's JSON-LD: the @graph of the one `application/ld+json` script the page has.
+ *
+ * @return Collection<int, array<string, mixed>>
+ */
+function jsonLdGraph(TestResponse $response): Collection
+{
+    preg_match_all('/<script type="application\/ld\+json">(.*?)<\/script>/s', (string) $response->assertOk()->getContent(), $matches);
+
+    expect($matches[1])->toHaveCount(1);
+
+    $document = json_decode(trim($matches[1][0]), true, flags: JSON_THROW_ON_ERROR);
+
+    expect($document['@context'])->toBe('https://schema.org')
+        ->and($document)->toHaveKey('@graph');
+
+    return collect($document['@graph']);
 }

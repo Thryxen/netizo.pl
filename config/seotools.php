@@ -57,14 +57,9 @@ return [
     ],
     'json-ld' => [
         /*
-         * The default configurations to be used by the json-ld generator.
+         * None: every page passes its own JSON-LD, one @graph built by App\Services\StructuredData, to the root view
+         * (`structuredData`), so SEO::generate() writes no JSON-LD of its own.
          */
-        'defaults' => [
-            'title' => 'Netizo | Software House',
-            'description' => 'Netizo - Software House tworzący nowoczesne aplikacje webowe, mobilne i systemy enterprise. Od pomysłu do wdrożenia.',
-            'url' => 'full',
-            'type' => 'WebPage',
-            'images' => [env('APP_URL').'/assets/images/og-netizo-2.png'],
-        ],
+        'defaults' => [],
     ],
 ];

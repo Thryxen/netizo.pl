@@ -2,7 +2,6 @@
 
 use App\Models\Project;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Testing\AssertableInertia as Assert;
@@ -37,18 +36,6 @@ function ogImageOf(string $path): string
     preg_match('/<meta property="og:image" content="([^"]+)">/', test()->get($path)->assertOk()->getContent(), $matches);
 
     return $matches[1] ?? '';
-}
-
-/**
- * @return Collection<int, mixed>
- */
-function portfolioSchemas(string $path): Collection
-{
-    $response = test()->get($path)->assertOk();
-
-    preg_match_all('/<script type="application\/ld\+json">(.*?)<\/script>/s', $response->getContent(), $matches);
-
-    return collect($matches[1])->map(fn (string $json): mixed => json_decode(trim($json), true));
 }
 
 it('serves the list of projects and the case studies under the same slug in both languages', function () {
@@ -335,9 +322,10 @@ it('describes the project as a CreativeWork made by Netizo, with breadcrumbs', f
         'tech_stack' => ['Laravel', 'React'],
     ]);
 
-    $schemas = portfolioSchemas('/realizacje/flotapro');
-    $work = $schemas->firstWhere('@type', 'CreativeWork');
-    $breadcrumbs = $schemas->firstWhere('@type', 'BreadcrumbList');
+    $graph = jsonLdGraph($this->get('/realizacje/flotapro'));
+    $work = $graph->firstWhere('@type', 'CreativeWork');
+    $webPage = $graph->firstWhere('@type', 'WebPage');
+    $breadcrumbs = $graph->firstWhere('@type', 'BreadcrumbList');
 
     expect($work)->toMatchArray([
         '@id' => url('/realizacje/flotapro').'#project',
@@ -346,16 +334,20 @@ it('describes the project as a CreativeWork made by Netizo, with breadcrumbs', f
         'description' => 'Pełny opis.',
         'genre' => 'Aplikacja webowa / SaaS',
         'url' => 'https://flotapro.app',
-        'mainEntityOfPage' => url('/realizacje/flotapro'),
+        'mainEntityOfPage' => ['@id' => url('/realizacje/flotapro').'#webpage'],
         'image' => [asset('storage/projects/full/flotapro.webp'), asset('storage/projects/thumbnails/flotapro.webp')],
         'keywords' => 'Laravel, React',
         'inLanguage' => 'pl',
-        'creator' => ['@type' => 'Organization', 'name' => 'Netizo', 'url' => url('/')],
+        'creator' => ['@id' => url('/').'/#organization'],
     ])
-        ->and(array_column($breadcrumbs['itemListElement'], 'item'))->toBe([url('/'), url('/realizacje'), url('/realizacje/flotapro')])
+        ->and($webPage['url'])->toBe(url('/realizacje/flotapro'))
+        ->and($webPage['name'])->toBe('FlotaPro – Aplikacja webowa / SaaS | Netizo')
+        ->and($webPage['mainEntity'])->toBe(['@id' => url('/realizacje/flotapro').'#project'])
+        ->and($webPage['breadcrumb'])->toBe(['@id' => url('/realizacje/flotapro').'#breadcrumb'])
+        ->and(array_column($breadcrumbs['itemListElement'], 'item'))->toBe([url('/').'/', url('/realizacje'), url('/realizacje/flotapro')])
         ->and(array_column($breadcrumbs['itemListElement'], 'name'))->toBe(['Netizo', 'Realizacje', 'FlotaPro']);
 
-    $english = portfolioSchemas('/en/projects/flotapro')->firstWhere('@type', 'BreadcrumbList');
+    $english = jsonLdGraph($this->get('/en/projects/flotapro'))->firstWhere('@type', 'BreadcrumbList');
 
     expect(array_column($english['itemListElement'], 'item'))->toBe([url('/en'), url('/en/projects'), url('/en/projects/flotapro')]);
 });
@@ -365,9 +357,13 @@ it('lists the case studies as an ItemList of the collection page', function () {
     Project::factory()->create(['slug' => 'pierwszy', 'title' => 'Pierwszy', 'sort_order' => 1]);
     Project::factory()->inactive()->create(['slug' => 'ukryty']);
 
-    $page = portfolioSchemas('/realizacje')->firstWhere('@type', 'CollectionPage');
+    $graph = jsonLdGraph($this->get('/realizacje'));
+    $page = $graph->firstWhere('@type', 'CollectionPage');
 
     expect($page['url'])->toBe(url('/realizacje'))
+        ->and($page['publisher'])->toBe(['@id' => url('/').'/#organization'])
+        ->and($page['primaryImageOfPage']['url'])->toBe(asset('assets/images/og-netizo-realizacje.jpg'))
+        ->and(array_column($graph->firstWhere('@type', 'BreadcrumbList')['itemListElement'], 'name'))->toBe(['Netizo', 'Realizacje'])
         ->and($page['mainEntity']['numberOfItems'])->toBe(2)
         ->and($page['mainEntity']['itemListElement'])->toBe([
             ['@type' => 'ListItem', 'position' => 1, 'name' => 'Pierwszy', 'url' => url('/realizacje/pierwszy')],
@@ -375,13 +371,14 @@ it('lists the case studies as an ItemList of the collection page', function () {
         ]);
 });
 
-it('leaves out the generic default JSON-LD on the project pages', function (string $path) {
+it('names Netizo by its summary on the project pages, not the whole home page organization', function (string $path) {
     Project::factory()->create(['slug' => 'flotapro']);
 
-    $types = portfolioSchemas($path)->pluck('@type')->all();
+    $types = jsonLdGraph($this->get($path))->pluck('@type')->all();
 
-    expect($types)->not->toContain('WebPage')
-        ->and($types)->not->toContain('ProfessionalService');
+    expect($types)->toContain('Organization')
+        ->and($types)->not->toContain('ProfessionalService')
+        ->and($types)->not->toContain('FAQPage');
 })->with(['/realizacje', '/realizacje/flotapro']);
 
 it('keeps text typed in the panel inside its JSON-LD script tag', function () {

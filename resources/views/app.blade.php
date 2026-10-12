@@ -67,19 +67,13 @@
 
     {!! SEO::generate() !!}
 
-    @isset($faqSchema)
-        {{-- FAQ Schema --}}
+    {{-- The page's JSON-LD, one @graph (App\Services\StructuredData); it may hold copy from the admin panel (e.g. a
+         project's case study), and JSON_HEX_TAG keeps that inside its tag. --}}
+    @isset($structuredData)
         <script type="application/ld+json">
-            {!! json_encode($faqSchema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) !!}
+            {!! json_encode($structuredData, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) !!}
         </script>
     @endisset
-
-    {{-- Page JSON-LD with copy from the admin panel (e.g. a project's case study); JSON_HEX_TAG keeps it inside its tag. --}}
-    @foreach ($schemas ?? [] as $schema)
-        <script type="application/ld+json">
-            {!! json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) !!}
-        </script>
-    @endforeach
 
     {{-- Same icons as the client panel: the SVG follows the system light/dark theme; ?v busts old cached icons. --}}
     <link rel="icon" href="{{ asset('favicon.ico') }}?v=3" sizes="any" />

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\LocalizedRoutes;
-use Artesaos\SEOTools\Facades\JsonLdMulti;
+use App\Services\StructuredData;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\TwitterCard;
@@ -34,19 +34,18 @@ class PartnerProgramController extends Controller
 
         $this->localizedSeo('partners');
 
-        JsonLdMulti::setTitle(__('partners.seo.name'))
-            ->setDescription($description)
-            ->setType('WebPage')
-            ->setUrl(LocalizedRoutes::url('partners'))
-            ->setImage($imageUrl)
-            ->addValue('inLanguage', app()->getLocale());
-
         $faq = $this->faq();
+        $pageUrl = LocalizedRoutes::url('partners');
 
         return Inertia::render('partners', [
             'faq' => $faq,
         ])->withViewData([
-            'faqSchema' => $this->faqSchema($faq),
+            'structuredData' => StructuredData::document([
+                ...StructuredData::page('WebPage', $pageUrl, __('partners.seo.name'), $description, $imageUrl, [
+                    ['name' => __('partners.seo.breadcrumb'), 'url' => $pageUrl],
+                ]),
+                StructuredData::faq($pageUrl, $faq),
+            ]),
         ]);
     }
 

@@ -9,6 +9,7 @@ return [
         'title' => 'About us: Damian Idzik, Kamil Nawrot – Leszno, Poland | Netizo',
         'description' => 'Meet Damian Idzik and Kamil Nawrot of Netizo. Websites, online stores and web apps for companies across Poland, with on-site meetings around Leszno.',
         'name' => 'About Netizo',
+        'breadcrumb' => 'About us',
         'image' => 'assets/images/og-netizo-about-en.png',
     ],
 
