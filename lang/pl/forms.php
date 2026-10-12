@@ -113,5 +113,6 @@ return [
         'partner_type.in' => 'Wybierz, kim jesteś.',
         'message.string' => 'Podaj poprawną treść.',
         'message.max' => 'Wiadomość może mieć maksymalnie 2000 znaków.',
+        'terms.accepted' => 'Musisz zaakceptować regulamin programu partnerskiego.',
     ],
 ];

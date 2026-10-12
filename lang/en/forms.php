@@ -112,5 +112,6 @@ return [
         'partner_type.in' => 'Please tell us who you are.',
         'message.string' => 'Please enter valid text.',
         'message.max' => 'Your message can be at most 2,000 characters long.',
+        'terms.accepted' => 'Please accept the partner program terms.',
     ],
 ];

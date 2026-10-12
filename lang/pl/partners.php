@@ -20,7 +20,7 @@ return [
         ],
         [
             'question' => 'Czy muszę prowadzić działalność gospodarczą?',
-            'answer' => 'Nie. Z firmą rozliczamy się na podstawie faktury, a z osobą prywatną podpisujemy umowę i wypłacamy prowizję na jej podstawie.',
+            'answer' => 'Nie. Z firmą rozliczamy się na podstawie faktury. Osoba prywatna niczego nie podpisuje ani nie wystawia: przed pierwszą wypłatą prosimy tylko o dane do przelewu i do rozliczenia podatku.',
         ],
         [
             'question' => 'Od czego liczona jest prowizja?',

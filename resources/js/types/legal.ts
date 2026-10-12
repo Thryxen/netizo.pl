@@ -22,3 +22,9 @@ export type TermsPageProps = {
     /** The day the current version took effect, `YYYY-MM-DD`. */
     effectiveDate: string;
 };
+
+/** Props of the partner programme terms (LegalPageController@partnerTerms). */
+export type PartnerTermsPageProps = {
+    /** The day the current version took effect, `YYYY-MM-DD`. */
+    effectiveDate: string;
+};

@@ -10,13 +10,13 @@ import { cn } from '@/lib/utils';
 const COPY = localized({
     pl: {
         title: 'Dołącz do programu',
-        lead: 'Zgłoszenie zajmuje minutę. W ciągu 24 godzin odezwiemy się z kodem partnera i umową do przejrzenia.',
+        lead: 'Zgłoszenie zajmuje minutę. W ciągu 24 godzin odezwiemy się z kodem partnera.',
         namePlaceholder: 'Twoje imię i nazwisko',
         cardRole: 'Partner Netizo',
     },
     en: {
         title: 'Join the program',
-        lead: 'Applying takes a minute. Within 24 hours we’ll get back to you with your partner code and an agreement to review.',
+        lead: 'Applying takes a minute. Within 24 hours we’ll get back to you with your partner code.',
         namePlaceholder: 'Your full name',
         cardRole: 'Netizo partner',
     },

@@ -20,13 +20,15 @@ function legalPageSchemas(string $path): Collection
     return collect($matches[1])->map(fn (string $json): mixed => json_decode(trim($json), true));
 }
 
-it('serves the privacy policy and the terms in Polish and in English', function (string $name, string $path) {
+it('serves the privacy policy, the terms and the partner program terms in Polish and in English', function (string $name, string $path) {
     expect(route($name, absolute: false))->toBe($path);
 })->with([
     ['privacy', '/polityka-prywatnosci'],
     ['en.privacy', '/en/privacy-policy'],
     ['terms', '/regulamin'],
     ['en.terms', '/en/terms'],
+    ['partners.terms', '/partnerzy/regulamin'],
+    ['en.partners.terms', '/en/partners/terms'],
 ]);
 
 it('renders the privacy policy with the cookies the cookie banner lists', function (string $path) {
@@ -75,6 +77,15 @@ it('renders the terms of service in each language', function (string $path) {
             ->missing('cookies'));
 })->with(['/regulamin', '/en/terms']);
 
+it('renders the partner program terms in each language', function (string $path) {
+    $this->get($path)
+        ->assertOk()
+        ->assertInertia(fn (Assert $page) => $page
+            ->component('partner-terms')
+            ->where('effectiveDate', LegalPageController::PARTNER_TERMS_EFFECTIVE_DATE)
+            ->missing('cookies'));
+})->with(['/partnerzy/regulamin', '/en/partners/terms']);
+
 it('renders the SEO tags, canonical URL and hreflang alternates of each document', function (string $path, string $polish, string $english, string $title) {
     $this->get($path)
         ->assertOk()
@@ -89,6 +100,8 @@ it('renders the SEO tags, canonical URL and hreflang alternates of each document
     ['/en/privacy-policy', '/polityka-prywatnosci', '/en/privacy-policy', 'Privacy policy | Netizo'],
     ['/regulamin', '/regulamin', '/en/terms', 'Regulamin serwisu | Netizo'],
     ['/en/terms', '/regulamin', '/en/terms', 'Terms of service | Netizo'],
+    ['/partnerzy/regulamin', '/partnerzy/regulamin', '/en/partners/terms', 'Regulamin programu partnerskiego | Netizo'],
+    ['/en/partners/terms', '/partnerzy/regulamin', '/en/partners/terms', 'Partner program terms | Netizo'],
 ]);
 
 it('shares each document with its own image', function (string $path, string $image) {
@@ -101,6 +114,8 @@ it('shares each document with its own image', function (string $path, string $im
     ['/en/privacy-policy', 'og-netizo-privacy-policy-en.png'],
     ['/regulamin', 'og-netizo-regulamin.png'],
     ['/en/terms', 'og-netizo-terms-en.png'],
+    ['/partnerzy/regulamin', 'og-netizo-regulamin-partnerski.png'],
+    ['/en/partners/terms', 'og-netizo-partner-terms-en.png'],
 ]);
 
 it('ships 1200x630 share images of the documents under the size link previews accept', function (string $file) {
@@ -110,14 +125,21 @@ it('ships 1200x630 share images of the documents under the size link previews ac
         ->and(array_slice(getimagesize($imagePath), 0, 2))->toBe([1200, 630])
         ->and(getimagesize($imagePath)['mime'])->toBe('image/png')
         ->and(filesize($imagePath))->toBeLessThan(300 * 1024);
-})->with(['og-netizo-polityka-prywatnosci.png', 'og-netizo-privacy-policy-en.png', 'og-netizo-regulamin.png', 'og-netizo-terms-en.png']);
+})->with([
+    'og-netizo-polityka-prywatnosci.png',
+    'og-netizo-privacy-policy-en.png',
+    'og-netizo-regulamin.png',
+    'og-netizo-terms-en.png',
+    'og-netizo-regulamin-partnerski.png',
+    'og-netizo-partner-terms-en.png',
+]);
 
 it('keeps the meta descriptions within the length search results show', function (string $key, string $locale) {
     $description = trans("legal.{$key}.description", [], $locale);
 
     expect($description)->not->toBe("legal.{$key}.description")
         ->and(mb_strlen($description))->toBeLessThanOrEqual(160);
-})->with(['privacy', 'terms'])->with(['pl', 'en']);
+})->with(['privacy', 'terms', 'partner_terms'])->with(['pl', 'en']);
 
 it('describes each document as a WebPage with its effective date', function (string $path, string $date) {
     $webPage = legalPageSchemas($path)->firstWhere('@type', 'WebPage');
@@ -129,6 +151,7 @@ it('describes each document as a WebPage with its effective date', function (str
 })->with([
     ['/polityka-prywatnosci', LegalPageController::PRIVACY_EFFECTIVE_DATE],
     ['/en/terms', LegalPageController::TERMS_EFFECTIVE_DATE],
+    ['/partnerzy/regulamin', LegalPageController::PARTNER_TERMS_EFFECTIVE_DATE],
 ]);
 
 it('links the cookie banner to the privacy policy in the language of the page', function (string $path, string $policy) {
@@ -147,7 +170,7 @@ it('clears the cookie consent and returns to the policy when the visitor changes
         ->assertCookieExpired(config('cookieconsent.cookie.name'));
 });
 
-it('lists both documents in both languages in the sitemap, with hreflang alternates', function (string $path, string $polishPath, string $englishPath) {
+it('lists every document in both languages in the sitemap, with hreflang alternates', function (string $path, string $polishPath, string $englishPath) {
     [$url, $polish, $english] = [url($path), url($polishPath), url($englishPath)];
     $sitemap = simplexml_load_string($this->get('/sitemap.xml')->assertOk()->getContent());
     $sitemap->registerXPathNamespace('s', 'http://www.sitemaps.org/schemas/sitemap/0.9');
@@ -166,4 +189,6 @@ it('lists both documents in both languages in the sitemap, with hreflang alterna
     ['/en/privacy-policy', '/polityka-prywatnosci', '/en/privacy-policy'],
     ['/regulamin', '/regulamin', '/en/terms'],
     ['/en/terms', '/regulamin', '/en/terms'],
+    ['/partnerzy/regulamin', '/partnerzy/regulamin', '/en/partners/terms'],
+    ['/en/partners/terms', '/partnerzy/regulamin', '/en/partners/terms'],
 ]);

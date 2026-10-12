@@ -25,6 +25,7 @@ class Sitemap
         'projects.index' => '2026-10-12',
         'about' => '2026-10-12',
         'partners' => '2026-10-12',
+        'partners.terms' => LegalPageController::PARTNER_TERMS_EFFECTIVE_DATE,
         'privacy' => LegalPageController::PRIVACY_EFFECTIVE_DATE,
         'terms' => LegalPageController::TERMS_EFFECTIVE_DATE,
     ];

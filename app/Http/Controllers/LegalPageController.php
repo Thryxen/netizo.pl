@@ -14,16 +14,23 @@ use Whitecube\LaravelCookieConsent\CookiesCategory;
 use Whitecube\LaravelCookieConsent\Facades\Cookies;
 
 /**
- * The privacy policy (/polityka-prywatnosci, /en/privacy-policy) and the terms of service (/regulamin, /en/terms). The
- * documents themselves live in resources/js/components/legal/; the English ones are translations of the Polish ones.
+ * The privacy policy (/polityka-prywatnosci, /en/privacy-policy), the terms of service (/regulamin, /en/terms) and the
+ * partner programme terms (/partnerzy/regulamin, /en/partners/terms). The documents themselves live in
+ * resources/js/components/legal/; the English ones are translations of the Polish ones.
  */
 class LegalPageController extends Controller
 {
     /** The day the current privacy policy took effect; change it with every new version of the document. */
-    public const PRIVACY_EFFECTIVE_DATE = '2026-10-11';
+    public const PRIVACY_EFFECTIVE_DATE = '2026-10-12';
 
     /** The day the current terms of service took effect; change it with every new version of the document. */
-    public const TERMS_EFFECTIVE_DATE = '2026-10-11';
+    public const TERMS_EFFECTIVE_DATE = '2026-10-12';
+
+    /**
+     * The day the current partner programme terms took effect; change it with every new version of the document. An
+     * application stores the version its sender accepted (partner_applications.terms_version).
+     */
+    public const PARTNER_TERMS_EFFECTIVE_DATE = '2026-10-12';
 
     public function privacy(): Response
     {
@@ -45,11 +52,22 @@ class LegalPageController extends Controller
         ]);
     }
 
-    /**
-     * Meta tags, the canonical URL with hreflang alternates and the WebPage JSON-LD of the document `$name` (lang/{pl,en}/legal.php).
-     */
-    private function seo(string $name, string $effectiveDate): void
+    public function partnerTerms(): Response
     {
+        $this->seo('partner_terms', self::PARTNER_TERMS_EFFECTIVE_DATE, 'partners.terms');
+
+        return Inertia::render('partner-terms', [
+            'effectiveDate' => self::PARTNER_TERMS_EFFECTIVE_DATE,
+        ]);
+    }
+
+    /**
+     * Meta tags, the canonical URL with hreflang alternates and the WebPage JSON-LD of the document `$name`
+     * (lang/{pl,en}/legal.php), served by the route `$routeName` (by default the document's name).
+     */
+    private function seo(string $name, string $effectiveDate, ?string $routeName = null): void
+    {
+        $routeName ??= $name;
         $title = __("legal.{$name}.title");
         $description = __("legal.{$name}.description");
         $imageUrl = asset(__("legal.{$name}.image"));
@@ -68,12 +86,12 @@ class LegalPageController extends Controller
             ->setType('summary_large_image')
             ->setImage($imageUrl);
 
-        $this->localizedSeo($name);
+        $this->localizedSeo($routeName);
 
         JsonLdMulti::setTitle(__("legal.{$name}.name"))
             ->setDescription($description)
             ->setType('WebPage')
-            ->setUrl(LocalizedRoutes::url($name))
+            ->setUrl(LocalizedRoutes::url($routeName))
             ->addValue('inLanguage', app()->getLocale())
             ->addValue('dateModified', $effectiveDate)
             ->addValue('publisher', [

@@ -19,7 +19,7 @@ return [
         ],
         [
             'question' => 'Do I need to run a business?',
-            'answer' => 'No. Companies invoice us, and with a private person we sign an agreement and pay the commission under it.',
+            'answer' => 'No. Companies invoice us. A private person doesn’t sign or issue anything: before the first payout, we just ask for your bank and tax details.',
         ],
         [
             'question' => 'What is the commission based on?',

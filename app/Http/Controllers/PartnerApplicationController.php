@@ -10,13 +10,15 @@ use Illuminate\Http\RedirectResponse;
 class PartnerApplicationController extends Controller
 {
     /**
-     * Store an application to the partner programme and notify the team on Discord.
+     * Store an application to the partner programme, with the version of the programme terms its sender accepted, and
+     * notify the team on Discord.
      */
     public function store(StorePartnerApplicationRequest $request, DiscordWebhookService $discord): RedirectResponse
     {
         $data = [
             'locale' => app()->getLocale(),
-            ...$request->validated(),
+            ...$request->safe()->except('terms'),
+            'terms_version' => LegalPageController::PARTNER_TERMS_EFFECTIVE_DATE,
         ];
 
         PartnerApplication::create($data);

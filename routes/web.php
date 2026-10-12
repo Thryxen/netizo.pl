@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
  */
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/partnerzy', [PartnerProgramController::class, 'index'])->name('partners');
+Route::get('/partnerzy/regulamin', [LegalPageController::class, 'partnerTerms'])->name('partners.terms');
 Route::get('/o-nas', [AboutController::class, 'index'])->name('about');
 Route::get('/realizacje', [PortfolioController::class, 'index'])->name('projects.index');
 Route::get('/realizacje/{project:slug}', [PortfolioController::class, 'show'])->name('projects.show');
@@ -35,6 +36,7 @@ Route::middleware('throttle:forms')->group(function () {
 Route::prefix('en')->name('en.')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/partners', [PartnerProgramController::class, 'index'])->name('partners');
+    Route::get('/partners/terms', [LegalPageController::class, 'partnerTerms'])->name('partners.terms');
     Route::get('/about', [AboutController::class, 'index'])->name('about');
     Route::get('/projects', [PortfolioController::class, 'index'])->name('projects.index');
     Route::get('/projects/{project:slug}', [PortfolioController::class, 'show'])->name('projects.show');

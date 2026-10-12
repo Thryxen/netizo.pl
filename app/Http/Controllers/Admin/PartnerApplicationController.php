@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\DestroyManyRequest;
 use App\Http\Requests\Admin\LeadIndexRequest;
 use App\Models\PartnerApplication;
+use Carbon\CarbonImmutable;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -35,7 +36,11 @@ class PartnerApplicationController extends Controller
     public function show(PartnerApplication $partner): Response
     {
         return Inertia::render('admin/partners/show', [
-            'partner' => [...$this->rowProps($partner), 'message' => $partner->message],
+            'partner' => [
+                ...$this->rowProps($partner),
+                'message' => $partner->message,
+                'termsVersion' => $partner->terms_version === null ? null : CarbonImmutable::parse($partner->terms_version)->format('d.m.Y'),
+            ],
         ]);
     }
 

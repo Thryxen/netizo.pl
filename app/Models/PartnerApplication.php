@@ -18,5 +18,6 @@ class PartnerApplication extends Model
         'phone',
         'partner_type',
         'message',
+        'terms_version',
     ];
 }

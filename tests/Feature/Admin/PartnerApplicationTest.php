@@ -55,7 +55,7 @@ it('falls back to the default order for a column it cannot sort by', function ()
 });
 
 it('shows an application', function () {
-    $application = PartnerApplication::factory()->create(['message' => "Pierwsza linia\nDruga linia", 'phone' => null]);
+    $application = PartnerApplication::factory()->create(['message' => "Pierwsza linia\nDruga linia", 'phone' => null, 'terms_version' => '2026-10-12']);
 
     $this->get(route('admin.partners.show', $application))
         ->assertOk()
@@ -63,7 +63,16 @@ it('shows an application', function () {
             ->component('admin/partners/show')
             ->where('partner.id', $application->id)
             ->where('partner.phone', null)
-            ->where('partner.message', "Pierwsza linia\nDruga linia"));
+            ->where('partner.message', "Pierwsza linia\nDruga linia")
+            ->where('partner.termsVersion', '12.10.2026'));
+});
+
+it('shows an application sent before the partner program terms without an accepted version', function () {
+    $application = PartnerApplication::factory()->create(['terms_version' => null]);
+
+    $this->get(route('admin.partners.show', $application))
+        ->assertOk()
+        ->assertInertia(fn (Assert $page) => $page->where('partner.termsVersion', null));
 });
 
 it('deletes an application and goes back to the list', function () {

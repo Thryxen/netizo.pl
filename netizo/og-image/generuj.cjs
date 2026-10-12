@@ -6,9 +6,11 @@
  *   og-netizo-partners-en.png  angielski program partnerski (/en/partners), z szablon-partnerzy-en.html
  *   og-netizo-o-nas.png      strona „O nas” (/o-nas), z szablon-o-nas.html
  *   og-netizo-about-en.png   angielska strona „O nas” (/en/about), z szablon-o-nas-en.html
- *   og-netizo-polityka-prywatnosci.png, og-netizo-privacy-policy-en.png, og-netizo-regulamin.png, og-netizo-terms-en.png
- *                            polityka prywatności i regulamin (/polityka-prywatnosci, /en/privacy-policy, /regulamin,
- *                            /en/terms), z jednego szablonu szablon-dokument.html z tekstami z `values` poniżej
+ *   og-netizo-polityka-prywatnosci.png, og-netizo-privacy-policy-en.png, og-netizo-regulamin.png, og-netizo-terms-en.png,
+ *   og-netizo-regulamin-partnerski.png, og-netizo-partner-terms-en.png
+ *                            polityka prywatności, regulamin i regulamin programu partnerskiego (/polityka-prywatnosci,
+ *                            /en/privacy-policy, /regulamin, /en/terms, /partnerzy/regulamin, /en/partners/terms), z jednego
+ *                            szablonu szablon-dokument.html z tekstami z `values` poniżej
  *   og-netizo-realizacje.jpg, og-netizo-projects-en.jpg
  *                            lista realizacji (/realizacje, /en/projects), z szablon-realizacje.html: mozaika zdjęć
  *                            z public/assets/images/photos (data URI), więc JPEG (`format: 'jpeg'`), nie PNG
@@ -68,6 +70,16 @@ const IMAGES = [
         template: 'szablon-dokument.html',
         output: 'og-netizo-terms-en.png',
         values: { lang: 'en', title: 'Terms of service', party: 'Service provider', url: 'netizo.pl/en/terms' },
+    },
+    {
+        template: 'szablon-dokument.html',
+        output: 'og-netizo-regulamin-partnerski.png',
+        values: { lang: 'pl', title: 'Regulamin programu partnerskiego', party: 'Organizator', url: 'netizo.pl/partnerzy/regulamin' },
+    },
+    {
+        template: 'szablon-dokument.html',
+        output: 'og-netizo-partner-terms-en.png',
+        values: { lang: 'en', title: 'Partner program terms', party: 'Organizer', url: 'netizo.pl/en/partners/terms' },
     },
     {
         template: 'szablon-realizacje.html',

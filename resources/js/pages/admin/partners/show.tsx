@@ -50,6 +50,9 @@ export default function PartnerShow({ partner }: { partner: AdminPartner }) {
                     <DetailItem label="Kim jest">{partnerTypeLabel(partner.partnerType)}</DetailItem>
                     <DetailItem label="Data zgłoszenia">{partner.createdAt}</DetailItem>
                     <DetailItem label="Język">{leadLocaleLabel(partner.locale)}</DetailItem>
+                    <DetailItem label="Regulamin" empty="Zgłoszenie sprzed regulaminu">
+                        {partner.termsVersion ? `Zaakceptowany, wersja z ${partner.termsVersion}` : null}
+                    </DetailItem>
                 </DetailList>
 
                 <section className="grid gap-2">

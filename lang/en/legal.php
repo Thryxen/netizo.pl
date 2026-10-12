@@ -19,4 +19,11 @@ return [
         'name' => 'Terms of service – Netizo',
         'image' => 'assets/images/og-netizo-terms-en.png',
     ],
+
+    'partner_terms' => [
+        'title' => 'Partner program terms | Netizo',
+        'description' => 'The terms of the Netizo partner program: who can refer clients, when the 15% commission is due, how and when we pay it and how to leave.',
+        'name' => 'Partner program terms – Netizo',
+        'image' => 'assets/images/og-netizo-partner-terms-en.png',
+    ],
 ];

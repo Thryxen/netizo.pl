@@ -1,8 +1,9 @@
 import { type Locale, type Localized, localized } from '@/lib/i18n';
 
 /**
- * Copy and figures of the partner programme page (/partnerzy, /en/partners). The terms here, in the hero strip and in
- * the FAQ (lang/{pl,en}/partners.php) must say the same: 15% net, 12 months, payout within 14 days.
+ * Copy and figures of the partner programme page (/partnerzy, /en/partners). The terms here, in the hero strip, in the
+ * FAQ (lang/{pl,en}/partners.php) and in the programme's regulamin (components/legal/partner-terms-copy.tsx) must say the
+ * same: 15% net, 12 months, payout within 14 days.
  */
 
 /** Commission rate as a fraction. */
@@ -65,7 +66,7 @@ export const STEPS = localized<Step[]>({
         {
             number: '01',
             title: 'Zgłaszasz się',
-            text: 'Wypełniasz krótki formularz. W ciągu 24 godzin dostajesz kod partnera i umowę do podpisania.',
+            text: 'Wypełniasz krótki formularz i akceptujesz regulamin. W ciągu 24 godzin dostajesz kod partnera.',
         },
         {
             number: '02',
@@ -87,7 +88,7 @@ export const STEPS = localized<Step[]>({
         {
             number: '01',
             title: 'You sign up',
-            text: 'You fill in a short form. Within 24 hours you get your partner code and an agreement to sign.',
+            text: 'You fill in a short form and accept the terms. Within 24 hours you get your partner code.',
         },
         {
             number: '02',
@@ -158,7 +159,7 @@ export const RULES = localized<Rule[]>({
         { term: 'Prowizja', detail: '15% wartości netto każdej faktury opłaconej przez poleconego klienta.' },
         { term: 'Jak długo', detail: '12 miesięcy od pierwszego zamówienia klienta: projekt, rozbudowa, opieka techniczna.' },
         { term: 'Wypłata', detail: 'Przelewem, najpóźniej 14 dni po opłaceniu faktury przez klienta.' },
-        { term: 'Rozliczenie', detail: 'Na fakturę, jeśli prowadzisz firmę. Na podstawie umowy, jeśli jej nie prowadzisz.' },
+        { term: 'Rozliczenie', detail: 'Na fakturę, jeśli prowadzisz firmę. Jeśli nie, wystarczą dane do przelewu i rozliczenia podatku.' },
         { term: 'Kto się liczy', detail: 'Nowa firma, z którą nie rozmawialiśmy o współpracy w ostatnich 12 miesiącach.' },
         { term: 'Przypisanie', detail: 'Kod partnera podany przez klienta albo kontakt przekazany przez Ciebie, za zgodą klienta.' },
         { term: 'Cena dla klienta', detail: 'Taka sama jak bez polecenia. Prowizję płacimy z naszej marży.' },
@@ -168,7 +169,7 @@ export const RULES = localized<Rule[]>({
         { term: 'Commission', detail: '15% of the net value of every invoice paid by the referred client.' },
         { term: 'How long', detail: '12 months from the client’s first order: the project, extensions, technical care.' },
         { term: 'Payout', detail: 'By bank transfer, no later than 14 days after the client pays the invoice.' },
-        { term: 'Invoicing', detail: 'You invoice us if you run a business. If you don’t, we pay you under a signed agreement.' },
+        { term: 'Invoicing', detail: 'You invoice us if you run a business. If you don’t, we just need your bank and tax details.' },
         { term: 'Who counts', detail: 'A new company we haven’t talked to about working together in the last 12 months.' },
         { term: 'Attribution', detail: 'Your partner code given by the client, or contact details you pass on with the client’s consent.' },
         { term: 'Client’s price', detail: 'The same as without a referral. We pay the commission out of our margin.' },

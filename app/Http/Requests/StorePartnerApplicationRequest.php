@@ -36,6 +36,7 @@ class StorePartnerApplicationRequest extends FormRequest
             'phone' => ['nullable', 'string', 'min:9', 'max:255'],
             'partner_type' => ['required', 'string', Rule::in(self::PARTNER_TYPES)],
             'message' => ['nullable', 'string', 'max:2000'],
+            'terms' => ['accepted'],
         ];
     }
 

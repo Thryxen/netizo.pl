@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Http\Controllers\LegalPageController;
 use App\Http\Requests\StorePartnerApplicationRequest;
 use App\Models\PartnerApplication;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -25,6 +26,7 @@ class PartnerApplicationFactory extends Factory
             'phone' => fake()->optional()->numerify('+48 ### ### ###'),
             'partner_type' => fake()->randomElement(StorePartnerApplicationRequest::PARTNER_TYPES),
             'message' => fake()->optional()->paragraph(),
+            'terms_version' => LegalPageController::PARTNER_TERMS_EFFECTIVE_DATE,
         ];
     }
 

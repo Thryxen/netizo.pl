@@ -19,4 +19,11 @@ return [
         'name' => 'Regulamin serwisu – Netizo',
         'image' => 'assets/images/og-netizo-regulamin.png',
     ],
+
+    'partner_terms' => [
+        'title' => 'Regulamin programu partnerskiego | Netizo',
+        'description' => 'Warunki programu partnerskiego Netizo: kto może polecać, kiedy należy się 15% prowizji, jak i kiedy ją wypłacamy oraz jak zakończyć udział.',
+        'name' => 'Regulamin programu partnerskiego – Netizo',
+        'image' => 'assets/images/og-netizo-regulamin-partnerski.png',
+    ],
 ];

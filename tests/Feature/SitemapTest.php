@@ -52,6 +52,7 @@ it('lists every public page in both languages and the case study of every active
         url('/realizacje'), url('/en/projects'),
         url('/o-nas'), url('/en/about'),
         url('/partnerzy'), url('/en/partners'),
+        url('/partnerzy/regulamin'), url('/en/partners/terms'),
         url('/polityka-prywatnosci'), url('/en/privacy-policy'),
         url('/regulamin'), url('/en/terms'),
         url('/realizacje/zloty-klos'), url('/en/projects/zloty-klos'),
@@ -100,5 +101,6 @@ it('dates a page by its last change, including the panel data it shows', functio
         ->and($lastmods[url('/realizacje')])->toBe('2031-05-04')
         ->and($lastmods[url('/en/projects/zloty-klos')])->toBe('2031-05-04')
         ->and($lastmods[url('/regulamin')])->toBe(LegalPageController::TERMS_EFFECTIVE_DATE)
+        ->and($lastmods[url('/en/partners/terms')])->toBe(LegalPageController::PARTNER_TERMS_EFFECTIVE_DATE)
         ->and($lastmods->every(fn (string $date): bool => preg_match('/^\d{4}-\d{2}-\d{2}$/', $date) === 1))->toBeTrue();
 });

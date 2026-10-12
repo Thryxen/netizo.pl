@@ -111,8 +111,8 @@ export const TERMS = localized<LegalDocumentCopy>({
                             informacyjny i nie są ofertą w rozumieniu Kodeksu cywilnego.
                         </li>
                         <li>
-                            Zasady programu partnerskiego, w tym prowizję i jej rozliczanie, określa umowa partnerska, którą otrzymujesz do przejrzenia
-                            przed rozpoczęciem współpracy. Opis na <a href={pageUrls.pl.partners}>stronie programu</a> jest jej streszczeniem.
+                            Zasady programu partnerskiego, w tym prowizję i jej wypłatę, określa odrębny{' '}
+                            <a href={pageUrls.pl.partnerTerms}>regulamin programu partnerskiego</a>, który akceptujesz w zgłoszeniu.
                         </li>
                     </ol>
                 ),
@@ -391,8 +391,8 @@ export const TERMS = localized<LegalDocumentCopy>({
                             questions, are for information only and are not an offer within the meaning of the Polish Civil Code.
                         </li>
                         <li>
-                            The partner program, including the commission and how it is settled, is governed by the partner agreement you get to review
-                            before you start. The <a href={pageUrls.en.partners}>program page</a> summarizes it.
+                            The partner program, including the commission and its payout, is governed by the separate{' '}
+                            <a href={pageUrls.en.partnerTerms}>partner program terms</a>, which you accept when you apply.
                         </li>
                     </ol>
                 ),

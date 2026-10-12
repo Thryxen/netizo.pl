@@ -1,9 +1,21 @@
 import { useForm } from '@inertiajs/react';
 import { type FormEvent, useEffect, useRef, useState } from 'react';
 import { ChoiceChip, ChoiceFieldset } from '@/components/home/brief/choices';
-import { Field, fieldError, focusAndReveal, FormErrorAlert, formLevelError, invalidProps, SubmitButton } from '@/components/home/brief/fields';
+import {
+    Field,
+    FieldError,
+    fieldError,
+    focusAndReveal,
+    FormErrorAlert,
+    formLevelError,
+    invalidProps,
+    RequiredMark,
+    SubmitButton,
+} from '@/components/home/brief/fields';
 import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useRememberedValue } from '@/hooks/use-remembered-value';
 import { useEndpoints } from '@/lib/endpoints';
@@ -14,7 +26,7 @@ import { partnerTypeOptions } from './partner-options';
 const COPY = localized({
     pl: {
         sentHeading: 'Zgłoszenie wysłane',
-        sentText: (email: string) => `Dziękujemy. W ciągu 24 godzin odezwiemy się na ${email} z kodem partnera i umową do przejrzenia.`,
+        sentText: (email: string) => `Dziękujemy. W ciągu 24 godzin odezwiemy się na ${email} z kodem partnera.`,
         home: 'Przejdź na stronę główną',
         formLabel: 'Zgłoszenie do programu partnerskiego',
         name: 'Imię i nazwisko',
@@ -25,14 +37,17 @@ const COPY = localized({
         type: 'Kim jesteś?',
         message: 'Kogo chcesz nam polecić? (opcjonalnie)',
         messagePlaceholder: 'Na przykład: znam kilka firm budowlanych, które potrzebują nowych stron.',
-        requiredBefore: 'Zgłoszenie do niczego Cię nie zobowiązuje. Pola oznaczone ',
+        termsBefore: 'Akceptuję',
+        termsLink: 'regulamin programu partnerskiego',
+        termsAfter: '.',
+        requiredBefore: 'Udział jest bezpłatny i możesz z niego zrezygnować w każdej chwili. Pola oznaczone ',
         asterisk: 'gwiazdką',
         requiredAfter: ' są wymagane.',
         submit: 'Wyślij zgłoszenie',
     },
     en: {
         sentHeading: 'Application sent',
-        sentText: (email) => `Thank you. Within 24 hours we’ll email ${email} with your partner code and an agreement to review.`,
+        sentText: (email) => `Thank you. Within 24 hours we’ll email ${email} with your partner code.`,
         home: 'Go to the home page',
         formLabel: 'Partner program application',
         name: 'Full name',
@@ -43,7 +58,10 @@ const COPY = localized({
         type: 'What best describes you?',
         message: 'Who would you like to refer? (optional)',
         messagePlaceholder: 'For example: I know a few construction companies that need new websites.',
-        requiredBefore: 'Applying doesn’t commit you to anything. Fields marked ',
+        termsBefore: 'I accept the',
+        termsLink: 'partner program terms',
+        termsAfter: '.',
+        requiredBefore: 'Taking part is free and you can leave at any time. Fields marked ',
         asterisk: 'with an asterisk',
         requiredAfter: ' are required.',
         submit: 'Send application',
@@ -56,9 +74,11 @@ type PartnerApplicationData = {
     phone: string;
     partner_type: string;
     message: string;
+    /** Acceptance of the programme's regulamin (/partnerzy/regulamin); the server stores the version accepted. */
+    terms: boolean;
 };
 
-const createInitialData = (): PartnerApplicationData => ({ name: '', email: '', phone: '', partner_type: '', message: '' });
+const createInitialData = (): PartnerApplicationData => ({ name: '', email: '', phone: '', partner_type: '', message: '', terms: false });
 
 type PartnerApplicationFormProps = {
     /** The name as typed, for the partner card beside the form. */
@@ -113,6 +133,7 @@ export function PartnerApplicationForm({ onNameChange, onSent }: PartnerApplicat
         phone: fieldError(form.errors, 'phone'),
         partner_type: fieldError(form.errors, 'partner_type'),
         message: fieldError(form.errors, 'message'),
+        terms: fieldError(form.errors, 'terms'),
     };
     const formError = formLevelError(form.errors);
 
@@ -252,6 +273,33 @@ export function PartnerApplicationForm({ onNameChange, onSent }: PartnerApplicat
                         {...invalidProps('partner-message', errors.message)}
                     />
                 </Field>
+
+                <div className="grid gap-2">
+                    <div className="flex items-start gap-3">
+                        <Checkbox
+                            id="partner-terms"
+                            name="terms"
+                            checked={form.data.terms}
+                            onCheckedChange={(checked) => setField('terms', checked === true)}
+                            required
+                            className="mt-0.5"
+                            {...invalidProps('partner-terms', errors.terms)}
+                        />
+                        <Label htmlFor="partner-terms" className="block leading-snug font-normal">
+                            {copy.termsBefore}{' '}
+                            <a
+                                href={pageUrls.partnerTerms}
+                                target="_blank"
+                                rel="noopener"
+                                className="rounded-sm font-medium underline underline-offset-4 outline-none hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50"
+                            >
+                                {copy.termsLink}
+                            </a>
+                            {copy.termsAfter} <RequiredMark />
+                        </Label>
+                    </div>
+                    <FieldError fieldId="partner-terms" message={errors.terms} className="pl-7" />
+                </div>
 
                 <FormErrorAlert message={formError} />
 

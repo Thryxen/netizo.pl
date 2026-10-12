@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LegalPageController;
 use App\Http\Requests\StorePartnerApplicationRequest;
 use App\Models\PartnerApplication;
 use Illuminate\Http\Client\Request;
@@ -22,6 +23,7 @@ function validPartnerApplicationPayload(array $overrides = []): array
         'phone' => '+48 600 100 200',
         'partner_type' => 'accounting',
         'message' => 'Prowadzę biuro rachunkowe, kilku klientów zakłada teraz firmy.',
+        'terms' => true,
     ], $overrides);
 }
 
@@ -63,6 +65,25 @@ it('stores the application, notifies Discord and redirects back', function () {
             && $embed['fields'][3]['value'] === 'Biuro rachunkowe'
             && $embed['fields'][4]['value'] === 'Prowadzę biuro rachunkowe, kilku klientów zakłada teraz firmy.';
     });
+});
+
+it('records the version of the partner program terms the applicant accepted', function () {
+    $this->from('/partnerzy')
+        ->post(route('partner-applications.store'), validPartnerApplicationPayload())
+        ->assertSessionHasNoErrors();
+
+    $application = PartnerApplication::sole();
+
+    expect($application->terms_version)->toBe(LegalPageController::PARTNER_TERMS_EFFECTIVE_DATE)
+        ->and($application->getAttributes())->not->toHaveKey('terms');
+});
+
+it('does not let the form choose the accepted version of the terms', function () {
+    $this->from('/partnerzy')
+        ->post(route('partner-applications.store'), validPartnerApplicationPayload(['terms_version' => '2001-01-01']))
+        ->assertSessionHasNoErrors();
+
+    expect(PartnerApplication::sole()->terms_version)->toBe(LegalPageController::PARTNER_TERMS_EFFECTIVE_DATE);
 });
 
 it('accepts an application without the optional phone and message', function (array $overrides) {
@@ -122,6 +143,9 @@ it('rejects invalid input with a Polish message', function (array $overrides, st
     'partner type as array' => [['partner_type' => ['accounting']], 'partner_type', 'Wybierz, kim jesteś.'],
     'too long message' => [['message' => str_repeat('a', 2001)], 'message', 'Wiadomość może mieć maksymalnie 2000 znaków.'],
     'message as array' => [['message' => ['Znam', 'firmy']], 'message', 'Podaj poprawną treść.'],
+    'terms not accepted' => [['terms' => false], 'terms', 'Musisz zaakceptować regulamin programu partnerskiego.'],
+    'terms missing' => [['terms' => null], 'terms', 'Musisz zaakceptować regulamin programu partnerskiego.'],
+    'terms as random string' => [['terms' => 'maybe'], 'terms', 'Musisz zaakceptować regulamin programu partnerskiego.'],
 ]);
 
 it('accepts a message of exactly 2000 characters', function () {
@@ -225,4 +249,5 @@ it('rejects invalid input on the English site with an English message', function
     'missing name' => [['name' => ''], 'name', 'Please enter your full name.'],
     'unknown partner type' => [['partner_type' => 'influencer'], 'partner_type', 'Please tell us who you are.'],
     'too long message' => [['message' => str_repeat('a', 2001)], 'message', 'Your message can be at most 2,000 characters long.'],
+    'terms not accepted' => [['terms' => false], 'terms', 'Please accept the partner program terms.'],
 ]);

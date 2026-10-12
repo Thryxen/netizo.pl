@@ -57,8 +57,24 @@ export function useSocialProfiles(): SocialProfile[] {
 
 /** Pages of the site in each language (routes/web.php). A project's case study is `${projects}/${slug}` (caseStudyUrl). */
 export const pageUrls = localized({
-    pl: { home: '/', projects: '/realizacje', partners: '/partnerzy', about: '/o-nas', privacy: '/polityka-prywatnosci', terms: '/regulamin' },
-    en: { home: '/en', projects: '/en/projects', partners: '/en/partners', about: '/en/about', privacy: '/en/privacy-policy', terms: '/en/terms' },
+    pl: {
+        home: '/',
+        projects: '/realizacje',
+        partners: '/partnerzy',
+        partnerTerms: '/partnerzy/regulamin',
+        about: '/o-nas',
+        privacy: '/polityka-prywatnosci',
+        terms: '/regulamin',
+    },
+    en: {
+        home: '/en',
+        projects: '/en/projects',
+        partners: '/en/partners',
+        partnerTerms: '/en/partners/terms',
+        about: '/en/about',
+        privacy: '/en/privacy-policy',
+        terms: '/en/terms',
+    },
 });
 
 export type InfoLink = {

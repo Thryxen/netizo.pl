@@ -82,8 +82,12 @@ export const PRIVACY_POLICY = localized<LegalDocumentCopy>({
                             </li>
                             <li>
                                 <strong>Zgłoszenie do programu partnerskiego</strong>: imię i nazwisko, e-mail, kim jesteś (np. agencja, freelancer),
-                                kogo chcesz polecać, a jeśli go podasz, telefon. Rozpatrujemy zgłoszenie i przygotowujemy umowę partnerską. Podstawa:
-                                działania przed zawarciem umowy (art. 6 ust. 1 lit. b RODO).
+                                kogo chcesz polecać, a jeśli go podasz, telefon; zapisujemy też, którą wersję{' '}
+                                <a href={pageUrls.pl.partnerTerms}>regulaminu programu</a> zaakceptowano w zgłoszeniu. Rozpatrujemy zgłoszenie, a po
+                                jego przyjęciu prowadzimy Twój udział w programie i wypłacamy prowizje. Przed pierwszą wypłatą prosimy e-mailem o numer
+                                rachunku, a jeśli nie prowadzisz firmy, także o adres, numer PESEL i urząd skarbowy. Podstawa: zawarcie i wykonanie
+                                umowy, którą tworzy regulamin programu (art. 6 ust. 1 lit. b RODO), a dla danych do rozliczenia podatku obowiązek
+                                prawny (art. 6 ust. 1 lit. c RODO).
                             </li>
                         </ul>
                         <p>
@@ -211,8 +215,9 @@ export const PRIVACY_POLICY = localized<LegalDocumentCopy>({
                                 przez okres wymagany przepisami podatkowymi.
                             </li>
                             <li>
-                                <strong>Zgłoszenie do programu partnerskiego</strong>: do 12 miesięcy od zgłoszenia, a po podpisaniu umowy partnerskiej
-                                przez czas jej trwania i rozliczeń prowizji.
+                                <strong>Zgłoszenie do programu partnerskiego</strong>: do 12 miesięcy od zgłoszenia, jeśli go nie przyjmiemy. Dane
+                                partnera trzymamy przez czas udziału w programie i rozliczeń prowizji, a potem do przedawnienia roszczeń; dokumenty
+                                rozliczeń przez okres wymagany przepisami podatkowymi.
                             </li>
                             <li>
                                 <strong>Newsletter</strong>: do wypisania się albo cofnięcia zgody.
@@ -352,8 +357,12 @@ export const PRIVACY_POLICY = localized<LegalDocumentCopy>({
                             </li>
                             <li>
                                 <strong>Partner program application</strong>: your name, email, who you are (e.g. an agency or a freelancer), who you
-                                want to refer and, if you provide it, your phone number. We review the application and prepare the partner agreement.
-                                Legal basis: steps before entering into a contract (Art. 6(1)(b) GDPR).
+                                want to refer and, if you provide it, your phone number; we also record which version of the{' '}
+                                <a href={pageUrls.en.partnerTerms}>program terms</a> was accepted with it. We review the application and, once it is
+                                accepted, run your participation in the program and pay your commissions. Before the first payout, we ask by email for
+                                your bank account number and, if you don’t run a business, your address, PESEL number and tax office. Legal basis:
+                                entering into and performing the contract formed by the program terms (Art. 6(1)(b) GDPR) and, for the tax details, a
+                                legal obligation (Art. 6(1)(c) GDPR).
                             </li>
                         </ul>
                         <p>
@@ -482,8 +491,9 @@ export const PRIVACY_POLICY = localized<LegalDocumentCopy>({
                                 and for as long as tax law requires.
                             </li>
                             <li>
-                                <strong>Partner program application</strong>: up to 12 months after you apply and, once a partner agreement is signed,
-                                for as long as it lasts and commissions are settled.
+                                <strong>Partner program application</strong>: up to 12 months after you apply if we don’t accept it. We keep a
+                                partner’s data for as long as they take part in the program and commissions are settled, then until claims expire;
+                                settlement records for as long as tax law requires.
                             </li>
                             <li>
                                 <strong>Newsletter</strong>: until you unsubscribe or withdraw consent.

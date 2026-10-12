@@ -121,6 +121,10 @@ export type AdminPartnerRow = {
     createdAt: string;
 };
 
-export type AdminPartner = AdminPartnerRow & { message: string | null };
+export type AdminPartner = AdminPartnerRow & {
+    message: string | null;
+    /** Effective date (`d.m.Y`) of the programme terms accepted with the application; null for applications sent before them. */
+    termsVersion: string | null;
+};
 
 export type BriefFilters = LeadFilters & { budget: string; timeline: string };
