@@ -17,8 +17,8 @@ class HandleAppearance
      */
     private const APPEARANCES = ['light', 'dark'];
 
-    /** Lifetime of the `appearance` cookie in minutes (one year, as the client sets it). */
-    private const LIFETIME_MINUTES = 525600;
+    /** Lifetime of the `appearance` cookie in minutes (one year, as the client sets it); also listed by the cookie banner. */
+    public const LIFETIME_MINUTES = 525600;
 
     /**
      * Share the visitor's colour scheme with the root view, and whether it came from a valid cookie (without one the

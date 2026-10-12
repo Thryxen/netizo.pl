@@ -2,7 +2,7 @@
 return [
     'title' => 'We use cookies',
     'intro' => 'This website uses cookies in order to enhance the overall user experience.',
-    'link' => 'Take a look at our <a href=":url">Cookies Policy</a> for more information.',
+    'link' => 'Read more in our <a href=":url">privacy policy</a>.',
 
     'essentials' => 'Only essentials',
     'all' => 'Accept all',
@@ -40,6 +40,7 @@ return [
         'consent' => 'Used to store the user\'s cookie consent preferences.',
         'session' => 'Used to identify the user\'s browsing session.',
         'csrf' => 'Used to secure both the user and our website against cross-site request forgery attacks.',
+        'appearance' => 'Remembers the theme you picked (light or dark).',
         '_ga' => 'Main cookie used by Google Analytics, enables a service to distinguish one visitor from another.',
         '_ga_ID' => 'Used by Google Analytics to persist session state.',
         '_gid' => 'Used by Google Analytics to identify the user.',

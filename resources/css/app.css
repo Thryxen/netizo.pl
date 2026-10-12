@@ -427,3 +427,101 @@ html:not(.js) [data-marquee-static] {
 [data-unframed] [data-slot='section'] {
     border-top-width: 0;
 }
+
+/*
+ * Legal documents (components/legal/): long-form text set for reading, in the site's type. Lists use a short hairline
+ * as their marker (no squares, see "Frontend Patterns"); numbered paragraphs keep their numbers ("§ 3 ust. 2").
+ */
+.legal-prose {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: color-mix(in oklab, var(--foreground) 82%, var(--background));
+    text-wrap: pretty;
+
+    & > * + * {
+        margin-top: 1.1em;
+    }
+
+    & strong,
+    & dt {
+        font-weight: 600;
+        color: var(--foreground);
+    }
+
+    & a {
+        border-radius: 0.125rem;
+        color: var(--foreground);
+        text-decoration-line: underline;
+        text-decoration-thickness: 1px;
+        text-decoration-color: color-mix(in oklab, var(--foreground) 35%, transparent);
+        text-underline-offset: 0.25em;
+        overflow-wrap: anywhere;
+        transition: text-decoration-color 0.15s;
+
+        &:hover {
+            text-decoration-color: var(--foreground);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--ring);
+            outline-offset: 2px;
+        }
+    }
+
+    & code {
+        border-radius: 0.25rem;
+        background: var(--muted);
+        padding: 0.1em 0.35em;
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+        color: var(--foreground);
+    }
+
+    & ul,
+    & ol {
+        display: grid;
+        gap: 0.6em;
+        padding-left: 1.75rem;
+    }
+
+    & ol {
+        list-style: decimal;
+    }
+
+    & ol > li::marker {
+        color: var(--muted-foreground);
+        font-variant-numeric: tabular-nums;
+    }
+
+    & ul > li {
+        position: relative;
+    }
+
+    & ul > li::before {
+        content: '';
+        position: absolute;
+        top: 0.875em;
+        left: -1.25rem;
+        width: 0.625rem;
+        border-top: 1px solid color-mix(in oklab, var(--foreground) 45%, transparent);
+    }
+
+    & li > ul {
+        margin-top: 0.6em;
+    }
+
+    & dl {
+        display: grid;
+        gap: 1em;
+    }
+
+    & dd {
+        margin-top: 0.15em;
+    }
+}
+
+@media print {
+    #cookies-policy {
+        display: none;
+    }
+}

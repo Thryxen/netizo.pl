@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Middleware\HandleAppearance;
 use Whitecube\LaravelCookieConsent\Consent;
 use Whitecube\LaravelCookieConsent\Cookie;
 use Whitecube\LaravelCookieConsent\CookiesGroup;
@@ -15,10 +16,13 @@ class CookiesServiceProvider extends ServiceProvider
      */
     protected function registerCookies(): void
     {
-        // Register Laravel's base cookies under the "required" cookies section:
+        // Register Laravel's base cookies under the "required" cookies section, with the theme the visitor picked:
         Cookies::essentials()
             ->session()
-            ->csrf();
+            ->csrf()
+            ->cookie(fn (Cookie $cookie) => $cookie->name('appearance')
+                ->duration(HandleAppearance::LIFETIME_MINUTES)
+                ->description(__('cookieConsent::cookies.defaults.appearance')));
 
         $googleAnalyticsId = (string) config('cookieconsent.google_analytics.id');
 

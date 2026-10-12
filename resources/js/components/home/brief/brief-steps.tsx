@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { localized, useCopy, useLocale } from '@/lib/i18n';
+import { usePageUrls } from '@/lib/site';
 import {
     audienceOptions,
     type BriefField,
@@ -202,7 +203,6 @@ const COPY = localized({
         privacyBefore: 'Akceptuję',
         privacyLink: 'politykę prywatności',
         privacyAfter: 'i wyrażam zgodę na kontakt w sprawie zapytania.',
-        privacyLinkLang: undefined as 'pl' | undefined,
     },
     en: {
         pickOne: 'Choose one option.',
@@ -238,8 +238,6 @@ const COPY = localized({
         privacyBefore: 'I accept the',
         privacyLink: 'privacy policy',
         privacyAfter: 'and agree to be contacted about my inquiry.',
-        // The privacy policy exists in Polish only.
-        privacyLinkLang: 'pl',
     },
 });
 
@@ -328,6 +326,7 @@ export function ContactStep(props: BriefStepProps) {
     const privacyId = fieldId('privacy');
     const copy = useCopy(COPY);
     const locale = useLocale();
+    const pageUrls = usePageUrls();
 
     return (
         <div className="grid gap-8">
@@ -375,8 +374,7 @@ export function ContactStep(props: BriefStepProps) {
                     <Label htmlFor={privacyId} className="block leading-snug font-normal">
                         {copy.privacyBefore}{' '}
                         <a
-                            href="/polityka-prywatnosci"
-                            hrefLang={copy.privacyLinkLang}
+                            href={pageUrls.privacy}
                             target="_blank"
                             rel="noopener"
                             className="rounded-sm font-medium underline underline-offset-4 outline-none hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50"

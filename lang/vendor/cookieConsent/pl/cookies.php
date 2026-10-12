@@ -2,7 +2,7 @@
 return [
     'title' => 'Korzystamy z plików cookie',
     'intro' => 'Ta witryna używa plików cookie w celu ulepszenia ogólnej wygody użytkowania.',
-    'link' => 'Zajrzyj do naszej <a href=":url">Polityki plików cookie</a>, aby uzyskać więcej informacji.',
+    'link' => 'Szczegóły znajdziesz w naszej <a href=":url">polityce prywatności</a>.',
 
     'essentials' => 'Tylko niezbędne',
     'all' => 'Zaakceptuj wszystko',
@@ -33,8 +33,9 @@ return [
         'consent' => 'Służy do przechowywania zgód użytkownika na pliki cookie.',
         'session' => 'Służy do identyfikacji sesji użytkownika w przeglądarce.',
         'csrf' => 'Służy do zabezpieczenia użytkownika oraz jednocześnie naszej witryny przed atakami fałszerstwa żądań między witrynami (CSRF).',
+        'appearance' => 'Zapamiętuje wybrany motyw strony (jasny lub ciemny).',
         '_ga' => 'Główny plik cookie używany przez Google Analytics, umożliwia usłudze rozróżnianie odwiedających.',
-        '_ga_ID' => 'Używany przez Google Analytics do utrzymania infromacji o stanie sesji.',
+        '_ga_ID' => 'Używany przez Google Analytics do utrzymania informacji o stanie sesji.',
         '_gid' => 'Używany przez Google Analytics do identyfikacji użytkownika.',
         '_gat' => 'Używany przez Google Analytics do ograniczania częstotliwości żądań.',
     ],

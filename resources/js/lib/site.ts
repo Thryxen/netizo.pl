@@ -13,9 +13,13 @@ export const contact = {
     },
 } as const;
 
-/** Registered company details shown in the footer, the same in both languages. */
+/**
+ * Registered company details shown in the footer, the same in both languages. Netizo is Kamil Nawrot's sole
+ * proprietorship (CEIDG): he is the service provider of the terms and the data controller of the privacy policy.
+ */
 export const company = {
     name: 'Netizo',
+    owner: 'Kamil Nawrot',
     street: 'ul. Wiosny Ludów 12 lok. 8',
     postalCode: '63-600',
     city: 'Kępno',
@@ -53,15 +57,15 @@ export function useSocialProfiles(): SocialProfile[] {
 
 /** Pages of the site in each language (routes/web.php). */
 export const pageUrls = localized({
-    pl: { home: '/', partners: '/partnerzy', about: '/o-nas' },
-    en: { home: '/en', partners: '/en/partners', about: '/en/about' },
+    pl: { home: '/', partners: '/partnerzy', about: '/o-nas', privacy: '/polityka-prywatnosci', terms: '/regulamin' },
+    en: { home: '/en', partners: '/en/partners', about: '/en/about', privacy: '/en/privacy-policy', terms: '/en/terms' },
 });
 
 export type InfoLink = {
     href: string;
     label: string;
     /**
-     * Language of the linked page when it differs from the current one (these pages exist in Polish only): the link
+     * Language of the linked page when it differs from the current one (a page that exists in Polish only): the link
      * gets `hrefLang` and a "PL" marker (InfoLinkLabel).
      */
     hrefLang?: 'pl';
@@ -71,16 +75,14 @@ export const infoLinks = localized<InfoLink[]>({
     pl: [
         { href: '/o-nas', label: 'O nas' },
         { href: '/partnerzy', label: 'Program partnerski' },
-        { href: '/utrzymanie', label: 'Utrzymanie' },
         { href: '/regulamin', label: 'Regulamin' },
         { href: '/polityka-prywatnosci', label: 'Polityka prywatności' },
     ],
     en: [
         { href: '/en/about', label: 'About us' },
         { href: '/en/partners', label: 'Partner program' },
-        { href: '/utrzymanie', label: 'Maintenance', hrefLang: 'pl' },
-        { href: '/regulamin', label: 'Terms of service', hrefLang: 'pl' },
-        { href: '/polityka-prywatnosci', label: 'Privacy policy', hrefLang: 'pl' },
+        { href: '/en/terms', label: 'Terms of service' },
+        { href: '/en/privacy-policy', label: 'Privacy policy' },
     ],
 });
 

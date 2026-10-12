@@ -6,6 +6,9 @@
  *   og-netizo-partners-en.png  angielski program partnerski (/en/partners), z szablon-partnerzy-en.html
  *   og-netizo-o-nas.png      strona „O nas” (/o-nas), z szablon-o-nas.html
  *   og-netizo-about-en.png   angielska strona „O nas” (/en/about), z szablon-o-nas-en.html
+ *   og-netizo-polityka-prywatnosci.png, og-netizo-privacy-policy-en.png, og-netizo-regulamin.png, og-netizo-terms-en.png
+ *                            polityka prywatności i regulamin (/polityka-prywatnosci, /en/privacy-policy, /regulamin,
+ *                            /en/terms), z jednego szablonu szablon-dokument.html z tekstami z `values` poniżej
  * Logo, sygnet i fonty są wspólne z wizytówkami (netizo/wizytowki), więc marka zmienia się w jednym miejscu.
  *
  * Uruchomienie (z katalogu projektu, bez instalowania niczego w projekcie):
@@ -15,7 +18,8 @@
  *
  * Po zmianie nazwy pliku zaktualizuj odwołania: dla strony głównej HomeController, config/seotools.php
  * i tests/Feature/HomePageTest.php, dla partnerów PartnerProgramController i tests/Feature/PartnerProgramPageTest.php,
- * dla wersji angielskiej klucz `seo.image` w lang/en/home.php lub lang/en/partners.php i te same testy.
+ * dla wersji angielskiej klucz `seo.image` w lang/en/home.php lub lang/en/partners.php i te same testy, dla stron prawnych
+ * klucz `image` w lang/{pl,en}/legal.php i tests/Feature/LegalPagesTest.php.
  * Nowa nazwa omija pamięć podręczną podglądów (Facebook, Discord, Cloudflare), która trzyma stary obraz pod starym adresem.
  */
 const fs = require('fs');
@@ -31,6 +35,26 @@ const IMAGES = [
     { template: 'szablon-partnerzy-en.html', output: 'og-netizo-partners-en.png' },
     { template: 'szablon-o-nas.html', output: 'og-netizo-o-nas.png' },
     { template: 'szablon-o-nas-en.html', output: 'og-netizo-about-en.png' },
+    {
+        template: 'szablon-dokument.html',
+        output: 'og-netizo-polityka-prywatnosci.png',
+        values: { lang: 'pl', title: 'Polityka prywatności', party: 'Administrator danych', business: 'działalność gospodarcza pod nazwą Netizo', url: 'netizo.pl/polityka-prywatnosci' },
+    },
+    {
+        template: 'szablon-dokument.html',
+        output: 'og-netizo-privacy-policy-en.png',
+        values: { lang: 'en', title: 'Privacy policy', party: 'Data controller', business: 'sole proprietorship trading as Netizo', url: 'netizo.pl/en/privacy-policy' },
+    },
+    {
+        template: 'szablon-dokument.html',
+        output: 'og-netizo-regulamin.png',
+        values: { lang: 'pl', title: 'Regulamin serwisu', party: 'Usługodawca', business: 'działalność gospodarcza pod nazwą Netizo', url: 'netizo.pl/regulamin' },
+    },
+    {
+        template: 'szablon-dokument.html',
+        output: 'og-netizo-terms-en.png',
+        values: { lang: 'en', title: 'Terms of service', party: 'Service provider', business: 'sole proprietorship trading as Netizo', url: 'netizo.pl/en/terms' },
+    },
 ];
 const SIZE = { width: 1200, height: 630 };
 /** WhatsApp pomija podgląd z obrazem większym niż 300 KB. */
@@ -96,7 +120,7 @@ function render(template, values) {
 
     try {
         for (const image of IMAGES.filter((candidate) => requested.length === 0 || requested.includes(candidate.output))) {
-            const html = render(inlineFonts(fs.readFileSync(path.join(DIR, image.template), 'utf8')), values);
+            const html = render(inlineFonts(fs.readFileSync(path.join(DIR, image.template), 'utf8')), { ...values, ...image.values });
             const output = path.join(OUTPUT_DIR, image.output);
             const page = await browser.newPage({ viewport: SIZE, deviceScaleFactor: 1 });
 

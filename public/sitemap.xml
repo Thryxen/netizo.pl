@@ -78,4 +78,40 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://netizo.pl/polityka-prywatnosci</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://netizo.pl/polityka-prywatnosci"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://netizo.pl/en/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://netizo.pl/polityka-prywatnosci"/>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://netizo.pl/en/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://netizo.pl/polityka-prywatnosci"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://netizo.pl/en/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://netizo.pl/polityka-prywatnosci"/>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://netizo.pl/regulamin</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://netizo.pl/regulamin"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://netizo.pl/en/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://netizo.pl/regulamin"/>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://netizo.pl/en/terms</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://netizo.pl/regulamin"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://netizo.pl/en/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://netizo.pl/regulamin"/>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
 </urlset>

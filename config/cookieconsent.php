@@ -51,6 +51,9 @@ return [
     | the extended cookies usage policy. If your application has such a page
     | you can add its route name here.
     |
+    | Set for every request to the privacy policy in the page's language
+    | (`privacy` or `en.privacy`, App\Http\Middleware\SetLocale).
+    |
     */
 
     'policy' => null,

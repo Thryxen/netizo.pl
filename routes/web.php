@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CallbackRequestController;
 use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LegalPageController;
 use App\Http\Controllers\NewsletterSubscriptionController;
 use App\Http\Controllers\PartnerApplicationController;
 use App\Http\Controllers\PartnerProgramController;
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/partnerzy', [PartnerProgramController::class, 'index'])->name('partners');
 Route::get('/o-nas', [AboutController::class, 'index'])->name('about');
+Route::get('/polityka-prywatnosci', [LegalPageController::class, 'privacy'])->name('privacy');
+Route::get('/regulamin', [LegalPageController::class, 'terms'])->name('terms');
 
 Route::middleware('throttle:forms')->group(function () {
     Route::post('/kontakt', [ContactMessageController::class, 'store'])->name('contact-messages.store');
@@ -30,6 +33,8 @@ Route::prefix('en')->name('en.')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/partners', [PartnerProgramController::class, 'index'])->name('partners');
     Route::get('/about', [AboutController::class, 'index'])->name('about');
+    Route::get('/privacy-policy', [LegalPageController::class, 'privacy'])->name('privacy');
+    Route::get('/terms', [LegalPageController::class, 'terms'])->name('terms');
 
     Route::middleware('throttle:forms')->group(function () {
         Route::post('/contact', [ContactMessageController::class, 'store'])->name('contact-messages.store');
