@@ -21,14 +21,14 @@ type HeroStat = {
  */
 const STATS = localized<HeroStat[]>({
     pl: [
-        { value: '150+', label: 'projektów, także sprzed\u00A0Netizo', countFrom: 120 },
-        { value: '8 lat', label: 'doświadczenia wspólników' },
+        { value: '150+', label: 'projektów na koncie', countFrom: 120 },
+        { value: '8 lat', label: 'w branży' },
         { value: '99,9%', label: 'dostępności wdrożeń', countFrom: 99 },
         { value: '0 zł', label: 'za wycenę i konsultację' },
     ],
     en: [
-        { value: '150+', label: 'projects, some from before Netizo', countFrom: 120 },
-        { value: '8 years', label: 'of the co-owners’ experience' },
+        { value: '150+', label: 'projects under our belt', countFrom: 120 },
+        { value: '8 years', label: 'in the industry' },
         { value: '99.9%', label: 'uptime across our deployments', countFrom: 99 },
         { value: 'Free', label: 'quote and consultation' },
     ],

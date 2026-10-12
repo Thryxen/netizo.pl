@@ -223,13 +223,13 @@ export const STORY = localized<StoryEntry[]>({
 /** The figures the home page shows, each with how it is counted. */
 export const NUMBERS = localized<NumberEntry[]>({
     pl: [
-        { sample: true, value: '150+', label: 'projektów, także sprzed\u00A0Netizo', source: 'Liczymy oddane strony, sklepy i aplikacje webowe.' },
-        { sample: true, value: '8 lat', label: 'doświadczenia wspólników', source: 'Liczymy lata pracy wspólników w branży, także sprzed założenia Netizo w 2023 roku.' },
+        { sample: true, value: '150+', label: 'projektów na koncie', source: 'Liczymy oddane strony, sklepy i aplikacje webowe, także sprzed Netizo.' },
+        { sample: true, value: '8 lat', label: 'w branży', source: 'Liczymy lata pracy wspólników w branży, także sprzed założenia Netizo w 2023 roku.' },
         { sample: true, value: '99,9%', label: 'dostępności wdrożeń', source: 'Średnia dostępność stron, którymi się opiekujemy, według monitoringu.' },
     ],
     en: [
-        { sample: true, value: '150+', label: 'projects, some from before Netizo', source: 'We count the websites, online stores and web apps we have delivered.' },
-        { sample: true, value: '8 years', label: 'of the co-owners’ experience', source: 'We count the co-owners’ years in the industry, including those before Netizo was founded in 2023.' },
+        { sample: true, value: '150+', label: 'projects under our belt', source: 'We count the websites, online stores and web apps we have delivered, including before Netizo.' },
+        { sample: true, value: '8 years', label: 'in the industry', source: 'We count the co-owners’ years in the industry, including those before Netizo was founded in 2023.' },
         { sample: true, value: '99.9%', label: 'uptime of our launches', source: 'The average uptime of the websites in our care, from monitoring.' },
     ],
 });
