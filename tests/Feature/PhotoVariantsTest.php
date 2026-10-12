@@ -37,3 +37,16 @@ it('ships every photo of the series at its native size and in every srcset width
             ->and(filesize($variant))->toBeLessThan($variantWidth <= 384 ? 40 * 1024 : 200 * 1024);
     }
 })->with(photoSeriesFromSource()['photos']);
+
+it('ships no photo outside the series', function () {
+    $series = photoSeriesFromSource();
+
+    $expected = collect($series['photos'])->keys()
+        ->flatMap(fn (string $name): array => ["{$name}.webp", ...array_map(fn (int $width): string => "{$name}-{$width}.webp", $series['widths'])])
+        ->sort()->values()->all();
+
+    $shipped = collect(glob(public_path('assets/images/photos/*')))->map(fn (string $path): string => basename($path))
+        ->sort()->values()->all();
+
+    expect($shipped)->toBe($expected);
+});
