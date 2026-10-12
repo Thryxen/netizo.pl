@@ -6,14 +6,10 @@
  */
 return [
     'seo' => [
-        'title' => 'Partner Program: 15% Commission per Referral | Netizo',
-        'description' => 'Refer Netizo to companies that need a website, an online store or an app, and earn 15% of every paid client invoice (net) for 12 months. No fees and no limit on referrals.',
+        'title' => 'Partner program: 15% per referral – Leszno, Poland | Netizo',
+        'description' => 'Join the Netizo partner program and earn 15% (net) of every paid invoice from a referred client for 12 months. No fees and no limit on referrals.',
         'name' => 'Netizo Partner Program',
         'image' => 'assets/images/og-netizo-partners-en.png',
-        'keywords' => [
-            'partner program', 'referral program', 'referral commission', 'refer clients',
-            'affiliate program', '15% commission', 'netizo', 'web development',
-        ],
     ],
 
     'faq' => [

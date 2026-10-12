@@ -6,18 +6,12 @@
  */
 return [
     'seo' => [
-        'title' => 'Websites and Web Apps for Ambitious Companies | Netizo',
-        'description' => 'Websites and web applications for businesses, designed and built by a software house from Poland. Modern design, speed and SEO as standard. React, Next.js, Laravel. 150+ projects, 8 years of experience. Free quote!',
+        'title' => 'Websites and web apps for businesses – Leszno, Poland | Netizo',
+        'description' => 'Get a free quote for a website or web app for your business. Speed and SEO as standard, 150+ projects, 8 years of experience. Based in Leszno, Poland.',
         'share_description' => 'Professional websites and web applications. Modern design, speed, SEO. 150+ projects. Free quote!',
         'organization_description' => 'Websites and web applications for businesses, designed and built in Poland. Modern design, speed and SEO as standard. 150+ projects, 8 years of experience.',
         'country' => 'Poland',
         'image' => 'assets/images/og-netizo-en.png',
-        'keywords' => [
-            'web development', 'website development', 'websites for businesses', 'web design agency',
-            'software house', 'software house Poland', 'web development Poland', 'web applications',
-            'custom web applications', 'e-commerce development', 'mobile apps', 'nearshore development',
-            'React', 'Next.js', 'Node.js', 'Laravel', 'Poland', 'netizo', 'Leszno', 'Poznań', 'Wrocław',
-        ],
     ],
 
     'faq' => [

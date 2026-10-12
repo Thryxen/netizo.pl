@@ -73,7 +73,7 @@ it('previews the sample content only in the local environment', function () {
 it('renders its own SEO tags, canonical URL and hreflang alternates', function () {
     $this->get('/o-nas')
         ->assertOk()
-        ->assertSee('<title>O nas: Damian Idzik i Kamil Nawrot | Netizo</title>', false)
+        ->assertSee('<title>O nas: Damian Idzik i Kamil Nawrot – Leszno | Netizo</title>', false)
         ->assertSee('<link rel="canonical" href="'.url('/o-nas').'">', false)
         ->assertSee('<link rel="alternate" hreflang="pl" href="'.url('/o-nas').'">', false)
         ->assertSee('<link rel="alternate" hreflang="en" href="'.url('/en/about').'">', false)
@@ -82,25 +82,30 @@ it('renders its own SEO tags, canonical URL and hreflang alternates', function (
         ->assertSee('<meta property="og:image" content="'.asset('assets/images/og-netizo-o-nas.png').'">', false)
         ->assertSee('<meta name="twitter:image" content="'.asset('assets/images/og-netizo-o-nas.png').'">', false)
         ->assertDontSee('og-netizo-2.png', false)
-        ->assertDontSee('Tworzymy Strony WWW dla Ambitnych Firm', false);
+        ->assertDontSee('Strony internetowe i aplikacje webowe dla firm – Leszno', false);
 });
 
 it('renders the English SEO tags on /en/about', function () {
     $this->get('/en/about')
         ->assertOk()
         ->assertSee('<html lang="en"', false)
-        ->assertSee('<title>About us: Damian Idzik and Kamil Nawrot | Netizo</title>', false)
+        ->assertSee('<title>About us: Damian Idzik, Kamil Nawrot – Leszno, Poland | Netizo</title>', false)
         ->assertSee('<link rel="canonical" href="'.url('/en/about').'">', false)
         ->assertSee('<meta property="og:image" content="'.asset('assets/images/og-netizo-about-en.png').'">', false)
         ->assertDontSee('og-netizo-en.png', false);
 });
 
-it('keeps the meta description within the length search results show', function (string $locale) {
-    $description = trans('about.seo.description', [], $locale);
+it('renders a search result description that opens with the call to action and no meta keywords', function (string $path, string $description) {
+    $this->get($path)
+        ->assertOk()
+        ->assertSee('<meta name="description" content="'.$description.'">', false)
+        ->assertDontSee('<meta name="keywords"', false);
 
-    expect($description)->not->toBe('about.seo.description')
-        ->and(mb_strlen($description))->toBeLessThanOrEqual(160);
-})->with(['pl', 'en']);
+    expect(mb_strlen($description))->toBeLessThanOrEqual(155);
+})->with([
+    'polish' => ['/o-nas', 'Poznaj Damiana Idzika i Kamila Nawrota z Netizo. Strony, sklepy i aplikacje webowe dla firm z całej Polski, a w Lesznie i okolicach z dojazdem do klienta.'],
+    'english' => ['/en/about', 'Meet Damian Idzik and Kamil Nawrot of Netizo. Websites, online stores and web apps for companies across Poland, with on-site meetings around Leszno.'],
+]);
 
 it('describes the page and the two co-owners in the AboutPage JSON-LD', function () {
     $aboutPage = aboutPageSchemas('/o-nas')->firstWhere('@type', 'AboutPage');

@@ -28,7 +28,7 @@ it('renders its own SEO tags, canonical URL and share image', function () {
 
     $this->get('/partnerzy')
         ->assertOk()
-        ->assertSee('<title>Program partnerski: 15% prowizji za polecenie | Netizo</title>', false)
+        ->assertSee('<title>Program partnerski: 15% prowizji za polecenie – Leszno | Netizo</title>', false)
         ->assertSee('<link rel="canonical" href="'.url('/partnerzy').'">', false)
         ->assertSee('<meta property="og:url" content="'.url('/partnerzy').'">', false)
         ->assertSee('<meta property="og:image" content="'.$imageUrl.'">', false)
@@ -36,8 +36,20 @@ it('renders its own SEO tags, canonical URL and share image', function () {
         ->assertSee('<meta property="og:image:height" content="630">', false)
         ->assertSee('<meta name="twitter:image" content="'.$imageUrl.'">', false)
         ->assertDontSee('og-netizo-2.png', false)
-        ->assertDontSee('Tworzymy Strony WWW dla Ambitnych Firm', false);
+        ->assertDontSee('Strony internetowe i aplikacje webowe dla firm – Leszno', false);
 });
+
+it('renders a search result description that opens with the call to action and no meta keywords', function (string $path, string $description) {
+    $this->get($path)
+        ->assertOk()
+        ->assertSee('<meta name="description" content="'.$description.'">', false)
+        ->assertDontSee('<meta name="keywords"', false);
+
+    expect(mb_strlen($description))->toBeLessThanOrEqual(155);
+})->with([
+    'polish' => ['/partnerzy', 'Dołącz do programu partnerskiego Netizo i dostawaj 15% netto od każdej opłaconej faktury poleconego klienta przez 12 miesięcy. Bez opłat i limitu poleceń.'],
+    'english' => ['/en/partners', 'Join the Netizo partner program and earn 15% (net) of every paid invoice from a referred client for 12 months. No fees and no limit on referrals.'],
+]);
 
 it('uses its share image in the WebPage JSON-LD', function () {
     $response = $this->get('/partnerzy')->assertOk();
@@ -154,7 +166,7 @@ it('renders the english SEO tags, share image and WebPage JSON-LD on /en/partner
     $imagePath = public_path('assets/images/og-netizo-partners-en.png');
 
     $response
-        ->assertSee('<title>Partner Program: 15% Commission per Referral | Netizo</title>', false)
+        ->assertSee('<title>Partner program: 15% per referral – Leszno, Poland | Netizo</title>', false)
         ->assertSee('<meta property="og:url" content="'.url('/en/partners').'">', false)
         ->assertSee('<meta property="og:image" content="'.$imageUrl.'">', false)
         ->assertSee('<meta name="twitter:image" content="'.$imageUrl.'">', false)

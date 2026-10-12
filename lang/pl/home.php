@@ -7,42 +7,12 @@
  */
 return [
     'seo' => [
-        'title' => 'Tworzymy Strony WWW dla Ambitnych Firm | Netizo',
-        'description' => 'Profesjonalne tworzenie stron internetowych i aplikacji webowych dla firm. Nowoczesny design, szybkość i SEO w standardzie. React, Next.js, Laravel. 150+ projektów, 8 lat doświadczenia. Bezpłatna wycena!',
+        'title' => 'Strony internetowe i aplikacje webowe dla firm – Leszno | Netizo',
+        'description' => 'Zamów bezpłatną wycenę strony internetowej lub aplikacji webowej. Szybkość i SEO w standardzie, 150+ projektów, 8 lat doświadczenia. Leszno i cała Polska.',
         'share_description' => 'Profesjonalne strony internetowe i aplikacje webowe. Nowoczesny design, szybkość, SEO. 150+ projektów. Bezpłatna wycena!',
         'organization_description' => 'Profesjonalne tworzenie stron internetowych i aplikacji webowych dla firm. Nowoczesny design, szybkość i SEO w standardzie. 150+ projektów, 8 lat doświadczenia.',
         'country' => 'Polska',
         'image' => 'assets/images/og-netizo-2.png',
-        'keywords' => [
-            // Główne frazy
-            'tworzenie stron internetowych', 'strony WWW dla firm', 'profesjonalne strony internetowe',
-            'projektowanie stron WWW', 'responsywne strony internetowe', 'nowoczesne strony WWW',
-            'agencja interaktywna', 'software house', 'aplikacje webowe', 'sklepy internetowe',
-            // Technologie
-            'React', 'Next.js', 'Node.js', 'Laravel', 'web development', 'Polska', 'netizo', 'Wielkopolska',
-            // Leszno
-            'Leszno', 'programista Leszno', 'tworzenie stron Leszno', 'strony internetowe Leszno', 'software house Leszno',
-            // Duże miasta
-            'Poznań', 'programista Poznań', 'tworzenie stron Poznań', 'strony internetowe Poznań',
-            'Wrocław', 'programista Wrocław', 'tworzenie stron Wrocław', 'strony internetowe Wrocław',
-            'Kalisz', 'programista Kalisz', 'tworzenie stron Kalisz', 'strony internetowe Kalisz',
-            'Głogów', 'programista Głogów', 'tworzenie stron Głogów', 'strony internetowe Głogów',
-            // Średnie miasta
-            'Rawicz', 'programista Rawicz', 'tworzenie stron Rawicz',
-            'Kościan', 'programista Kościan', 'tworzenie stron Kościan',
-            'Gostyń', 'programista Gostyń', 'tworzenie stron Gostyń',
-            'Śrem', 'programista Śrem', 'tworzenie stron Śrem',
-            'Góra', 'programista Góra', 'tworzenie stron Góra',
-            'Wschowa', 'programista Wschowa', 'tworzenie stron Wschowa',
-            // Mniejsze miejscowości
-            'Rydzyna', 'programista Rydzyna', 'tworzenie stron Rydzyna',
-            'Osieczna', 'programista Osieczna', 'tworzenie stron Osieczna',
-            'Bojanowo', 'programista Bojanowo', 'tworzenie stron Bojanowo',
-            'Poniec', 'programista Poniec', 'tworzenie stron Poniec',
-            'Krobia', 'programista Krobia', 'tworzenie stron Krobia',
-            'Jutrosin', 'programista Jutrosin', 'tworzenie stron Jutrosin',
-            'Miejska Górka', 'programista Miejska Górka', 'tworzenie stron Miejska Górka',
-        ],
     ],
 
     'faq' => [

@@ -129,7 +129,7 @@ it('renders the FAQ JSON-LD and SEO tags in the root view', function () {
         ->assertSee('"@type":"FAQPage"', false)
         ->assertSee('"name":"Ile kosztuje strona internetowa lub aplikacja?"', false)
         ->assertSee('"name":"Czy strona będzie widoczna w Google?"', false)
-        ->assertSee('<title>Tworzymy Strony WWW dla Ambitnych Firm | Netizo</title>', false)
+        ->assertSee('<title>Strony internetowe i aplikacje webowe dla firm – Leszno | Netizo</title>', false)
         ->assertSee('<script data-page="app" type="application/json">', false)
         ->assertSee('<div id="app"', false)
         ->assertDontSee('livewire', false);
@@ -145,6 +145,18 @@ it('renders the FAQ JSON-LD and SEO tags in the root view', function () {
         ->and(collect($faqSchema['mainEntity'])->pluck('name'))->toContain('Czy strona będzie widoczna w Google?')
         ->and($faqSchema['mainEntity'][0]['acceptedAnswer']['@type'])->toBe('Answer');
 });
+
+it('renders a search result description that opens with the call to action and no meta keywords', function (string $path, string $description) {
+    $this->get($path)
+        ->assertOk()
+        ->assertSee('<meta name="description" content="'.$description.'">', false)
+        ->assertDontSee('<meta name="keywords"', false);
+
+    expect(mb_strlen($description))->toBeLessThanOrEqual(155);
+})->with([
+    'polish' => ['/', 'Zamów bezpłatną wycenę strony internetowej lub aplikacji webowej. Szybkość i SEO w standardzie, 150+ projektów, 8 lat doświadczenia. Leszno i cała Polska.'],
+    'english' => ['/en', 'Get a free quote for a website or web app for your business. Speed and SEO as standard, 150+ projects, 8 years of experience. Based in Leszno, Poland.'],
+]);
 
 it('renders the organization JSON-LD built in the controller', function () {
     config(['socials' => ['facebook' => null, 'instagram' => '', 'tiktok' => null, 'discord' => null]]);
@@ -360,10 +372,10 @@ it('renders the english SEO tags, share image and JSON-LD on /en', function () {
     $imageUrl = asset('assets/images/og-netizo-en.png');
 
     $response
-        ->assertSee('<title>Websites and Web Apps for Ambitious Companies | Netizo</title>', false)
+        ->assertSee('<title>Websites and web apps for businesses – Leszno, Poland | Netizo</title>', false)
         ->assertSee('<meta property="og:image" content="'.$imageUrl.'">', false)
         ->assertSee('<meta name="twitter:image" content="'.$imageUrl.'">', false)
-        ->assertDontSee('Tworzymy Strony WWW dla Ambitnych Firm', false)
+        ->assertDontSee('Strony internetowe i aplikacje webowe dla firm – Leszno', false)
         ->assertDontSee('og-netizo-2.png', false);
 
     preg_match_all('/<script type="application\/ld\+json">(.*?)<\/script>/s', $response->getContent(), $matches);

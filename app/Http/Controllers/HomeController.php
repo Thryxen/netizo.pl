@@ -28,7 +28,6 @@ class HomeController extends Controller
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription(__('home.seo.description'));
-        SEOMeta::addKeyword(__('home.seo.keywords'));
 
         OpenGraph::setTitle($title)
             ->setDescription($shareDescription)

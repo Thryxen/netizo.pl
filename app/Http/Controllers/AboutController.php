@@ -28,7 +28,6 @@ class AboutController extends Controller
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($description);
-        SEOMeta::addKeyword(__('about.seo.keywords'));
 
         OpenGraph::setTitle($title)
             ->setDescription($description)

@@ -20,7 +20,6 @@ class PartnerProgramController extends Controller
 
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($description);
-        SEOMeta::addKeyword(__('partners.seo.keywords'));
 
         OpenGraph::setTitle($title)
             ->setDescription($description)
