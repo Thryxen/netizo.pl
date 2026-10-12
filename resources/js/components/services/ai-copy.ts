@@ -16,7 +16,7 @@ export const AI_COPY = localized<ServiceCopy>({
             quoteShort: 'Wycena',
             facts: [
                 { prefix: 'od', value: '299\u00A0zł', label: 'chatbot albo pojedyncza automatyzacja' },
-                { prefix: 'od', value: '15\u00A0000\u00A0zł', label: 'agent AI z integracjami' },
+                { prefix: 'od', value: '1\u00A0999\u00A0zł', label: 'agent AI z integracjami' },
                 { value: '24\u00A0h', label: 'na odpowiedź po briefie' },
                 { value: '0\u00A0zł', label: 'za wycenę i konsultację' },
             ],
@@ -120,7 +120,7 @@ export const AI_COPY = localized<ServiceCopy>({
             quoteShort: 'Quote',
             facts: [
                 { prefix: 'from', value: 'PLN\u00A0299', label: 'a chatbot or a single automation' },
-                { prefix: 'from', value: 'PLN\u00A015,000', label: 'an AI agent with integrations' },
+                { prefix: 'from', value: 'PLN\u00A01,999', label: 'an AI agent with integrations' },
                 { value: '24\u00A0h', label: 'to reply to your brief' },
                 { value: 'Free', label: 'quote and consultation' },
             ],

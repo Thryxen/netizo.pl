@@ -102,6 +102,7 @@ return [
             [
                 'name' => 'Small store',
                 'description' => 'A store for a company that’s starting to sell online: a product catalog, a cart, payments, shipping and a panel for handling orders.',
+                'timeline' => 'Usually up to four weeks',
                 'includes' => [
                     'Store design and a clickable prototype in Figma',
                     'A product catalog with variants such as size or color',
@@ -114,6 +115,7 @@ return [
             [
                 'name' => 'Large e-commerce',
                 'description' => 'A store with a large catalog or B2B sales, connected to your warehouse, wholesaler or ERP system, with individual prices.',
+                'timeline' => 'Usually up to eight weeks',
                 'includes' => [
                     'Everything in the small store',
                     'Integration with your warehouse, wholesaler or ERP, such as Comarch ERP Optima',
@@ -128,7 +130,7 @@ return [
         'faq' => [
             [
                 'question' => 'How much does an online store cost?',
-                'answer' => "A small store starts at PLN\u{00A0}1,299 and usually stays under PLN\u{00A0}15,000, and a large e-commerce site with warehouse, wholesaler or ERP integrations PLN\u{00A0}15,000–\u{2060}50,000. The price depends mainly on the number of products and variants, the integrations and whether you also sell to businesses (B2B). You get a detailed quote for free after the brief.",
+                'answer' => "A small store starts at PLN\u{00A0}1,299 and usually stays under PLN\u{00A0}4,999, and a large e-commerce site with warehouse, wholesaler or ERP integrations PLN\u{00A0}5,499–\u{2060}12,999. The price depends mainly on the number of products and variants, the integrations and whether you also sell to businesses (B2B). You get a detailed quote for free after the brief.",
             ],
             [
                 'question' => 'Do you build stores on Shopify or WooCommerce?',
@@ -160,7 +162,7 @@ return [
     'apps' => [
         'seo' => [
             'title' => 'Custom web application development from PLN 1,699 | Netizo',
-            'description' => 'Order a web app from PLN 1,699: a portal, a B2B system or a SaaS platform with integrations. A demo every two weeks, usually 2–4 months. Free quote.',
+            'description' => 'Order a web app from PLN 1,699: a portal, a B2B system or a SaaS platform with integrations. Usually ready within three weeks. Free quote.',
             'name' => 'Custom web application development',
             'breadcrumb' => 'Web applications',
             'image' => 'assets/images/og-netizo-web-applications-en.jpg',
@@ -176,7 +178,7 @@ return [
             [
                 'name' => 'Web application',
                 'description' => 'A portal, an internal system or a customer portal that organizes one process in your company, such as orders, bookings or a fleet.',
-                'timeline' => "Usually 2–\u{2060}4\u{00A0}months",
+                'timeline' => 'Usually up to three weeks',
                 'includes' => [
                     'An analysis of the process and a written scope of work',
                     'Interface design and a clickable prototype in Figma',
@@ -189,6 +191,7 @@ return [
             [
                 'name' => 'Large system',
                 'description' => 'A platform for many user groups, with subscriptions, ERP integrations or heavy traffic, developed in stages.',
+                'timeline' => 'After the analysis, in stages',
                 'includes' => [
                     'Everything in the web application',
                     'Live data and an architecture built for heavy traffic',
@@ -203,11 +206,11 @@ return [
         'faq' => [
             [
                 'question' => 'How much does a web application cost?',
-                'answer' => "A web application starts at PLN\u{00A0}1,699 and usually stays under PLN\u{00A0}50,000, and large systems with many user groups and integrations start at PLN\u{00A0}50,000. The price depends on the number of screens and roles, the integrations and the security and load requirements. We split larger systems into stages, so the first version reaches users quickly. The quote after the brief is free.",
+                'answer' => "A web application starts at PLN\u{00A0}1,699 and usually stays under PLN\u{00A0}3,999, and large systems with many user groups and integrations start at PLN\u{00A0}4,499. The price depends on the number of screens and roles, the integrations and the security and load requirements. We split larger systems into stages, so the first version reaches users quickly. The quote after the brief is free.",
             ],
             [
                 'question' => 'How long does it take to build a web application?',
-                'answer' => "A typical web application takes 2–\u{2060}4\u{00A0}months. We work in two-week sprints and show the progress on a staging version after each one, so you see working parts from the first weeks. For a large system, we set the timeline after the analysis, stage by stage.",
+                'answer' => 'A typical web application takes up to three weeks. We work in two-week sprints and show the progress on a staging version after each one, so you see working parts from the first days. For a large system, we set the timeline after the analysis, stage by stage.',
             ],
             [
                 'question' => 'How is a web application different from a website?',
@@ -251,6 +254,7 @@ return [
             [
                 'name' => 'Mobile app',
                 'description' => 'An iOS and Android app with one main feature, such as orders, bookings or a loyalty program, connected to your system.',
+                'timeline' => 'Usually up to three weeks',
                 'includes' => [
                     'Screen design and a clickable prototype in Figma',
                     'One codebase for iOS and Android (React Native or Flutter)',
@@ -263,6 +267,7 @@ return [
             [
                 'name' => 'Larger app',
                 'description' => 'An app with its own backend, payments, several roles or offline mode, developed in stages together with the web version.',
+                'timeline' => 'After the brief, in stages',
                 'includes' => [
                     'Everything in the mobile app',
                     'Its own backend and API, shared with the web version',
@@ -277,7 +282,7 @@ return [
         'faq' => [
             [
                 'question' => 'How much does a mobile app cost?',
-                'answer' => "An iOS and Android app starts at PLN\u{00A0}999 and usually stays under PLN\u{00A0}50,000, and a larger app with its own backend, payments and several roles starts at PLN\u{00A0}50,000. The price depends on the number of screens, features and integrations. We split larger apps into stages, so the first version reaches users quickly. The quote after the brief is free.",
+                'answer' => "An iOS and Android app starts at PLN\u{00A0}999 and usually stays under PLN\u{00A0}3,999, and a larger app with its own backend, payments and several roles starts at PLN\u{00A0}4,499. The price depends on the number of screens, features and integrations. We split larger apps into stages, so the first version reaches users quickly. The quote after the brief is free.",
             ],
             [
                 'question' => 'Will the app work on both iPhone and Android?',
@@ -285,7 +290,7 @@ return [
             ],
             [
                 'question' => 'How long does it take to build a mobile app?',
-                'answer' => 'We give you the timeline after the brief, because it depends on the number of screens and integrations. We work in two-week sprints, and after each one you get a test version of the app to install on your phone, so you see the progress from the first weeks. The plan also includes time for the Apple and Google store reviews.',
+                'answer' => 'A mobile app usually takes up to three weeks, while we build a larger one in stages and give you its timeline after the brief, because it depends on the number of screens and integrations. We work in two-week sprints, and after each one you get a test version of the app to install on your phone, so you see the progress from the first weeks. The plan also includes time for the Apple and Google store reviews.',
             ],
             [
                 'question' => 'Will you publish the app in the App Store and Google Play?',
@@ -325,6 +330,7 @@ return [
             [
                 'name' => 'Chatbot or automation',
                 'description' => 'One process automated end to end, such as answering customers’ repeated questions, reading invoices or copying requests into the CRM.',
+                'timeline' => 'Usually up to a week',
                 'includes' => [
                     'Process analysis and a choice of what AI does well',
                     'A chatbot that answers from your documents and offer',
@@ -337,6 +343,7 @@ return [
             [
                 'name' => 'AI agent with integrations',
                 'description' => 'A system that handles several steps of a process: it reads documents and messages, makes simple decisions by your rules and saves the results in your company’s systems.',
+                'timeline' => 'Usually up to three weeks',
                 'includes' => [
                     'Everything in the single automation',
                     'Integrations with ERP, CRM, email and your document base',
@@ -351,7 +358,7 @@ return [
         'faq' => [
             [
                 'question' => 'How much does an AI or automation rollout cost?',
-                'answer' => "A single automation or chatbot starts at PLN\u{00A0}299 and usually stays under PLN\u{00A0}15,000, and an AI agent integrated with several of your company’s systems PLN\u{00A0}15,000–\u{2060}50,000. On top of that comes the cost of using the AI models, which depends on the number of requests; we estimate it before the rollout. The quote after the brief is free.",
+                'answer' => "A single automation or chatbot starts at PLN\u{00A0}299 and usually stays under PLN\u{00A0}1,499, and an AI agent integrated with several of your company’s systems PLN\u{00A0}1,999–\u{2060}4,999. On top of that comes the cost of using the AI models, which depends on the number of requests; we estimate it before the rollout. The quote after the brief is free.",
             ],
             [
                 'question' => 'What can be automated?',
@@ -371,7 +378,7 @@ return [
             ],
             [
                 'question' => 'How long does a rollout take?',
-                'answer' => 'We give you the timeline after the process analysis. We start with one process and show you a working test version on your own examples, and we add further automations in stages once the first one delivers results.',
+                'answer' => 'A single automation or chatbot is usually ready within a week, and an AI agent with integrations within three weeks. We start with one process and show you a working test version on your own examples, and we add further automations in stages once the first one delivers results. We give you the exact timeline after the process analysis.',
             ],
             [
                 'question' => 'Can you connect the AI to our systems?',
@@ -399,6 +406,7 @@ return [
             [
                 'name' => 'Setup and CI/CD',
                 'description' => 'A server or a cloud account set up from scratch, automated tests and deployments from the repository, backups and uptime monitoring.',
+                'timeline' => 'Usually up to a week',
                 'includes' => [
                     'An audit of your current server or hosting',
                     'Server or cloud setup (AWS, GCP, Vercel)',
@@ -411,6 +419,7 @@ return [
             [
                 'name' => 'Infrastructure as code',
                 'description' => 'Infrastructure described in code, containers and test environments, a cloud migration without downtime and monitoring of the whole system.',
+                'timeline' => 'Usually up to two weeks',
                 'includes' => [
                     'Everything in the setup and CI/CD',
                     'Infrastructure as code (Terraform) and containers (Docker)',
@@ -425,7 +434,7 @@ return [
         'faq' => [
             [
                 'question' => 'How much do DevOps and cloud work cost?',
-                'answer' => "A server or cloud setup with CI/CD and backups starts at PLN\u{00A0}499 and usually stays under PLN\u{00A0}5,000, and infrastructure as code with a cloud migration and monitoring of the whole system costs PLN\u{00A0}5,000–\u{2060}15,000. On top of that comes the monthly cost of the servers or the cloud, which we estimate up front. The quote after the brief is free.",
+                'answer' => "A server or cloud setup with CI/CD and backups starts at PLN\u{00A0}499 and usually stays under PLN\u{00A0}1,499, and infrastructure as code with a cloud migration and monitoring of the whole system costs PLN\u{00A0}1,999–\u{2060}4,999. On top of that comes the monthly cost of the servers or the cloud, which we estimate up front. The quote after the brief is free.",
             ],
             [
                 'question' => 'Can you move our website or app without downtime?',

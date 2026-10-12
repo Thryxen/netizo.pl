@@ -22,7 +22,7 @@ return [
         ],
         [
             'question' => 'Ile trwa stworzenie strony lub aplikacji?',
-            'answer' => "Prosta strona albo landing page powstaje zwykle w ciągu tygodnia, rozbudowana strona firmowa w ciągu dwóch tygodni, a aplikacja webowa w 2–\u{2060}4\u{00A0}miesiące. Dokładny termin ustalamy po briefie, gdy znamy zakres prac.",
+            'answer' => 'Prosta strona albo landing page powstaje zwykle w ciągu tygodnia, rozbudowana strona firmowa w ciągu dwóch tygodni, a aplikacja webowa w ciągu trzech tygodni. Dokładny termin ustalamy po briefie, gdy znamy zakres prac.',
         ],
         [
             'question' => 'Czy strona będzie widoczna w Google?',

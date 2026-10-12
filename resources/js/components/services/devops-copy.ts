@@ -12,7 +12,7 @@ export const DEVOPS_COPY = localized<ServiceCopy>({
             quoteShort: 'Wycena',
             facts: [
                 { prefix: 'od', value: '499\u00A0zł', label: 'konfiguracja serwera i CI/CD' },
-                { prefix: 'od', value: '5\u00A0000\u00A0zł', label: 'infrastruktura jako kod i migracja' },
+                { prefix: 'od', value: '1\u00A0999\u00A0zł', label: 'infrastruktura jako kod i migracja' },
                 { value: '24/7', label: 'monitoring i alerty' },
                 { value: '0\u00A0zł', label: 'za wycenę i konsultację' },
             ],
@@ -115,7 +115,7 @@ export const DEVOPS_COPY = localized<ServiceCopy>({
             quoteShort: 'Quote',
             facts: [
                 { prefix: 'from', value: 'PLN\u00A0499', label: 'server setup and CI/CD' },
-                { prefix: 'from', value: 'PLN\u00A05,000', label: 'infrastructure as code and migration' },
+                { prefix: 'from', value: 'PLN\u00A01,999', label: 'infrastructure as code and migration' },
                 { value: '24/7', label: 'monitoring and alerts' },
                 { value: 'Free', label: 'quote and consultation' },
             ],

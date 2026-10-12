@@ -126,11 +126,10 @@ it('gives every tier a description and what it includes, and a timeline only whe
             ->and($offer['timeline'] === null || is_string($offer['timeline']))->toBeTrue();
     }
 
-    expect(array_column($offers, 'timeline'))->toBe(match ($service) {
-        Service::Stores, Service::Mobile, Service::Ai, Service::Devops => [null, null],
-        Service::Apps => [trans('services.apps.offers.0.timeline', [], $locale), null],
-        Service::Websites => [trans('services.websites.offers.0.timeline', [], $locale), trans('services.websites.offers.1.timeline', [], $locale)],
-    });
+    expect(array_column($offers, 'timeline'))->toBe([
+        trans("services.{$service->value}.offers.0.timeline", [], $locale),
+        trans("services.{$service->value}.offers.1.timeline", [], $locale),
+    ]);
 })->with('service pages');
 
 it('shows up to four active projects tagged with the service, in the order of the panel', function () {
@@ -274,11 +273,11 @@ it('starts every service at its price, the same as the home page FAQ quotes', fu
 
 it('keeps the second tier and the usual ceilings of the tiers', function () {
     expect(Service::Websites->priceBrackets())->toBe([['from' => 799, 'to' => 1499], ['from' => 1799, 'to' => 2999]])
-        ->and(Service::Stores->priceBrackets())->toBe([['from' => 1299, 'to' => 15000], ['from' => 15000, 'to' => 50000]])
-        ->and(Service::Apps->priceBrackets())->toBe([['from' => 1699, 'to' => 50000], ['from' => 50000, 'to' => null]])
-        ->and(Service::Mobile->priceBrackets())->toBe([['from' => 999, 'to' => 50000], ['from' => 50000, 'to' => null]])
-        ->and(Service::Ai->priceBrackets())->toBe([['from' => 299, 'to' => 15000], ['from' => 15000, 'to' => 50000]])
-        ->and(Service::Devops->priceBrackets())->toBe([['from' => 499, 'to' => 5000], ['from' => 5000, 'to' => 15000]]);
+        ->and(Service::Stores->priceBrackets())->toBe([['from' => 1299, 'to' => 4999], ['from' => 5499, 'to' => 12999]])
+        ->and(Service::Apps->priceBrackets())->toBe([['from' => 1699, 'to' => 3999], ['from' => 4499, 'to' => null]])
+        ->and(Service::Mobile->priceBrackets())->toBe([['from' => 999, 'to' => 3999], ['from' => 4499, 'to' => null]])
+        ->and(Service::Ai->priceBrackets())->toBe([['from' => 299, 'to' => 1499], ['from' => 1999, 'to' => 4999]])
+        ->and(Service::Devops->priceBrackets())->toBe([['from' => 499, 'to' => 1499], ['from' => 1999, 'to' => 4999]]);
 });
 
 it('ships a 1200x630 JPEG share image under the size link previews accept', function (string $path, Service $service, string $locale) {

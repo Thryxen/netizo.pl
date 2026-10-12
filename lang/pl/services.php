@@ -104,6 +104,7 @@ return [
             [
                 'name' => 'Mały sklep',
                 'description' => 'Sklep dla firmy, która zaczyna sprzedawać online: katalog produktów, koszyk, płatności, wysyłka i panel do obsługi zamówień.',
+                'timeline' => 'Zwykle do czterech tygodni',
                 'includes' => [
                     'Projekt sklepu i klikalny prototyp w Figmie',
                     'Katalog produktów z wariantami, np. rozmiarem albo kolorem',
@@ -116,6 +117,7 @@ return [
             [
                 'name' => 'Duży e-commerce',
                 'description' => 'Sklep z dużym katalogiem albo sprzedażą B2B, połączony z magazynem, hurtownią lub systemem ERP, z indywidualnymi cenami.',
+                'timeline' => 'Zwykle do ośmiu tygodni',
                 'includes' => [
                     'Wszystko z małego sklepu',
                     'Integracja z magazynem, hurtownią albo ERP, np. Comarch ERP Optima',
@@ -130,7 +132,7 @@ return [
         'faq' => [
             [
                 'question' => 'Ile kosztuje sklep internetowy?',
-                'answer' => "Mały sklep kosztuje od 1\u{00A0}299\u{00A0}zł, zwykle do 15\u{00A0}000\u{00A0}zł, a duży e-commerce z integracjami z magazynem, hurtownią albo ERP 15\u{00A0}000–\u{2060}50\u{00A0}000\u{00A0}zł. Na cenę wpływają przede wszystkim liczba produktów i wariantów, integracje i to, czy sprzedajesz też firmom (B2B). Dokładną wycenę dostajesz bezpłatnie po briefie.",
+                'answer' => "Mały sklep kosztuje od 1\u{00A0}299\u{00A0}zł, zwykle do 4\u{00A0}999\u{00A0}zł, a duży e-commerce z integracjami z magazynem, hurtownią albo ERP 5\u{00A0}499–\u{2060}12\u{00A0}999\u{00A0}zł. Na cenę wpływają przede wszystkim liczba produktów i wariantów, integracje i to, czy sprzedajesz też firmom (B2B). Dokładną wycenę dostajesz bezpłatnie po briefie.",
             ],
             [
                 'question' => 'Czy robicie sklepy na Shopify albo WooCommerce?',
@@ -162,7 +164,7 @@ return [
     'apps' => [
         'seo' => [
             'title' => 'Aplikacje webowe na zamówienie od 1 699 zł | Netizo',
-            'description' => 'Zamów aplikację webową od 1 699 zł: panel, system B2B lub platformę SaaS z integracjami. Demo co dwa tygodnie, zwykle 2–4 miesiące. Bezpłatna wycena.',
+            'description' => 'Zamów aplikację webową od 1 699 zł: panel, system B2B lub platformę SaaS z integracjami. Zwykle do trzech tygodni. Bezpłatna wycena.',
             'name' => 'Aplikacje webowe na zamówienie',
             'breadcrumb' => 'Aplikacje webowe',
             'image' => 'assets/images/og-netizo-aplikacje-webowe.jpg',
@@ -178,7 +180,7 @@ return [
             [
                 'name' => 'Aplikacja webowa',
                 'description' => 'Panel, system wewnętrzny albo portal dla klientów, który porządkuje jeden proces w firmie, np. zamówienia, rezerwacje albo flotę.',
-                'timeline' => "Zwykle 2–\u{2060}4\u{00A0}miesiące",
+                'timeline' => 'Zwykle do trzech tygodni',
                 'includes' => [
                     'Analiza procesu i spisany zakres prac',
                     'Projekt interfejsu i klikalny prototyp w Figmie',
@@ -191,6 +193,7 @@ return [
             [
                 'name' => 'Duży system',
                 'description' => 'Platforma dla wielu grup użytkowników, z subskrypcjami, integracjami z ERP albo dużym ruchem, rozwijana etapami.',
+                'timeline' => 'Po analizie, etapami',
                 'includes' => [
                     'Wszystko z aplikacji webowej',
                     'Dane na żywo i architektura pod duży ruch',
@@ -205,11 +208,11 @@ return [
         'faq' => [
             [
                 'question' => 'Ile kosztuje aplikacja webowa?',
-                'answer' => "Aplikacja webowa kosztuje od 1\u{00A0}699\u{00A0}zł, zwykle do 50\u{00A0}000\u{00A0}zł, a duże systemy z wieloma grupami użytkowników i integracjami od 50\u{00A0}000\u{00A0}zł. Cena zależy od liczby ekranów i ról, integracji i wymagań co do bezpieczeństwa i obciążenia. Większe systemy dzielimy na etapy, żeby pierwsza wersja szybko trafiła do użytkowników. Wycena po briefie jest bezpłatna.",
+                'answer' => "Aplikacja webowa kosztuje od 1\u{00A0}699\u{00A0}zł, zwykle do 3\u{00A0}999\u{00A0}zł, a duże systemy z wieloma grupami użytkowników i integracjami od 4\u{00A0}499\u{00A0}zł. Cena zależy od liczby ekranów i ról, integracji i wymagań co do bezpieczeństwa i obciążenia. Większe systemy dzielimy na etapy, żeby pierwsza wersja szybko trafiła do użytkowników. Wycena po briefie jest bezpłatna.",
             ],
             [
                 'question' => 'Ile trwa stworzenie aplikacji webowej?',
-                'answer' => "Typowa aplikacja webowa powstaje w 2–\u{2060}4\u{00A0}miesiące. Pracujemy w dwutygodniowych sprintach i po każdym pokazujemy postępy na wersji testowej, więc działające fragmenty widzisz od pierwszych tygodni. Termin dużego systemu ustalamy po analizie, etapami.",
+                'answer' => 'Typowa aplikacja webowa powstaje zwykle w ciągu trzech tygodni. Pracujemy w dwutygodniowych sprintach i po każdym pokazujemy postępy na wersji testowej, więc działające fragmenty widzisz od pierwszych dni. Termin dużego systemu ustalamy po analizie, etapami.',
             ],
             [
                 'question' => 'Czym aplikacja webowa różni się od strony internetowej?',
@@ -253,6 +256,7 @@ return [
             [
                 'name' => 'Aplikacja mobilna',
                 'description' => 'Aplikacja na iOS i Android z jedną główną funkcją, np. zamówieniami, rezerwacjami albo programem lojalnościowym, połączona z Twoim systemem.',
+                'timeline' => 'Zwykle do trzech tygodni',
                 'includes' => [
                     'Projekt ekranów i klikalny prototyp w Figmie',
                     'Jeden kod na iOS i Android (React Native albo Flutter)',
@@ -265,6 +269,7 @@ return [
             [
                 'name' => 'Rozbudowana aplikacja',
                 'description' => 'Aplikacja z własnym backendem, płatnościami, wieloma rolami albo trybem offline, rozwijana etapami razem z wersją webową.',
+                'timeline' => 'Po briefie, etapami',
                 'includes' => [
                     'Wszystko z aplikacji mobilnej',
                     'Własny backend i API, wspólne z wersją webową',
@@ -279,7 +284,7 @@ return [
         'faq' => [
             [
                 'question' => 'Ile kosztuje aplikacja mobilna?',
-                'answer' => "Aplikacja mobilna na iOS i Android kosztuje od 999\u{00A0}zł, zwykle do 50\u{00A0}000\u{00A0}zł, a rozbudowana aplikacja z własnym backendem, płatnościami i wieloma rolami od 50\u{00A0}000\u{00A0}zł. Cena zależy od liczby ekranów, funkcji i integracji. Większe aplikacje dzielimy na etapy, żeby pierwsza wersja szybko trafiła do użytkowników. Wycena po briefie jest bezpłatna.",
+                'answer' => "Aplikacja mobilna na iOS i Android kosztuje od 999\u{00A0}zł, zwykle do 3\u{00A0}999\u{00A0}zł, a rozbudowana aplikacja z własnym backendem, płatnościami i wieloma rolami od 4\u{00A0}499\u{00A0}zł. Cena zależy od liczby ekranów, funkcji i integracji. Większe aplikacje dzielimy na etapy, żeby pierwsza wersja szybko trafiła do użytkowników. Wycena po briefie jest bezpłatna.",
             ],
             [
                 'question' => 'Czy aplikacja będzie działać na iPhonie i na Androidzie?',
@@ -287,7 +292,7 @@ return [
             ],
             [
                 'question' => 'Ile trwa stworzenie aplikacji mobilnej?',
-                'answer' => 'Termin podajemy po briefie, bo zależy od liczby ekranów i integracji. Pracujemy w dwutygodniowych sprintach i po każdym dostajesz testową wersję aplikacji do zainstalowania na telefonie, więc postępy widzisz od pierwszych tygodni. W planie uwzględniamy też czas na weryfikację w sklepach Apple i Google.',
+                'answer' => 'Aplikacja mobilna powstaje zwykle w ciągu trzech tygodni, a rozbudowaną budujemy etapami i jej termin podajemy po briefie, bo zależy od liczby ekranów i integracji. Pracujemy w dwutygodniowych sprintach i po każdym dostajesz testową wersję aplikacji do zainstalowania na telefonie, więc postępy widzisz od pierwszych tygodni. W planie uwzględniamy też czas na weryfikację w sklepach Apple i Google.',
             ],
             [
                 'question' => 'Czy zajmiecie się publikacją w App Store i Google Play?',
@@ -327,6 +332,7 @@ return [
             [
                 'name' => 'Chatbot albo automatyzacja',
                 'description' => 'Jeden proces zautomatyzowany od początku do końca, np. odpowiedzi na powtarzalne pytania klientów, odczytywanie faktur albo przepisywanie zgłoszeń do CRM.',
+                'timeline' => 'Zwykle do tygodnia',
                 'includes' => [
                     'Analiza procesu i wybór tego, co AI zrobi dobrze',
                     'Chatbot odpowiadający na podstawie Twoich dokumentów i oferty',
@@ -339,6 +345,7 @@ return [
             [
                 'name' => 'Agent AI z integracjami',
                 'description' => 'System, który obsługuje kilka kroków procesu: czyta dokumenty i wiadomości, podejmuje proste decyzje według Twoich reguł i zapisuje wyniki w systemach firmy.',
+                'timeline' => 'Zwykle do trzech tygodni',
                 'includes' => [
                     'Wszystko z pojedynczej automatyzacji',
                     'Integracje z ERP, CRM, pocztą i bazą dokumentów',
@@ -353,7 +360,7 @@ return [
         'faq' => [
             [
                 'question' => 'Ile kosztuje wdrożenie AI albo automatyzacji?',
-                'answer' => "Pojedyncza automatyzacja albo chatbot kosztuje od 299\u{00A0}zł, zwykle do 15\u{00A0}000\u{00A0}zł, a agent AI zintegrowany z kilkoma systemami firmy 15\u{00A0}000–\u{2060}50\u{00A0}000\u{00A0}zł. Do tego dochodzi koszt korzystania z modeli AI, który zależy od liczby zapytań; szacujemy go przed wdrożeniem. Wycena po briefie jest bezpłatna.",
+                'answer' => "Pojedyncza automatyzacja albo chatbot kosztuje od 299\u{00A0}zł, zwykle do 1\u{00A0}499\u{00A0}zł, a agent AI zintegrowany z kilkoma systemami firmy 1\u{00A0}999–\u{2060}4\u{00A0}999\u{00A0}zł. Do tego dochodzi koszt korzystania z modeli AI, który zależy od liczby zapytań; szacujemy go przed wdrożeniem. Wycena po briefie jest bezpłatna.",
             ],
             [
                 'question' => 'Co da się zautomatyzować?',
@@ -373,7 +380,7 @@ return [
             ],
             [
                 'question' => 'Ile trwa wdrożenie?',
-                'answer' => 'Termin podajemy po analizie procesu. Zaczynamy od jednego procesu i pokazujemy działającą wersję testową na Twoich przykładach, a kolejne automatyzacje dokładamy etapami, kiedy pierwsza już przynosi efekty.',
+                'answer' => 'Pojedyncza automatyzacja albo chatbot powstaje zwykle w ciągu tygodnia, a agent AI z integracjami w ciągu trzech tygodni. Zaczynamy od jednego procesu i pokazujemy działającą wersję testową na Twoich przykładach, a kolejne automatyzacje dokładamy etapami, kiedy pierwsza już przynosi efekty. Dokładny termin podajemy po analizie procesu.',
             ],
             [
                 'question' => 'Czy połączycie AI z naszymi systemami?',
@@ -401,6 +408,7 @@ return [
             [
                 'name' => 'Konfiguracja i CI/CD',
                 'description' => 'Serwer albo konto w chmurze ustawione od podstaw, automatyczne testy i wdrożenia z repozytorium, kopie zapasowe i monitoring dostępności.',
+                'timeline' => 'Zwykle do tygodnia',
                 'includes' => [
                     'Audyt obecnego serwera albo hostingu',
                     'Konfiguracja serwera lub chmury (AWS, GCP, Vercel)',
@@ -413,6 +421,7 @@ return [
             [
                 'name' => 'Infrastruktura jako kod',
                 'description' => 'Infrastruktura opisana w kodzie, kontenery i środowiska testowe, migracja do chmury bez przestojów i monitoring całego systemu.',
+                'timeline' => 'Zwykle do dwóch tygodni',
                 'includes' => [
                     'Wszystko z konfiguracji i CI/CD',
                     'Infrastruktura jako kod (Terraform) i kontenery (Docker)',
@@ -427,7 +436,7 @@ return [
         'faq' => [
             [
                 'question' => 'Ile kosztuje DevOps i chmura?',
-                'answer' => "Konfiguracja serwera albo chmury z CI/CD i kopiami zapasowymi kosztuje od 499\u{00A0}zł, zwykle do 5\u{00A0}000\u{00A0}zł, a infrastruktura jako kod z migracją do chmury i monitoringiem całego systemu 5\u{00A0}000–\u{2060}15\u{00A0}000\u{00A0}zł. Do tego dochodzi miesięczny koszt serwerów albo chmury, który szacujemy z góry. Wycena po briefie jest bezpłatna.",
+                'answer' => "Konfiguracja serwera albo chmury z CI/CD i kopiami zapasowymi kosztuje od 499\u{00A0}zł, zwykle do 1\u{00A0}499\u{00A0}zł, a infrastruktura jako kod z migracją do chmury i monitoringiem całego systemu 1\u{00A0}999–\u{2060}4\u{00A0}999\u{00A0}zł. Do tego dochodzi miesięczny koszt serwerów albo chmury, który szacujemy z góry. Wycena po briefie jest bezpłatna.",
             ],
             [
                 'question' => 'Czy przeniesiecie stronę albo aplikację bez przerwy w działaniu?',

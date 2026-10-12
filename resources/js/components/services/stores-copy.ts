@@ -8,12 +8,12 @@ export const STORES_COPY = localized<ServiceCopy>({
         hero: {
             headingLines: ['Tworzenie', 'sklepów', 'internetowych'],
             wideLines: [[0, 1], [2]],
-            lead: 'Budujemy sklepy, w których klient szybko znajduje produkt i płaci w kilka kliknięć, a Ty obsługujesz zamówienia z jednego panelu. Mały sklep kosztuje od 1\u00A0299\u00A0zł, a sklep z integracjami z magazynem lub ERP od 15\u00A0000\u00A0zł.',
+            lead: 'Budujemy sklepy, w których klient szybko znajduje produkt i płaci w kilka kliknięć, a Ty obsługujesz zamówienia z jednego panelu. Mały sklep kosztuje od 1\u00A0299\u00A0zł, a sklep z integracjami z magazynem lub ERP od 5\u00A0499\u00A0zł.',
             quote: 'Wyceń sklep',
             quoteShort: 'Wycena',
             facts: [
                 { prefix: 'od', value: '1\u00A0299\u00A0zł', label: 'mały sklep z płatnościami i wysyłką' },
-                { prefix: 'od', value: '15\u00A0000\u00A0zł', label: 'duży e-commerce z integracjami' },
+                { prefix: 'od', value: '5\u00A0499\u00A0zł', label: 'duży e-commerce z integracjami' },
                 { value: '24\u00A0h', label: 'na odpowiedź po briefie' },
                 { value: '0\u00A0zł', label: 'za wycenę i konsultację' },
             ],
@@ -111,12 +111,12 @@ export const STORES_COPY = localized<ServiceCopy>({
         name: 'Online stores',
         hero: {
             headingLines: ['Online store', 'development'],
-            lead: 'We build stores where customers find products fast and pay in a few clicks, while you handle orders from one panel. A small store starts at PLN\u00A01,299, and a store with warehouse or ERP integrations at PLN\u00A015,000.',
+            lead: 'We build stores where customers find products fast and pay in a few clicks, while you handle orders from one panel. A small store starts at PLN\u00A01,299, and a store with warehouse or ERP integrations at PLN\u00A05,499.',
             quote: 'Get a quote',
             quoteShort: 'Quote',
             facts: [
                 { prefix: 'from', value: 'PLN\u00A01,299', label: 'a small store with payments and shipping' },
-                { prefix: 'from', value: 'PLN\u00A015,000', label: 'large e-commerce with integrations' },
+                { prefix: 'from', value: 'PLN\u00A05,499', label: 'large e-commerce with integrations' },
                 { value: '24\u00A0h', label: 'to reply to your brief' },
                 { value: 'Free', label: 'quote and consultation' },
             ],

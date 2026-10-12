@@ -2,8 +2,8 @@ import { localized } from '@/lib/i18n';
 import type { ServiceCopy } from './service-copy';
 
 /**
- * Aplikacje mobilne (/aplikacje-mobilne, /en/mobile-apps). No timelines in weeks or months: the site states none for
- * mobile apps (the store reviews add their own time).
+ * Aplikacje mobilne (/aplikacje-mobilne, /en/mobile-apps). The store reviews add their own time to the timelines in
+ * lang/{pl,en}/services.php.
  */
 export const MOBILE_COPY = localized<ServiceCopy>({
     pl: {

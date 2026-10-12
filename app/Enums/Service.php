@@ -42,8 +42,8 @@ enum Service: string
     /**
      * The price brackets of the service's tiers in złoty, in the order of the tiers in lang/{pl,en}/services.php: where
      * the price starts and where it usually ends (null: no usual ceiling). The first tier starts at the service's price
-     * "od" (the home page FAQ quotes the same five prices); the second tier and the ceilings are the ranges the site
-     * quoted before (the brief's budgets).
+     * "od" (the home page FAQ quotes the same six prices); the second tier starts about 500 zł above the first
+     * tier's ceiling, like the website tiers.
      *
      * @return list<array{from: int, to: int|null}>
      */
@@ -51,11 +51,11 @@ enum Service: string
     {
         return match ($this) {
             self::Websites => [['from' => 799, 'to' => 1499], ['from' => 1799, 'to' => 2999]],
-            self::Stores => [['from' => 1299, 'to' => 15000], ['from' => 15000, 'to' => 50000]],
-            self::Apps => [['from' => 1699, 'to' => 50000], ['from' => 50000, 'to' => null]],
-            self::Mobile => [['from' => 999, 'to' => 50000], ['from' => 50000, 'to' => null]],
-            self::Ai => [['from' => 299, 'to' => 15000], ['from' => 15000, 'to' => 50000]],
-            self::Devops => [['from' => 499, 'to' => 5000], ['from' => 5000, 'to' => 15000]],
+            self::Stores => [['from' => 1299, 'to' => 4999], ['from' => 5499, 'to' => 12999]],
+            self::Apps => [['from' => 1699, 'to' => 3999], ['from' => 4499, 'to' => null]],
+            self::Mobile => [['from' => 999, 'to' => 3999], ['from' => 4499, 'to' => null]],
+            self::Ai => [['from' => 299, 'to' => 1499], ['from' => 1999, 'to' => 4999]],
+            self::Devops => [['from' => 499, 'to' => 1499], ['from' => 1999, 'to' => 4999]],
         };
     }
 }

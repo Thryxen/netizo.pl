@@ -27,23 +27,23 @@ return [
         ],
         'stores' => [
             'name' => 'Online store development',
-            'note' => 'a small store from PLN 1,299, a large e-commerce site with warehouse, wholesaler or ERP integration from PLN 15,000; payments, shipping, projects and FAQ.',
+            'note' => 'a small store from PLN 1,299 to PLN 4,999, usually within four weeks, a large e-commerce site with warehouse, wholesaler or ERP integration from PLN 5,499 to PLN 12,999, usually within eight weeks; payments, shipping, projects and FAQ.',
         ],
         'apps' => [
             'name' => 'Custom web application development',
-            'note' => 'a web application from PLN 1,699, usually in 2–4 months, a large system from PLN 50,000; integrations, security, projects and FAQ.',
+            'note' => 'a web application from PLN 1,699 to PLN 3,999, usually within three weeks, a large system from PLN 4,499, built in stages; integrations, security, projects and FAQ.',
         ],
         'mobile' => [
             'name' => 'iOS and Android app development',
-            'note' => 'a mobile app from PLN 999, a larger app with its own backend from PLN 50,000; one codebase for iOS and Android, publishing in the App Store and Google Play, projects and FAQ.',
+            'note' => 'a mobile app from PLN 999 to PLN 3,999, usually within three weeks, a larger app with its own backend from PLN 4,499, built in stages; one codebase for iOS and Android, publishing in the App Store and Google Play, projects and FAQ.',
         ],
         'ai' => [
             'name' => 'AI and automation',
-            'note' => 'a chatbot or a single automation from PLN 299, an AI agent integrated with the company’s systems from PLN 15,000; answers based on the company’s documents, approvals and logs, data security, model costs and FAQ.',
+            'note' => 'a chatbot or a single automation from PLN 299 to PLN 1,499, usually within a week, an AI agent integrated with the company’s systems from PLN 1,999 to PLN 4,999, usually within three weeks; answers based on the company’s documents, approvals and logs, data security, model costs and FAQ.',
         ],
         'devops' => [
             'name' => 'DevOps and cloud for businesses',
-            'note' => 'a server or cloud setup with CI/CD and backups from PLN 499, infrastructure as code and a cloud migration from PLN 5,000; 24/7 monitoring, security, cloud costs and FAQ.',
+            'note' => 'a server or cloud setup with CI/CD and backups from PLN 499 to PLN 1,499, usually within a week, infrastructure as code and a cloud migration from PLN 1,999 to PLN 4,999, usually within two weeks; 24/7 monitoring, security, cloud costs and FAQ.',
         ],
         'projects' => [
             'name' => 'Projects',

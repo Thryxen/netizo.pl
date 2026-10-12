@@ -8,12 +8,12 @@ export const APPS_COPY = localized<ServiceCopy>({
         hero: {
             headingLines: ['Aplikacje', 'webowe', 'na zamówienie'],
             wideLines: [[0, 1], [2]],
-            lead: 'Projektujemy i budujemy panele, systemy B2B i platformy SaaS, które porządkują procesy w firmie i łączą się z narzędziami, których już używasz. Aplikacja webowa kosztuje od 1\u00A0699\u00A0zł i powstaje zwykle w 2–\u20604\u00A0miesiące.',
+            lead: 'Projektujemy i budujemy panele, systemy B2B i platformy SaaS, które porządkują procesy w firmie i łączą się z narzędziami, których już używasz. Aplikacja webowa kosztuje od 1\u00A0699\u00A0zł i powstaje zwykle w ciągu trzech tygodni.',
             quote: 'Wyceń aplikację',
             quoteShort: 'Wycena',
             facts: [
                 { prefix: 'od', value: '1\u00A0699\u00A0zł', label: 'aplikacja webowa' },
-                { value: '2–\u20604\u00A0mies.', label: 'typowa aplikacja od briefu do wdrożenia' },
+                { prefix: 'do', value: '3\u00A0tyg.', label: 'aplikacja webowa od briefu do wdrożenia' },
                 { value: '2\u00A0tyg.', label: 'co tyle pokazujemy demo na wersji testowej' },
                 { value: '0\u00A0zł', label: 'za wycenę i konsultację' },
             ],
@@ -54,7 +54,7 @@ export const APPS_COPY = localized<ServiceCopy>({
         },
         process: {
             title: 'Jak powstaje aplikacja',
-            lead: 'Cztery etapy, a w trzecim dwutygodniowe sprinty. Typowa aplikacja jest gotowa w 2–\u20604\u00A0miesiące, duży system budujemy etapami.',
+            lead: 'Cztery etapy, a w trzecim dwutygodniowe sprinty. Typowa aplikacja jest gotowa zwykle w ciągu trzech tygodni, duży system budujemy etapami.',
             steps: [
                 {
                     title: 'Analiza procesu',
@@ -112,12 +112,12 @@ export const APPS_COPY = localized<ServiceCopy>({
         hero: {
             headingLines: ['Custom web', 'application', 'development'],
             wideLines: [[0, 1], [2]],
-            lead: 'We design and build portals, B2B systems and SaaS platforms that organize the processes in your company and connect to the tools you already use. A web application starts at PLN\u00A01,699 and usually takes 2–\u20604\u00A0months.',
+            lead: 'We design and build portals, B2B systems and SaaS platforms that organize the processes in your company and connect to the tools you already use. A web application starts at PLN\u00A01,699 and is usually ready within three weeks.',
             quote: 'Get a quote',
             quoteShort: 'Quote',
             facts: [
                 { prefix: 'from', value: 'PLN\u00A01,699', label: 'a web application' },
-                { value: '2–\u20604\u00A0mo.', label: 'a typical application from brief to launch' },
+                { prefix: 'up to', value: '3\u00A0wks', label: 'a web application from brief to launch' },
                 { value: '2\u00A0wks', label: 'between demos on the staging version' },
                 { value: 'Free', label: 'quote and consultation' },
             ],
@@ -158,7 +158,7 @@ export const APPS_COPY = localized<ServiceCopy>({
         },
         process: {
             title: 'How an application comes together',
-            lead: 'Four stages, with two-week sprints in the third. A typical application is ready in 2–\u20604\u00A0months, and we build a large system in stages.',
+            lead: 'Four stages, with two-week sprints in the third. A typical application is usually ready within three weeks, and we build a large system in stages.',
             steps: [
                 {
                     title: 'Process analysis',

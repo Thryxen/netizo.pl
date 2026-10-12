@@ -33,23 +33,23 @@ return [
         ],
         'stores' => [
             'name' => 'Tworzenie sklepów internetowych',
-            'note' => 'mały sklep od 1 299 zł, duży e-commerce z integracją z magazynem, hurtownią lub ERP od 15 000 zł; płatności, wysyłka, realizacje i najczęstsze pytania.',
+            'note' => 'mały sklep od 1 299 zł do 4 999 zł, zwykle w ciągu czterech tygodni, duży e-commerce z integracją z magazynem, hurtownią lub ERP od 5 499 zł do 12 999 zł, zwykle w ciągu ośmiu tygodni; płatności, wysyłka, realizacje i najczęstsze pytania.',
         ],
         'apps' => [
             'name' => 'Aplikacje webowe na zamówienie',
-            'note' => 'aplikacja webowa od 1 699 zł, zwykle w 2–4 miesiące, duży system od 50 000 zł; integracje, bezpieczeństwo, realizacje i najczęstsze pytania.',
+            'note' => 'aplikacja webowa od 1 699 zł do 3 999 zł, zwykle w ciągu trzech tygodni, duży system od 4 499 zł, budowany etapami; integracje, bezpieczeństwo, realizacje i najczęstsze pytania.',
         ],
         'mobile' => [
             'name' => 'Aplikacje mobilne na iOS i Android',
-            'note' => 'aplikacja mobilna od 999 zł, rozbudowana aplikacja z własnym backendem od 50 000 zł; jeden kod na iOS i Android, publikacja w App Store i Google Play, realizacje i najczęstsze pytania.',
+            'note' => 'aplikacja mobilna od 999 zł do 3 999 zł, zwykle w ciągu trzech tygodni, rozbudowana aplikacja z własnym backendem od 4 499 zł, budowana etapami; jeden kod na iOS i Android, publikacja w App Store i Google Play, realizacje i najczęstsze pytania.',
         ],
         'ai' => [
             'name' => 'Automatyzacja i wdrożenia AI',
-            'note' => 'chatbot albo pojedyncza automatyzacja od 299 zł, agent AI zintegrowany z systemami firmy od 15 000 zł; odpowiedzi na podstawie dokumentów firmy, akceptacje i logi, bezpieczeństwo danych, koszty modeli i najczęstsze pytania.',
+            'note' => 'chatbot albo pojedyncza automatyzacja od 299 zł do 1 499 zł, zwykle w ciągu tygodnia, agent AI zintegrowany z systemami firmy od 1 999 zł do 4 999 zł, zwykle w ciągu trzech tygodni; odpowiedzi na podstawie dokumentów firmy, akceptacje i logi, bezpieczeństwo danych, koszty modeli i najczęstsze pytania.',
         ],
         'devops' => [
             'name' => 'DevOps i chmura dla firm',
-            'note' => 'konfiguracja serwera albo chmury z CI/CD i kopiami zapasowymi od 499 zł, infrastruktura jako kod i migracja do chmury od 5 000 zł; monitoring 24/7, bezpieczeństwo, koszty chmury i najczęstsze pytania.',
+            'note' => 'konfiguracja serwera albo chmury z CI/CD i kopiami zapasowymi od 499 zł do 1 499 zł, zwykle w ciągu tygodnia, infrastruktura jako kod i migracja do chmury od 1 999 zł do 4 999 zł, zwykle w ciągu dwóch tygodni; monitoring 24/7, bezpieczeństwo, koszty chmury i najczęstsze pytania.',
         ],
         'projects' => [
             'name' => 'Realizacje',

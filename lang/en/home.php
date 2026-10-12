@@ -21,7 +21,7 @@ return [
         ],
         [
             'question' => 'How long does it take to build a website or an app?',
-            'answer' => "A simple website or a landing page is usually ready within a week, a larger company website within two weeks, and a web application 2–\u{2060}4\u{00A0}months. We set the exact deadline after the brief, once we know the scope of work.",
+            'answer' => 'A simple website or a landing page is usually ready within a week, a larger company website within two weeks, and a web application within three weeks. We set the exact deadline after the brief, once we know the scope of work.',
         ],
         [
             'question' => 'Will my website show up on Google?',
