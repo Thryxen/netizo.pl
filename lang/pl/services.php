@@ -12,7 +12,7 @@
 return [
     'websites' => [
         'seo' => [
-            'title' => 'Tworzenie stron internetowych od 799 zł – Leszno | Netizo',
+            'title' => 'Tworzenie stron internetowych od 799 zł | Netizo',
             'description' => 'Zamów stronę internetową dla firmy od 799 zł. Projekt w Figmie, wersja mobilna, SEO i szybkość w standardzie. Prosta strona zwykle w ciągu tygodnia.',
             'name' => 'Tworzenie stron internetowych',
             'breadcrumb' => 'Strony internetowe',
@@ -87,7 +87,7 @@ return [
 
     'stores' => [
         'seo' => [
-            'title' => 'Sklepy internetowe dla firm od 1 299 zł – Leszno | Netizo',
+            'title' => 'Sklepy internetowe dla firm od 1 299 zł | Netizo',
             'description' => 'Zamów sklep internetowy od 1 299 zł. Płatności online, wysyłka, integracja z magazynem lub ERP i szybkie strony produktów. Bezpłatna wycena po briefie.',
             'name' => 'Tworzenie sklepów internetowych',
             'breadcrumb' => 'Sklepy internetowe',
@@ -315,7 +315,7 @@ return [
 
     'ai' => [
         'seo' => [
-            'title' => 'Automatyzacja i wdrożenia AI od 299 zł – Leszno | Netizo',
+            'title' => 'Automatyzacja i wdrożenia AI od 299 zł | Netizo',
             'description' => 'Zamów automatyzację albo wdrożenie AI od 299 zł: chatbot na danych firmy, obieg dokumentów i integracje z CRM. Bezpłatna wycena po briefie.',
             'name' => 'Automatyzacja i wdrożenia AI',
             'breadcrumb' => 'AI & Automatyzacja',
@@ -391,7 +391,7 @@ return [
 
     'devops' => [
         'seo' => [
-            'title' => 'DevOps i chmura dla firm od 499 zł – Leszno | Netizo',
+            'title' => 'DevOps i chmura dla firm od 499 zł | Netizo',
             'description' => 'Zamów konfigurację DevOps od 499 zł: serwer albo chmura, CI/CD, kopie zapasowe i monitoring 24/7. Wdrożenia bez przestojów. Bezpłatna wycena.',
             'name' => 'DevOps i chmura dla firm',
             'breadcrumb' => 'DevOps & Cloud',

@@ -10,7 +10,7 @@
 return [
     'websites' => [
         'seo' => [
-            'title' => 'Website development from PLN 799 – Leszno, Poland | Netizo',
+            'title' => 'Website development from PLN 799 | Netizo',
             'description' => 'Order a business website from PLN 799. Figma design, mobile version, SEO and speed as standard. A simple website usually within a week. Free quote.',
             'name' => 'Website development',
             'breadcrumb' => 'Websites',
