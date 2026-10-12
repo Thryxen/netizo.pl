@@ -1,12 +1,43 @@
 <?php
 
 use App\Models\Project;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Facade;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Testing\AssertableInertia as Assert;
 
 beforeEach(function () {
     $this->withoutVite();
+    Storage::fake('public');
 });
+
+/**
+ * Put a screenshot on the (fake) public disk, as the panel stores it.
+ */
+function storeProjectScreenshot(string $path, int $width = 1024, int $height = 1536): string
+{
+    Storage::disk('public')->put($path, UploadedFile::fake()->image('screenshot.jpg', $width, $height)->getContent());
+
+    return $path;
+}
+
+/**
+ * The og:image URL of a page. SEOTools keeps its tags in singletons, which a test's earlier requests would have filled
+ * (every real request starts empty), so they are dropped first.
+ */
+function ogImageOf(string $path): string
+{
+    foreach (['seotools.metatags', 'seotools.opengraph', 'seotools.twitter', 'seotools.json-ld', 'seotools.json-ld-multi', 'seotools'] as $binding) {
+        app()->forgetInstance($binding);
+    }
+
+    Facade::clearResolvedInstances();
+
+    preg_match('/<meta property="og:image" content="([^"]+)">/', test()->get($path)->assertOk()->getContent(), $matches);
+
+    return $matches[1] ?? '';
+}
 
 /**
  * @return Collection<int, mixed>
@@ -156,37 +187,111 @@ it('renders the SEO tags of the list in each language', function (string $path, 
 
     expect(mb_strlen($description))->toBeLessThanOrEqual(155);
 })->with([
-    'polish' => ['/realizacje', 'Realizacje: strony, sklepy i aplikacje webowe – Leszno | Netizo', 'Zobacz nasze realizacje: strony firmowe, sklepy i aplikacje webowe z opisem wyzwań, rozwiązań i wyników. Wyceń podobny projekt w Netizo.', 'assets/images/og-netizo-2.png'],
-    'english' => ['/en/projects', 'Projects: websites, stores and web apps – Leszno, Poland | Netizo', 'See our projects: company websites, online stores and web apps, with the challenges, solutions and results. Get a quote for a similar one.', 'assets/images/og-netizo-en.png'],
+    'polish' => ['/realizacje', 'Realizacje: strony, sklepy i aplikacje webowe – Leszno | Netizo', 'Zobacz nasze realizacje: strony firmowe, sklepy i aplikacje webowe z opisem wyzwań, rozwiązań i wyników. Wyceń podobny projekt w Netizo.', 'assets/images/og-netizo-realizacje.jpg'],
+    'english' => ['/en/projects', 'Projects: websites, stores and web apps – Leszno, Poland | Netizo', 'See our projects: company websites, online stores and web apps, with the challenges, solutions and results. Get a quote for a similar one.', 'assets/images/og-netizo-projects-en.jpg'],
 ]);
 
-it('titles a case study after the project and shares its screenshot', function () {
+it('ships the list\'s 1200x630 share images under the size link previews accept', function (string $file) {
+    $imagePath = public_path("assets/images/{$file}");
+
+    expect($imagePath)->toBeFile()
+        ->and(array_slice(getimagesize($imagePath), 0, 2))->toBe([1200, 630])
+        ->and(getimagesize($imagePath)['mime'])->toBe('image/jpeg')
+        ->and(filesize($imagePath))->toBeLessThan(300 * 1024);
+})->with(['og-netizo-realizacje.jpg', 'og-netizo-projects-en.jpg']);
+
+it('describes the share image of the list and of a case study', function () {
+    Project::factory()->create(['slug' => 'flotapro', 'title' => 'FlotaPro']);
+
+    $this->get('/realizacje')
+        ->assertSee('<meta property="og:image:width" content="1200">', false)
+        ->assertSee('<meta property="og:image:height" content="630">', false)
+        ->assertSee('<meta property="og:image:alt" content="Realizacje Netizo: strony, sklepy i aplikacje webowe">', false)
+        ->assertSee('<meta name="twitter:image:alt" content="Realizacje Netizo: strony, sklepy i aplikacje webowe">', false);
+
+    $this->get('/en/projects/flotapro')
+        ->assertSee('<meta property="og:image:alt" content="FlotaPro: a Netizo case study">', false)
+        ->assertSee('<meta property="og:image:width" content="1200">', false);
+});
+
+it('titles a case study after the project and its type, with a call to see it after the description', function () {
     Project::factory()->create([
         'slug' => 'flotapro',
         'title' => 'FlotaPro',
         'category' => 'Aplikacja webowa / SaaS',
         'category_en' => 'Web application / SaaS',
         'description' => 'Panel do zarządzania flotą firmową.',
-        'thumbnail_image' => 'projects/thumbnails/flotapro.webp',
-        'full_image' => 'projects/full/flotapro.webp',
+        'description_en' => 'A fleet management panel.',
     ]);
 
     $this->get('/realizacje/flotapro')
-        ->assertSee('<title>FlotaPro – Aplikacja webowa / SaaS | Realizacje Netizo</title>', false)
-        ->assertSee('<meta name="description" content="Panel do zarządzania flotą firmową.">', false)
-        ->assertSee('<meta property="og:image" content="'.asset('storage/projects/thumbnails/flotapro.webp').'">', false)
-        ->assertSee('<meta name="twitter:image" content="'.asset('storage/projects/thumbnails/flotapro.webp').'">', false)
+        ->assertSee('<title>FlotaPro – Aplikacja webowa / SaaS | Netizo</title>', false)
+        ->assertSee('<meta name="description" content="Panel do zarządzania flotą firmową. Zobacz, jak to zrobiliśmy.">', false)
         ->assertDontSee('<meta name="keywords"', false);
 
     $this->get('/en/projects/flotapro')
-        ->assertSee('<title>FlotaPro – Web application / SaaS | Netizo case studies</title>', false);
+        ->assertSee('<title>FlotaPro – Web application / SaaS | Netizo</title>', false)
+        ->assertSee('<meta name="description" content="A fleet management panel. See how we built it.">', false);
 });
 
-it('falls back to the share image and shortens a long description for a case study', function () {
+it('drops the project type from a title that would not fit search results', function () {
+    Project::factory()->create(['slug' => 'zloty-klos', 'title' => 'Piekarnia Złoty Kłos', 'category' => 'Strona firmowa / Zamówienia online', 'category_en' => null]);
+    Project::factory()->create(['slug' => 'bez-rodzaju', 'title' => 'Bez rodzaju', 'category' => '']);
+
+    $this->get('/realizacje/zloty-klos')->assertSee('<title>Piekarnia Złoty Kłos – realizacja Netizo</title>', false);
+    $this->get('/en/projects/zloty-klos')->assertSee('<title>Piekarnia Złoty Kłos – Netizo case study</title>', false);
+    $this->get('/realizacje/bez-rodzaju')->assertSee('<title>Bez rodzaju – realizacja Netizo</title>', false);
+});
+
+it('shares a case study as a 1200x630 card drawn from its screenshot, one per language', function () {
+    $project = Project::factory()->create([
+        'slug' => 'flotapro',
+        'title' => 'FlotaPro',
+        'thumbnail_image' => storeProjectScreenshot('projects/thumbnails/flotapro.webp', 1600, 1000),
+        'full_image' => storeProjectScreenshot('projects/full/flotapro.webp'),
+    ]);
+
+    $polish = ogImageOf('/realizacje/flotapro');
+    $english = ogImageOf('/en/projects/flotapro');
+
+    expect($polish)->toStartWith(asset("storage/projects/share/{$project->id}-pl-"))->toEndWith('.jpg')
+        ->and($english)->toStartWith(asset("storage/projects/share/{$project->id}-en-"))
+        ->and(ogImageOf('/realizacje/flotapro'))->toBe($polish);
+
+    $file = Storage::disk('public')->path(str_replace(asset('storage').'/', '', $polish));
+
+    expect(array_slice(getimagesize($file), 0, 2))->toBe([1200, 630])
+        ->and(getimagesize($file)['mime'])->toBe('image/jpeg')
+        ->and(filesize($file))->toBeLessThan(300 * 1024);
+
+    $this->get('/realizacje/flotapro')
+        ->assertSee('<meta name="twitter:image" content="'.$polish.'">', false);
+});
+
+it('draws a new card under a new name when the project changes, and removes the old one', function () {
+    $project = Project::factory()->create([
+        'slug' => 'flotapro',
+        'title' => 'FlotaPro',
+        'thumbnail_image' => storeProjectScreenshot('projects/thumbnails/flotapro.webp', 1600, 1000),
+    ]);
+
+    $before = ogImageOf('/realizacje/flotapro');
+    $project->update(['title' => 'FlotaPro 2']);
+    $after = ogImageOf('/realizacje/flotapro');
+
+    expect($after)->not->toBe($before)
+        ->and(Storage::disk('public')->files('projects/share'))->toBe([str_replace(asset('storage').'/', '', $after)]);
+});
+
+it('falls back to the list\'s share image and shortens a long description for a case study', function () {
     Project::factory()->create(['slug' => 'dlugi', 'description' => str_repeat('Bardzo długi opis projektu. ', 12)]);
+    Project::factory()->create(['slug' => 'bez-pliku', 'thumbnail_image' => 'projects/thumbnails/missing.webp']);
+
+    expect(ogImageOf('/realizacje/bez-pliku'))->toBe(asset('assets/images/og-netizo-realizacje.jpg'))
+        ->and(ogImageOf('/en/projects/bez-pliku'))->toBe(asset('assets/images/og-netizo-projects-en.jpg'));
 
     $response = $this->get('/realizacje/dlugi')
-        ->assertSee('<meta property="og:image" content="'.asset('assets/images/og-netizo-2.png').'">', false);
+        ->assertSee('<meta property="og:image" content="'.asset('assets/images/og-netizo-realizacje.jpg').'">', false);
 
     preg_match('/<meta name="description" content="([^"]*)">/', $response->getContent(), $matches);
 

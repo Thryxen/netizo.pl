@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Concerns\PresentsProjects;
 use App\Models\Project;
 use App\Services\LocalizedRoutes;
+use App\Services\ProjectShareImage;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\TwitterCard;
@@ -29,12 +30,17 @@ class PortfolioController extends Controller
     /** Longest meta description of a case study, the limit search results show in full. */
     private const DESCRIPTION_LENGTH = 155;
 
+    /** Longest case study title with the project's type; a longer one drops it (search results cut at about 60). */
+    private const TITLE_LENGTH = 60;
+
+    public function __construct(private ProjectShareImage $shareImage) {}
+
     public function index(): Response
     {
         $projects = Project::active()->ordered()->get();
         $description = __('projects.index.description');
 
-        $this->pageMeta(__('projects.index.title'), $description, asset(__('projects.index.image')), isShareImage: true);
+        $this->pageMeta(__('projects.index.title'), $description, asset(__('projects.index.image')), __('projects.index.image_alt'));
         $this->localizedSeo('projects.index');
         $this->withoutDefaultJsonLd();
 
@@ -53,13 +59,15 @@ class PortfolioController extends Controller
         abort_unless($project->is_active, 404);
 
         $props = $this->projectProps($project);
-        $title = $props['category'] === ''
-            ? __('projects.show.title_without_category', ['title' => $project->title])
-            : __('projects.show.title', ['title' => $project->title, 'category' => $props['category']]);
-        $description = Str::limit(Str::squish($props['description'] ?: $props['fullDescription']), self::DESCRIPTION_LENGTH - 1, '…');
-        $screenshotUrl = $props['thumbnailUrl'] ?? $props['fullImageUrl'];
+        $pageUrl = LocalizedRoutes::url('projects.show', ['project' => $project]);
+        $shareImageUrl = $this->shareImage->url($project, $props['category'], $pageUrl);
 
-        $this->pageMeta($title, $description, $screenshotUrl ?? asset(__('projects.index.image')), isShareImage: $screenshotUrl === null);
+        $this->pageMeta(
+            $this->caseStudyTitle($project->title, $props['category']),
+            $this->caseStudyDescription($props['description'] ?: $props['fullDescription']),
+            $shareImageUrl ?? asset(__('projects.index.image')),
+            __('projects.show.image_alt', ['title' => $project->title]),
+        );
         $this->localizedSeo('projects.show', ['project' => $project]);
         $this->withoutDefaultJsonLd();
 
@@ -71,16 +79,16 @@ class PortfolioController extends Controller
         ])->withViewData([
             'schemas' => [
                 $this->creativeWorkSchema($project, $props),
-                $this->breadcrumbSchema([['name' => $project->title, 'url' => LocalizedRoutes::url('projects.show', ['project' => $project])]]),
+                $this->breadcrumbSchema([['name' => $project->title, 'url' => $pageUrl]]),
             ],
         ]);
     }
 
     /**
-     * Title, description and share image of the page. `isShareImage`: the image is one of the site's 1200×630 share
-     * images (a project's screenshot has its own size).
+     * Title, description and share image of the page; every share image is 1200 × 630 (the list's static one, or the
+     * case study's card drawn by ProjectShareImage).
      */
-    private function pageMeta(string $title, string $description, string $imageUrl, bool $isShareImage): void
+    private function pageMeta(string $title, string $description, string $imageUrl, string $imageAlt): void
     {
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($description);
@@ -89,12 +97,40 @@ class PortfolioController extends Controller
             ->setDescription($description)
             ->setType('website')
             ->setSiteName('Netizo')
-            ->addImage($imageUrl, $isShareImage ? ['width' => 1200, 'height' => 630] : []);
+            ->addImage($imageUrl, ['width' => ProjectShareImage::WIDTH, 'height' => ProjectShareImage::HEIGHT, 'alt' => $imageAlt]);
 
         TwitterCard::setTitle($title)
             ->setDescription($description)
             ->setType('summary_large_image')
-            ->setImage($imageUrl);
+            ->setImage($imageUrl)
+            ->addValue('image:alt', $imageAlt);
+    }
+
+    /**
+     * "FlotaPro – Aplikacja webowa / SaaS | Netizo", or the short form while that would not fit search results
+     * ("Piekarnia Złoty Kłos – realizacja Netizo"), and for a project without a type.
+     */
+    private function caseStudyTitle(string $title, string $category): string
+    {
+        $full = __('projects.show.title', ['title' => $title, 'category' => $category]);
+
+        return $category === '' || mb_strlen($full) > self::TITLE_LENGTH ? __('projects.show.title_short', ['title' => $title]) : $full;
+    }
+
+    /**
+     * The project's short description, with "Zobacz, jak to zrobiliśmy." after it while that fits 155 characters; a
+     * longer description is cut there.
+     */
+    private function caseStudyDescription(string $description): string
+    {
+        $description = Str::squish($description);
+        $withSuffix = trim($description.' '.__('projects.show.description_suffix'));
+
+        if (mb_strlen($withSuffix) <= self::DESCRIPTION_LENGTH) {
+            return $withSuffix;
+        }
+
+        return Str::limit($description, self::DESCRIPTION_LENGTH - 1, '…');
     }
 
     /**

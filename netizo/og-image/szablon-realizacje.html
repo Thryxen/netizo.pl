@@ -1,0 +1,193 @@
+<!doctype html>
+<!--
+    Obraz do podglądów linków listy realizacji (/realizacje, /en/projects): 1200 × 630 px, jasny motyw netizo.pl.
+    Ta sama rama co szablon-o-nas.html (logo, poziome linie, szyna z nitami), a prawa kolumna jak karta case study
+    (App\Services\ProjectShareImage): pod górną linią, do dolnej krawędzi, mozaika tych samych trzech zdjęć co hero listy
+    (components/projects/projects-hero.tsx). Teksty i zdjęcia (data URI) podaje generuj.cjs w `values`; znaczniki
+    w podwójnych klamrach wypełnia generuj.cjs, nie wpisuj ich w komentarzach.
+-->
+<html lang="{{lang}}">
+<head>
+    <meta charset="utf-8">
+    <title>OG image netizo, realizacje</title>
+    <style>
+        @font-face {
+            font-family: 'Geist';
+            font-weight: 400;
+            src: url('fonts/geist-400.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Geist';
+            font-weight: 600;
+            src: url('fonts/geist-600.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Geist Mono';
+            font-weight: 400;
+            src: url('fonts/geist-mono-400.ttf') format('truetype');
+        }
+
+        :root {
+            --ink: #0a0a0a;
+            --paper: #ffffff;
+            --muted: #6e6e6e;
+            --line: #d6d6d6;
+            --rivet: #b3b3b3;
+
+            --rail-x: 64px;
+            --column-x: 680px;
+            --content-x: 104px;
+            --line-top: 140px;
+            --line-bottom: 500px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        html,
+        body {
+            width: 1200px;
+            height: 630px;
+            background: var(--paper);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .canvas {
+            position: relative;
+            width: 1200px;
+            height: 630px;
+            overflow: hidden;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: 'Geist', sans-serif;
+        }
+
+        .svg-fit svg {
+            display: block;
+            width: auto;
+            height: 100%;
+            overflow: visible;
+        }
+
+        /* Mozaika: zdjęcie z kodem na całą wysokość po lewej, planowanie i wdrożenie u klienta po prawej, 2 px linii między nimi. */
+        .mosaic {
+            position: absolute;
+            left: var(--column-x);
+            right: 0;
+            top: var(--line-top);
+            bottom: 0;
+            display: grid;
+            grid-template-columns: 5fr 7fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 2px;
+            background: var(--line);
+        }
+
+        .mosaic img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .mosaic img:first-child {
+            grid-row: span 2;
+            object-position: 50% 40%;
+        }
+
+        .hairline {
+            position: absolute;
+            left: 0;
+            height: 2px;
+            background: var(--line);
+        }
+
+        .rail {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--line);
+        }
+
+        .rivet {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--rivet);
+        }
+
+        .logo {
+            position: absolute;
+            left: var(--content-x);
+            top: 34px;
+            height: 72px;
+            color: var(--ink);
+        }
+
+        .label {
+            position: absolute;
+            left: calc(var(--column-x) + 48px);
+            top: 0;
+            height: var(--line-top);
+            display: flex;
+            align-items: center;
+            font-family: 'Geist Mono', monospace;
+            font-size: 21px;
+            color: var(--muted);
+        }
+
+        .headline {
+            position: absolute;
+            left: var(--content-x);
+            top: var(--line-top);
+            height: calc(var(--line-bottom) - var(--line-top));
+            display: flex;
+            align-items: center;
+            font-size: 72px;
+            font-weight: 600;
+            line-height: 1.04;
+            letter-spacing: -0.04em;
+        }
+
+        .url {
+            position: absolute;
+            left: var(--content-x);
+            top: var(--line-bottom);
+            height: calc(630px - var(--line-bottom));
+            display: flex;
+            align-items: center;
+            font-family: 'Geist Mono', monospace;
+            font-size: 34px;
+            color: var(--muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas">
+        <div class="mosaic">
+            <img src="{{photoCode}}" alt="">
+            <img src="{{photoWorkshop}}" alt="">
+            <img src="{{photoVisit}}" alt="">
+        </div>
+
+        <span class="hairline" style="top: calc(var(--line-top) - 1px); right: 0"></span>
+        <span class="hairline" style="top: calc(var(--line-bottom) - 1px); width: var(--column-x)"></span>
+        <span class="rail" style="left: calc(var(--rail-x) - 1px)"></span>
+        <span class="rail" style="left: calc(var(--column-x) - 1px)"></span>
+        <span class="rivet" style="left: calc(var(--rail-x) - 5px); top: calc(var(--line-top) - 5px)"></span>
+        <span class="rivet" style="left: calc(var(--rail-x) - 5px); top: calc(var(--line-bottom) - 5px)"></span>
+        <span class="rivet" style="left: calc(var(--column-x) - 5px); top: calc(var(--line-top) - 5px)"></span>
+        <span class="rivet" style="left: calc(var(--column-x) - 5px); top: calc(var(--line-bottom) - 5px)"></span>
+
+        <div class="logo svg-fit">{{logo}}</div>
+        <p class="label">{{label}}</p>
+        <p class="headline">{{headline}}</p>
+        <p class="url">{{url}}</p>
+    </div>
+</body>
+</html>

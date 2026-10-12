@@ -9,6 +9,9 @@
  *   og-netizo-polityka-prywatnosci.png, og-netizo-privacy-policy-en.png, og-netizo-regulamin.png, og-netizo-terms-en.png
  *                            polityka prywatności i regulamin (/polityka-prywatnosci, /en/privacy-policy, /regulamin,
  *                            /en/terms), z jednego szablonu szablon-dokument.html z tekstami z `values` poniżej
+ *   og-netizo-realizacje.jpg, og-netizo-projects-en.jpg
+ *                            lista realizacji (/realizacje, /en/projects), z szablon-realizacje.html: mozaika zdjęć
+ *                            z public/assets/images/photos (data URI), więc JPEG (`format: 'jpeg'`), nie PNG
  * Logo, sygnet i fonty są wspólne z wizytówkami (netizo/wizytowki), więc marka zmienia się w jednym miejscu.
  *
  * Uruchomienie (z katalogu projektu, bez instalowania niczego w projekcie):
@@ -28,6 +31,17 @@ const path = require('path');
 const DIR = __dirname;
 const SHARED = path.join(DIR, '..', 'wizytowki');
 const OUTPUT_DIR = path.join(DIR, '..', '..', 'public', 'assets', 'images');
+const PHOTOS_DIR = path.join(OUTPUT_DIR, 'photos');
+
+/** Zdjęcie z serii (wariant 768w) jako data URI, bo strona jest ładowana przez setContent (bez adresu bazowego). */
+function photo(name) {
+    return `data:image/webp;base64,${fs.readFileSync(path.join(PHOTOS_DIR, `${name}-768.webp`)).toString('base64')}`;
+}
+
+/** Zdjęcia mozaiki z hero listy realizacji (components/projects/projects-hero.tsx). */
+function projectsMosaic() {
+    return { photoCode: photo('about-code'), photoWorkshop: photo('mission-workshop'), photoVisit: photo('about-visit') };
+}
 const IMAGES = [
     { template: 'szablon.html', output: 'og-netizo-2.png' },
     { template: 'szablon-partnerzy.html', output: 'og-netizo-partnerzy.png' },
@@ -54,6 +68,18 @@ const IMAGES = [
         template: 'szablon-dokument.html',
         output: 'og-netizo-terms-en.png',
         values: { lang: 'en', title: 'Terms of service', party: 'Service provider', url: 'netizo.pl/en/terms' },
+    },
+    {
+        template: 'szablon-realizacje.html',
+        output: 'og-netizo-realizacje.jpg',
+        format: 'jpeg',
+        values: { lang: 'pl', label: 'Realizacje', headline: 'Zobacz, co<br>zbudowaliśmy<br>dla klientów.', url: 'netizo.pl/realizacje', ...projectsMosaic() },
+    },
+    {
+        template: 'szablon-realizacje.html',
+        output: 'og-netizo-projects-en.jpg',
+        format: 'jpeg',
+        values: { lang: 'en', label: 'Projects', headline: 'See what<br>we built for<br>our clients.', url: 'netizo.pl/en/projects', ...projectsMosaic() },
     },
 ];
 const SIZE = { width: 1200, height: 630 };
@@ -126,7 +152,7 @@ function render(template, values) {
 
             await page.setContent(html, { waitUntil: 'load' });
             await page.evaluate(() => document.fonts.ready);
-            await page.screenshot({ path: output, type: 'png', clip: { x: 0, y: 0, ...SIZE } });
+            await page.screenshot({ path: output, type: image.format ?? 'png', ...(image.format === 'jpeg' ? { quality: 86 } : {}), clip: { x: 0, y: 0, ...SIZE } });
             await page.close();
 
             const bytes = fs.statSync(output).size;
