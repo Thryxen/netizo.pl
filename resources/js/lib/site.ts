@@ -55,10 +55,10 @@ export function useSocialProfiles(): SocialProfile[] {
     return socials.filter((profile): profile is SocialProfile => isSocialNetwork(profile.network));
 }
 
-/** Pages of the site in each language (routes/web.php). */
+/** Pages of the site in each language (routes/web.php). A project's case study is `${projects}/${slug}` (caseStudyUrl). */
 export const pageUrls = localized({
-    pl: { home: '/', partners: '/partnerzy', about: '/o-nas', privacy: '/polityka-prywatnosci', terms: '/regulamin' },
-    en: { home: '/en', partners: '/en/partners', about: '/en/about', privacy: '/en/privacy-policy', terms: '/en/terms' },
+    pl: { home: '/', projects: '/realizacje', partners: '/partnerzy', about: '/o-nas', privacy: '/polityka-prywatnosci', terms: '/regulamin' },
+    en: { home: '/en', projects: '/en/projects', partners: '/en/partners', about: '/en/about', privacy: '/en/privacy-policy', terms: '/en/terms' },
 });
 
 export type InfoLink = {
@@ -73,12 +73,14 @@ export type InfoLink = {
 
 export const infoLinks = localized<InfoLink[]>({
     pl: [
+        { href: '/realizacje', label: 'Realizacje' },
         { href: '/o-nas', label: 'O nas' },
         { href: '/partnerzy', label: 'Program partnerski' },
         { href: '/regulamin', label: 'Regulamin' },
         { href: '/polityka-prywatnosci', label: 'Polityka prywatności' },
     ],
     en: [
+        { href: '/en/projects', label: 'Projects' },
         { href: '/en/about', label: 'About us' },
         { href: '/en/partners', label: 'Partner program' },
         { href: '/en/terms', label: 'Terms of service' },
@@ -89,6 +91,13 @@ export const infoLinks = localized<InfoLink[]>({
 /** Page URLs in the language of the current page. */
 export function usePageUrls(): (typeof pageUrls)['pl'] {
     return pageUrls[useLocale()];
+}
+
+/** URL of a project's case study in the language of the current page (the slug is the same in both languages). */
+export function useCaseStudyUrl(): (slug: string) => string {
+    const projectsUrl = usePageUrls().projects;
+
+    return (slug: string): string => `${projectsUrl}/${encodeURIComponent(slug)}`;
 }
 
 /** Footer and menu links in the language of the current page. */

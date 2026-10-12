@@ -74,6 +74,13 @@
         </script>
     @endisset
 
+    {{-- Page JSON-LD with copy from the admin panel (e.g. a project's case study); JSON_HEX_TAG keeps it inside its tag. --}}
+    @foreach ($schemas ?? [] as $schema)
+        <script type="application/ld+json">
+            {!! json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) !!}
+        </script>
+    @endforeach
+
     {{-- Same icons as the client panel: the SVG follows the system light/dark theme; ?v busts old cached icons. --}}
     <link rel="icon" href="{{ asset('favicon.ico') }}?v=3" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}?v=3" />

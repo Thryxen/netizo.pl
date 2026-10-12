@@ -1,13 +1,12 @@
-import { useRef, useState } from 'react';
 import { useHomeUi } from '@/components/home/home-ui-context';
 import { ProjectFrame } from '@/components/home/project-frame';
 import { ProjectMetrics } from '@/components/home/project-metrics';
 import { bleedClassName, gutterClassName, Rivet, Section, SectionHeading } from '@/components/home/section';
 import { TechTag } from '@/components/home/tech-tag';
 import { Button } from '@/components/ui/button';
-import { deferred, useDeferredComponent } from '@/lib/deferred';
 import { localized, useCopy } from '@/lib/i18n';
 import { useHomeSections } from '@/lib/sections';
+import { useCaseStudyUrl } from '@/lib/site';
 import { cn } from '@/lib/utils';
 import type { Project } from '@/types/home';
 
@@ -32,28 +31,14 @@ const COPY = localized({
     },
 });
 
-/** Fetched once the page is idle, or on the first "Zobacz case study" click if that comes sooner. */
-const caseStudyDialog = deferred(() => import('@/components/home/case-study-dialog').then((module) => module.CaseStudyDialog));
-
 /**
  * One full-bleed row per project: hairlines run rail to rail (with rivets) and the section drops its bottom
- * padding so the last row meets the next section's hairline.
+ * padding so the last row meets the next section's hairline. Each row leads to the project's case study page.
  */
 export function ProjectsSection({ projects }: { projects: Project[] }) {
     const { openContact } = useHomeUi();
     const copy = useCopy(COPY);
     const sectionId = useHomeSections().projects;
-    const [activeProject, setActiveProject] = useState<Project | null>(null);
-    const [isCaseStudyOpen, setIsCaseStudyOpen] = useState(false);
-    const caseStudyTriggerRef = useRef<HTMLElement | null>(null);
-    const CaseStudyDialog = useDeferredComponent(caseStudyDialog, isCaseStudyOpen);
-
-    const openCaseStudy = (project: Project, trigger: HTMLElement): void => {
-        caseStudyTriggerRef.current = trigger;
-        setActiveProject(project);
-        setIsCaseStudyOpen(true);
-    };
-
     const hasProjects = projects.length > 0;
 
     return (
@@ -61,25 +46,15 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
             <SectionHeading id={`${sectionId}-heading`} title={copy.title} lead={copy.lead} />
 
             {hasProjects ? (
-                <>
-                    <ul className={cn('divide-y border-t', bleedClassName)}>
-                        {projects.map((project) => (
-                            <li key={project.id} className={cn('relative py-10 md:py-14', gutterClassName)}>
-                                <Rivet side="left" />
-                                <Rivet side="right" />
-                                <ProjectRow project={project} onOpenCaseStudy={openCaseStudy} />
-                            </li>
-                        ))}
-                    </ul>
-                    {CaseStudyDialog && (
-                        <CaseStudyDialog
-                            project={activeProject}
-                            open={isCaseStudyOpen}
-                            onOpenChange={setIsCaseStudyOpen}
-                            returnFocusRef={caseStudyTriggerRef}
-                        />
-                    )}
-                </>
+                <ul className={cn('divide-y border-t', bleedClassName)}>
+                    {projects.map((project) => (
+                        <li key={project.id} className={cn('relative py-10 md:py-14', gutterClassName)}>
+                            <Rivet side="left" />
+                            <Rivet side="right" />
+                            <ProjectRow project={project} />
+                        </li>
+                    ))}
+                </ul>
             ) : (
                 <div className="flex flex-col items-start gap-6 border p-8 md:p-10">
                     <p className="text-lg leading-relaxed">{copy.empty}</p>
@@ -92,16 +67,12 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
     );
 }
 
-type ProjectRowProps = {
-    project: Project;
-    onOpenCaseStudy: (project: Project, trigger: HTMLElement) => void;
-};
-
 /**
- * `group/project`: keyboard focus on the row's button scrolls the screenshot preview like a hover on the frame does.
+ * `group/project`: keyboard focus on the row's link scrolls the screenshot preview like a hover on the frame does.
  */
-function ProjectRow({ project, onOpenCaseStudy }: ProjectRowProps) {
+function ProjectRow({ project }: { project: Project }) {
     const copy = useCopy(COPY);
+    const caseStudyUrl = useCaseStudyUrl();
     const titleId = `projekt-${project.slug}-title`;
 
     return (
@@ -125,13 +96,15 @@ function ProjectRow({ project, onOpenCaseStudy }: ProjectRowProps) {
 
                 <ProjectMetrics metrics={project.metrics} className="mt-8" />
 
-                <Button variant="outline" aria-haspopup="dialog" className="mt-8 max-md:h-11" onClick={(event) => onOpenCaseStudy(project, event.currentTarget)}>
-                    {copy.caseStudy}
-                    <span className="sr-only">{copy.caseStudyOf(project.title)}</span>
+                <Button variant="outline" className="mt-8 max-md:h-11" asChild>
+                    <a href={caseStudyUrl(project.slug)}>
+                        {copy.caseStudy}
+                        <span className="sr-only">{copy.caseStudyOf(project.title)}</span>
+                    </a>
                 </Button>
             </div>
 
-            <ProjectFrame project={project} variant="preview" className="order-first lg:col-span-7" />
+            <ProjectFrame project={project} className="order-first lg:col-span-7" />
         </article>
     );
 }

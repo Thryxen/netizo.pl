@@ -9,13 +9,13 @@ beforeEach(function () {
     Storage::fake('public');
 });
 
-it('seeds four active sample projects with webp screenshots on the public disk', function () {
+it('seeds nine active sample projects with webp screenshots on the public disk', function () {
     $this->seed(ProjectSeeder::class);
 
     $projects = Project::query()->active()->ordered()->get();
 
-    expect($projects)->toHaveCount(4)
-        ->and($projects->pluck('slug')->all())->toBe(['zloty-klos', 'mebloteka', 'flotapro', 'fizjo-studio']);
+    expect($projects)->toHaveCount(9)
+        ->and($projects->pluck('slug')->all())->toBe(['zloty-klos', 'mebloteka', 'flotapro', 'fizjo-studio', 'zielone-tarasy', 'promien-fotowoltaika', 'lingwista', 'agrosklad', 'autopunkt']);
 
     $projects->each(function (Project $project): void {
         expect($project->full_image)->toBe("projects/full/{$project->slug}.webp")
@@ -37,7 +37,7 @@ it('updates the sample projects instead of duplicating them when run again', fun
 
     $this->seed(ProjectSeeder::class);
 
-    expect(Project::query()->count())->toBe(4)
+    expect(Project::query()->count())->toBe(9)
         ->and(Project::query()->where('slug', 'mebloteka')->first())
         ->title->toBe('Mebloteka')
         ->is_active->toBeTrue();
@@ -50,7 +50,7 @@ it('shows the seeded projects on the home page with flattened challenges and sol
     $this->get('/')
         ->assertOk()
         ->assertInertia(fn (Assert $page) => $page
-            ->has('projects', 4)
+            ->has('projects', 9)
             ->where('projects.0.slug', 'zloty-klos')
             ->where('projects.0.liveUrl', 'https://zlotyklos-leszno.pl')
             ->where('projects.0.fullImageUrl', asset('storage/projects/full/zloty-klos.webp'))
@@ -77,7 +77,7 @@ it('seeds an english copy of every sample project for the english site', functio
     $this->get('/en')
         ->assertOk()
         ->assertInertia(fn (Assert $page) => $page
-            ->has('projects', 4)
+            ->has('projects', 9)
             ->where('projects.0.category', 'Company website / Online orders')
             ->where('projects.0.metrics.2', ['value' => '0.9 s', 'label' => 'LCP on mobile'])
             ->where('projects.0.challenges.0', 'Orders from the phone, Messenger and paper notes had to be copied into one list every evening.')

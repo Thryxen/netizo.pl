@@ -35,20 +35,24 @@ class LocalizedRoutes
     }
 
     /**
-     * URL of the page `$name` (a Polish route name such as `home`) in the current language.
+     * URL of the page `$name` (a Polish route name such as `home`) in the current language. A page with parameters (a
+     * case study's project) takes the same ones in every language.
+     *
+     * @param  array<string, mixed>  $parameters
      */
-    public static function url(string $name): string
+    public static function url(string $name, array $parameters = []): string
     {
-        return route(self::name($name));
+        return route(self::name($name), $parameters);
     }
 
     /**
-     * The current page in every language, keyed by locale, from the name of the matched route. Empty for a route
-     * without a name or without a twin in each language.
+     * The current page in every language, keyed by locale, from the name of the matched route and its parameters (the
+     * same in every language, e.g. a project's slug). Empty for a route without a name or without a twin in each language.
      *
+     * @param  array<string, mixed>  $parameters
      * @return array<string, string>
      */
-    public static function alternates(?string $routeName): array
+    public static function alternates(?string $routeName, array $parameters = []): array
     {
         if ($routeName === null) {
             return [];
@@ -64,7 +68,7 @@ class LocalizedRoutes
                 return [];
             }
 
-            $urls[$locale] = route($localizedName);
+            $urls[$locale] = route($localizedName, $parameters);
         }
 
         return $urls;

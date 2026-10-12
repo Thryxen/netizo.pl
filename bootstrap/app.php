@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SitemapController;
 use App\Http\Middleware\HandleAppearance;
 use App\Http\Middleware\HandleInertiaRequests;
 use App\Http\Middleware\SecurityHeaders;
@@ -19,6 +20,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
         then: function (): void {
             Route::middleware('web')->group(base_path('routes/admin.php'));
+
+            // Outside the web group: no session or XSRF cookie on a response crawlers fetch (App\Services\Sitemap).
+            Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
         },
     )
     ->withMiddleware(function (Middleware $middleware): void {

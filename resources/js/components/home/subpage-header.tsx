@@ -25,6 +25,8 @@ export type SubpageHeaderLink = { href: string; label: string };
 type SubpageHeaderProps = {
     /** Shown beside the logo from sm. */
     pageName: string;
+    /** Makes the page's name a link, e.g. from a case study back to the list of projects. */
+    pageHref?: string;
     /** In-page section links, from lg. */
     sections: SubpageHeaderLink[];
     /** The button on the right; `shortLabel` is shown on phones. */
@@ -35,7 +37,7 @@ type SubpageHeaderProps = {
  * Header of a page outside the home page (partner programme, about): the logo leads back to the home page, the page's
  * name sits beside it, the section links (lg+) stay on this page, and the button on the right is the page's main action.
  */
-export function SubpageHeader({ pageName, sections, cta }: SubpageHeaderProps) {
+export function SubpageHeader({ pageName, pageHref, sections, cta }: SubpageHeaderProps) {
     const copy = useCopy(COPY);
     const pageUrls = usePageUrls();
 
@@ -45,9 +47,17 @@ export function SubpageHeader({ pageName, sections, cta }: SubpageHeaderProps) {
                 <a href={pageUrls.home} aria-label={copy.home} className={cn('-ml-1 inline-flex min-h-11 shrink-0 items-center rounded-sm p-1 lg:min-h-0', focusRing)}>
                     <Logo className="h-9 max-[359px]:h-7" />
                 </a>
-                <span className="ml-2 hidden border-l border-border pl-4 text-sm font-medium text-muted-foreground sm:inline">{pageName}</span>
+                <span className="ml-2 hidden border-l border-border pl-4 text-sm font-medium text-muted-foreground sm:inline">
+                    {pageHref ? (
+                        <a href={pageHref} className={cn('rounded-sm transition-colors hover:text-foreground', focusRing)}>
+                            {pageName}
+                        </a>
+                    ) : (
+                        pageName
+                    )}
+                </span>
 
-                <nav aria-label={copy.sectionsNav} className="ml-8 hidden lg:block xl:ml-10">
+                <nav aria-label={copy.sectionsNav} className={cn('ml-8 hidden xl:ml-10', sections.length > 0 && 'lg:block')}>
                     <ul className="flex items-center gap-1">
                         {sections.map(({ href, label }) => (
                             <li key={href}>

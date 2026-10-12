@@ -88,3 +88,35 @@ export type AboutSection = keyof (typeof aboutSections)['pl'];
 export function useAboutSections(): Record<AboutSection, string> {
     return aboutSections[useLocale()];
 }
+
+export const caseStudySections = localized({
+    pl: {
+        results: 'wyniki',
+        story: 'o-projekcie',
+        challenges: 'wyzwania',
+        next: 'nastepna-realizacja',
+    },
+    en: {
+        results: 'results',
+        story: 'about-the-project',
+        challenges: 'challenges',
+        next: 'next-project',
+    },
+});
+
+export type CaseStudySection = keyof (typeof caseStudySections)['pl'];
+
+/** Anchor ids of a case study's sections in the language of the current page. */
+export function useCaseStudySections(): Record<CaseStudySection, string> {
+    return caseStudySections[useLocale()];
+}
+
+export const projectsSections = localized({
+    pl: { list: 'wszystkie-realizacje' },
+    en: { list: 'all-projects' },
+});
+
+/** Anchor ids of the list of projects in the language of the current page. */
+export function useProjectsSections(): Record<keyof (typeof projectsSections)['pl'], string> {
+    return projectsSections[useLocale()];
+}

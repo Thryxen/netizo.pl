@@ -8,6 +8,7 @@ use App\Http\Controllers\LegalPageController;
 use App\Http\Controllers\NewsletterSubscriptionController;
 use App\Http\Controllers\PartnerApplicationController;
 use App\Http\Controllers\PartnerProgramController;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProjectBriefController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/partnerzy', [PartnerProgramController::class, 'index'])->name('partners');
 Route::get('/o-nas', [AboutController::class, 'index'])->name('about');
+Route::get('/realizacje', [PortfolioController::class, 'index'])->name('projects.index');
+Route::get('/realizacje/{project:slug}', [PortfolioController::class, 'show'])->name('projects.show');
 Route::get('/polityka-prywatnosci', [LegalPageController::class, 'privacy'])->name('privacy');
 Route::get('/regulamin', [LegalPageController::class, 'terms'])->name('terms');
 
@@ -33,6 +36,8 @@ Route::prefix('en')->name('en.')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/partners', [PartnerProgramController::class, 'index'])->name('partners');
     Route::get('/about', [AboutController::class, 'index'])->name('about');
+    Route::get('/projects', [PortfolioController::class, 'index'])->name('projects.index');
+    Route::get('/projects/{project:slug}', [PortfolioController::class, 'show'])->name('projects.show');
     Route::get('/privacy-policy', [LegalPageController::class, 'privacy'])->name('privacy');
     Route::get('/terms', [LegalPageController::class, 'terms'])->name('terms');
 

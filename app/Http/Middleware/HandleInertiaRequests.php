@@ -50,7 +50,7 @@ class HandleInertiaRequests extends Middleware
             return [
                 ...$shared,
                 'locale' => app()->getLocale(),
-                'alternates' => LocalizedRoutes::alternates($request->route()?->getName()),
+                'alternates' => LocalizedRoutes::alternates($request->route()?->getName(), $request->route()?->parameters() ?? []),
                 'socials' => SocialProfiles::all(),
             ];
         }

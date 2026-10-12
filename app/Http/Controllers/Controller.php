@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\LocalizedRoutes;
+use Artesaos\SEOTools\Facades\JsonLdMulti;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\SEOMeta;
 
@@ -34,11 +35,13 @@ abstract class Controller
     /**
      * Link the page `$name` (a Polish route name such as `home`) to its twin in the other language: the canonical URL
      * in the current language, hreflang alternates for every language (Polish as x-default) and the Open Graph locale.
+     *
+     * @param  array<string, mixed>  $parameters  Route parameters, the same in every language (a project's slug).
      */
-    protected function localizedSeo(string $name): void
+    protected function localizedSeo(string $name, array $parameters = []): void
     {
         $locale = app()->getLocale();
-        $urls = LocalizedRoutes::alternates($name);
+        $urls = LocalizedRoutes::alternates($name, $parameters);
 
         SEOMeta::setCanonical($urls[$locale]);
 
@@ -54,5 +57,19 @@ abstract class Controller
         foreach (array_diff(LocalizedRoutes::LOCALES, [$locale]) as $alternateLocale) {
             OpenGraph::addProperty('locale:alternate', LocalizedRoutes::OG_LOCALES[$alternateLocale]);
         }
+    }
+
+    /**
+     * Leave out the SEOTools JSON-LD (its config default is a generic WebPage) on a page that passes its own documents
+     * as `schemas` to the root view instead: text typed in the admin panel goes there, and the view encodes it with
+     * JSON_HEX_TAG, so it cannot end the script tag.
+     */
+    protected function withoutDefaultJsonLd(): void
+    {
+        JsonLdMulti::setType('')
+            ->setTitle('')
+            ->setDescription('')
+            ->setUrl(false)
+            ->setImages([]);
     }
 }

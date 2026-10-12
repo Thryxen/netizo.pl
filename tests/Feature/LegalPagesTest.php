@@ -147,8 +147,9 @@ it('clears the cookie consent and returns to the policy when the visitor changes
         ->assertCookieExpired(config('cookieconsent.cookie.name'));
 });
 
-it('lists both documents in both languages in the sitemap, with hreflang alternates', function (string $url, string $polish, string $english) {
-    $sitemap = simplexml_load_file(public_path('sitemap.xml'));
+it('lists both documents in both languages in the sitemap, with hreflang alternates', function (string $path, string $polishPath, string $englishPath) {
+    [$url, $polish, $english] = [url($path), url($polishPath), url($englishPath)];
+    $sitemap = simplexml_load_string($this->get('/sitemap.xml')->assertOk()->getContent());
     $sitemap->registerXPathNamespace('s', 'http://www.sitemaps.org/schemas/sitemap/0.9');
     $sitemap->registerXPathNamespace('xhtml', 'http://www.w3.org/1999/xhtml');
 
@@ -161,8 +162,8 @@ it('lists both documents in both languages in the sitemap, with hreflang alterna
 
     expect($alternates->all())->toBe(['pl' => $polish, 'en' => $english, 'x-default' => $polish]);
 })->with([
-    ['https://netizo.pl/polityka-prywatnosci', 'https://netizo.pl/polityka-prywatnosci', 'https://netizo.pl/en/privacy-policy'],
-    ['https://netizo.pl/en/privacy-policy', 'https://netizo.pl/polityka-prywatnosci', 'https://netizo.pl/en/privacy-policy'],
-    ['https://netizo.pl/regulamin', 'https://netizo.pl/regulamin', 'https://netizo.pl/en/terms'],
-    ['https://netizo.pl/en/terms', 'https://netizo.pl/regulamin', 'https://netizo.pl/en/terms'],
+    ['/polityka-prywatnosci', '/polityka-prywatnosci', '/en/privacy-policy'],
+    ['/en/privacy-policy', '/polityka-prywatnosci', '/en/privacy-policy'],
+    ['/regulamin', '/regulamin', '/en/terms'],
+    ['/en/terms', '/regulamin', '/en/terms'],
 ]);
