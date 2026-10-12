@@ -1,6 +1,6 @@
 <?php
 return [
-    'title' => 'We use cookies',
+    'title' => 'We use analytics cookies only with your consent.',
     'intro' => 'This website uses cookies in order to enhance the overall user experience.',
     'link' => 'Read more in our <a href=":url">privacy policy</a>.',
 

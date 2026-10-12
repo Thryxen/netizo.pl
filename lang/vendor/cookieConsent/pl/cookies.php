@@ -1,11 +1,11 @@
 <?php
 return [
-    'title' => 'Korzystamy z plików cookie',
+    'title' => 'Analitycznych plików cookie używamy tylko za twoją zgodą.',
     'intro' => 'Ta witryna używa plików cookie w celu ulepszenia ogólnej wygody użytkowania.',
-    'link' => 'Szczegóły znajdziesz w naszej <a href=":url">polityce prywatności</a>.',
+    'link' => 'Szczegóły w <a href=":url">polityce prywatności</a>.',
 
     'essentials' => 'Tylko niezbędne',
-    'all' => 'Zaakceptuj wszystko',
+    'all' => 'Akceptuj wszystkie',
     'customize' => 'Dostosuj',
     'manage' => 'Zarządzaj plikami cookie',
     'details' => [

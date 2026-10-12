@@ -1,122 +1,4 @@
-<aside id="cookies-policy" class="cookies cookies--no-js" data-text="{{ json_encode(__('cookieConsent::cookies.details')) }}">
-    <div class="cookies__alert">
-        <div class="cookies__container">
-            <div class="cookies__wrapper">
-                <div class="cookies__icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/>
-                        <path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/>
-                        <path d="M11 17v.01"/><path d="M7 14v.01"/>
-                    </svg>
-                </div>
-                <div class="cookies__text">
-                    <h2 class="cookies__title">@lang('cookieConsent::cookies.title')</h2>
-                    <div class="cookies__intro">
-                        <p>@lang('cookieConsent::cookies.intro')</p>
-                        @if($policy)
-                            <p>@lang('cookieConsent::cookies.link', ['url' => $policy])</p>
-                        @endif
-                    </div>
-                </div>
-                <div class="cookies__actions">
-                    @cookieconsentbutton(action: 'accept.essentials', label: __('cookieConsent::cookies.essentials'), attributes: ['class' => 'cookiesBtn cookiesBtn--essentials'])
-                    @cookieconsentbutton(action: 'accept.all', label: __('cookieConsent::cookies.all'), attributes: ['class' => 'cookiesBtn cookiesBtn--accept'])
-                </div>
-            </div>
-        </div>
-        <a href="#cookies-policy-customize" class="cookies__btn cookies__btn--customize">
-            <span>@lang('cookieConsent::cookies.customize')</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M6 9l6 6 6-6"/>
-            </svg>
-        </a>
-        <div class="cookies__expandable cookies__expandable--custom" id="cookies-policy-customize">
-            <form action="{{ route('cookieconsent.accept.configuration') }}" method="post" class="cookies__customize">
-                @csrf
-                <div class="cookies__sections">
-                    @foreach($cookies->getCategories() as $category)
-                    <div class="cookies__section">
-                        <label for="cookies-policy-check-{{ $category->key() }}" class="cookies__category">
-                            @if ($category->key() === 'essentials')
-                                <input type="hidden" name="categories[]" value="{{ $category->key() }}" />
-                                <input type="checkbox" name="categories[]" value="{{ $category->key() }}" id="cookies-policy-check-{{ $category->key() }}" checked="checked" disabled="disabled" />
-                            @else
-                                <input type="checkbox" name="categories[]" value="{{ $category->key() }}" id="cookies-policy-check-{{ $category->key() }}" />
-                            @endif
-                            <span class="cookies__box">
-                                <strong class="cookies__label">{{ $category->title }}</strong>
-                            </span>
-                            @if($category->description)
-                                <p class="cookies__info">{{ $category->description }}</p>
-                            @endif
-                        </label>
-
-                        <div class="cookies__expandable" id="cookies-policy-{{ $category->key() }}">
-                            <ul class="cookies__definitions">
-                                @foreach($category->getCookies() as $cookie)
-                                <li class="cookies__cookie">
-                                    <p class="cookies__name">{{ $cookie->name }}</p>
-                                    <p class="cookies__duration">{{ Carbon\Carbon::now()->diffForHumans(Carbon\Carbon::now()->addMinutes($cookie->duration), true) }}</p>
-                                    @if($cookie->description)
-                                        <p class="cookies__description">{{ $cookie->description }}</p>
-                                    @endif
-                                </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        <a href="#cookies-policy-{{ $category->key() }}" class="cookies__details">@lang('cookieConsent::cookies.details.more')</a>
-                    </div>
-                    @endforeach
-                </div>
-                <div class="cookies__save">
-                    <button type="submit" class="cookiesBtn__link">@lang('cookieConsent::cookies.save')</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</aside>
-
-<script data-cookie-consent nonce="{{ Vite::cspNonce() }}">
-    {!! file_get_contents(LCC_ROOT . '/dist/script.js') !!}
-</script>
-
-<script data-cookie-consent nonce="{{ Vite::cspNonce() }}">
-    {{-- Publish the banner's height as --cookie-banner-height while it shows, so page content, focused controls and the callback button stay above it. --}}
-    (function () {
-        var banner = document.getElementById('cookies-policy');
-        var alert = banner && banner.querySelector('.cookies__alert');
-        var root = document.documentElement;
-
-        if (!alert) {
-            return;
-        }
-
-        var resizeObserver = typeof ResizeObserver === 'function' ? new ResizeObserver(sync) : null;
-        var mutationObserver = typeof MutationObserver === 'function' ? new MutationObserver(sync) : null;
-
-        function sync() {
-            if (!banner.isConnected || banner.hidden) {
-                root.style.removeProperty('--cookie-banner-height');
-                resizeObserver && resizeObserver.disconnect();
-                mutationObserver && mutationObserver.disconnect();
-
-                return;
-            }
-
-            root.style.setProperty('--cookie-banner-height', alert.offsetHeight + 'px');
-        }
-
-        resizeObserver && resizeObserver.observe(alert);
-
-        if (mutationObserver && banner.parentNode) {
-            mutationObserver.observe(banner.parentNode, { childList: true });
-            mutationObserver.observe(banner, { attributes: true, attributeFilter: ['hidden'] });
-        }
-
-        sync();
-    })();
-</script>
-
+{{-- Styles first: the browser may paint the banner, or start its transitions from unstyled values, before a later <style> applies. --}}
 <style data-cookie-consent>
 /* Uses the site tokens from resources/css/app.css (:root / .dark), so it follows the light/dark theme. */
 
@@ -141,6 +23,13 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+/* Set by the package script once a choice is made (it removes the banner 210 ms later): the banner slides out below the edge.
+   The transition sits on this class only, so the banner never slides in when the package removes the class on load. */
+.cookies--closing {
+    transform: translateY(100%);
+    transition: transform 0.2s ease-in;
+}
+
 .cookies[hidden] {
     display: none;
 }
@@ -149,21 +38,25 @@ body {
     max-height: 100vh;
     max-height: 100dvh;
     overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
     background: var(--background);
     border-top: 1px solid var(--border);
     box-shadow: 0 -12px 32px -16px rgb(0 0 0 / 0.18);
 }
 
+/* The package script animates the notice's height when the settings open; the notice stays, so its height is kept. */
 .cookies__container {
     max-width: 1200px;
+    height: auto !important;
     margin: 0 auto;
-    padding: 20px 40px;
+    padding: 16px 40px;
 }
 
 .cookies__wrapper {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 12px 20px;
     flex-wrap: wrap;
 }
 
@@ -195,17 +88,14 @@ body {
     line-height: 1.4;
     letter-spacing: -0.01em;
     color: var(--foreground);
-    margin: 0 0 4px 0;
+    margin: 0 0 2px 0;
 }
 
 .cookies__intro {
+    margin: 0;
     font-size: 14px;
     color: var(--muted-foreground);
-    line-height: 1.55;
-}
-
-.cookies__intro p {
-    margin: 0;
+    line-height: 1.5;
 }
 
 .cookies__intro a,
@@ -230,28 +120,57 @@ body {
 }
 
 .cookiesBtn {
+    display: flex;
     border: none;
     background: none;
     padding: 0;
     margin: 0;
 }
 
-.cookiesBtn__link {
+.cookiesBtn__link,
+.cookies__btn--customize {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 36px;
-    padding: 0 16px;
+    gap: 6px;
+    min-height: 44px;
+    padding: 0 18px;
     font-family: inherit;
     font-size: 14px;
     font-weight: 500;
-    line-height: 1;
+    line-height: 1.2;
     border-radius: calc(var(--radius) - 2px);
     border: 1px solid transparent;
     cursor: pointer;
     transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
     text-decoration: none;
     white-space: nowrap;
+}
+
+.cookies__btn--customize {
+    padding: 0 12px 0 14px;
+    color: var(--muted-foreground);
+}
+
+.cookies__btn--customize:hover {
+    color: var(--foreground);
+    background: var(--muted);
+}
+
+.cookies__btn--customize svg {
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+/* Settings open: the package script sets cookies--show; without JS the panel opens as the :target. */
+.cookies--show .cookies__btn--customize,
+.cookies:has(#cookies-policy-customize:target) .cookies__btn--customize {
+    color: var(--foreground);
+}
+
+.cookies--show .cookies__btn--customize svg,
+.cookies:has(#cookies-policy-customize:target) .cookies__btn--customize svg {
+    transform: rotate(180deg);
 }
 
 .cookiesBtn--essentials .cookiesBtn__link {
@@ -282,34 +201,6 @@ body {
     outline-offset: 2px;
 }
 
-.cookies__btn--customize {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    width: 100%;
-    padding: 10px;
-    background: transparent;
-    border: none;
-    border-top: 1px solid var(--border);
-    color: var(--muted-foreground);
-    font-family: inherit;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    transition: color 0.15s ease, background-color 0.15s ease;
-}
-
-.cookies__btn--customize:hover {
-    color: var(--foreground);
-    background: var(--muted);
-}
-
-.cookies__btn--customize svg {
-    transition: transform 0.2s ease;
-}
-
 /* Collapsed panels are also hidden (not just clipped) so their links and checkboxes leave the tab order. */
 .cookies__expandable {
     max-height: 0;
@@ -323,11 +214,6 @@ body {
     max-height: 600px;
     visibility: visible;
     transition-delay: 0s;
-}
-
-.cookies__expandable:target ~ .cookies__btn--customize svg,
-.cookies__expandable--open ~ .cookies__btn--customize svg {
-    transform: rotate(180deg);
 }
 
 .cookies__customize {
@@ -438,10 +324,13 @@ body {
     padding-left: 28px;
 }
 
+/* A 44 px target around the link text. */
 .cookies__details {
-    display: inline-block;
-    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     margin-left: 28px;
+    margin-bottom: -10px;
     font-size: 13px;
     font-weight: 500;
 }
@@ -495,6 +384,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+    .cookies,
     .cookies *,
     .cookies *::before,
     .cookies *::after {
@@ -502,36 +392,96 @@ body {
     }
 }
 
-/* Responsive */
+/* Phones and small tablets: the sentence in the gutter, then the three actions as one strip, rail to rail, split by hairlines. */
 @media (max-width: 768px) {
     .cookies__container {
-        padding: 16px;
+        padding: 0;
     }
 
     .cookies__wrapper {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 14px;
+        display: block;
     }
 
     .cookies__icon {
         display: none;
     }
 
+    /* Size set on the block too, so its line boxes are not as tall as the body text's. */
     .cookies__text {
-        min-width: auto;
+        min-width: 0;
+        padding: 14px 16px 12px;
+        font-size: 14px;
+        line-height: 1.5;
     }
 
+    /* Run-in: the heading sentence in bold, the policy link right after it. */
+    .cookies__title,
+    .cookies__intro {
+        display: inline;
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    .cookies__title {
+        margin: 0;
+        letter-spacing: 0;
+    }
+
+    /* The two choices share the width equally; the customize toggle takes what its label needs. */
     .cookies__actions {
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: auto 1fr 1fr;
+        gap: 0;
+        border-top: 1px solid var(--border);
     }
 
-    .cookiesBtn__link {
+    .cookies__actions > * + * {
+        border-left: 1px solid var(--border);
+    }
+
+    .cookies__actions > .cookiesBtn--accept {
+        border-left-color: var(--primary);
+    }
+
+    .cookies__actions .cookiesBtn__link,
+    .cookies__actions .cookies__btn--customize {
+        min-height: 48px;
+        padding: 0 10px;
+        border: 0;
+        border-radius: 0;
+    }
+
+    .cookies__actions .cookiesBtn__link {
         width: 100%;
+    }
+
+    .cookies__actions .cookies__btn--customize {
+        gap: 4px;
+        padding: 0 14px;
+    }
+
+    .cookies__actions .cookies__btn--customize svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    /* Inset rings: the strip touches the screen edge, where an outer ring would be cut off. */
+    .cookies__actions a:focus-visible,
+    .cookies__actions button:focus-visible {
+        outline: 2px solid var(--foreground);
+        outline-offset: -4px;
+    }
+
+    .cookies__actions .cookiesBtn--accept button:focus-visible {
+        outline-color: var(--primary-foreground);
     }
 
     .cookies__customize {
         padding: 16px;
+    }
+
+    .cookies__save .cookiesBtn__link {
+        width: 100%;
     }
 
     .cookies__info {
@@ -546,4 +496,164 @@ body {
         padding-left: 0;
     }
 }
+
+@media (max-width: 413px) {
+    .cookies__actions .cookiesBtn__link,
+    .cookies__actions .cookies__btn--customize {
+        font-size: 13px;
+    }
+
+    .cookies__actions .cookies__btn--customize {
+        padding: 0 12px;
+    }
+}
+
+/* The narrowest phones: the labels wrap onto two lines inside the strip instead of overflowing it. */
+@media (max-width: 339px) {
+    .cookies__text {
+        font-size: 13px;
+    }
+
+    .cookies__actions .cookiesBtn__link,
+    .cookies__actions .cookies__btn--customize {
+        white-space: normal;
+        text-align: center;
+    }
+
+    .cookies__actions .cookies__btn--customize svg {
+        display: none;
+    }
+}
 </style>
+
+<aside id="cookies-policy" class="cookies cookies--no-js" aria-labelledby="cookies-policy-title" data-text="{{ json_encode(__('cookieConsent::cookies.details')) }}">
+    <div class="cookies__alert">
+        <div class="cookies__container">
+            <div class="cookies__wrapper">
+                <div class="cookies__icon" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/>
+                        <path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/>
+                        <path d="M11 17v.01"/><path d="M7 14v.01"/>
+                    </svg>
+                </div>
+                <div class="cookies__text">
+                    <h2 class="cookies__title" id="cookies-policy-title">@lang('cookieConsent::cookies.title')</h2>
+                    @if($policy)
+                        <p class="cookies__intro">@lang('cookieConsent::cookies.link', ['url' => $policy])</p>
+                    @endif
+                </div>
+                {{-- The customize toggle sits in the row with the two choices; the package script finds it by its class, wherever it is. --}}
+                <div class="cookies__actions">
+                    <a href="#cookies-policy-customize" class="cookies__btn cookies__btn--customize" aria-controls="cookies-policy-customize">
+                        <span>@lang('cookieConsent::cookies.customize')</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </a>
+                    @cookieconsentbutton(action: 'accept.essentials', label: __('cookieConsent::cookies.essentials'), attributes: ['class' => 'cookiesBtn cookiesBtn--essentials'])
+                    @cookieconsentbutton(action: 'accept.all', label: __('cookieConsent::cookies.all'), attributes: ['class' => 'cookiesBtn cookiesBtn--accept'])
+                </div>
+            </div>
+        </div>
+        <div class="cookies__expandable cookies__expandable--custom" id="cookies-policy-customize">
+            <form action="{{ route('cookieconsent.accept.configuration') }}" method="post" class="cookies__customize">
+                @csrf
+                <div class="cookies__sections">
+                    @foreach($cookies->getCategories() as $category)
+                    <div class="cookies__section">
+                        <label for="cookies-policy-check-{{ $category->key() }}" class="cookies__category">
+                            @if ($category->key() === 'essentials')
+                                <input type="hidden" name="categories[]" value="{{ $category->key() }}" />
+                                <input type="checkbox" name="categories[]" value="{{ $category->key() }}" id="cookies-policy-check-{{ $category->key() }}" checked="checked" disabled="disabled" />
+                            @else
+                                <input type="checkbox" name="categories[]" value="{{ $category->key() }}" id="cookies-policy-check-{{ $category->key() }}" />
+                            @endif
+                            <span class="cookies__box">
+                                <strong class="cookies__label">{{ $category->title }}</strong>
+                            </span>
+                            @if($category->description)
+                                <p class="cookies__info">{{ $category->description }}</p>
+                            @endif
+                        </label>
+
+                        <div class="cookies__expandable" id="cookies-policy-{{ $category->key() }}">
+                            <ul class="cookies__definitions">
+                                @foreach($category->getCookies() as $cookie)
+                                <li class="cookies__cookie">
+                                    <p class="cookies__name">{{ $cookie->name }}</p>
+                                    <p class="cookies__duration">{{ Carbon\Carbon::now()->diffForHumans(Carbon\Carbon::now()->addMinutes($cookie->duration), true) }}</p>
+                                    @if($cookie->description)
+                                        <p class="cookies__description">{{ $cookie->description }}</p>
+                                    @endif
+                                </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <a href="#cookies-policy-{{ $category->key() }}" class="cookies__details">@lang('cookieConsent::cookies.details.more')</a>
+                    </div>
+                    @endforeach
+                </div>
+                <div class="cookies__save">
+                    <button type="submit" class="cookiesBtn__link">@lang('cookieConsent::cookies.save')</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</aside>
+
+<script data-cookie-consent nonce="{{ Vite::cspNonce() }}">
+    {!! file_get_contents(LCC_ROOT . '/dist/script.js') !!}
+</script>
+
+<script data-cookie-consent nonce="{{ Vite::cspNonce() }}">
+    {{-- Publish the banner's height as --cookie-banner-height while it shows, so page content, focused controls and the callback button stay above it. --}}
+    {{-- Also: no entrance fade (the package fades the banner in on load; only closing slides it out), aria-expanded on the customize toggle, and focus kept on a toggle opened with Enter (the package blurs it). --}}
+    (function () {
+        var banner = document.getElementById('cookies-policy');
+        var alert = banner && banner.querySelector('.cookies__alert');
+        var customize = banner && banner.querySelector('.cookies__btn--customize');
+        var root = document.documentElement;
+
+        if (!alert) {
+            return;
+        }
+
+        banner.classList.remove('cookies--closing');
+
+        var resizeObserver = typeof ResizeObserver === 'function' ? new ResizeObserver(sync) : null;
+        var mutationObserver = typeof MutationObserver === 'function' ? new MutationObserver(sync) : null;
+
+        function sync() {
+            if (!banner.isConnected || banner.hidden) {
+                root.style.removeProperty('--cookie-banner-height');
+                resizeObserver && resizeObserver.disconnect();
+                mutationObserver && mutationObserver.disconnect();
+
+                return;
+            }
+
+            root.style.setProperty('--cookie-banner-height', alert.offsetHeight + 'px');
+            customize && customize.setAttribute('aria-expanded', banner.classList.contains('cookies--show') ? 'true' : 'false');
+        }
+
+        banner.querySelectorAll('.cookies__btn--customize, .cookies__details').forEach(function (toggle) {
+            toggle.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter') {
+                    setTimeout(function () {
+                        toggle.focus();
+                    });
+                }
+            });
+        });
+
+        resizeObserver && resizeObserver.observe(alert);
+
+        if (mutationObserver && banner.parentNode) {
+            mutationObserver.observe(banner.parentNode, { childList: true });
+            mutationObserver.observe(banner, { attributes: true, attributeFilter: ['hidden', 'class'] });
+        }
+
+        sync();
+    })();
+</script>
