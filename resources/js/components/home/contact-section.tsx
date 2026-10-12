@@ -42,11 +42,16 @@ const quickContactForm = deferred(() => import('@/components/home/quick-contact-
 const contactLinkClass =
     'inline-flex min-h-11 items-center gap-3 rounded-sm text-sm font-medium underline-offset-4 outline-none hover:underline focus-visible:ring-[3px] focus-visible:ring-ring/50 md:min-h-0';
 
+type ContactSectionProps = {
+    /** Project types (brief option values) the brief starts with checked, e.g. `['website']` on its service page. */
+    briefTypes?: string[];
+};
+
 /**
  * Bleed block, rail to rail like the services grid: the form cell (8/12) and the alternatives aside (4/12)
  * share one hairline. The section drops its bottom padding so the block meets the footer's hairline.
  */
-export function ContactSection() {
+export function ContactSection({ briefTypes }: ContactSectionProps = {}) {
     const { contactTab, setContactTab, openCallback } = useHomeUi();
     const copy = useCopy(COPY);
     const id = useHomeSections().contact;
@@ -89,7 +94,7 @@ export function ContactSection() {
                                 forceMount
                                 className="focus-visible:ring-offset-4 focus-visible:ring-offset-background data-[state=inactive]:hidden"
                             >
-                                <DeferredBlock component={briefWizard} />
+                                <DeferredBlock component={briefWizard} props={{ initialTypes: briefTypes }} />
                             </TabsContent>
                             <TabsContent value="quick" forceMount tabIndex={-1} className="data-[state=inactive]:hidden">
                                 <DeferredBlock component={quickContactForm} />

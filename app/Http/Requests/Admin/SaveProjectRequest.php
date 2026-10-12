@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Enums\Service;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -24,6 +25,8 @@ class SaveProjectRequest extends FormRequest
             'category' => ['required', 'string', 'max:255'],
             'sort_order' => ['required', 'integer', 'min:0', 'max:100000'],
             'is_active' => ['required', 'boolean'],
+            'services' => ['nullable', 'array'],
+            'services.*' => ['string', 'distinct', Rule::enum(Service::class)],
             'description' => ['required', 'string', 'max:2000'],
             'full_description' => ['required', 'string', 'max:20000'],
             'thumbnail_image' => ['nullable', 'image', 'max:51200'],
@@ -65,6 +68,8 @@ class SaveProjectRequest extends FormRequest
             'category' => 'kategoria',
             'sort_order' => 'kolejność',
             'is_active' => 'aktywność',
+            'services' => 'usługi',
+            'services.*' => 'usługa',
             'description' => 'krótki opis',
             'full_description' => 'pełny opis',
             'thumbnail_image' => 'miniaturka',
@@ -99,6 +104,7 @@ class SaveProjectRequest extends FormRequest
         return [
             'slug.alpha_dash' => 'Slug może zawierać tylko małe litery, cyfry, myślniki i podkreślenia.',
             'slug.unique' => 'Projekt z takim slugiem już istnieje.',
+            'services.*.distinct' => 'Każdą usługę możesz zaznaczyć tylko raz.',
             'thumbnail_image.image' => 'Miniaturka musi być obrazem.',
             'full_image.image' => 'Pełne zdjęcie musi być obrazem.',
             'thumbnail_image.max' => 'Miniaturka może mieć najwyżej 50 MB.',
@@ -129,6 +135,7 @@ class SaveProjectRequest extends FormRequest
             'category' => $data['category'],
             'sort_order' => (int) $data['sort_order'],
             'is_active' => $this->boolean('is_active'),
+            'services' => $this->services($data['services'] ?? []),
             'description' => $data['description'],
             'full_description' => $data['full_description'],
             'tech_stack' => array_values($data['tech_stack']),
@@ -145,6 +152,21 @@ class SaveProjectRequest extends FormRequest
             'challenges_en' => $this->optionalRows($data['challenges_en'] ?? null, 'challenge'),
             'solutions_en' => $this->optionalRows($data['solutions_en'] ?? null, 'solution'),
         ];
+    }
+
+    /**
+     * The chosen services in the order of App\Enums\Service, so the stored list does not depend on the click order.
+     *
+     * @param  list<string>  $chosen
+     * @return list<string>
+     */
+    private function services(array $chosen): array
+    {
+        return collect(Service::cases())
+            ->map(fn (Service $service): string => $service->value)
+            ->intersect($chosen)
+            ->values()
+            ->all();
     }
 
     private function optionalText(?string $text): ?string

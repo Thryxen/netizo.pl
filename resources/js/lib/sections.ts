@@ -120,3 +120,29 @@ export const projectsSections = localized({
 export function useProjectsSections(): Record<keyof (typeof projectsSections)['pl'], string> {
     return projectsSections[useLocale()];
 }
+
+export const serviceSections = localized({
+    pl: {
+        scope: 'zakres',
+        pricing: 'cennik',
+        process: 'proces',
+        projects: 'realizacje',
+        guide: 'poradnik',
+        faq: 'faq',
+    },
+    en: {
+        scope: 'whats-included',
+        pricing: 'pricing',
+        process: 'process',
+        projects: 'projects',
+        guide: 'guide',
+        faq: 'faq',
+    },
+});
+
+export type ServiceSection = keyof (typeof serviceSections)['pl'];
+
+/** Anchor ids of a service page's sections in the language of the current page (its contact section is the home page's). */
+export function useServiceSections(): Record<ServiceSection, string> {
+    return serviceSections[useLocale()];
+}

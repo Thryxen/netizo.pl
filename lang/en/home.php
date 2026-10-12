@@ -17,11 +17,11 @@ return [
     'faq' => [
         [
             'question' => 'How much does a website or an app cost?',
-            'answer' => "A simple website usually costs PLN\u{00A0}1,000–\u{2060}5,000, a larger website or a small online store PLN\u{00A0}5,000–\u{2060}15,000, a web application PLN\u{00A0}15,000–\u{2060}50,000, and large systems start at PLN\u{00A0}50,000. The final price depends on the scope, and you get a detailed quote for free after the brief.",
+            'answer' => "A website starts at PLN\u{00A0}799, an online store at PLN\u{00A0}1,299, a web application at PLN\u{00A0}1,699, a mobile app at PLN\u{00A0}999, an AI automation at PLN\u{00A0}299 and DevOps and cloud work at PLN\u{00A0}499. The final price depends on the scope, and you get a detailed quote for free after the brief.",
         ],
         [
             'question' => 'How long does it take to build a website or an app?',
-            'answer' => "A landing page usually takes 2–\u{2060}3\u{00A0}weeks, a company website 4–\u{2060}6\u{00A0}weeks, and a web application 2–\u{2060}4\u{00A0}months. We set the exact deadline after the brief, once we know the scope of work.",
+            'answer' => "A simple website or a landing page is usually ready within a week, a larger company website within two weeks, and a web application 2–\u{2060}4\u{00A0}months. We set the exact deadline after the brief, once we know the scope of work.",
         ],
         [
             'question' => 'Will my website show up on Google?',

@@ -87,20 +87,31 @@ class StructuredData
                 'propertyID' => 'REGON',
                 'value' => '527974955',
             ],
-            'areaServed' => [
-                ['@type' => 'Country', 'name' => __('home.seo.country')],
-                ['@type' => 'City', 'name' => 'Leszno'],
-                ['@type' => 'City', 'name' => 'Rydzyna'],
-                ['@type' => 'City', 'name' => 'Wschowa'],
-                ['@type' => 'City', 'name' => 'Kościan'],
-                ['@type' => 'City', 'name' => 'Gostyń'],
-                ['@type' => 'City', 'name' => 'Rawicz'],
-            ],
+            'areaServed' => self::areaServed(),
             'knowsLanguage' => LocalizedRoutes::LOCALES,
             'priceRange' => '$$',
             'hasMap' => SocialProfiles::googleBusinessProfile(),
             'sameAs' => SocialProfiles::urls() ?: null,
         ], fn (mixed $value): bool => $value !== null);
+    }
+
+    /**
+     * Where Netizo works: the whole of Poland remotely, and on site in Leszno and the towns around it (the about page's
+     * map). Netizo's own area and the area of every service it offers.
+     *
+     * @return list<array{'@type': string, name: string}>
+     */
+    public static function areaServed(): array
+    {
+        return [
+            ['@type' => 'Country', 'name' => __('home.seo.country')],
+            ['@type' => 'City', 'name' => 'Leszno'],
+            ['@type' => 'City', 'name' => 'Rydzyna'],
+            ['@type' => 'City', 'name' => 'Wschowa'],
+            ['@type' => 'City', 'name' => 'Kościan'],
+            ['@type' => 'City', 'name' => 'Gostyń'],
+            ['@type' => 'City', 'name' => 'Rawicz'],
+        ];
     }
 
     /**

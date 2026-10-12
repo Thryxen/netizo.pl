@@ -53,7 +53,9 @@ export function MobileTile({ service, rivets }: { service: BentoService; rivets?
 
     return (
         <BentoTile className="min-h-[32rem] sm:min-h-[36rem] md:min-h-[27rem] lg:row-span-2 lg:min-h-0" rivets={rivets}>
-            <div ref={ref} {...liveVisualProps(active)} className="absolute inset-0 overflow-hidden">
+            {/* Under the text band (-z-10 inside the tile's isolated stack), so the band need not be positioned and the
+                title's link covers the whole tile. */}
+            <div ref={ref} {...liveVisualProps(active)} className="absolute inset-0 -z-10 overflow-hidden">
                 <Photo
                     {...photo('bento-mobile')}
                     alt=""
@@ -79,7 +81,7 @@ export function MobileTile({ service, rivets }: { service: BentoService; rivets?
                 </Appear>
             </div>
 
-            <div className={cn('relative mt-auto border-t bg-background/90 pt-5 sm:pt-6', tileGutterX, tileGutterBottom)}>
+            <div className={cn('mt-auto border-t bg-background/90 pt-5 sm:pt-6', tileGutterX, tileGutterBottom)}>
                 <BentoTileText service={service} />
             </div>
         </BentoTile>

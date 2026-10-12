@@ -76,7 +76,7 @@ it('gives every script on the page the nonce of its response', function (string 
     expect(scriptNonce($response))->not->toBe('')
         ->and($scripts)->not->toBeEmpty()
         ->each->toContain('nonce="'.scriptNonce($response).'"');
-})->with(['/', '/en', '/partnerzy', '/o-nas', '/realizacje', '/polityka-prywatnosci', '/admin/login']);
+})->with(['/', '/en', '/tworzenie-stron-internetowych', '/partnerzy', '/o-nas', '/realizacje', '/polityka-prywatnosci', '/admin/login']);
 
 it('lets the Cloudflare Turnstile script and its iframe load on the admin panel only', function () {
     $adminPolicy = (string) $this->withoutVite()->get('/admin/login')

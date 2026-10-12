@@ -49,6 +49,12 @@ it('lists every public page in both languages and the case study of every active
 
     expect(array_column(sitemapEntries(), 'loc'))->toBe([
         url('/'), url('/en'),
+        url('/tworzenie-stron-internetowych'), url('/en/website-development'),
+        url('/sklepy-internetowe'), url('/en/online-stores'),
+        url('/aplikacje-webowe'), url('/en/web-applications'),
+        url('/aplikacje-mobilne'), url('/en/mobile-apps'),
+        url('/automatyzacja-ai'), url('/en/ai-automation'),
+        url('/devops-i-chmura'), url('/en/devops-cloud'),
         url('/realizacje'), url('/en/projects'),
         url('/o-nas'), url('/en/about'),
         url('/partnerzy'), url('/en/partners'),
@@ -99,6 +105,8 @@ it('dates a page by its last change, including the panel data it shows', functio
 
     expect($lastmods[url('/')])->toBe('2031-06-01')
         ->and($lastmods[url('/realizacje')])->toBe('2031-05-04')
+        ->and($lastmods[url('/sklepy-internetowe')])->toBe('2031-05-04')
+        ->and($lastmods[url('/en/web-applications')])->toBe('2031-05-04')
         ->and($lastmods[url('/en/projects/zloty-klos')])->toBe('2031-05-04')
         ->and($lastmods[url('/regulamin')])->toBe(LegalPageController::TERMS_EFFECTIVE_DATE)
         ->and($lastmods[url('/en/partners/terms')])->toBe(LegalPageController::PARTNER_TERMS_EFFECTIVE_DATE)

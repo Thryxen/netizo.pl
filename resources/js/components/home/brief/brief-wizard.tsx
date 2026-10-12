@@ -111,11 +111,16 @@ type PendingFocus = 'heading' | 'success' | 'invalid' | null;
 
 const isBriefStep = (value: unknown): value is number => Number.isInteger(value) && (value as number) >= 1 && (value as number) <= BRIEF_TOTAL_STEPS;
 
-export function BriefWizard() {
+type BriefWizardProps = {
+    /** Project types checked from the start (a service page's own type); the first step still lets the visitor change them. */
+    initialTypes?: string[];
+};
+
+export function BriefWizard({ initialTypes }: BriefWizardProps = {}) {
     const locale = useLocale();
     const copy = useCopy(COPY);
     const endpoints = useEndpoints();
-    const form = useForm<BriefFormData>(createInitialBriefData);
+    const form = useForm<BriefFormData>(() => ({ ...createInitialBriefData(), types: initialTypes ?? [] }));
     const [step, setStep] = useState(1);
     const [submitted, setSubmitted] = useState(false);
 

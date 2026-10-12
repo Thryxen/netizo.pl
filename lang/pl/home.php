@@ -18,11 +18,11 @@ return [
     'faq' => [
         [
             'question' => 'Ile kosztuje strona internetowa lub aplikacja?',
-            'answer' => "Prosta strona kosztuje zwykle 1–\u{2060}5\u{00A0}tys.\u{00A0}zł, rozbudowana strona lub mały sklep 5–\u{2060}15\u{00A0}tys.\u{00A0}zł, aplikacja webowa 15–\u{2060}50\u{00A0}tys.\u{00A0}zł, a duże systemy od 50\u{00A0}tys.\u{00A0}zł. Ostateczna cena zależy od zakresu, a dokładną wycenę dostajesz bezpłatnie po briefie.",
+            'answer' => "Strona internetowa kosztuje od 799\u{00A0}zł, sklep internetowy od 1\u{00A0}299\u{00A0}zł, aplikacja webowa od 1\u{00A0}699\u{00A0}zł, aplikacja mobilna od 999\u{00A0}zł, automatyzacja z AI od 299\u{00A0}zł, a DevOps i chmura od 499\u{00A0}zł. Ostateczna cena zależy od zakresu, a dokładną wycenę dostajesz bezpłatnie po briefie.",
         ],
         [
             'question' => 'Ile trwa stworzenie strony lub aplikacji?',
-            'answer' => "Landing page powstaje zwykle w 2–\u{2060}3\u{00A0}tygodnie, strona firmowa w 4–\u{2060}6\u{00A0}tygodni, a aplikacja webowa w 2–\u{2060}4\u{00A0}miesiące. Dokładny termin ustalamy po briefie, gdy znamy zakres prac.",
+            'answer' => "Prosta strona albo landing page powstaje zwykle w ciągu tygodnia, rozbudowana strona firmowa w ciągu dwóch tygodni, a aplikacja webowa w 2–\u{2060}4\u{00A0}miesiące. Dokładny termin ustalamy po briefie, gdy znamy zakres prac.",
         ],
         [
             'question' => 'Czy strona będzie widoczna w Google?',

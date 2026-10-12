@@ -14,6 +14,12 @@
  *   og-netizo-realizacje.jpg, og-netizo-projects-en.jpg
  *                            lista realizacji (/realizacje, /en/projects), z szablon-realizacje.html: mozaika zdjęć
  *                            z public/assets/images/photos (data URI), więc JPEG (`format: 'jpeg'`), nie PNG
+ *   og-netizo-tworzenie-stron-internetowych.jpg, og-netizo-websites-en.jpg, og-netizo-sklepy-internetowe.jpg,
+ *   og-netizo-online-stores-en.jpg, og-netizo-aplikacje-webowe.jpg, og-netizo-web-applications-en.jpg,
+ *   og-netizo-aplikacje-mobilne.jpg, og-netizo-mobile-apps-en.jpg, og-netizo-automatyzacja-ai.jpg,
+ *   og-netizo-ai-automation-en.jpg, og-netizo-devops-i-chmura.jpg, og-netizo-devops-cloud-en.jpg
+ *                            strony usług (PL i EN), z jednego szablonu szablon-usluga.html: nagłówek strony, cena „od”
+ *                            (jak w App\Enums\Service) i zdjęcie z hero usługi, więc też JPEG
  * Logo, sygnet i fonty są wspólne z wizytówkami (netizo/wizytowki), więc marka zmienia się w jednym miejscu.
  *
  * Uruchomienie (z katalogu projektu, bez instalowania niczego w projekcie):
@@ -44,6 +50,11 @@ function photo(name) {
 function projectsMosaic() {
     return { photoCode: photo('about-code'), photoWorkshop: photo('mission-workshop'), photoVisit: photo('about-visit') };
 }
+/** Wartości obrazu strony usługi: nagłówek (H1 strony w liniach), cena „od”, nazwa nad zdjęciem, adres i zdjęcie z hero. */
+function service({ lang, label, headline, price, url, photoName, photoPosition = '50% 50%' }) {
+    return { lang, label, headline, pricePrefix: lang === 'pl' ? 'od' : 'from', price, url, photo: photo(photoName), photoPosition };
+}
+
 const IMAGES = [
     { template: 'szablon.html', output: 'og-netizo-2.png' },
     { template: 'szablon-partnerzy.html', output: 'og-netizo-partnerzy.png' },
@@ -92,6 +103,78 @@ const IMAGES = [
         output: 'og-netizo-projects-en.jpg',
         format: 'jpeg',
         values: { lang: 'en', label: 'Projects', headline: 'See what<br>we built for<br>our clients.', url: 'netizo.pl/en/projects', ...projectsMosaic() },
+    },
+    {
+        template: 'szablon-usluga.html',
+        output: 'og-netizo-tworzenie-stron-internetowych.jpg',
+        format: 'jpeg',
+        values: service({ lang: 'pl', label: 'Strony internetowe', headline: 'Tworzenie<br>stron<br>internetowych', price: '799&nbsp;zł', url: 'netizo.pl/tworzenie-stron-internetowych', photoName: 'websites-studio', photoPosition: '42% 50%' }),
+    },
+    {
+        template: 'szablon-usluga.html',
+        output: 'og-netizo-websites-en.jpg',
+        format: 'jpeg',
+        values: service({ lang: 'en', label: 'Websites', headline: 'Website<br>development<br>for businesses', price: 'PLN&nbsp;799', url: 'netizo.pl/en/website-development', photoName: 'websites-studio', photoPosition: '42% 50%' }),
+    },
+    {
+        template: 'szablon-usluga.html',
+        output: 'og-netizo-sklepy-internetowe.jpg',
+        format: 'jpeg',
+        values: service({ lang: 'pl', label: 'Sklepy internetowe', headline: 'Tworzenie<br>sklepów<br>internetowych', price: '1&nbsp;299&nbsp;zł', url: 'netizo.pl/sklepy-internetowe', photoName: 'stores-packing', photoPosition: '40% 50%' }),
+    },
+    {
+        template: 'szablon-usluga.html',
+        output: 'og-netizo-online-stores-en.jpg',
+        format: 'jpeg',
+        values: service({ lang: 'en', label: 'Online stores', headline: 'Online store<br>development', price: 'PLN&nbsp;1,299', url: 'netizo.pl/en/online-stores', photoName: 'stores-packing', photoPosition: '40% 50%' }),
+    },
+    {
+        template: 'szablon-usluga.html',
+        output: 'og-netizo-aplikacje-webowe.jpg',
+        format: 'jpeg',
+        values: service({ lang: 'pl', label: 'Aplikacje webowe', headline: 'Aplikacje<br>webowe<br>na zamówienie', price: '1&nbsp;699&nbsp;zł', url: 'netizo.pl/aplikacje-webowe', photoName: 'apps-office', photoPosition: '42% 50%' }),
+    },
+    {
+        template: 'szablon-usluga.html',
+        output: 'og-netizo-web-applications-en.jpg',
+        format: 'jpeg',
+        values: service({ lang: 'en', label: 'Web applications', headline: 'Custom web<br>application<br>development', price: 'PLN&nbsp;1,699', url: 'netizo.pl/en/web-applications', photoName: 'apps-office', photoPosition: '42% 50%' }),
+    },
+    {
+        template: 'szablon-usluga.html',
+        output: 'og-netizo-aplikacje-mobilne.jpg',
+        format: 'jpeg',
+        values: service({ lang: 'pl', label: 'Aplikacje mobilne', headline: 'Aplikacje<br>mobilne na<br>iOS i Android', price: '999&nbsp;zł', url: 'netizo.pl/aplikacje-mobilne', photoName: 'mobile-cafe', photoPosition: '38% 50%' }),
+    },
+    {
+        template: 'szablon-usluga.html',
+        output: 'og-netizo-mobile-apps-en.jpg',
+        format: 'jpeg',
+        values: service({ lang: 'en', label: 'Mobile apps', headline: 'iOS and Android<br>app development', price: 'PLN&nbsp;999', url: 'netizo.pl/en/mobile-apps', photoName: 'mobile-cafe', photoPosition: '38% 50%' }),
+    },
+    {
+        template: 'szablon-usluga.html',
+        output: 'og-netizo-automatyzacja-ai.jpg',
+        format: 'jpeg',
+        values: service({ lang: 'pl', label: 'AI &amp; Automatyzacja', headline: 'Automatyzacja<br>i wdrożenia AI<br>w firmie', price: '299&nbsp;zł', url: 'netizo.pl/automatyzacja-ai', photoName: 'ai-office', photoPosition: '30% 50%' }),
+    },
+    {
+        template: 'szablon-usluga.html',
+        output: 'og-netizo-ai-automation-en.jpg',
+        format: 'jpeg',
+        values: service({ lang: 'en', label: 'AI &amp; automation', headline: 'AI and<br>automation<br>for businesses', price: 'PLN&nbsp;299', url: 'netizo.pl/en/ai-automation', photoName: 'ai-office', photoPosition: '30% 50%' }),
+    },
+    {
+        template: 'szablon-usluga.html',
+        output: 'og-netizo-devops-i-chmura.jpg',
+        format: 'jpeg',
+        values: service({ lang: 'pl', label: 'DevOps &amp; Cloud', headline: 'DevOps<br>i chmura<br>dla firm', price: '499&nbsp;zł', url: 'netizo.pl/devops-i-chmura', photoName: 'devops-desk', photoPosition: '30% 50%' }),
+    },
+    {
+        template: 'szablon-usluga.html',
+        output: 'og-netizo-devops-cloud-en.jpg',
+        format: 'jpeg',
+        values: service({ lang: 'en', label: 'DevOps &amp; cloud', headline: 'DevOps<br>and cloud<br>for businesses', price: 'PLN&nbsp;499', url: 'netizo.pl/en/devops-cloud', photoName: 'devops-desk', photoPosition: '30% 50%' }),
     },
 ];
 const SIZE = { width: 1200, height: 630 };

@@ -12,6 +12,7 @@ return [
         'projects' => 'Case studies',
         'faq' => 'Frequently asked questions',
         'partner_faq' => 'Partner program: frequently asked questions',
+        'service_faq' => ':service: frequently asked questions',
         'contact' => 'Contact',
     ],
 
@@ -19,6 +20,30 @@ return [
         'home' => [
             'name' => 'Home page',
             'note' => 'services, selected projects, how we work, the client portal, FAQ with prices and timelines, the contact form and the project brief.',
+        ],
+        'websites' => [
+            'name' => 'Website development',
+            'note' => 'a simple website (landing page, business card site) from PLN 799 to PLN 1,499, usually within a week, a larger website with a CMS from PLN 1,799 to PLN 2,999, usually within two weeks; scope, process, projects and FAQ.',
+        ],
+        'stores' => [
+            'name' => 'Online store development',
+            'note' => 'a small store from PLN 1,299, a large e-commerce site with warehouse, wholesaler or ERP integration from PLN 15,000; payments, shipping, projects and FAQ.',
+        ],
+        'apps' => [
+            'name' => 'Custom web application development',
+            'note' => 'a web application from PLN 1,699, usually in 2–4 months, a large system from PLN 50,000; integrations, security, projects and FAQ.',
+        ],
+        'mobile' => [
+            'name' => 'iOS and Android app development',
+            'note' => 'a mobile app from PLN 999, a larger app with its own backend from PLN 50,000; one codebase for iOS and Android, publishing in the App Store and Google Play, projects and FAQ.',
+        ],
+        'ai' => [
+            'name' => 'AI and automation',
+            'note' => 'a chatbot or a single automation from PLN 299, an AI agent integrated with the company’s systems from PLN 15,000; answers based on the company’s documents, approvals and logs, data security, model costs and FAQ.',
+        ],
+        'devops' => [
+            'name' => 'DevOps and cloud for businesses',
+            'note' => 'a server or cloud setup with CI/CD and backups from PLN 499, infrastructure as code and a cloud migration from PLN 5,000; 24/7 monitoring, security, cloud costs and FAQ.',
         ],
         'projects' => [
             'name' => 'Projects',
@@ -35,12 +60,12 @@ return [
     ],
 
     'services' => [
-        ['name' => 'Web applications', 'note' => 'Modern SPA and SSR apps, from simple landing pages to complex SaaS platforms.'],
-        ['name' => 'Mobile apps', 'note' => 'One codebase for iOS and Android, with full performance on both.'],
-        ['name' => 'AI & automation', 'note' => 'Chatbots, AI integrations and process automation.'],
-        ['name' => 'Backend systems', 'note' => 'Scalable APIs and microservices built for heavy load.'],
-        ['name' => 'DevOps & cloud', 'note' => 'Infrastructure as code, CI/CD, containers and 24/7 monitoring.'],
-        ['name' => 'E-commerce', 'note' => 'Online stores and marketplaces with payment and fulfillment integrations.'],
+        ['name' => 'Websites', 'note' => 'Company websites and landing pages that load fast and do well in Google.', 'page' => 'websites'],
+        ['name' => 'Mobile apps', 'note' => 'One codebase for iOS and Android, with full performance on both.', 'page' => 'mobile'],
+        ['name' => 'AI & automation', 'note' => 'Chatbots, AI integrations and process automation.', 'page' => 'ai'],
+        ['name' => 'Web applications', 'note' => 'Portals, B2B systems and SaaS platforms with their own API and integrations.', 'page' => 'apps'],
+        ['name' => 'DevOps & cloud', 'note' => 'Infrastructure as code, CI/CD, containers and 24/7 monitoring.', 'page' => 'devops'],
+        ['name' => 'Online stores', 'note' => 'Stores with online payments, shipping and warehouse or ERP integration.', 'page' => 'stores'],
     ],
 
     'live_site' => 'Live site: :url',
@@ -67,6 +92,7 @@ return [
         'faq' => 'faq',
         'contact' => 'contact',
         'partner_faq' => 'faq',
+        'service_faq' => 'faq',
         'company' => 'company-details',
     ],
 ];

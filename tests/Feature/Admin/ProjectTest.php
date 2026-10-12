@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Service;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\UploadedFile;
@@ -361,4 +362,62 @@ it('passes the english copy to the edit form', function () {
             ->where('project.metricsEn', [['value' => '99.9%', 'label' => 'uptime']])
             ->where('project.challengesEn', ['Challenge A', 'Challenge B'])
             ->where('project.solutionsEn', []));
+});
+
+it('saves the services whose pages show the project, in the order of the services', function () {
+    $this->post(route('admin.projects.store'), validProjectPayload(['services' => ['stores', 'websites']]))
+        ->assertRedirect(route('admin.projects.index'))
+        ->assertSessionHasNoErrors();
+
+    expect(Project::query()->where('slug', 'netizo-case-study')->firstOrFail()->services)->toBe(['websites', 'stores']);
+});
+
+it('saves a project without services as an empty list', function () {
+    $this->post(route('admin.projects.store'), validProjectPayload())->assertSessionHasNoErrors();
+
+    expect(Project::query()->where('slug', 'netizo-case-study')->firstOrFail()->services)->toBe([]);
+});
+
+it('refuses an unknown or repeated service and saves nothing', function (mixed $services, string $field) {
+    $this->post(route('admin.projects.store'), validProjectPayload(['services' => $services]))->assertSessionHasErrors($field);
+
+    assertDatabaseCount('projects', 0);
+})->with([
+    'unknown' => [['blog'], 'services.0'],
+    'repeated' => [['apps', 'apps'], 'services.0'],
+    'not a list' => ['apps', 'services'],
+]);
+
+it('passes the services and their options to the forms', function () {
+    $project = Project::factory()->withServices(Service::Apps)->create();
+    $legacy = Project::factory()->create(['services' => null]);
+
+    $this->get(route('admin.projects.edit', $project))
+        ->assertOk()
+        ->assertInertia(fn (Assert $page) => $page
+            ->where('project.services', ['apps'])
+            ->where('serviceOptions', [
+                ['value' => 'websites', 'label' => 'Strony internetowe'],
+                ['value' => 'stores', 'label' => 'Sklepy internetowe'],
+                ['value' => 'apps', 'label' => 'Aplikacje webowe'],
+                ['value' => 'mobile', 'label' => 'Aplikacje mobilne'],
+                ['value' => 'ai', 'label' => 'AI & Automatyzacja'],
+                ['value' => 'devops', 'label' => 'DevOps & Cloud'],
+            ]));
+
+    $this->get(route('admin.projects.edit', $legacy))
+        ->assertOk()
+        ->assertInertia(fn (Assert $page) => $page->where('project.services', []));
+
+    $this->get(route('admin.projects.create'))
+        ->assertOk()
+        ->assertInertia(fn (Assert $page) => $page->has('serviceOptions', 6));
+});
+
+it('clears the services of a project when none are sent', function () {
+    $project = Project::factory()->withServices(Service::Stores)->create(['slug' => 'netizo-case-study']);
+
+    $this->put(route('admin.projects.update', $project), validProjectPayload())->assertSessionHasNoErrors();
+
+    expect($project->fresh()->services)->toBe([]);
 });

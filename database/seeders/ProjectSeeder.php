@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enums\Service;
 use App\Models\Project;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
@@ -23,6 +24,7 @@ class ProjectSeeder extends Seeder
                 [
                     ...$project,
                     'is_active' => true,
+                    'services' => array_map(fn (Service $service): string => $service->value, $project['services']),
                     'thumbnail_image' => $this->storeImage("{$project['slug']}-thumbnail.webp", "projects/thumbnails/{$project['slug']}.webp"),
                     'full_image' => $this->storeImage("{$project['slug']}.webp", "projects/full/{$project['slug']}.webp"),
                     'challenges' => collect($project['challenges'])->map(fn (string $challenge): array => ['challenge' => $challenge])->all(),
@@ -44,7 +46,7 @@ class ProjectSeeder extends Seeder
     /**
      * Polish copy, then its English twin for /en (the `_en` columns).
      *
-     * @return list<array{slug: string, sort_order: int, title: string, url: string, category: string, description: string, full_description: string, tech_stack: list<string>, metrics: list<array{value: string, label: string}>, challenges: list<string>, solutions: list<string>, category_en: string, description_en: string, full_description_en: string, metrics_en: list<array{value: string, label: string}>, challenges_en: list<string>, solutions_en: list<string>}>
+     * @return list<array{slug: string, sort_order: int, services: list<Service>, title: string, url: string, category: string, description: string, full_description: string, tech_stack: list<string>, metrics: list<array{value: string, label: string}>, challenges: list<string>, solutions: list<string>, category_en: string, description_en: string, full_description_en: string, metrics_en: list<array{value: string, label: string}>, challenges_en: list<string>, solutions_en: list<string>}>
      */
     private function projects(): array
     {
@@ -52,6 +54,7 @@ class ProjectSeeder extends Seeder
             [
                 'slug' => 'zloty-klos',
                 'sort_order' => 10,
+                'services' => [Service::Websites, Service::Stores],
                 'title' => 'Piekarnia Złoty Kłos',
                 'url' => 'zlotyklos-leszno.pl',
                 'category' => 'Strona firmowa / Zamówienia online',
@@ -95,6 +98,7 @@ class ProjectSeeder extends Seeder
             [
                 'slug' => 'mebloteka',
                 'sort_order' => 20,
+                'services' => [Service::Stores],
                 'title' => 'Mebloteka',
                 'url' => 'mebloteka-sklep.pl',
                 'category' => 'E-commerce / Headless',
@@ -138,6 +142,7 @@ class ProjectSeeder extends Seeder
             [
                 'slug' => 'flotapro',
                 'sort_order' => 30,
+                'services' => [Service::Apps],
                 'title' => 'FlotaPro',
                 'url' => 'flotapro.app',
                 'category' => 'Aplikacja webowa / SaaS',
@@ -181,6 +186,7 @@ class ProjectSeeder extends Seeder
             [
                 'slug' => 'fizjo-studio',
                 'sort_order' => 40,
+                'services' => [Service::Websites],
                 'title' => 'Fizjo Studio',
                 'url' => 'fizjostudio-poznan.pl',
                 'category' => 'Strona usługowa / Rezerwacje online',
@@ -224,6 +230,7 @@ class ProjectSeeder extends Seeder
             [
                 'slug' => 'zielone-tarasy',
                 'sort_order' => 50,
+                'services' => [Service::Websites],
                 'title' => 'Osiedle Zielone Tarasy',
                 'url' => 'zielonetarasy-leszno.pl',
                 'category' => 'Strona inwestycji / Wyszukiwarka mieszkań',
@@ -267,6 +274,7 @@ class ProjectSeeder extends Seeder
             [
                 'slug' => 'promien-fotowoltaika',
                 'sort_order' => 60,
+                'services' => [Service::Websites],
                 'title' => 'Promień Fotowoltaika',
                 'url' => 'promien-fotowoltaika.pl',
                 'category' => 'Landing page / Kalkulator oszczędności',
@@ -310,6 +318,7 @@ class ProjectSeeder extends Seeder
             [
                 'slug' => 'lingwista',
                 'sort_order' => 70,
+                'services' => [Service::Apps],
                 'title' => 'Lingwista',
                 'url' => 'lingwista-kursy.pl',
                 'category' => 'Platforma e-learningowa / Subskrypcje',
@@ -353,6 +362,7 @@ class ProjectSeeder extends Seeder
             [
                 'slug' => 'agrosklad',
                 'sort_order' => 80,
+                'services' => [Service::Stores, Service::Apps],
                 'title' => 'AgroSkład',
                 'url' => 'agrosklad-b2b.pl',
                 'category' => 'Platforma B2B / Integracja z ERP',
@@ -396,6 +406,7 @@ class ProjectSeeder extends Seeder
             [
                 'slug' => 'autopunkt',
                 'sort_order' => 90,
+                'services' => [Service::Websites],
                 'title' => 'AutoPunkt',
                 'url' => 'autopunkt-leszno.pl',
                 'category' => 'Strona salonu / Katalog samochodów',

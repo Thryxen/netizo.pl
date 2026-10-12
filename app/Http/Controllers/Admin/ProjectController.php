@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\Service;
 use App\Http\Controllers\Admin\Concerns\ReordersRecords;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\DestroyManyRequest;
@@ -47,6 +48,7 @@ class ProjectController extends Controller
     {
         return Inertia::render('admin/projects/create', [
             'nextSortOrder' => (int) Project::query()->max('sort_order') + 1,
+            'serviceOptions' => $this->serviceOptions(),
         ]);
     }
 
@@ -56,7 +58,7 @@ class ProjectController extends Controller
 
         $project = Project::query()->create([...$request->projectAttributes(), ...$images]);
 
-        $this->announce($this->caseStudyUrls($project));
+        $this->announce($this->publicUrls($project));
 
         return to_route('admin.projects.index')->with('success', "Dodano projekt „{$project->title}”.");
     }
@@ -65,17 +67,18 @@ class ProjectController extends Controller
     {
         return Inertia::render('admin/projects/edit', [
             'project' => $this->formProps($project),
+            'serviceOptions' => $this->serviceOptions(),
         ]);
     }
 
     public function update(SaveProjectRequest $request, Project $project): RedirectResponse
     {
         [$images, $obsolete] = $this->imageChanges($request, $project);
-        $publishedUrls = $this->caseStudyUrls($project);
+        $publishedUrls = $this->publicUrls($project);
 
         $project->update([...$request->projectAttributes(), ...$images]);
 
-        $this->announce([...$publishedUrls, ...$this->caseStudyUrls($project)]);
+        $this->announce([...$publishedUrls, ...$this->publicUrls($project)]);
 
         foreach ($obsolete as $path) {
             $this->images->delete($path);
@@ -86,7 +89,7 @@ class ProjectController extends Controller
 
     public function destroy(Project $project): RedirectResponse
     {
-        $publishedUrls = $this->caseStudyUrls($project);
+        $publishedUrls = $this->publicUrls($project);
 
         $project->delete();
 
@@ -98,7 +101,7 @@ class ProjectController extends Controller
     public function destroyMany(DestroyManyRequest $request): RedirectResponse
     {
         $publishedUrls = Project::query()->whereKey($request->ids())->active()->get()
-            ->flatMap(fn (Project $project): array => $this->caseStudyUrls($project))
+            ->flatMap(fn (Project $project): array => $this->publicUrls($project))
             ->all();
 
         $count = Project::query()->whereKey($request->ids())->delete();
@@ -116,26 +119,38 @@ class ProjectController extends Controller
     }
 
     /**
-     * The project's case study in both languages while the project is public; nothing for a hidden one.
+     * The pages that show the project while it is public, in both languages: its case study, then the pages of the
+     * services it is tagged with. Nothing for a hidden one.
      *
      * @return list<string>
      */
-    private function caseStudyUrls(Project $project): array
+    private function publicUrls(Project $project): array
     {
-        return $project->is_active ? array_values(LocalizedRoutes::alternates('projects.show', ['project' => $project])) : [];
+        if (! $project->is_active) {
+            return [];
+        }
+
+        $servicePages = collect(is_array($project->services) ? $project->services : [])
+            ->map(fn (mixed $value): ?Service => is_string($value) ? Service::tryFrom($value) : null)
+            ->filter()
+            ->flatMap(fn (Service $service): array => array_values(LocalizedRoutes::alternates($service->routeName())))
+            ->all();
+
+        return [...array_values(LocalizedRoutes::alternates('projects.show', ['project' => $project])), ...$servicePages];
     }
 
     /**
-     * Tell the search engines (IndexNow, after the response) that public projects changed: their case studies, also
-     * the old address of a hidden, renamed or deleted one (so the engines drop it), and the pages that list projects.
+     * Tell the search engines (IndexNow, after the response) that public projects changed: their case studies and the
+     * pages of their services, also the old address of a hidden, renamed or deleted one and the page of a service it is
+     * no longer tagged with (so the engines drop or refresh them), and the pages that list projects.
      * Changes to hidden projects alone send nothing, nor does the order: the panel saves it on every drop, and the
      * sitemap's lastmod covers it.
      *
-     * @param  list<string>  $caseStudyUrls
+     * @param  list<string>  $projectUrls
      */
-    private function announce(array $caseStudyUrls): void
+    private function announce(array $projectUrls): void
     {
-        if ($caseStudyUrls === []) {
+        if ($projectUrls === []) {
             return;
         }
 
@@ -143,7 +158,7 @@ class ProjectController extends Controller
             ->flatMap(fn (string $name): array => array_values(LocalizedRoutes::alternates($name)))
             ->all();
 
-        $this->indexNow->submitAfterResponse([...$caseStudyUrls, ...$listingUrls]);
+        $this->indexNow->submitAfterResponse([...$projectUrls, ...$listingUrls]);
     }
 
     /**
@@ -200,6 +215,7 @@ class ProjectController extends Controller
             'description' => (string) $project->description,
             'fullDescription' => (string) $project->full_description,
             'fullImageUrl' => $project->full_image ? asset('storage/'.$project->full_image) : null,
+            'services' => $this->serviceValues($project),
             'techStack' => $this->stringList($project->tech_stack, null),
             'metrics' => $this->metricList($project->metrics),
             'challenges' => $this->stringList($project->challenges, 'challenge'),
@@ -211,6 +227,29 @@ class ProjectController extends Controller
             'challengesEn' => $this->stringList($project->challenges_en, 'challenge'),
             'solutionsEn' => $this->stringList($project->solutions_en, 'solution'),
         ];
+    }
+
+    /**
+     * The services a project can be shown on, for the form's checkboxes.
+     *
+     * @return list<array{value: string, label: string}>
+     */
+    private function serviceOptions(): array
+    {
+        return array_map(fn (Service $service): array => ['value' => $service->value, 'label' => $service->adminLabel()], Service::cases());
+    }
+
+    /**
+     * The project's services that still exist (none for a project saved before services were added).
+     *
+     * @return list<string>
+     */
+    private function serviceValues(Project $project): array
+    {
+        return collect(is_array($project->services) ? $project->services : [])
+            ->filter(fn (mixed $value): bool => is_string($value) && Service::tryFrom($value) !== null)
+            ->values()
+            ->all();
     }
 
     /**

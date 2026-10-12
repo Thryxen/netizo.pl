@@ -10,7 +10,6 @@ use App\Services\StructuredData;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\TwitterCard;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
@@ -24,9 +23,6 @@ use Inertia\Response;
 class PortfolioController extends Controller
 {
     use PresentsProjects;
-
-    /** Props of a project in the list and in the "next project" link: everything but the long copy. */
-    private const SUMMARY_FIELDS = ['id', 'slug', 'title', 'url', 'category', 'description', 'thumbnailUrl', 'fullImageUrl', 'techStack', 'metrics'];
 
     /** Longest meta description of a case study, the limit search results show in full. */
     private const DESCRIPTION_LENGTH = 155;
@@ -47,7 +43,7 @@ class PortfolioController extends Controller
         $this->localizedSeo('projects.index');
 
         return Inertia::render('projects', [
-            'projects' => $projects->map(fn (Project $project): array => $this->summary($project))->values()->all(),
+            'projects' => $projects->map(fn (Project $project): array => $this->projectSummary($project))->values()->all(),
         ])->withViewData([
             'structuredData' => StructuredData::document(
                 StructuredData::page('CollectionPage', $pageUrl, __('projects.index.name'), $description, $imageUrl, [
@@ -76,7 +72,7 @@ class PortfolioController extends Controller
 
         return Inertia::render('case-study', [
             'project' => $props,
-            'nextProject' => $nextProject === null ? null : $this->summary($nextProject),
+            'nextProject' => $nextProject === null ? null : $this->projectSummary($nextProject),
         ])->withViewData([
             'structuredData' => StructuredData::document([
                 ...StructuredData::page('WebPage', $pageUrl, $title, $description, $imageUrl, [
@@ -137,14 +133,6 @@ class PortfolioController extends Controller
         }
 
         return Str::limit($description, self::DESCRIPTION_LENGTH - 1, '…');
-    }
-
-    /**
-     * @return array<string, mixed>
-     */
-    private function summary(Project $project): array
-    {
-        return Arr::only($this->projectProps($project), self::SUMMARY_FIELDS);
     }
 
     /**

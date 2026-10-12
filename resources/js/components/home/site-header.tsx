@@ -12,7 +12,7 @@ import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from '@/com
 import { type Locale, type Localized, localized, useCopy } from '@/lib/i18n';
 import { goToSection } from '@/lib/in-page-navigation';
 import { type HomeSection, homeSections } from '@/lib/sections';
-import { clientPanelUrl, contact, useInfoLinks } from '@/lib/site';
+import { clientPanelUrl, contact, useInfoLinks, useServiceLinks } from '@/lib/site';
 import { cn } from '@/lib/utils';
 
 type NavSection = { id: string; label: string };
@@ -39,6 +39,7 @@ const COPY = localized({
         menu: 'Menu',
         closeMenu: 'Zamknij menu',
         logIn: 'Zaloguj się do panelu',
+        services: 'Usługi',
     },
     en: {
         sections: {
@@ -61,6 +62,7 @@ const COPY = localized({
         menu: 'Menu',
         closeMenu: 'Close menu',
         logIn: 'Log in to the portal',
+        services: 'Services',
     },
 });
 
@@ -143,6 +145,7 @@ export function SiteHeader() {
     const sections = useCopy(SECTIONS);
     const desktopSections = useCopy(DESKTOP_SECTIONS);
     const infoLinks = useInfoLinks();
+    const serviceLinks = useServiceLinks();
     const headerRef = useRef<HTMLElement>(null);
     const activeId = useActiveSection(headerRef, sections);
     const [menuOpen, setMenuOpen] = useState(false);
@@ -274,6 +277,21 @@ export function SiteHeader() {
                                                 </li>
                                             );
                                         })}
+                                    </ul>
+                                </nav>
+
+                                <nav aria-labelledby="menu-services-heading" className="border-b border-border px-2 py-3">
+                                    <h2 id="menu-services-heading" className="px-2 pb-1 text-xs font-medium text-muted-foreground">
+                                        {copy.services}
+                                    </h2>
+                                    <ul className="flex flex-col text-[0.9375rem]">
+                                        {serviceLinks.map((link) => (
+                                            <li key={link.href}>
+                                                <a href={link.href} className={cn('flex h-11 items-center rounded-md px-2 font-medium hover:bg-accent', focusRing)}>
+                                                    {link.label}
+                                                </a>
+                                            </li>
+                                        ))}
                                     </ul>
                                 </nav>
 

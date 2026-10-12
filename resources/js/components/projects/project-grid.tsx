@@ -30,9 +30,8 @@ const COPY = localized({
 });
 
 /**
- * The projects as a two-column grid rail to rail (one column on phones): cells share their hairlines, with rivets where
- * a row's hairline meets a rail. With an odd number of projects the last row is completed (md+) by a cell inviting the
- * reader's own project. The last row leaves its bottom hairline to the next section.
+ * The list of projects (/realizacje, /en/projects): every project as a card on the shared-border grid (ProjectCardList),
+ * or a note with the way to write to us while there are none yet.
  */
 export function ProjectGrid({ projects }: { projects: ProjectSummary[] }) {
     const copy = useCopy(COPY);
@@ -57,38 +56,59 @@ export function ProjectGrid({ projects }: { projects: ProjectSummary[] }) {
         );
     }
 
-    const hasOpenCell = projects.length % 2 === 1;
-
     return (
         <section id={listId} aria-labelledby="projects-list-heading" className="border-t border-border">
             <h2 id="projects-list-heading" className="sr-only">
                 {copy.list}
             </h2>
             <Container className="px-0 sm:px-0 lg:px-0">
-                <ul className="grid md:grid-cols-2 [&>li]:border-b [&>li]:border-border max-md:[&>li:last-child]:border-b-0 md:[&>li:nth-last-child(-n+2)]:border-b-0">
-                    {projects.map((project, index) => (
-                        <li key={project.id} className={cn('relative', index % 2 === 0 && 'md:border-r')}>
-                            <Rivet side={index % 2 === 0 ? 'left' : 'right'} />
-                            <ProjectCard project={project} />
-                        </li>
-                    ))}
-                    {hasOpenCell && (
-                        <li className="relative max-md:hidden">
-                            <Rivet side="right" />
-                            <div className="flex h-full flex-col justify-between gap-10 bg-muted/40 p-6 sm:p-8 lg:p-10">
-                                <div>
-                                    <h2 className="max-w-md text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.08] font-semibold tracking-[-0.035em] text-balance">{copy.nextTitle}</h2>
-                                    <p className="mt-4 max-w-md leading-relaxed text-pretty text-muted-foreground">{copy.nextLead}</p>
-                                </div>
-                                <Button size="lg" className="self-start" asChild>
-                                    <a href={contactUrl}>{copy.nextAction}</a>
-                                </Button>
-                            </div>
-                        </li>
-                    )}
-                </ul>
+                <ProjectCardList projects={projects} contactUrl={contactUrl} />
             </Container>
         </section>
+    );
+}
+
+type ProjectCardListProps = {
+    projects: ProjectSummary[];
+    /** Where the cell inviting the reader's project leads (the contact form). */
+    contactUrl: string;
+    /** Level of the cards' headings: h2 on the list of projects, h3 under a section's own heading (a service page). */
+    headingLevel?: 'h2' | 'h3';
+};
+
+/**
+ * The projects as a two-column grid rail to rail (one column on phones), inside a <Container> without its gutter: cells
+ * share their hairlines, with rivets where a row's hairline meets a rail. With an odd number of projects the last row is
+ * completed (md+) by a cell inviting the reader's own project. The last row leaves its bottom hairline to what follows.
+ */
+export function ProjectCardList({ projects, contactUrl, headingLevel = 'h2' }: ProjectCardListProps) {
+    const copy = useCopy(COPY);
+    const Heading = headingLevel;
+    const hasOpenCell = projects.length % 2 === 1;
+
+    return (
+        <ul className="grid md:grid-cols-2 [&>li]:border-b [&>li]:border-border max-md:[&>li:last-child]:border-b-0 md:[&>li:nth-last-child(-n+2)]:border-b-0">
+            {projects.map((project, index) => (
+                <li key={project.id} className={cn('relative', index % 2 === 0 && 'md:border-r')}>
+                    <Rivet side={index % 2 === 0 ? 'left' : 'right'} />
+                    <ProjectCard project={project} headingLevel={headingLevel} />
+                </li>
+            ))}
+            {hasOpenCell && (
+                <li className="relative max-md:hidden">
+                    <Rivet side="right" />
+                    <div className="flex h-full flex-col justify-between gap-10 bg-muted/40 p-6 sm:p-8 lg:p-10">
+                        <div>
+                            <Heading className="max-w-md text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.08] font-semibold tracking-[-0.035em] text-balance">{copy.nextTitle}</Heading>
+                            <p className="mt-4 max-w-md leading-relaxed text-pretty text-muted-foreground">{copy.nextLead}</p>
+                        </div>
+                        <Button size="lg" className="self-start" asChild>
+                            <a href={contactUrl}>{copy.nextAction}</a>
+                        </Button>
+                    </div>
+                </li>
+            )}
+        </ul>
     );
 }
 
@@ -97,23 +117,24 @@ export function ProjectGrid({ projects }: { projects: ProjectSummary[] }) {
  * (`after:inset-0`); hovering the card, or focusing its link, scrolls the site in the window (`group/frame`,
  * `group/project`, as on the home page).
  */
-function ProjectCard({ project }: { project: ProjectSummary }) {
+function ProjectCard({ project, headingLevel }: { project: ProjectSummary; headingLevel: 'h2' | 'h3' }) {
     const copy = useCopy(COPY);
     const caseStudyUrl = useCaseStudyUrl();
     const titleId = `realizacja-${project.slug}-title`;
+    const Heading = headingLevel;
 
     return (
         <article aria-labelledby={titleId} className="group/project group/frame relative flex h-full flex-col p-4 sm:p-6 lg:p-10">
             <ProjectFrame project={project} />
             <div className="mt-6 flex flex-1 flex-col md:mt-8">
-                <h2 id={titleId} className="text-2xl leading-tight font-semibold tracking-tight md:text-[1.75rem]">
+                <Heading id={titleId} className="text-2xl leading-tight font-semibold tracking-tight md:text-[1.75rem]">
                     <a
                         href={caseStudyUrl(project.slug)}
                         className="rounded-sm underline-offset-4 outline-none after:absolute after:inset-0 after:content-[''] group-hover/project:underline focus-visible:after:ring-[3px] focus-visible:after:ring-ring/50 focus-visible:after:ring-inset"
                     >
                         {project.title}
                     </a>
-                </h2>
+                </Heading>
                 {project.category && <p className="mt-1.5 text-sm text-muted-foreground">{project.category}</p>}
                 <p className="mt-4 max-w-[56ch] leading-relaxed text-pretty">{project.description}</p>
                 <div className="mt-auto pt-8">

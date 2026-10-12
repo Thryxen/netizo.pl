@@ -10,6 +10,7 @@ use App\Http\Controllers\PartnerApplicationController;
 use App\Http\Controllers\PartnerProgramController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProjectBriefController;
+use App\Http\Controllers\ServicePageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,12 @@ use Illuminate\Support\Facades\Route;
  * its Polish twin with an `en.` prefix; the language itself comes from the path (App\Http\Middleware\SetLocale).
  */
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/tworzenie-stron-internetowych', [ServicePageController::class, 'websites'])->name('services.websites');
+Route::get('/sklepy-internetowe', [ServicePageController::class, 'stores'])->name('services.stores');
+Route::get('/aplikacje-webowe', [ServicePageController::class, 'apps'])->name('services.apps');
+Route::get('/aplikacje-mobilne', [ServicePageController::class, 'mobile'])->name('services.mobile');
+Route::get('/automatyzacja-ai', [ServicePageController::class, 'ai'])->name('services.ai');
+Route::get('/devops-i-chmura', [ServicePageController::class, 'devops'])->name('services.devops');
 Route::get('/partnerzy', [PartnerProgramController::class, 'index'])->name('partners');
 Route::get('/partnerzy/regulamin', [LegalPageController::class, 'partnerTerms'])->name('partners.terms');
 Route::get('/o-nas', [AboutController::class, 'index'])->name('about');
@@ -35,6 +42,12 @@ Route::middleware('throttle:forms')->group(function () {
 
 Route::prefix('en')->name('en.')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/website-development', [ServicePageController::class, 'websites'])->name('services.websites');
+    Route::get('/online-stores', [ServicePageController::class, 'stores'])->name('services.stores');
+    Route::get('/web-applications', [ServicePageController::class, 'apps'])->name('services.apps');
+    Route::get('/mobile-apps', [ServicePageController::class, 'mobile'])->name('services.mobile');
+    Route::get('/ai-automation', [ServicePageController::class, 'ai'])->name('services.ai');
+    Route::get('/devops-cloud', [ServicePageController::class, 'devops'])->name('services.devops');
     Route::get('/partners', [PartnerProgramController::class, 'index'])->name('partners');
     Route::get('/partners/terms', [LegalPageController::class, 'partnerTerms'])->name('partners.terms');
     Route::get('/about', [AboutController::class, 'index'])->name('about');

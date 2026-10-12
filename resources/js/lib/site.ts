@@ -62,6 +62,12 @@ export function useSocialProfiles(): SocialProfile[] {
 export const pageUrls = localized({
     pl: {
         home: '/',
+        websites: '/tworzenie-stron-internetowych',
+        stores: '/sklepy-internetowe',
+        apps: '/aplikacje-webowe',
+        mobile: '/aplikacje-mobilne',
+        ai: '/automatyzacja-ai',
+        devops: '/devops-i-chmura',
         projects: '/realizacje',
         partners: '/partnerzy',
         partnerTerms: '/partnerzy/regulamin',
@@ -71,6 +77,12 @@ export const pageUrls = localized({
     },
     en: {
         home: '/en',
+        websites: '/en/website-development',
+        stores: '/en/online-stores',
+        apps: '/en/web-applications',
+        mobile: '/en/mobile-apps',
+        ai: '/en/ai-automation',
+        devops: '/en/devops-cloud',
         projects: '/en/projects',
         partners: '/en/partners',
         partnerTerms: '/en/partners/terms',
@@ -107,6 +119,26 @@ export const infoLinks = localized<InfoLink[]>({
     ],
 });
 
+/** The service pages (App\Enums\Service), in the footer's "Usługi" column and the mobile menu. */
+export const serviceLinks = localized<InfoLink[]>({
+    pl: [
+        { href: '/tworzenie-stron-internetowych', label: 'Strony internetowe' },
+        { href: '/sklepy-internetowe', label: 'Sklepy internetowe' },
+        { href: '/aplikacje-webowe', label: 'Aplikacje webowe' },
+        { href: '/aplikacje-mobilne', label: 'Aplikacje mobilne' },
+        { href: '/automatyzacja-ai', label: 'AI & Automatyzacja' },
+        { href: '/devops-i-chmura', label: 'DevOps & Cloud' },
+    ],
+    en: [
+        { href: '/en/website-development', label: 'Websites' },
+        { href: '/en/online-stores', label: 'Online stores' },
+        { href: '/en/web-applications', label: 'Web applications' },
+        { href: '/en/mobile-apps', label: 'Mobile apps' },
+        { href: '/en/ai-automation', label: 'AI & automation' },
+        { href: '/en/devops-cloud', label: 'DevOps & cloud' },
+    ],
+});
+
 /** Page URLs in the language of the current page. */
 export function usePageUrls(): (typeof pageUrls)['pl'] {
     return pageUrls[useLocale()];
@@ -122,4 +154,9 @@ export function useCaseStudyUrl(): (slug: string) => string {
 /** Footer and menu links in the language of the current page. */
 export function useInfoLinks(): InfoLink[] {
     return infoLinks[useLocale()];
+}
+
+/** The service pages in the language of the current page. */
+export function useServiceLinks(): InfoLink[] {
+    return serviceLinks[useLocale()];
 }

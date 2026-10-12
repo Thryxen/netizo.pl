@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Concerns;
 
 use App\Models\Project;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 /**
@@ -35,6 +36,17 @@ trait PresentsProjects
             'challenges' => $this->stringList($this->translated($project, 'challenges')),
             'solutions' => $this->stringList($this->translated($project, 'solutions')),
         ];
+    }
+
+    /**
+     * A project in a list of projects (the list of projects, a service page, the "next project" link): everything but
+     * the long copy of its case study.
+     *
+     * @return array{id: int, slug: string, title: string, url: string, category: string, description: string, thumbnailUrl: string|null, fullImageUrl: string|null, techStack: list<string>, metrics: list<array{value: string, label: string}>}
+     */
+    protected function projectSummary(Project $project): array
+    {
+        return Arr::only($this->projectProps($project), ['id', 'slug', 'title', 'url', 'category', 'description', 'thumbnailUrl', 'fullImageUrl', 'techStack', 'metrics']);
     }
 
     /**

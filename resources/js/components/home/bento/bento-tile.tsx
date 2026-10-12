@@ -2,12 +2,13 @@ import type { ComponentProps, ReactNode } from 'react';
 import { Rivet } from '@/components/home/section';
 import { TechTag } from '@/components/home/tech-tag';
 import { SpotlightLayer, useSpotlight } from '@/components/motion/spotlight';
+import { buttonVariants } from '@/components/ui/button';
 import { localized, useCopy } from '@/lib/i18n';
 import { cn } from '@/lib/utils';
 
 const COPY = localized({
-    pl: { technologies: (title: string): string => `Technologie: ${title}` },
-    en: { technologies: (title: string): string => `Technologies: ${title}` },
+    pl: { technologies: (title: string): string => `Technologie: ${title}`, offer: 'Zobacz ofertę' },
+    en: { technologies: (title: string): string => `Technologies: ${title}`, offer: 'See the offer' },
 });
 
 export type BentoService = {
@@ -15,6 +16,8 @@ export type BentoService = {
     /** One sentence: the tile shows the rest. */
     description: string;
     tags: string[];
+    /** The service's own page, when it has one: the title becomes a link over the whole tile. */
+    href?: string;
 };
 
 /**
@@ -43,7 +46,7 @@ export function BentoTile({ className, rivets, children }: BentoTileProps) {
     const spotlight = useSpotlight<HTMLLIElement>();
 
     return (
-        <li {...spotlight} className={cn('relative isolate flex min-w-0 flex-col bg-background', className)}>
+        <li {...spotlight} className={cn('group/tile relative isolate flex min-w-0 flex-col bg-background', className)}>
             <SpotlightLayer />
             {rivets?.map((rivet) => <Rivet key={`${rivet.side}-${rivet.className ?? 'all'}`} side={rivet.side} className={rivet.className} />)}
             {children}
@@ -58,14 +61,29 @@ type BentoTileTextProps = {
     className?: string;
 };
 
-/** Title (H3), one-line description and technology tags. */
+/**
+ * Title (H3), one-line description and technology tags. A service with its own page (`href`) gets its title as a link
+ * whose hit area covers the whole tile (over the live visual, which is decorative), underlined while the tile is
+ * hovered, and a "Zobacz ofertę" button look under the tags, as the project cards do.
+ */
 export function BentoTileText({ service, size = 'md', className }: BentoTileTextProps) {
-    const { title, description, tags } = service;
+    const { title, description, tags, href } = service;
     const copy = useCopy(COPY);
 
     return (
         <div className={className}>
-            <h3 className={cn('font-semibold tracking-tight text-balance', size === 'lg' ? 'text-xl sm:text-2xl' : 'text-lg sm:text-xl')}>{title}</h3>
+            <h3 className={cn('font-semibold tracking-tight text-balance', size === 'lg' ? 'text-xl sm:text-2xl' : 'text-lg sm:text-xl')}>
+                {href ? (
+                    <a
+                        href={href}
+                        className="rounded-sm underline-offset-4 outline-none group-hover/tile:underline after:absolute after:inset-0 after:z-20 after:content-[''] focus-visible:after:ring-[3px] focus-visible:after:ring-ring/50 focus-visible:after:ring-inset"
+                    >
+                        {title}
+                    </a>
+                ) : (
+                    title
+                )}
+            </h3>
             <p className="mt-1.5 max-w-[44ch] text-sm leading-relaxed text-pretty text-muted-foreground">{description}</p>
             <ul aria-label={copy.technologies(title)} className="mt-4 flex flex-wrap gap-1.5">
                 {tags.map((tag) => (
@@ -74,6 +92,11 @@ export function BentoTileText({ service, size = 'md', className }: BentoTileText
                     </li>
                 ))}
             </ul>
+            {href && (
+                <span aria-hidden="true" className={cn(buttonVariants({ variant: 'outline', size: 'sm' }), 'mt-5 group-hover/tile:bg-accent')}>
+                    {copy.offer}
+                </span>
+            )}
         </div>
     );
 }

@@ -42,6 +42,8 @@ export type AdminProject = AdminProjectRow & {
     description: string;
     fullDescription: string;
     fullImageUrl: string | null;
+    /** Values of App\Enums\Service: the service pages that show the project. */
+    services: string[];
     techStack: string[];
     metrics: { value: string; label: string }[];
     challenges: string[];
@@ -54,6 +56,9 @@ export type AdminProject = AdminProjectRow & {
     challengesEn: string[];
     solutionsEn: string[];
 };
+
+/** A service whose page can show a project (App\Enums\Service), with its label in the panel. */
+export type AdminServiceOption = { value: string; label: string };
 
 export type AdminClient = {
     id: number;

@@ -13,15 +13,15 @@ const ASK = 1;
 const THINK = 2;
 const ANSWER = 3;
 
-/** In line with the FAQ's own answer (a company site takes 4–6 weeks); a no-break space keeps the span together. */
+/** In line with the FAQ's own answer (a larger company website takes up to two weeks). */
 const COPY = localized({
     pl: {
         question: 'Ile trwa zrobienie strony firmowej?',
-        answer: 'Zwykle 4–6 tygodni. Dokładny termin ustalamy po briefie.',
+        answer: 'Zwykle do dwóch tygodni. Dokładny termin ustalamy po briefie.',
     },
     en: {
         question: 'How long does a company website take?',
-        answer: 'Usually 4–6 weeks. We set the exact deadline after the brief.',
+        answer: 'Usually up to two weeks. We set the exact deadline after the brief.',
     },
 });
 

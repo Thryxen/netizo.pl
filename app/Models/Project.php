@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Service;
 use Database\Factories\ProjectFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -15,6 +16,7 @@ class Project extends Model
         'slug',
         'sort_order',
         'is_active',
+        'services',
         'title',
         'url',
         'category',
@@ -36,6 +38,7 @@ class Project extends Model
 
     protected $casts = [
         'is_active' => 'boolean',
+        'services' => 'array',
         'tech_stack' => 'array',
         'metrics' => 'array',
         'challenges' => 'array',
@@ -53,5 +56,13 @@ class Project extends Model
     public function scopeOrdered($query)
     {
         return $query->orderBy('sort_order');
+    }
+
+    /**
+     * Projects tagged in the admin panel with the service, shown on its page.
+     */
+    public function scopeForService($query, Service $service)
+    {
+        return $query->whereJsonContains('services', $service->value);
     }
 }

@@ -4,8 +4,9 @@
  * Copy of /llms.txt (App\Services\LlmsTxt), the summary of the site for AI agents and assistants. The facts come from
  * where the pages take them (the summary and the FAQ from home.php and partners.php, the projects from the admin panel,
  * the contact and company details from App\Services\StructuredData); this file holds only what links them together.
- * `services` repeats the services section (resources/js/components/home/services-section.tsx) and `anchors` the section
- * ids (resources/js/lib/sections.ts), both checked by LlmsTxtTest; the partner figures match partner-data.ts.
+ * `services` repeats the services section (resources/js/components/home/services-section.tsx; `page` names the service
+ * page a service links to, App\Enums\Service) and `anchors` the section ids (resources/js/lib/sections.ts), both checked
+ * by LlmsTxtTest; the partner figures match partner-data.ts, the service pages' figures App\Enums\Service.
  * English twin: lang/en/llms.php (same keys).
  */
 return [
@@ -17,6 +18,7 @@ return [
         'projects' => 'Realizacje',
         'faq' => 'Najczęstsze pytania',
         'partner_faq' => 'Program partnerski: najczęstsze pytania',
+        'service_faq' => ':service: najczęstsze pytania',
         'contact' => 'Kontakt',
     ],
 
@@ -24,6 +26,30 @@ return [
         'home' => [
             'name' => 'Strona główna',
             'note' => 'usługi, wybrane realizacje, proces współpracy, panel klienta, najczęstsze pytania z cenami i terminami, formularz kontaktowy i brief projektu.',
+        ],
+        'websites' => [
+            'name' => 'Tworzenie stron internetowych',
+            'note' => 'prosta strona (landing page, wizytówka) od 799 zł do 1 499 zł, zwykle w ciągu tygodnia, rozbudowana strona z CMS od 1 799 zł do 2 999 zł, zwykle w ciągu dwóch tygodni; zakres, proces, realizacje i najczęstsze pytania.',
+        ],
+        'stores' => [
+            'name' => 'Tworzenie sklepów internetowych',
+            'note' => 'mały sklep od 1 299 zł, duży e-commerce z integracją z magazynem, hurtownią lub ERP od 15 000 zł; płatności, wysyłka, realizacje i najczęstsze pytania.',
+        ],
+        'apps' => [
+            'name' => 'Aplikacje webowe na zamówienie',
+            'note' => 'aplikacja webowa od 1 699 zł, zwykle w 2–4 miesiące, duży system od 50 000 zł; integracje, bezpieczeństwo, realizacje i najczęstsze pytania.',
+        ],
+        'mobile' => [
+            'name' => 'Aplikacje mobilne na iOS i Android',
+            'note' => 'aplikacja mobilna od 999 zł, rozbudowana aplikacja z własnym backendem od 50 000 zł; jeden kod na iOS i Android, publikacja w App Store i Google Play, realizacje i najczęstsze pytania.',
+        ],
+        'ai' => [
+            'name' => 'Automatyzacja i wdrożenia AI',
+            'note' => 'chatbot albo pojedyncza automatyzacja od 299 zł, agent AI zintegrowany z systemami firmy od 15 000 zł; odpowiedzi na podstawie dokumentów firmy, akceptacje i logi, bezpieczeństwo danych, koszty modeli i najczęstsze pytania.',
+        ],
+        'devops' => [
+            'name' => 'DevOps i chmura dla firm',
+            'note' => 'konfiguracja serwera albo chmury z CI/CD i kopiami zapasowymi od 499 zł, infrastruktura jako kod i migracja do chmury od 5 000 zł; monitoring 24/7, bezpieczeństwo, koszty chmury i najczęstsze pytania.',
         ],
         'projects' => [
             'name' => 'Realizacje',
@@ -40,12 +66,12 @@ return [
     ],
 
     'services' => [
-        ['name' => 'Aplikacje webowe', 'note' => 'Nowoczesne aplikacje SPA i SSR, od prostych landing page po złożone platformy SaaS.'],
-        ['name' => 'Aplikacje mobilne', 'note' => 'Jeden kod na iOS i Android, pełna wydajność na obu platformach.'],
-        ['name' => 'AI & Automatyzacja', 'note' => 'Chatboty, integracje z AI i automatyzacja procesów.'],
-        ['name' => 'Systemy backend', 'note' => 'Skalowalne API i mikroserwisy gotowe na wysokie obciążenia.'],
-        ['name' => 'DevOps & Cloud', 'note' => 'Infrastruktura jako kod, CI/CD, konteneryzacja i monitoring 24/7.'],
-        ['name' => 'E-commerce', 'note' => 'Sklepy internetowe i marketplace’y z integracją płatności i fulfillmentu.'],
+        ['name' => 'Strony internetowe', 'note' => 'Strony firmowe i landing page, które szybko się ładują i dobrze wypadają w Google.', 'page' => 'websites'],
+        ['name' => 'Aplikacje mobilne', 'note' => 'Jeden kod na iOS i Android, pełna wydajność na obu platformach.', 'page' => 'mobile'],
+        ['name' => 'AI & Automatyzacja', 'note' => 'Chatboty, integracje z AI i automatyzacja procesów.', 'page' => 'ai'],
+        ['name' => 'Aplikacje webowe', 'note' => 'Panele, systemy B2B i platformy SaaS z własnym API i integracjami.', 'page' => 'apps'],
+        ['name' => 'DevOps & Cloud', 'note' => 'Infrastruktura jako kod, CI/CD, konteneryzacja i monitoring 24/7.', 'page' => 'devops'],
+        ['name' => 'Sklepy internetowe', 'note' => 'Sklepy z płatnościami online, wysyłką i integracją z magazynem lub ERP.', 'page' => 'stores'],
     ],
 
     'live_site' => 'Strona: :url',
@@ -72,6 +98,7 @@ return [
         'faq' => 'faq',
         'contact' => 'kontakt',
         'partner_faq' => 'faq',
+        'service_faq' => 'faq',
         'company' => 'dane-firmy',
     ],
 ];

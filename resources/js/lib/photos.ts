@@ -17,6 +17,14 @@
  * technology and the organization, not the people themselves), `about-remote`, `about-visit` (a meeting at a client's
  * shop) and `about-drive` (on the way to a client: a parked car in a small town) (3:2) for "Jak pracujemy", and
  * `about-meeting` (3:2, a café table set for a meeting, a calm sage wall in the middle) behind the closing call to action.
+ * The service pages (3:2 each, generated with codex-image in the same style, no faces): the heroes' sets, whose right
+ * third is a calm sage wall for the floating chips — `websites-studio` (a florist's counter with a laptop),
+ * `stores-packing` (a ceramics studio packing orders), `apps-office` (a wholesaler's office with a dashboard),
+ * `mobile-cafe` (a café counter with an ordering app on a phone), `ai-office` (a support desk with a chat on the laptop
+ * and invoices), `devops-desk` (a workspace with monitoring on screen and a small server) — and the guides' photos: `websites-prototype` (hands over printed wireframes and a prototype on a
+ * tablet), `stores-product-shoot` (a mug on a paper sweep, a softbox, a phone on a tripod), `apps-warehouse` (a tablet in
+ * a warehouse aisle), `mobile-testing` (an app tested on two phones), `ai-process` (a process mapped on paper), `devops-architecture`
+ * (an architecture drawn on paper).
  */
 const PHOTOS = {
     'bento-mobile': { width: 1024, height: 1536 },
@@ -40,6 +48,18 @@ const PHOTOS = {
     'about-visit': { width: 1536, height: 1024 },
     'about-drive': { width: 1536, height: 1024 },
     'about-meeting': { width: 1536, height: 1024 },
+    'websites-studio': { width: 1536, height: 1024 },
+    'websites-prototype': { width: 1536, height: 1024 },
+    'stores-packing': { width: 1536, height: 1024 },
+    'stores-product-shoot': { width: 1536, height: 1024 },
+    'apps-office': { width: 1536, height: 1024 },
+    'apps-warehouse': { width: 1536, height: 1024 },
+    'mobile-cafe': { width: 1536, height: 1024 },
+    'mobile-testing': { width: 1536, height: 1024 },
+    'ai-office': { width: 1536, height: 1024 },
+    'ai-process': { width: 1536, height: 1024 },
+    'devops-desk': { width: 1536, height: 1024 },
+    'devops-architecture': { width: 1536, height: 1024 },
 } as const satisfies Record<string, { width: number; height: number }>;
 
 export type PhotoName = keyof typeof PHOTOS;

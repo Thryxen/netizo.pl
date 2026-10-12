@@ -22,6 +22,12 @@ class Sitemap
      */
     private const PAGES = [
         'home' => '2026-10-12',
+        'services.websites' => '2026-10-12',
+        'services.stores' => '2026-10-12',
+        'services.apps' => '2026-10-12',
+        'services.mobile' => '2026-10-12',
+        'services.ai' => '2026-10-12',
+        'services.devops' => '2026-10-12',
         'projects.index' => '2026-10-12',
         'about' => '2026-10-12',
         'partners' => '2026-10-12',
@@ -45,7 +51,7 @@ class Sitemap
         foreach (self::PAGES as $name => $date) {
             $dataChangedAt = match ($name) {
                 'home' => [$projectsChangedAt, Client::active()->max('updated_at')],
-                'projects.index', 'about' => [$projectsChangedAt],
+                'projects.index', 'about', 'services.websites', 'services.stores', 'services.apps', 'services.mobile', 'services.ai', 'services.devops' => [$projectsChangedAt],
                 default => [],
             };
 

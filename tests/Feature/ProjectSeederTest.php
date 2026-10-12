@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Service;
 use App\Models\Project;
 use Database\Seeders\ProjectSeeder;
 use Illuminate\Support\Facades\Storage;
@@ -82,4 +83,12 @@ it('seeds an english copy of every sample project for the english site', functio
             ->where('projects.0.metrics.2', ['value' => '0.9 s', 'label' => 'LCP on mobile'])
             ->where('projects.0.challenges.0', 'Orders from the phone, Messenger and paper notes had to be copied into one list every evening.')
         );
+});
+
+it('tags every sample project with the services whose pages show it', function () {
+    $this->seed(ProjectSeeder::class);
+
+    expect(Project::query()->forService(Service::Websites)->ordered()->pluck('slug')->all())->toBe(['zloty-klos', 'fizjo-studio', 'zielone-tarasy', 'promien-fotowoltaika', 'autopunkt'])
+        ->and(Project::query()->forService(Service::Stores)->ordered()->pluck('slug')->all())->toBe(['zloty-klos', 'mebloteka', 'agrosklad'])
+        ->and(Project::query()->forService(Service::Apps)->ordered()->pluck('slug')->all())->toBe(['flotapro', 'lingwista', 'agrosklad']);
 });

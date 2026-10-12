@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\Service;
 use App\Models\Project;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -19,6 +20,7 @@ class ProjectFactory extends Factory
             'slug' => fake()->unique()->slug(2),
             'sort_order' => fake()->numberBetween(1, 100),
             'is_active' => true,
+            'services' => [],
             'title' => fake()->unique()->words(3, true),
             'url' => fake()->domainName(),
             'category' => 'Strona firmowa',
@@ -36,5 +38,15 @@ class ProjectFactory extends Factory
     public function inactive(): static
     {
         return $this->state(fn (array $attributes): array => ['is_active' => false]);
+    }
+
+    /**
+     * Tagged with the services whose pages show it.
+     */
+    public function withServices(Service ...$services): static
+    {
+        return $this->state(fn (array $attributes): array => [
+            'services' => array_map(fn (Service $service): string => $service->value, $services),
+        ]);
     }
 }

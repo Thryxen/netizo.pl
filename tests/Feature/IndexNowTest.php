@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Service;
 use App\Models\Client;
 use App\Models\Project;
 use App\Models\User;
@@ -164,6 +165,28 @@ describe('admin panel', function () {
         ]);
     });
 
+    it('announces the pages of the services a new public project is tagged with', function () {
+        $this->post(route('admin.projects.store'), indexNowProjectPayload(['services' => ['stores']]))->assertSessionHasNoErrors();
+
+        expect(indexNowSubmissions())->toBe([[
+            url('/realizacje/zloty-klos'), url('/en/projects/zloty-klos'),
+            url('/sklepy-internetowe'), url('/en/online-stores'),
+            ...projectListingUrls(),
+        ]]);
+    });
+
+    it('announces the page of a service a project is no longer tagged with', function () {
+        $project = Project::factory()->withServices(Service::Apps)->create(['slug' => 'zloty-klos']);
+
+        $this->put(route('admin.projects.update', $project), indexNowProjectPayload())->assertSessionHasNoErrors();
+
+        expect(indexNowSubmissions())->toBe([[
+            url('/realizacje/zloty-klos'), url('/en/projects/zloty-klos'),
+            url('/aplikacje-webowe'), url('/en/web-applications'),
+            ...projectListingUrls(),
+        ]]);
+    });
+
     it('announces a renamed project at its old and new address', function () {
         $project = Project::factory()->create(['slug' => 'stary-adres']);
 
@@ -278,7 +301,7 @@ describe('indexnow:submit', function () {
         Project::factory()->create(['slug' => 'zloty-klos']);
 
         $this->artisan('indexnow:submit')
-            ->expectsOutputToContain('Zgłoszono stron: 16.')
+            ->expectsOutputToContain('Zgłoszono stron: 28.')
             ->assertSuccessful();
 
         $locs = [];
@@ -288,7 +311,7 @@ describe('indexnow:submit', function () {
         }
 
         expect(indexNowSubmissions())->toBe([$locs])
-            ->and($locs)->toHaveCount(16)->toContain(url('/realizacje/zloty-klos'), url('/en/projects/zloty-klos'));
+            ->and($locs)->toHaveCount(28)->toContain(url('/realizacje/zloty-klos'), url('/en/projects/zloty-klos'));
     });
 
     it('submits only the pages of the sitemap changed since a day', function () {
@@ -297,9 +320,17 @@ describe('indexnow:submit', function () {
 
         $this->artisan('indexnow:submit', ['--since' => '2030-03-01'])->assertSuccessful();
 
-        expect(indexNowSubmissions())->toBe([
-            [...projectListingUrls(), url('/realizacje/zloty-klos'), url('/en/projects/zloty-klos')],
-        ]);
+        expect(indexNowSubmissions())->toBe([[
+            url('/'), url('/en'),
+            url('/tworzenie-stron-internetowych'), url('/en/website-development'),
+            url('/sklepy-internetowe'), url('/en/online-stores'),
+            url('/aplikacje-webowe'), url('/en/web-applications'),
+            url('/aplikacje-mobilne'), url('/en/mobile-apps'),
+            url('/automatyzacja-ai'), url('/en/ai-automation'),
+            url('/devops-i-chmura'), url('/en/devops-cloud'),
+            url('/realizacje'), url('/en/projects'), url('/o-nas'), url('/en/about'),
+            url('/realizacje/zloty-klos'), url('/en/projects/zloty-klos'),
+        ]]);
     });
 
     it('submits nothing when no page changed since that day', function () {

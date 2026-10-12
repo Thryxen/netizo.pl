@@ -9,16 +9,18 @@ import { WebTile } from '@/components/home/bento/web-tile';
 import { bleedClassName, Rivet, Section, SectionHeading } from '@/components/home/section';
 import { localized, useCopy } from '@/lib/i18n';
 import { useHomeSections } from '@/lib/sections';
+import { usePageUrls } from '@/lib/site';
 import { cn } from '@/lib/utils';
 
+/** The tiles; each links to its service page (`web` websites, `backend` web apps, `ecommerce` stores). */
 type ServiceKey = 'web' | 'mobile' | 'ai' | 'backend' | 'devops' | 'ecommerce';
 
 /** Technology tags, the same in both languages. */
 const TAGS: Record<ServiceKey, string[]> = {
-    web: ['React', 'Next.js', 'Vue.js', 'TypeScript'],
+    web: ['Next.js', 'Astro', 'React', 'Tailwind CSS'],
     mobile: ['React Native', 'Flutter', 'iOS', 'Android'],
     ai: ['OpenAI', 'LangChain', 'RAG', 'Agents'],
-    backend: ['Node.js', 'Python', 'Go', 'GraphQL'],
+    backend: ['Laravel', 'React', 'Node.js', 'PostgreSQL'],
     devops: ['AWS', 'Docker', 'Kubernetes', 'Terraform'],
     ecommerce: ['Shopify', 'WooCommerce', 'Stripe', 'Headless'],
 };
@@ -29,8 +31,8 @@ const COPY = localized({
         lead: 'Od koncepcji po wdrożenie. Budujemy skalowalne aplikacje webowe, mobilne i systemy dopasowane do tego, jak działa Twoja firma.',
         services: {
             web: {
-                title: 'Aplikacje webowe',
-                description: 'Nowoczesne aplikacje SPA i SSR, od prostych landing page po złożone platformy SaaS.',
+                title: 'Strony internetowe',
+                description: 'Strony firmowe i landing page, które szybko się ładują i dobrze wypadają w Google.',
                 tags: TAGS.web,
             },
             mobile: {
@@ -44,8 +46,8 @@ const COPY = localized({
                 tags: TAGS.ai,
             },
             backend: {
-                title: 'Systemy backend',
-                description: 'Skalowalne API i mikroserwisy gotowe na wysokie obciążenia.',
+                title: 'Aplikacje webowe',
+                description: 'Panele, systemy B2B i platformy SaaS z własnym API i integracjami.',
                 tags: TAGS.backend,
             },
             devops: {
@@ -54,8 +56,8 @@ const COPY = localized({
                 tags: TAGS.devops,
             },
             ecommerce: {
-                title: 'E-commerce',
-                description: 'Sklepy internetowe i marketplace’y z integracją płatności i fulfillmentu.',
+                title: 'Sklepy internetowe',
+                description: 'Sklepy z płatnościami online, wysyłką i integracją z magazynem lub ERP.',
                 tags: TAGS.ecommerce,
             },
         } satisfies Record<ServiceKey, BentoService>,
@@ -65,8 +67,8 @@ const COPY = localized({
         lead: 'From concept to launch. We build scalable web and mobile apps and systems that fit the way your company works.',
         services: {
             web: {
-                title: 'Web applications',
-                description: 'Modern SPA and SSR apps, from simple landing pages to complex SaaS platforms.',
+                title: 'Websites',
+                description: 'Company websites and landing pages that load fast and do well in Google.',
                 tags: TAGS.web,
             },
             mobile: {
@@ -80,8 +82,8 @@ const COPY = localized({
                 tags: TAGS.ai,
             },
             backend: {
-                title: 'Backend systems',
-                description: 'Scalable APIs and microservices built for heavy load.',
+                title: 'Web applications',
+                description: 'Portals, B2B systems and SaaS platforms with their own API and integrations.',
                 tags: TAGS.backend,
             },
             devops: {
@@ -90,8 +92,8 @@ const COPY = localized({
                 tags: TAGS.devops,
             },
             ecommerce: {
-                title: 'E-commerce',
-                description: 'Online stores and marketplaces with payment and fulfillment integrations.',
+                title: 'Online stores',
+                description: 'Stores with online payments, shipping and warehouse or ERP integration.',
                 tags: TAGS.ecommerce,
             },
         },
@@ -108,11 +110,13 @@ const COPY = localized({
  *                                       [ E-commerce 2×1  ]
  *
  * Tiles are placed by DOM order (auto-placement). Where a row hairline meets a rail, the tile below it carries the
- * rivet; the grid's top edge has its own pair and the bottom edge is the next section's hairline.
+ * rivet; the grid's top edge has its own pair and the bottom edge is the next section's hairline. The tiles of the
+ * services link to their own pages over the whole tile.
  */
 export function ServicesSection() {
     const copy = useCopy(COPY);
     const id = useHomeSections().services;
+    const pageUrls = usePageUrls();
     const services = copy.services;
 
     return (
@@ -126,24 +130,24 @@ export function ServicesSection() {
                 <Rivet side="left" />
                 <Rivet side="right" />
                 <ul className="grid gap-px bg-border md:grid-cols-2 lg:auto-rows-[minmax(20rem,auto)] lg:grid-cols-4">
-                    <WebTile service={services.web} />
-                    <MobileTile service={services.mobile} rivets={[{ side: 'left', className: 'lg:hidden' }]} />
-                    <AiTile service={services.ai} rivets={[{ side: 'right', className: 'lg:hidden' }]} />
+                    <WebTile service={{ ...services.web, href: pageUrls.websites }} />
+                    <MobileTile service={{ ...services.mobile, href: pageUrls.mobile }} rivets={[{ side: 'left', className: 'lg:hidden' }]} />
+                    <AiTile service={{ ...services.ai, href: pageUrls.ai }} rivets={[{ side: 'right', className: 'lg:hidden' }]} />
                     <BackendTile
-                        service={services.backend}
+                        service={{ ...services.backend, href: pageUrls.apps }}
                         rivets={[
                             { side: 'left', className: 'lg:hidden' },
                             { side: 'right', className: 'md:hidden lg:block' },
                         ]}
                     />
                     <DevopsTile
-                        service={services.devops}
+                        service={{ ...services.devops, href: pageUrls.devops }}
                         rivets={[
                             { side: 'right', className: 'lg:hidden' },
                             { side: 'left', className: 'md:hidden lg:block' },
                         ]}
                     />
-                    <EcommerceTile service={services.ecommerce} rivets={[{ side: 'left', className: 'lg:hidden' }, { side: 'right' }]} />
+                    <EcommerceTile service={{ ...services.ecommerce, href: pageUrls.stores }} rivets={[{ side: 'left', className: 'lg:hidden' }, { side: 'right' }]} />
                 </ul>
             </div>
         </Section>

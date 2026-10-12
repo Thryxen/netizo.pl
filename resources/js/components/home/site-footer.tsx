@@ -5,13 +5,14 @@ import { Logo } from '@/components/home/logo';
 import { Container, Rivet } from '@/components/home/section';
 import { SocialIcon } from '@/components/home/social-icon';
 import { localized, useCopy } from '@/lib/i18n';
-import { clientPanelUrl, company, contact, socialNetworkNames, useInfoLinks, useSocialProfiles } from '@/lib/site';
+import { clientPanelUrl, company, contact, socialNetworkNames, useInfoLinks, useServiceLinks, useSocialProfiles } from '@/lib/site';
 import { cn } from '@/lib/utils';
 
 const COPY = localized({
     pl: {
         home: 'Netizo – strona główna',
         tagline: 'Tworzymy strony WWW dla ambitnych. Zbudujmy to razem, od pomysłu do wdrożenia. Opieka techniczna, SEO i optymalizacja kosztów utrzymania.',
+        services: 'Usługi',
         info: 'Informacje',
         clientPanel: 'Panel klienta',
         contact: 'Kontakt',
@@ -22,6 +23,7 @@ const COPY = localized({
     en: {
         home: 'Netizo – home page',
         tagline: 'We build websites for ambitious companies. Let’s build it together, from idea to launch. Technical care, SEO and lower running costs.',
+        services: 'Services',
         info: 'Information',
         clientPanel: 'Client portal',
         contact: 'Contact',
@@ -51,6 +53,7 @@ type SiteFooterProps = {
 export function SiteFooter({ homeHref = '#' }: SiteFooterProps) {
     const copy = useCopy(COPY);
     const infoLinks = useInfoLinks();
+    const serviceLinks = useServiceLinks();
     const socialProfiles = useSocialProfiles();
 
     return (
@@ -58,15 +61,30 @@ export function SiteFooter({ homeHref = '#' }: SiteFooterProps) {
             <Container className="py-14 md:py-16">
                 <Rivet side="left" />
                 <Rivet side="right" />
-                <div className="grid gap-10 sm:grid-cols-3 lg:grid-cols-12 lg:gap-8">
-                    <div className="sm:col-span-3 lg:col-span-4">
+                <div className="grid gap-10 sm:grid-cols-4 lg:grid-cols-12 lg:gap-8">
+                    <div className="sm:col-span-4 lg:col-span-4">
                         <a href={homeHref} aria-label={copy.home} className={cn(linkClass, '-ml-1 p-1 text-foreground')}>
                             <Logo className="h-10" />
                         </a>
                         <p className="mt-4 max-w-md leading-relaxed text-pretty text-muted-foreground">{copy.tagline}</p>
                     </div>
 
-                    <nav aria-labelledby="footer-info-heading" className="lg:col-span-3">
+                    <nav aria-labelledby="footer-services-heading" className="lg:col-span-2">
+                        <h2 id="footer-services-heading" className="text-sm font-medium">
+                            {copy.services}
+                        </h2>
+                        <ul className="mt-2 flex flex-col text-sm md:mt-4 md:gap-3">
+                            {serviceLinks.map((link) => (
+                                <li key={link.href}>
+                                    <a href={link.href} className={linkClass}>
+                                        {link.label}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </nav>
+
+                    <nav aria-labelledby="footer-info-heading" className="lg:col-span-2">
                         <h2 id="footer-info-heading" className="text-sm font-medium">
                             {copy.info}
                         </h2>
@@ -86,7 +104,7 @@ export function SiteFooter({ homeHref = '#' }: SiteFooterProps) {
                         </ul>
                     </nav>
 
-                    <div className="lg:col-span-3">
+                    <div className="lg:col-span-2">
                         <h2 className="text-sm font-medium">{copy.contact}</h2>
                         <ul className="mt-2 flex flex-col text-sm md:mt-4 md:gap-3">
                             <li>

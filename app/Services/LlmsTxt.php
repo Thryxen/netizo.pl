@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Enums\Service;
 use App\Http\Controllers\Concerns\PresentsProjects;
 use App\Models\Project;
 use Illuminate\Support\Collection;
@@ -26,6 +27,12 @@ class LlmsTxt
      */
     private const PAGES = [
         'home' => 'home',
+        'websites' => 'services.websites',
+        'stores' => 'services.stores',
+        'apps' => 'services.apps',
+        'mobile' => 'services.mobile',
+        'ai' => 'services.ai',
+        'devops' => 'services.devops',
         'projects' => 'projects.index',
         'about' => 'about',
         'partners' => 'partners',
@@ -86,7 +93,8 @@ class LlmsTxt
     }
 
     /**
-     * The sections in the current language: the pages, the services, the case studies, both FAQs and the contact.
+     * The sections in the current language: the pages, the services, the case studies, the FAQs (home, partner programme,
+     * each service) and the contact.
      *
      * @param  Collection<int, Project>  $projects
      * @return list<array{heading: string, links: list<string>}>
@@ -109,7 +117,7 @@ class LlmsTxt
             [
                 'heading' => __('llms.headings.services'),
                 'links' => array_map(
-                    fn (array $service): string => $this->link($service['name'], $this->anchored($home, 'services'), $service['note']),
+                    fn (array $service): string => $this->link($service['name'], $this->serviceUrl($service, $home), $service['note']),
                     __('llms.services'),
                 ),
             ],
@@ -125,6 +133,10 @@ class LlmsTxt
                 'heading' => __('llms.headings.partner_faq'),
                 'links' => $this->faqLinks(__('partners.faq'), $this->anchored(LocalizedRoutes::url('partners'), 'partner_faq')),
             ],
+            ...array_map(fn (Service $service): array => [
+                'heading' => __('llms.headings.service_faq', ['service' => __("services.{$service->value}.card.name")]),
+                'links' => $this->faqLinks(__("services.{$service->value}.faq"), $this->anchored(LocalizedRoutes::url($service->routeName()), 'service_faq')),
+            ], Service::cases()),
             [
                 'heading' => __('llms.headings.contact'),
                 'links' => [
@@ -140,6 +152,19 @@ class LlmsTxt
                 ],
             ],
         ];
+    }
+
+    /**
+     * Where a service of the services section leads: its own page when it has one (`page`, an App\Enums\Service value),
+     * else the services section of the home page.
+     *
+     * @param  array{name: string, note: string, page?: string}  $service
+     */
+    private function serviceUrl(array $service, string $home): string
+    {
+        $page = Service::tryFrom($service['page'] ?? '');
+
+        return $page === null ? $this->anchored($home, 'services') : LocalizedRoutes::url($page->routeName());
     }
 
     /**

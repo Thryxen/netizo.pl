@@ -7,13 +7,14 @@ import { type EnglishProjectCopy, ProjectTranslation } from '@/components/admin/
 import { RepeaterList } from '@/components/admin/repeater-list';
 import { TagsInput } from '@/components/admin/tags-input';
 import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Textarea } from '@/components/ui/textarea';
 import { adminRoutes } from '@/lib/admin-routes';
-import type { AdminProject } from '@/types/admin';
+import type { AdminProject, AdminServiceOption } from '@/types/admin';
 
 const TECH_SUGGESTIONS = [
     'React', 'Vue.js', 'Next.js', 'Nuxt.js', 'Angular', 'Laravel', 'PHP', 'Node.js', 'Python', 'Django',
@@ -24,7 +25,7 @@ const TECH_SUGGESTIONS = [
 type TabKey = 'basic' | 'images' | 'tech' | 'metrics' | 'story' | 'english';
 
 const TABS: { key: TabKey; label: string; fields: string[] }[] = [
-    { key: 'basic', label: 'Podstawowe', fields: ['title', 'slug', 'url', 'category', 'sort_order', 'is_active', 'description', 'full_description'] },
+    { key: 'basic', label: 'Podstawowe', fields: ['title', 'slug', 'url', 'category', 'sort_order', 'is_active', 'services', 'description', 'full_description'] },
     { key: 'images', label: 'Zdjęcia', fields: ['thumbnail_image', 'full_image'] },
     { key: 'tech', label: 'Technologie', fields: ['tech_stack'] },
     { key: 'metrics', label: 'Metryki', fields: ['metrics'] },
@@ -45,6 +46,7 @@ type ProjectFormData = {
     category: string;
     sort_order: number;
     is_active: boolean;
+    services: string[];
     description: string;
     full_description: string;
     thumbnail_image: File | null;
@@ -95,9 +97,11 @@ const firstError = (errors: Record<string, string>, field: string): string | und
 type ProjectFormProps = {
     project?: AdminProject;
     nextSortOrder?: number;
+    /** The services whose pages can show the project (App\Enums\Service). */
+    serviceOptions: AdminServiceOption[];
 };
 
-export function ProjectForm({ project, nextSortOrder = 1 }: ProjectFormProps) {
+export function ProjectForm({ project, nextSortOrder = 1, serviceOptions }: ProjectFormProps) {
     const [tab, setTab] = useState<TabKey>('basic');
     const [slugEdited, setSlugEdited] = useState(Boolean(project));
 
@@ -108,6 +112,7 @@ export function ProjectForm({ project, nextSortOrder = 1 }: ProjectFormProps) {
         category: project?.category ?? '',
         sort_order: project?.sortOrder ?? nextSortOrder,
         is_active: project?.isActive ?? true,
+        services: project?.services ?? [],
         description: project?.description ?? '',
         full_description: project?.fullDescription ?? '',
         thumbnail_image: null,
@@ -166,6 +171,15 @@ export function ProjectForm({ project, nextSortOrder = 1 }: ProjectFormProps) {
             solutions_en: copy.solutions_en.length ? copy.solutions_en : blankTexts(4),
         }));
     };
+
+    const toggleService = (value: string, checked: boolean): void => {
+        setData((current) => ({
+            ...current,
+            services: checked ? [...current.services.filter((service) => service !== value), value] : current.services.filter((service) => service !== value),
+        }));
+    };
+
+    const servicesError = firstError(errors, 'services');
 
     const changeTitle = (title: string): void => {
         setData((current) => ({ ...current, title, slug: slugEdited ? current.slug : slugify(title) }));
@@ -228,6 +242,33 @@ export function ProjectForm({ project, nextSortOrder = 1 }: ProjectFormProps) {
                             <Label htmlFor="is_active">Widoczny na stronie</Label>
                         </div>
                     </div>
+                    <fieldset className="grid gap-3" aria-describedby="services-hint">
+                        <legend className="mb-1 text-sm leading-none font-medium">Usługi</legend>
+                        <div className="flex flex-wrap gap-x-6 gap-y-3">
+                            {serviceOptions.map((option) => (
+                                <div key={option.value} className="flex items-center gap-2.5">
+                                    <Checkbox
+                                        id={`service-${option.value}`}
+                                        checked={data.services.includes(option.value)}
+                                        aria-invalid={Boolean(servicesError)}
+                                        onCheckedChange={(checked) => toggleService(option.value, checked === true)}
+                                    />
+                                    <Label htmlFor={`service-${option.value}`} className="font-normal">
+                                        {option.label}
+                                    </Label>
+                                </div>
+                            ))}
+                        </div>
+                        {servicesError ? (
+                            <p id="services-hint" className="text-sm text-destructive" role="alert">
+                                {servicesError}
+                            </p>
+                        ) : (
+                            <p id="services-hint" className="text-sm text-muted-foreground">
+                                Projekt pokaże się w realizacjach na stronach zaznaczonych usług, gdy jest widoczny na stronie.
+                            </p>
+                        )}
+                    </fieldset>
                     <FormField label="Krótki opis" htmlFor="description" error={errors.description} hint="Wyświetlany na stronie głównej pod projektem.">
                         <Textarea id="description" rows={3} required value={data.description} aria-invalid={Boolean(errors.description)} onChange={(event) => setData('description', event.target.value)} />
                     </FormField>

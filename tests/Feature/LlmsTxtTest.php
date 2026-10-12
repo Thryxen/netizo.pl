@@ -74,6 +74,8 @@ it('lists every page and the case study of every active project in both language
     expect($links)->toContain(
         url('/').'/', url('/realizacje'), url('/o-nas'), url('/partnerzy'),
         url('/en'), url('/en/projects'), url('/en/about'), url('/en/partners'),
+        url('/tworzenie-stron-internetowych'), url('/sklepy-internetowe'), url('/aplikacje-webowe'), url('/aplikacje-mobilne'), url('/automatyzacja-ai'), url('/devops-i-chmura'),
+        url('/en/website-development'), url('/en/online-stores'), url('/en/web-applications'), url('/en/mobile-apps'), url('/en/ai-automation'), url('/en/devops-cloud'),
         url('/realizacje/zloty-klos'), url('/en/projects/zloty-klos'),
         url('/realizacje/mebloteka'), url('/en/projects/mebloteka'),
         url('/polityka-prywatnosci'), url('/regulamin'), url('/partnerzy/regulamin'),
@@ -112,11 +114,31 @@ it('answers every question of the FAQs as the pages do, in plain text', function
     expect($content)->not->toContain("\u{2060}")->not->toContain("\u{00A0}");
 })->with(['home', 'partners'])->with(['pl', 'en']);
 
+it('answers every question of the service FAQs as the service pages do', function (string $service, string $locale) {
+    $content = llmsTxt();
+    $page = route(($locale === 'pl' ? '' : 'en.')."services.{$service}");
+
+    foreach (trans("services.{$service}.faq", [], $locale) as $item) {
+        expect($content)->toContain('['.llmsTxtText($item['question'])."]({$page}#faq): ".llmsTxtText($item['answer'])."\n");
+    }
+})->with(['websites', 'stores', 'apps', 'mobile', 'ai', 'devops'])->with(['pl', 'en']);
+
+it('links the services that have a page to that page', function (string $locale) {
+    $content = llmsTxt();
+
+    foreach (['websites', 'stores', 'apps', 'mobile', 'ai', 'devops'] as $service) {
+        $name = trans("services.{$service}.card.name", [], $locale);
+        $page = route(($locale === 'pl' ? '' : 'en.')."services.{$service}");
+
+        expect($content)->toContain("- [{$name}]({$page}): ");
+    }
+})->with(['pl', 'en']);
+
 it('gives the prices and timelines in words an assistant can quote', function () {
     expect(llmsTxt())
-        ->toContain('Prosta strona kosztuje zwykle 1–5 tys. zł, rozbudowana strona lub mały sklep 5–15 tys. zł')
-        ->toContain('A simple website usually costs PLN 1,000–5,000')
-        ->toContain('Landing page powstaje zwykle w 2–3 tygodnie')
+        ->toContain('Strona internetowa kosztuje od 799 zł, sklep internetowy od 1 299 zł')
+        ->toContain('A website starts at PLN 799, an online store at PLN 1,299')
+        ->toContain('Prosta strona albo landing page powstaje zwykle w ciągu tygodnia')
         ->toContain('If the client orders a website for PLN 10,000 net, you get PLN 1,500.');
 });
 
