@@ -280,7 +280,7 @@ class StructuredData
      * The URL with the slash of the domain root (`https://netizo.pl` → `https://netizo.pl/`), so a node has one @id
      * however its URL was built.
      */
-    private static function normalizedUrl(string $url): string
+    public static function normalizedUrl(string $url): string
     {
         return in_array(parse_url($url, PHP_URL_PATH), [null, ''], true) ? $url.'/' : $url;
     }

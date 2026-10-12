@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LlmsTxtController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Middleware\HandleAppearance;
 use App\Http\Middleware\HandleInertiaRequests;
@@ -21,8 +22,9 @@ return Application::configure(basePath: dirname(__DIR__))
         then: function (): void {
             Route::middleware('web')->group(base_path('routes/admin.php'));
 
-            // Outside the web group: no session or XSRF cookie on a response crawlers fetch (App\Services\Sitemap).
+            // Outside the web group: no session or XSRF cookie on a response crawlers fetch (App\Services\Sitemap, App\Services\LlmsTxt).
             Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
+            Route::get('/llms.txt', LlmsTxtController::class)->name('llms');
         },
     )
     ->withMiddleware(function (Middleware $middleware): void {
