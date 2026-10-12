@@ -299,20 +299,21 @@ export function SiteHeader() {
                                         </li>
                                     ))}
                                 </ul>
+                            </div>
 
-                                <div className="mt-auto flex flex-col gap-1 border-t border-border px-4 pt-4 pb-2">
-                                    <Button size="lg" className="h-11 w-full" onClick={() => closeMenuThen(() => openContact('brief'))}>
-                                        {copy.quote}
-                                    </Button>
-                                    <div className="flex items-center justify-between gap-3">
-                                        <a
-                                            href={`mailto:${contact.email}`}
-                                            className={cn('inline-flex min-h-11 items-center rounded-sm text-sm text-muted-foreground hover:text-foreground', focusRing)}
-                                        >
-                                            {contact.email}
-                                        </a>
-                                        <ThemeToggle className="-mr-2.5 size-11 sm:hidden" />
-                                    </div>
+                            {/* Outside the scrolling list, so the quote button stays at the bottom of the panel on short screens. */}
+                            <div className="flex shrink-0 flex-col gap-1 border-t border-border px-4 pt-4 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
+                                <Button size="lg" className="h-11 w-full" onClick={() => closeMenuThen(() => openContact('brief'))}>
+                                    {copy.quote}
+                                </Button>
+                                <div className="flex items-center justify-between gap-3">
+                                    <a
+                                        href={`mailto:${contact.email}`}
+                                        className={cn('inline-flex min-h-11 items-center rounded-sm text-sm text-muted-foreground hover:text-foreground', focusRing)}
+                                    >
+                                        {contact.email}
+                                    </a>
+                                    <ThemeToggle className="-mr-2.5 size-11 sm:hidden" />
                                 </div>
                             </div>
                         </SheetContent>

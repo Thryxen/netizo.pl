@@ -50,7 +50,7 @@ Nakład: **XS** < 1 h · **S** 1–4 h · **M** 0,5–2 dni · **L** 3–5 dni �
 | 28 | **Publiczny regulamin programu partnerskiego** `/partnerzy/regulamin`. | nowa strona, `components/partners/rules-section.tsx:9` | S |
 | 28a | **Pierwszy ekran:** „Leszno, cała Polska” + klikalny `tel:+48884343924` pod CTA w hero. | `components/home/hero.tsx:110-120` | XS |
 | 28b | **Kompaktowy baner cookies na mobile** (~120–140 px zamiast 236 px) z linkiem do polityki prywatności; przyciski ≥ 44 px. | `resources/views/vendor/cookie-consent/cookies.blade.php:148`, `:506` | S |
-| 28c | **Menu mobilne:** CTA „Wyceń projekt” przyklejone do dołu panelu. | `components/home/site-header.tsx:253`, `:304` | XS |
+| 28c | ✅ **DONE (2026-10-12)** — ~~**Menu mobilne:** CTA „Wyceń projekt” przyklejone do dołu panelu.~~ Stopka panelu (CTA „Wyceń projekt”, e-mail, przełącznik motywu) wyjęta z przewijanego obszaru: przewija się tylko lista sekcji i linków, stopka zostaje na dole panelu (hairline `border-t`, odstęp `env(safe-area-inset-bottom)`). Sprawdzone w Chromium na 375×600 (CTA na tej samej pozycji przed i po przewinięciu listy), 390×844 i w trybie ciemnym. | `components/home/site-header.tsx:253`, `:304` | XS |
 
 ## Low — backlog
 
