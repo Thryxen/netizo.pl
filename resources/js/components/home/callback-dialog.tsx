@@ -116,7 +116,7 @@ function CallbackForm() {
                             form.clearErrors('phone');
                         }
                     }}
-                    aria-required="true"
+                    required
                     {...invalidProps('callback-phone', phoneError)}
                 />
             </Field>

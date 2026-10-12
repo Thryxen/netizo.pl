@@ -110,7 +110,7 @@ export function NewsletterForm() {
                             form.clearErrors('email');
                         }
                     }}
-                    aria-required="true"
+                    required
                     className="h-11 sm:flex-1 md:h-10"
                     {...invalidProps('newsletter-email', emailError, noteId)}
                 />

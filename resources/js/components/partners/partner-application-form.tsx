@@ -179,7 +179,7 @@ export function PartnerApplicationForm({ onNameChange, onSent }: PartnerApplicat
                             maxLength={255}
                             value={form.data.name}
                             onChange={(event) => setField('name', event.target.value)}
-                            aria-required="true"
+                            required
                             {...invalidProps('partner-name', errors.name)}
                         />
                     </Field>
@@ -194,7 +194,7 @@ export function PartnerApplicationForm({ onNameChange, onSent }: PartnerApplicat
                             maxLength={255}
                             value={form.data.email}
                             onChange={(event) => setField('email', event.target.value)}
-                            aria-required="true"
+                            required
                             {...invalidProps('partner-email', errors.email)}
                         />
                     </Field>
@@ -217,11 +217,8 @@ export function PartnerApplicationForm({ onNameChange, onSent }: PartnerApplicat
 
                 <ChoiceFieldset
                     id="partner-type"
-                    legend={
-                        <>
-                            {copy.type} <span aria-hidden="true" className="text-muted-foreground">*</span>
-                        </>
-                    }
+                    legend={copy.type}
+                    required
                     error={errors.partner_type}
                 >
                     <div className="flex flex-wrap gap-2">
@@ -235,6 +232,7 @@ export function PartnerApplicationForm({ onNameChange, onSent }: PartnerApplicat
                                 label={option.label[locale]}
                                 checked={form.data.partner_type === option.value}
                                 onCheckedChange={(checked) => checked && setField('partner_type', option.value)}
+                                required
                                 invalid={Boolean(errors.partner_type)}
                             />
                         ))}

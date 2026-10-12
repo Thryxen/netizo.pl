@@ -18,12 +18,14 @@ const COPY = localized({
         requiredBefore: 'Pola oznaczone ',
         asterisk: 'gwiazdką',
         requiredAfter: ' są wymagane.',
+        requiredGroup: '(wymagane)',
     },
     en: {
         sending: 'Sending…',
         requiredBefore: 'Fields marked ',
         asterisk: 'with an asterisk',
         requiredAfter: ' are required.',
+        requiredGroup: '(required)',
     },
 });
 
@@ -77,6 +79,21 @@ export function RequiredMark({ className }: { className?: string }) {
         <span aria-hidden="true" className={cn('text-muted-foreground', className)}>
             *
         </span>
+    );
+}
+
+/**
+ * The asterisk of a required group of choices. A <fieldset> has no `required`, so its legend says it in words
+ * for screen readers and agents ("Kim jesteś? (wymagane)"); sighted users see the asterisk.
+ */
+export function RequiredGroupMark() {
+    const copy = useCopy(COPY);
+
+    return (
+        <>
+            <RequiredMark />
+            <span className="sr-only">{copy.requiredGroup}</span>
+        </>
     );
 }
 

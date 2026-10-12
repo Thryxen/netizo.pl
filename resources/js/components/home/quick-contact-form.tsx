@@ -187,7 +187,7 @@ export function QuickContactForm() {
                             maxLength={255}
                             value={form.data.name}
                             onChange={(event) => setField('name', event.target.value)}
-                            aria-required="true"
+                            required
                             {...invalidProps('contact-name', errors.name)}
                         />
                     </Field>
@@ -202,7 +202,7 @@ export function QuickContactForm() {
                             maxLength={255}
                             value={form.data.email}
                             onChange={(event) => setField('email', event.target.value)}
-                            aria-required="true"
+                            required
                             {...invalidProps('contact-email', errors.email)}
                         />
                     </Field>
@@ -227,7 +227,7 @@ export function QuickContactForm() {
                         placeholder={copy.messagePlaceholder}
                         value={form.data.message}
                         onChange={(event) => setField('message', event.target.value)}
-                        aria-required="true"
+                        required
                         className="min-h-36"
                         {...invalidProps('contact-message', errors.message)}
                     />

@@ -1,11 +1,12 @@
 import type { LucideIcon } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
-import { errorIdFor, FieldError } from './fields';
+import { errorIdFor, FieldError, RequiredGroupMark } from './fields';
 
 /**
- * Selection controls for the brief: real <input type="checkbox|radio"> (visually hidden, keyboard accessible)
- * wrapped in a <label> styled as a card or chip. Selected = foreground border + a filled square "bit".
+ * Selection controls for the brief: real <input type="checkbox|radio"> wrapped in a <label> styled as a card or chip.
+ * The input is transparent and covers the whole label, so a click anywhere lands on the input itself (agents that
+ * click a control by its role hit it, not the icon above a 1px input). Selected = foreground border + a filled square "bit".
  */
 
 type ChoiceBaseProps = {
@@ -15,6 +16,8 @@ type ChoiceBaseProps = {
     value: string;
     checked: boolean;
     onCheckedChange: (checked: boolean) => void;
+    /** Radios only: a required radio group needs one of them checked. A required checkbox would have to be checked itself. */
+    required?: boolean;
     invalid?: boolean;
     describedBy?: string;
 };
@@ -41,7 +44,7 @@ function BitMarker({ className }: { className?: string }) {
 const forcedColorsCheckedClassName =
     'forced-colors:data-[state=checked]:outline-2 forced-colors:data-[state=checked]:-outline-offset-2 forced-colors:data-[state=checked]:outline-[Highlight] forced-colors:data-[state=checked]:outline-solid';
 
-function HiddenInput({ type, id, name, value, checked, onCheckedChange, invalid, describedBy }: ChoiceBaseProps) {
+function ChoiceInput({ type, id, name, value, checked, onCheckedChange, required, invalid, describedBy }: ChoiceBaseProps) {
     return (
         <input
             type={type}
@@ -50,9 +53,10 @@ function HiddenInput({ type, id, name, value, checked, onCheckedChange, invalid,
             value={value}
             checked={checked}
             onChange={(event) => onCheckedChange(event.target.checked)}
+            required={required}
             aria-invalid={invalid || undefined}
             aria-describedby={describedBy}
-            className="sr-only"
+            className="absolute inset-0 z-10 m-0 size-full cursor-pointer appearance-none opacity-0"
         />
     );
 }
@@ -77,7 +81,7 @@ export function ChoiceCard({ label, description, icon: Icon, ...input }: ChoiceC
                 forcedColorsCheckedClassName,
             )}
         >
-            <HiddenInput {...input} />
+            <ChoiceInput {...input} />
             <BitMarker className="absolute top-4 right-4" />
             {Icon && <Icon aria-hidden="true" className="mb-2 size-5 text-foreground" strokeWidth={1.75} />}
             <span className="text-sm leading-snug font-medium">{label}</span>
@@ -106,7 +110,7 @@ export function ChoiceChip({ label, ...input }: ChoiceChipProps) {
                 forcedColorsCheckedClassName,
             )}
         >
-            <HiddenInput {...input} />
+            <ChoiceInput {...input} />
             <BitMarker className="size-2" />
             <span>{label}</span>
         </label>
@@ -119,16 +123,26 @@ type ChoiceFieldsetProps = {
     legend: ReactNode;
     legendClassName?: string;
     hint?: ReactNode;
+    /** The group needs a choice: an asterisk in the legend, named for screen readers and agents. */
+    required?: boolean;
     error?: string;
     className?: string;
     children: ReactNode;
 };
 
 /** <fieldset> + <legend> wrapper for a group of choices, with an error underneath. */
-export function ChoiceFieldset({ id, legend, legendClassName, hint, error, className, children }: ChoiceFieldsetProps) {
+export function ChoiceFieldset({ id, legend, legendClassName, hint, required, error, className, children }: ChoiceFieldsetProps) {
     return (
         <fieldset id={id} aria-describedby={error ? errorIdFor(id) : undefined} className={cn('min-w-0', className)}>
-            <legend className={cn('mb-3 text-sm leading-none font-medium', legendClassName)}>{legend}</legend>
+            <legend className={cn('mb-3 text-sm leading-none font-medium', legendClassName)}>
+                {legend}
+                {required && (
+                    <>
+                        {' '}
+                        <RequiredGroupMark />
+                    </>
+                )}
+            </legend>
             {hint && <p className="-mt-1 mb-3 text-sm text-muted-foreground">{hint}</p>}
             {children}
             <FieldError fieldId={id} message={error} className="mt-2" />

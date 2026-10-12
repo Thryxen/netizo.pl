@@ -40,13 +40,13 @@ const fieldId = (field: BriefField): string => `brief-${field.replace('_', '-')}
 
 type CardOption = BriefOption & { icon?: LucideIcon };
 
-function CheckboxCards({ field, options, legend, props }: { field: ArrayField; options: CardOption[]; legend: string; props: BriefStepProps }) {
+function CheckboxCards({ field, options, legend, required, props }: { field: ArrayField; options: CardOption[]; legend: string; required?: boolean; props: BriefStepProps }) {
     const id = fieldId(field);
     const error = props.errors[field];
     const values = props.data[field];
 
     return (
-        <ChoiceFieldset id={id} legend={legend} legendClassName="sr-only" error={error}>
+        <ChoiceFieldset id={id} legend={legend} legendClassName="sr-only" required={required} error={error}>
             <ChoiceGrid className="lg:grid-cols-3">
                 {options.map((option) => (
                     <ChoiceCard
@@ -247,7 +247,7 @@ export function ProjectTypeStep(props: BriefStepProps) {
     const copy = useCopy(COPY);
     const locale = useLocale();
 
-    return <CheckboxCards field="types" options={projectTypeOptions[locale]} legend={copy.projectType} props={props} />;
+    return <CheckboxCards field="types" options={projectTypeOptions[locale]} legend={copy.projectType} required props={props} />;
 }
 
 /** Step 2 — features, grouped chips. */
@@ -347,7 +347,7 @@ export function ContactStep(props: BriefStepProps) {
                                 maxLength={255}
                                 value={data[input.field]}
                                 onChange={(event) => setField(input.field, event.target.value)}
-                                aria-required={input.required || undefined}
+                                required={input.required}
                                 {...invalidProps(id, error)}
                             />
                         </Field>
@@ -367,7 +367,7 @@ export function ContactStep(props: BriefStepProps) {
                         name="privacy"
                         checked={data.privacy}
                         onCheckedChange={(checked) => setField('privacy', checked === true)}
-                        aria-required="true"
+                        required
                         className="mt-0.5"
                         {...invalidProps(privacyId, errors.privacy)}
                     />
