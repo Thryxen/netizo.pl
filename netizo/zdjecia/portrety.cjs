@@ -5,7 +5,7 @@
  *
  * Uruchomienie (z katalogu projektu, bez instalowania niczego w projekcie):
  *   npx -y -p sharp@0.35.5 node netizo/zdjecia/portrety.cjs <nazwa> <zdjęcie> [lewo,góra,bok]
- * np. `… portrety.cjs damian-idzik damian_idzik.png 77,20,1100` (kadr w pikselach oryginału; bez niego środek zdjęcia).
+ * np. `… portrety.cjs damian-idzik damian_idzik.png 67,20,1100` (kadr w pikselach oryginału; bez niego środek zdjęcia).
  */
 const fs = require('fs');
 const path = require('path');

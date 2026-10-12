@@ -2,6 +2,7 @@ import { CallbackFab } from '@/components/home/callback-fab';
 import { ClientsSection } from '@/components/home/clients-section';
 import { ContactSection } from '@/components/home/contact-section';
 import { FaqSection } from '@/components/home/faq-section';
+import { FounderQuoteSection } from '@/components/home/founder-quote-section';
 import { Hero } from '@/components/home/hero';
 import { HomeUiProvider, useHomeUi } from '@/components/home/home-ui-context';
 import { MissionSection } from '@/components/home/mission-section';
@@ -43,6 +44,7 @@ export default function Home({ projects, clients, faq }: HomePageProps) {
                     <ProjectsSection projects={projects} />
                     <MissionSection />
                     <ClientsSection clients={clients} />
+                    <FounderQuoteSection />
                     <ProcessSection />
                     <PanelSection />
                     <FaqSection faq={faq} />
