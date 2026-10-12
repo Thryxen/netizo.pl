@@ -1,4 +1,21 @@
+# AI crawlers (decided 2026-10-12): everything is allowed, on purpose.
+# Search and answer engines (OAI-SearchBot, Claude-SearchBot, PerplexityBot),
+# agents acting for a user (ChatGPT-User, Claude-User) and model training
+# (GPTBot, ClaudeBot, CCBot, Google-Extended, Applebot-Extended) may read the
+# whole site: it is our public offer, and AI models that know Netizo help
+# people find us.
+#
+# Keep a single group: a crawler named in a group of its own ignores this one,
+# Content-Signal included. To opt out of training, disallow only the training
+# tokens above in their own group and set ai-train=no; never block Googlebot,
+# Bingbot, Applebot, OAI-SearchBot, Claude-SearchBot or PerplexityBot.
+#
+# Content-Signal is Cloudflare's Content Signals Policy (contentsignals.org):
+# a stated preference, not access control, and Google Search ignores it.
+# The admin panel is protected by its login, not by this file.
+
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
 Sitemap: https://netizo.pl/sitemap.xml
