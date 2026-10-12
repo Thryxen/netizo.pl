@@ -74,6 +74,53 @@ export const WEBSITES_COPY = localized<ServiceCopy>({
                 },
             ],
         },
+        processArtifacts: {
+            brief: {
+                title: 'Brief: nowa strona',
+                sections: [
+                    {
+                        label: 'Cele strony',
+                        detail: '3 cele',
+                    },
+                    {
+                        label: 'Podstrony',
+                        detail: '6 podstron',
+                    },
+                    {
+                        label: 'Treści i zdjęcia',
+                        detail: '12 pozycji',
+                    },
+                ],
+            },
+            design: {
+                title: 'Strona główna',
+                headline: 'Projekty z charakterem',
+                comment: 'Większe zdjęcie?',
+                photo: 'websites-studio',
+            },
+            sprint: {
+                title: 'Wersja testowa',
+                changes: [
+                    {
+                        message: 'Strona główna gotowa',
+                        day: 'pon.',
+                    },
+                    {
+                        message: 'Formularz kontaktowy',
+                        day: 'śr.',
+                    },
+                    {
+                        message: 'Wersja na telefon',
+                        day: 'dziś',
+                    },
+                ],
+                stagingHost: 'staging.twojafirma.pl',
+            },
+            launch: {
+                host: 'twojafirma.pl',
+                pipeline: ['Testy', 'Publikacja', 'Monitoring'],
+            },
+        },
         projects: { title: 'Strony, które zbudowaliśmy' },
         guide: {
             title: 'Strona, która pracuje na firmę',
@@ -178,6 +225,53 @@ export const WEBSITES_COPY = localized<ServiceCopy>({
                     description: 'We connect the domain, test the website on real devices and launch it. After that, we can stay with you: hosting, updates, backups and monitoring.',
                 },
             ],
+        },
+        processArtifacts: {
+            brief: {
+                title: 'Brief: new website',
+                sections: [
+                    {
+                        label: 'Website goals',
+                        detail: '3 goals',
+                    },
+                    {
+                        label: 'Pages',
+                        detail: '6 pages',
+                    },
+                    {
+                        label: 'Content and photos',
+                        detail: '12 items',
+                    },
+                ],
+            },
+            design: {
+                title: 'Home page',
+                headline: 'Designs with character',
+                comment: 'Bigger photo?',
+                photo: 'websites-studio',
+            },
+            sprint: {
+                title: 'Staging version',
+                changes: [
+                    {
+                        message: 'Home page ready',
+                        day: 'Mon',
+                    },
+                    {
+                        message: 'Contact form',
+                        day: 'Wed',
+                    },
+                    {
+                        message: 'Mobile version',
+                        day: 'today',
+                    },
+                ],
+                stagingHost: 'staging.yourcompany.com',
+            },
+            launch: {
+                host: 'yourcompany.com',
+                pipeline: ['Tests', 'Go-live', 'Monitoring'],
+            },
         },
         projects: { title: 'Websites we’ve built' },
         guide: {

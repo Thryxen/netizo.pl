@@ -77,6 +77,53 @@ export const AI_COPY = localized<ServiceCopy>({
                 },
             ],
         },
+        processArtifacts: {
+            brief: {
+                title: 'Brief: automatyzacja',
+                sections: [
+                    {
+                        label: 'Proces do automatyzacji',
+                        detail: '1 proces',
+                    },
+                    {
+                        label: 'Dokumenty i dane',
+                        detail: '40 plików',
+                    },
+                    {
+                        label: 'Reguły i akceptacje',
+                        detail: '6 reguł',
+                    },
+                ],
+            },
+            design: {
+                title: 'Chatbot',
+                headline: 'Odpowiedzi z Twoich dokumentów',
+                comment: 'Dodać akceptację?',
+                photo: 'ai-office',
+            },
+            sprint: {
+                title: 'Wersja testowa',
+                changes: [
+                    {
+                        message: 'Odczyt faktur',
+                        day: 'pon.',
+                    },
+                    {
+                        message: 'Odpowiedzi z dokumentów',
+                        day: 'śr.',
+                    },
+                    {
+                        message: 'Zapis do CRM',
+                        day: 'dziś',
+                    },
+                ],
+                stagingHost: 'test.ai.twojafirma.pl',
+            },
+            launch: {
+                host: 'ai.twojafirma.pl',
+                pipeline: ['Testy na przykładach', 'Publikacja', 'Monitoring jakości'],
+            },
+        },
         projects: { title: 'Automatyzacje, które zbudowaliśmy' },
         guide: {
             title: 'AI, które pracuje, a nie tylko rozmawia',
@@ -180,6 +227,53 @@ export const AI_COPY = localized<ServiceCopy>({
                     description: 'We launch the automation for some of the cases, measure the quality and the time saved, and then extend it to the rest.',
                 },
             ],
+        },
+        processArtifacts: {
+            brief: {
+                title: 'Brief: automation',
+                sections: [
+                    {
+                        label: 'Process to automate',
+                        detail: '1 process',
+                    },
+                    {
+                        label: 'Documents and data',
+                        detail: '40 files',
+                    },
+                    {
+                        label: 'Rules and approvals',
+                        detail: '6 rules',
+                    },
+                ],
+            },
+            design: {
+                title: 'Chatbot',
+                headline: 'Answers from your documents',
+                comment: 'Add an approval?',
+                photo: 'ai-office',
+            },
+            sprint: {
+                title: 'Staging version',
+                changes: [
+                    {
+                        message: 'Invoice reading',
+                        day: 'Mon',
+                    },
+                    {
+                        message: 'Answers from documents',
+                        day: 'Wed',
+                    },
+                    {
+                        message: 'CRM entry',
+                        day: 'today',
+                    },
+                ],
+                stagingHost: 'test.ai.yourcompany.com',
+            },
+            launch: {
+                host: 'ai.yourcompany.com',
+                pipeline: ['Tests on examples', 'Go-live', 'Quality monitoring'],
+            },
         },
         projects: { title: 'Automations we’ve built' },
         guide: {

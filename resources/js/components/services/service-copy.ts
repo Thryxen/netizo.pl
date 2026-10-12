@@ -6,6 +6,11 @@
  * together with a word joiner (U+2060) after the dash and no-break spaces (U+00A0) inside amounts and before units.
  */
 
+import type { BriefContent } from '@/components/home/process/brief-artifact';
+import type { DesignContent } from '@/components/home/process/design-artifact';
+import type { LaunchContent } from '@/components/home/process/launch-artifact';
+import type { SprintContent } from '@/components/home/process/sprint-artifact';
+
 export type ServiceFact = {
     /** Small text before the value ("od" / "from"). */
     prefix?: string;
@@ -34,6 +39,8 @@ export type ServiceCopy = {
     pricing: { title: string; lead: string };
     /** The four stages; only where the site states a stage's duration does it get one. */
     process: { title: string; lead: string; steps: { title: string; description: string }[] };
+    /** What the four stages' live previews show (the home page's relay artifacts with this service's own words). */
+    processArtifacts: { brief: BriefContent; design: DesignContent; sprint: SprintContent; launch: LaunchContent };
     projects: { title: string };
     /**
      * The guide: a few things to know before ordering the service. Paragraphs mark a key phrase with **…** (emphasis()),

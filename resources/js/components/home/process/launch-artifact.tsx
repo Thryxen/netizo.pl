@@ -33,6 +33,9 @@ const COPY = localized({
 
 const PIPELINE_LENGTH = COPY.pl.pipeline.length;
 
+/** What a service page swaps in: the address, the three checks of the release, the panel's line. */
+export type LaunchContent = Partial<Pick<(typeof COPY)['pl'], 'host' | 'pipeline' | 'panel'>>;
+
 /** Clock: queued (0), Testy, Publikacja, Monitoring run in turn (1–3), the site is live (4), the client panel is on (5). */
 const LIVE = 4;
 const PANEL = 5;
@@ -56,9 +59,9 @@ function pipeStatus(index: number, step: number): TickStatus {
  * Wdrożenie: the release. Testy, Publikacja and Monitoring go green in turn, the site is live (availability with the
  * last 30 days as bits) and the client panel is switched on. Final frame: all green, live, panel active.
  */
-export function LaunchArtifact({ state }: { state: StepState }) {
+export function LaunchArtifact({ state, content }: { state: StepState; content?: LaunchContent }) {
     const step = useStepClock(ARTIFACT_MS.launch, state);
-    const copy = useCopy(COPY);
+    const copy = { ...useCopy(COPY), ...content };
     const live = step >= LIVE;
     const site = live ? 'live' : step >= 1 ? 'deploying' : 'queued';
 

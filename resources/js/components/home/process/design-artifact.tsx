@@ -2,7 +2,7 @@ import { Check, PenTool } from 'lucide-react';
 import type { CSSProperties, ReactNode } from 'react';
 import { SlotCross } from '@/components/home/live-build/shop-window';
 import { localized, useCopy } from '@/lib/i18n';
-import { photo } from '@/lib/photos';
+import { type PhotoName, photo } from '@/lib/photos';
 import { cn } from '@/lib/utils';
 import { ArtifactFrame, chipClassName, Swap } from './artifact-parts';
 import { ARTIFACT_MS, type StepState } from './process-data';
@@ -13,8 +13,6 @@ const DESIGNED = 1;
 const COMMENTED = 2;
 const GROWN = 3;
 const RESOLVED = 4;
-
-const HERO_PHOTO = photo('shop-hero');
 
 const COPY = localized({
     pl: {
@@ -31,6 +29,9 @@ const COPY = localized({
         comment: 'Bigger photo?',
     },
 });
+
+/** What a service page swaps in: the page's title, its headline over the photo, the client's question and the photo. */
+export type DesignContent = Partial<Pick<(typeof COPY)['pl'], 'title' | 'headline' | 'comment'>> & { photo?: PhotoName };
 
 /** Stagger of the design resolving over the wireframe, element by element (ms). */
 const STAGGER_MS = 70;
@@ -68,9 +69,10 @@ const WF_BAR = 'rounded-full bg-foreground/12';
  * designed screen; the client asks "Większe zdjęcie?", the photo grows, the comment is resolved and the prototype
  * becomes v2. Final frame: the designed screen with the resolved comment.
  */
-export function DesignArtifact({ state }: { state: StepState }) {
+export function DesignArtifact({ state, content }: { state: StepState; content?: DesignContent }) {
     const step = useStepClock(ARTIFACT_MS.design, state);
-    const copy = useCopy(COPY);
+    const copy = { ...useCopy(COPY), ...content };
+    const heroPhoto = photo(content?.photo ?? 'shop-hero');
     const designed = step >= DESIGNED;
     const commented = step >= COMMENTED;
     const grown = step >= GROWN;
@@ -144,11 +146,11 @@ export function DesignArtifact({ state }: { state: StepState }) {
                             className="absolute inset-0 origin-top-right overflow-hidden rounded-[4px] transition-[opacity,scale] duration-[300ms,450ms] ease-expo-out data-[grown=false]:scale-[0.78] data-[show=false]:opacity-0"
                         >
                             <img
-                                src={HERO_PHOTO.src}
-                                srcSet={HERO_PHOTO.srcSet}
+                                src={heroPhoto.src}
+                                srcSet={heroPhoto.srcSet}
                                 sizes="160px"
-                                width={HERO_PHOTO.width}
-                                height={HERO_PHOTO.height}
+                                width={heroPhoto.width}
+                                height={heroPhoto.height}
                                 alt=""
                                 loading="lazy"
                                 decoding="async"
@@ -176,7 +178,7 @@ export function DesignArtifact({ state }: { state: StepState }) {
                     ))}
                 </div>
 
-                <Comment show={commented} resolved={resolved} />
+                <Comment show={commented} resolved={resolved} text={copy.comment} />
             </div>
         </ArtifactFrame>
     );
@@ -186,8 +188,7 @@ export function DesignArtifact({ state }: { state: StepState }) {
  * The client's comment, pinned under the photo's corner: the question, then once resolved it collapses to a tick
  * beside the avatar (the text folds away to zero width), so the final frame shows the grown photo, not the bubble.
  */
-function Comment({ show, resolved }: { show: boolean; resolved: boolean }) {
-    const copy = useCopy(COPY);
+function Comment({ show, resolved, text }: { show: boolean; resolved: boolean; text: string }) {
 
     return (
         <span
@@ -196,7 +197,7 @@ function Comment({ show, resolved }: { show: boolean; resolved: boolean }) {
         >
             <span className="flex items-center rounded-md border bg-background px-1.5 py-1 text-[11px] leading-none font-medium whitespace-nowrap shadow-[0_0.1rem_0.4rem_rgb(0_0_0/0.08)] dark:bg-[oklch(0.22_0_0)] dark:shadow-none">
                 <Fold open={!resolved}>
-                    <span className="block px-0.5 py-px">{copy.comment}</span>
+                    <span className="block px-0.5 py-px">{text}</span>
                 </Fold>
                 <Fold open={resolved}>
                     <Check aria-hidden="true" className="size-3" strokeWidth={2.75} />

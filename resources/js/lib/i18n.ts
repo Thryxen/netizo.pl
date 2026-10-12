@@ -63,3 +63,10 @@ export function formatPln(value: number, locale: Locale): string {
 
     return locale === 'pl' ? `${amount} zł` : `PLN ${amount}`;
 }
+
+/** A range of amounts in złoty: "1 299–4 999 zł" in Polish, "PLN 1,299–4,999" in English (the dash keeps its neighbours). */
+export function formatPlnRange(from: number, to: number, locale: Locale): string {
+    const range = `${formatInteger(from, locale)}–\u2060${formatInteger(to, locale)}`;
+
+    return locale === 'pl' ? `${range}\u00A0zł` : `PLN\u00A0${range}`;
+}

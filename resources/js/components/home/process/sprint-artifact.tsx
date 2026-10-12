@@ -31,6 +31,9 @@ const COPY = localized({
 
 const CHANGE_COUNT = COPY.pl.changes.length;
 
+/** What a service page swaps in: the window's title, the three changes, the address and the demo's rhythm. */
+export type SprintContent = Partial<Pick<(typeof COPY)['pl'], 'title' | 'changes' | 'stagingHost' | 'demo'>>;
+
 /** Clock: nothing yet (0), changes 1–3 land one by one, each checked (1–3), all ticked (4), test version updated (5). */
 const STAGING = 5;
 
@@ -39,9 +42,9 @@ const STAGING = 5;
  * sprint ends with the test version updated, with the demo every two weeks. Final frame: three ticked changes, the
  * test version up to date.
  */
-export function SprintArtifact({ state }: { state: StepState }) {
+export function SprintArtifact({ state, content }: { state: StepState; content?: SprintContent }) {
     const step = useStepClock(ARTIFACT_MS.sprint, state);
-    const copy = useCopy(COPY);
+    const copy = { ...useCopy(COPY), ...content };
     const landed = Math.min(step, CHANGE_COUNT);
     const checking = step >= 1 && step <= CHANGE_COUNT ? step - 1 : -1;
     const updated = step >= STAGING;

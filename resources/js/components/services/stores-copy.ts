@@ -74,6 +74,53 @@ export const STORES_COPY = localized<ServiceCopy>({
                 },
             ],
         },
+        processArtifacts: {
+            brief: {
+                title: 'Brief: nowy sklep',
+                sections: [
+                    {
+                        label: 'Katalog produktów',
+                        detail: '240 produktów',
+                    },
+                    {
+                        label: 'Płatności i wysyłka',
+                        detail: '5 metod',
+                    },
+                    {
+                        label: 'Integracje',
+                        detail: '2 systemy',
+                    },
+                ],
+            },
+            design: {
+                title: 'Strona produktu',
+                headline: 'Paczki wysyłane tego samego dnia',
+                comment: 'Więcej zdjęć?',
+                photo: 'stores-packing',
+            },
+            sprint: {
+                title: 'Wersja testowa',
+                changes: [
+                    {
+                        message: 'Koszyk gotowy',
+                        day: 'pon.',
+                    },
+                    {
+                        message: 'Płatności BLIK',
+                        day: 'śr.',
+                    },
+                    {
+                        message: 'Import produktów',
+                        day: 'dziś',
+                    },
+                ],
+                stagingHost: 'test.sklep.twojafirma.pl',
+            },
+            launch: {
+                host: 'sklep.twojafirma.pl',
+                pipeline: ['Testy płatności', 'Publikacja', 'Monitoring'],
+            },
+        },
         projects: { title: 'Sklepy, które zbudowaliśmy' },
         guide: {
             title: 'Sklep, który sprzedaje',
@@ -176,6 +223,53 @@ export const STORES_COPY = localized<ServiceCopy>({
                     description: 'We place test orders from cart to label, redirect old addresses and launch the store. After that, we grow it together with you.',
                 },
             ],
+        },
+        processArtifacts: {
+            brief: {
+                title: 'Brief: new store',
+                sections: [
+                    {
+                        label: 'Product catalog',
+                        detail: '240 products',
+                    },
+                    {
+                        label: 'Payments and shipping',
+                        detail: '5 methods',
+                    },
+                    {
+                        label: 'Integrations',
+                        detail: '2 systems',
+                    },
+                ],
+            },
+            design: {
+                title: 'Product page',
+                headline: 'Orders shipped the same day',
+                comment: 'More photos?',
+                photo: 'stores-packing',
+            },
+            sprint: {
+                title: 'Staging version',
+                changes: [
+                    {
+                        message: 'Cart ready',
+                        day: 'Mon',
+                    },
+                    {
+                        message: 'BLIK payments',
+                        day: 'Wed',
+                    },
+                    {
+                        message: 'Product import',
+                        day: 'today',
+                    },
+                ],
+                stagingHost: 'test.shop.yourcompany.com',
+            },
+            launch: {
+                host: 'shop.yourcompany.com',
+                pipeline: ['Payment tests', 'Go-live', 'Monitoring'],
+            },
         },
         projects: { title: 'Stores we’ve built' },
         guide: {

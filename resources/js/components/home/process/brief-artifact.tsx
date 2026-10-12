@@ -35,6 +35,9 @@ const COPY = localized({
 
 const SECTION_COUNT = COPY.pl.sections.length;
 
+/** What a service page swaps in: the document's title and its three sections (see components/services/process-content.ts). */
+export type BriefContent = Partial<Pick<(typeof COPY)['pl'], 'title' | 'sections'>>;
+
 /** Clock: sections 1, 2, 3 are written in turn (0–2), then the brief goes for approval (3) and is approved (4). */
 const REVIEW = 3;
 const APPROVED = 4;
@@ -43,9 +46,9 @@ const APPROVED = 4;
  * Odkrywanie: the brief in the client panel's "Dokumenty" vocabulary. Its sections get filled in one by one, then its
  * status goes Szkic → Do akceptacji → Zatwierdzone. Final frame: all three checked, approved.
  */
-export function BriefArtifact({ state }: { state: StepState }) {
+export function BriefArtifact({ state, content }: { state: StepState; content?: BriefContent }) {
     const step = useStepClock(ARTIFACT_MS.brief, state);
-    const copy = useCopy(COPY);
+    const copy = { ...useCopy(COPY), ...content };
     const written = Math.min(step, SECTION_COUNT);
     const status = step >= APPROVED ? 'approved' : step === REVIEW ? 'review' : 'draft';
 

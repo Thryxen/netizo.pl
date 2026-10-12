@@ -74,6 +74,53 @@ export const APPS_COPY = localized<ServiceCopy>({
                 },
             ],
         },
+        processArtifacts: {
+            brief: {
+                title: 'Brief: aplikacja',
+                sections: [
+                    {
+                        label: 'Procesy do obsłużenia',
+                        detail: '5 procesów',
+                    },
+                    {
+                        label: 'Role i uprawnienia',
+                        detail: '3 role',
+                    },
+                    {
+                        label: 'Integracje',
+                        detail: '2 systemy',
+                    },
+                ],
+            },
+            design: {
+                title: 'Panel zamówień',
+                headline: 'Zamówienia na jednym ekranie',
+                comment: 'Dodać filtr?',
+                photo: 'apps-office',
+            },
+            sprint: {
+                title: 'Wersja testowa',
+                changes: [
+                    {
+                        message: 'Logowanie i role',
+                        day: 'pon.',
+                    },
+                    {
+                        message: 'Lista zamówień',
+                        day: 'śr.',
+                    },
+                    {
+                        message: 'Raport miesięczny',
+                        day: 'dziś',
+                    },
+                ],
+                stagingHost: 'test.app.twojafirma.pl',
+            },
+            launch: {
+                host: 'app.twojafirma.pl',
+                pipeline: ['Testy', 'Migracja danych', 'Monitoring'],
+            },
+        },
         projects: { title: 'Aplikacje, które zbudowaliśmy' },
         guide: {
             title: 'Aplikacja, z której ludzie korzystają',
@@ -177,6 +224,53 @@ export const APPS_COPY = localized<ServiceCopy>({
                     description: 'We move your data, train your users and launch the application. After that, we monitor it and add new features.',
                 },
             ],
+        },
+        processArtifacts: {
+            brief: {
+                title: 'Brief: application',
+                sections: [
+                    {
+                        label: 'Processes to cover',
+                        detail: '5 processes',
+                    },
+                    {
+                        label: 'Roles and permissions',
+                        detail: '3 roles',
+                    },
+                    {
+                        label: 'Integrations',
+                        detail: '2 systems',
+                    },
+                ],
+            },
+            design: {
+                title: 'Orders panel',
+                headline: 'Orders on one screen',
+                comment: 'Add a filter?',
+                photo: 'apps-office',
+            },
+            sprint: {
+                title: 'Staging version',
+                changes: [
+                    {
+                        message: 'Login and roles',
+                        day: 'Mon',
+                    },
+                    {
+                        message: 'Orders list',
+                        day: 'Wed',
+                    },
+                    {
+                        message: 'Monthly report',
+                        day: 'today',
+                    },
+                ],
+                stagingHost: 'test.app.yourcompany.com',
+            },
+            launch: {
+                host: 'app.yourcompany.com',
+                pipeline: ['Tests', 'Data migration', 'Monitoring'],
+            },
         },
         projects: { title: 'Applications we’ve built' },
         guide: {

@@ -77,6 +77,53 @@ export const MOBILE_COPY = localized<ServiceCopy>({
                 },
             ],
         },
+        processArtifacts: {
+            brief: {
+                title: 'Brief: aplikacja mobilna',
+                sections: [
+                    {
+                        label: 'Główna funkcja',
+                        detail: '1 funkcja',
+                    },
+                    {
+                        label: 'Ekrany',
+                        detail: '14 ekranów',
+                    },
+                    {
+                        label: 'Publikacja',
+                        detail: '2 sklepy',
+                    },
+                ],
+            },
+            design: {
+                title: 'Ekran główny',
+                headline: 'Zamów w trzech dotknięciach',
+                comment: 'Większy przycisk?',
+                photo: 'mobile-cafe',
+            },
+            sprint: {
+                title: 'Wersja testowa',
+                changes: [
+                    {
+                        message: 'Logowanie',
+                        day: 'pon.',
+                    },
+                    {
+                        message: 'Powiadomienia push',
+                        day: 'śr.',
+                    },
+                    {
+                        message: 'Płatność w aplikacji',
+                        day: 'dziś',
+                    },
+                ],
+                stagingHost: 'TestFlight i Google Play',
+            },
+            launch: {
+                host: 'App Store i Google Play',
+                pipeline: ['Testy', 'Weryfikacja w sklepach', 'Monitoring'],
+            },
+        },
         projects: { title: 'Aplikacje, które zbudowaliśmy' },
         guide: {
             title: 'Aplikacja, którą ludzie zostawiają w telefonie',
@@ -179,6 +226,53 @@ export const MOBILE_COPY = localized<ServiceCopy>({
                     description: 'We go through Apple’s and Google’s reviews and publish the app. After that, we update it for new system versions and add new features.',
                 },
             ],
+        },
+        processArtifacts: {
+            brief: {
+                title: 'Brief: mobile app',
+                sections: [
+                    {
+                        label: 'Main feature',
+                        detail: '1 feature',
+                    },
+                    {
+                        label: 'Screens',
+                        detail: '14 screens',
+                    },
+                    {
+                        label: 'Publishing',
+                        detail: '2 stores',
+                    },
+                ],
+            },
+            design: {
+                title: 'Home screen',
+                headline: 'Order in three taps',
+                comment: 'Bigger button?',
+                photo: 'mobile-cafe',
+            },
+            sprint: {
+                title: 'Test build',
+                changes: [
+                    {
+                        message: 'Login',
+                        day: 'Mon',
+                    },
+                    {
+                        message: 'Push notifications',
+                        day: 'Wed',
+                    },
+                    {
+                        message: 'In-app payment',
+                        day: 'today',
+                    },
+                ],
+                stagingHost: 'TestFlight and Google Play',
+            },
+            launch: {
+                host: 'App Store and Google Play',
+                pipeline: ['Tests', 'Store review', 'Monitoring'],
+            },
         },
         projects: { title: 'Apps we’ve built' },
         guide: {

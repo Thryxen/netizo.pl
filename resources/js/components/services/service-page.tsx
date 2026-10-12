@@ -53,7 +53,7 @@ export function ServicePage({ offers, faq, projects, otherServices, copy, scene,
                     <ServiceHero copy={service} scene={scene} />
                     <ScopeSection scope={service.scope} vignettes={vignettes} />
                     <PricingSection pricing={service.pricing} offers={offers} />
-                    <ServiceProcessSection process={service.process} />
+                    <ServiceProcessSection process={service.process} artifacts={service.processArtifacts} />
                     <ServiceProjectsSection title={service.projects.title} projects={projects} />
                     <GuideSection guide={service.guide} photoName={guidePhoto} />
                     <ServiceFaqSection title={service.faq.title} faq={faq} />

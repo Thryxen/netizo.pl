@@ -73,6 +73,53 @@ export const DEVOPS_COPY = localized<ServiceCopy>({
                 },
             ],
         },
+        processArtifacts: {
+            brief: {
+                title: 'Brief: infrastruktura',
+                sections: [
+                    {
+                        label: 'Obecny serwer',
+                        detail: '1 audyt',
+                    },
+                    {
+                        label: 'Dostępność i ruch',
+                        detail: '99,9%',
+                    },
+                    {
+                        label: 'Kopie zapasowe',
+                        detail: 'co dobę',
+                    },
+                ],
+            },
+            design: {
+                title: 'Plan infrastruktury',
+                headline: 'Serwery, CI/CD i monitoring',
+                comment: 'Dodać drugi region?',
+                photo: 'devops-desk',
+            },
+            sprint: {
+                title: 'Środowisko testowe',
+                changes: [
+                    {
+                        message: 'Pipeline CI/CD',
+                        day: 'pon.',
+                    },
+                    {
+                        message: 'Kopie zapasowe',
+                        day: 'śr.',
+                    },
+                    {
+                        message: 'Alerty',
+                        day: 'dziś',
+                    },
+                ],
+                stagingHost: 'staging.twojafirma.pl',
+            },
+            launch: {
+                host: 'twojafirma.pl',
+                pipeline: ['Testy', 'Wdrożenie', 'Monitoring'],
+            },
+        },
         projects: { title: 'Wdrożenia, które zrobiliśmy' },
         guide: {
             title: 'Infrastruktura, o której nie musisz myśleć',
@@ -175,6 +222,53 @@ export const DEVOPS_COPY = localized<ServiceCopy>({
                     description: 'After the rollout, we monitor the system, keep it updated and act on alerts. You see the tasks and their stages in the client portal.',
                 },
             ],
+        },
+        processArtifacts: {
+            brief: {
+                title: 'Brief: infrastructure',
+                sections: [
+                    {
+                        label: 'Current server',
+                        detail: '1 audit',
+                    },
+                    {
+                        label: 'Availability and traffic',
+                        detail: '99.9%',
+                    },
+                    {
+                        label: 'Backups',
+                        detail: 'daily',
+                    },
+                ],
+            },
+            design: {
+                title: 'Infrastructure plan',
+                headline: 'Servers, CI/CD and monitoring',
+                comment: 'Add a second region?',
+                photo: 'devops-desk',
+            },
+            sprint: {
+                title: 'Staging environment',
+                changes: [
+                    {
+                        message: 'CI/CD pipeline',
+                        day: 'Mon',
+                    },
+                    {
+                        message: 'Backups',
+                        day: 'Wed',
+                    },
+                    {
+                        message: 'Alerts',
+                        day: 'today',
+                    },
+                ],
+                stagingHost: 'staging.yourcompany.com',
+            },
+            launch: {
+                host: 'yourcompany.com',
+                pipeline: ['Tests', 'Deployment', 'Monitoring'],
+            },
         },
         projects: { title: 'Rollouts we’ve done' },
         guide: {
