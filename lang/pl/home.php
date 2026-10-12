@@ -8,9 +8,9 @@
 return [
     'seo' => [
         'title' => 'Strony internetowe i aplikacje webowe dla firm – Leszno | Netizo',
-        'description' => 'Zamów bezpłatną wycenę strony internetowej lub aplikacji webowej. Szybkość i SEO w standardzie, 150+ projektów, 8 lat doświadczenia. Leszno i cała Polska.',
-        'share_description' => 'Profesjonalne strony internetowe i aplikacje webowe. Nowoczesny design, szybkość, SEO. 150+ projektów. Bezpłatna wycena!',
-        'organization_description' => 'Profesjonalne tworzenie stron internetowych i aplikacji webowych dla firm. Nowoczesny design, szybkość i SEO w standardzie. 150+ projektów, 8 lat doświadczenia.',
+        'description' => 'Zamów bezpłatną wycenę strony internetowej lub aplikacji. Szybkość i SEO w standardzie, 150+ projektów i 8 lat doświadczenia zespołu. Leszno i cała Polska.',
+        'share_description' => 'Profesjonalne strony internetowe i aplikacje webowe. Nowoczesny design, szybkość, SEO. 150+ projektów zespołu. Bezpłatna wycena!',
+        'organization_description' => 'Netizo tworzy strony internetowe i aplikacje webowe dla firm z Leszna i całej Polski. Netizo założyli w 2023 roku Damian Idzik i Kamil Nawrot. Nowoczesny design, szybkość i SEO w standardzie.',
         'country' => 'Polska',
         'image' => 'assets/images/og-netizo-2.png',
     ],

@@ -13,7 +13,7 @@ return [
         'defaults' => [
             'title' => false,
             'titleBefore' => false,
-            'description' => 'Netizo - Software House tworzący nowoczesne aplikacje webowe, mobilne i systemy enterprise. Od pomysłu do wdrożenia. React, Next.js, Node.js, Laravel. 150+ projektów, 8 lat doświadczenia.',
+            'description' => 'Netizo - Software House tworzący nowoczesne aplikacje webowe, mobilne i systemy enterprise. Od pomysłu do wdrożenia. React, Next.js, Node.js, Laravel. 150+ projektów i 8 lat doświadczenia zespołu.',
             'separator' => ' | ',
             'keywords' => [],
             'canonical' => 'full',

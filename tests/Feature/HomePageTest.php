@@ -154,8 +154,8 @@ it('renders a search result description that opens with the call to action and n
 
     expect(mb_strlen($description))->toBeLessThanOrEqual(155);
 })->with([
-    'polish' => ['/', 'Zamów bezpłatną wycenę strony internetowej lub aplikacji webowej. Szybkość i SEO w standardzie, 150+ projektów, 8 lat doświadczenia. Leszno i cała Polska.'],
-    'english' => ['/en', 'Get a free quote for a website or web app for your business. Speed and SEO as standard, 150+ projects, 8 years of experience. Based in Leszno, Poland.'],
+    'polish' => ['/', 'Zamów bezpłatną wycenę strony internetowej lub aplikacji. Szybkość i SEO w standardzie, 150+ projektów i 8 lat doświadczenia zespołu. Leszno i cała Polska.'],
+    'english' => ['/en', 'Get a free quote for a website or web app. Speed and SEO as standard, from a team with 150+ projects and 8 years of experience. Based in Leszno, Poland.'],
 ]);
 
 it('renders the organization JSON-LD built in the controller', function () {
@@ -170,6 +170,8 @@ it('renders the organization JSON-LD built in the controller', function () {
 
     expect($organization)->not->toBeNull()
         ->and($organization['name'])->toBe('Netizo')
+        ->and($organization['description'])->toContain('Netizo założyli w 2023 roku Damian Idzik i Kamil Nawrot.')
+        ->and($organization['description'])->not->toContain('150+')
         ->and($organization)->not->toHaveKey('sameAs')
         ->and($organization['address'])->toBe([
             '@type' => 'PostalAddress',
