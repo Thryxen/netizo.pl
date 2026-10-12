@@ -3,8 +3,9 @@
     Obraz do podglądów linków stron prawnych: polityki prywatności i regulaminu, po polsku i po angielsku (1200 × 630 px,
     jasny motyw netizo.pl). Jeden szablon na cztery obrazy; teksty każdego z nich są w generuj.cjs (IMAGES, `values`).
     Ta sama rama co szablon-o-nas.html (logo, poziome linie, szyna z nitami, sygnet N ton w ton), podzielona pionową linią
-    jak nagłówek strony: po lewej tytuł dokumentu, po prawej strona, którą dokument wskazuje (karta z legal-hero.tsx).
-    Tytuły i etykiety muszą się zgadzać z components/legal/*-copy.tsx, a właściciel z `company` w resources/js/lib/site.ts.
+    jak nagłówek strony: po lewej tytuł dokumentu, po prawej strona, którą dokument wskazuje (etykieta jak w karcie
+    z legal-hero.tsx), pod nazwą Netizo, bez imienia i nazwiska właściciela. Tytuły i etykiety muszą się zgadzać
+    z components/legal/*-copy.tsx.
     Bez daty wejścia w życie, żeby obraz nie wymagał zmiany z każdą nową wersją dokumentu.
     Znaczniki w podwójnych klamrach wypełnia generuj.cjs; nie wpisuj ich w komentarzach.
 -->
@@ -158,14 +159,6 @@
             letter-spacing: -0.03em;
         }
 
-        .business {
-            margin-top: 8px;
-            font-size: 23px;
-            line-height: 1.3;
-            color: var(--muted);
-            text-wrap: balance;
-        }
-
         .contact {
             margin-top: 30px;
             padding-top: 26px;
@@ -208,8 +201,7 @@
 
         <div class="party">
             <p class="label">{{party}}</p>
-            <p class="owner">Kamil Nawrot</p>
-            <p class="business">{{business}}</p>
+            <p class="owner">Netizo</p>
             <p class="contact">kontakt@netizo.pl</p>
         </div>
 

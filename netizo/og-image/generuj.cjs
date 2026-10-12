@@ -38,22 +38,22 @@ const IMAGES = [
     {
         template: 'szablon-dokument.html',
         output: 'og-netizo-polityka-prywatnosci.png',
-        values: { lang: 'pl', title: 'Polityka prywatności', party: 'Administrator danych', business: 'działalność gospodarcza pod nazwą Netizo', url: 'netizo.pl/polityka-prywatnosci' },
+        values: { lang: 'pl', title: 'Polityka prywatności', party: 'Administrator danych', url: 'netizo.pl/polityka-prywatnosci' },
     },
     {
         template: 'szablon-dokument.html',
         output: 'og-netizo-privacy-policy-en.png',
-        values: { lang: 'en', title: 'Privacy policy', party: 'Data controller', business: 'sole proprietorship trading as Netizo', url: 'netizo.pl/en/privacy-policy' },
+        values: { lang: 'en', title: 'Privacy policy', party: 'Data controller', url: 'netizo.pl/en/privacy-policy' },
     },
     {
         template: 'szablon-dokument.html',
         output: 'og-netizo-regulamin.png',
-        values: { lang: 'pl', title: 'Regulamin serwisu', party: 'Usługodawca', business: 'działalność gospodarcza pod nazwą Netizo', url: 'netizo.pl/regulamin' },
+        values: { lang: 'pl', title: 'Regulamin serwisu', party: 'Usługodawca', url: 'netizo.pl/regulamin' },
     },
     {
         template: 'szablon-dokument.html',
         output: 'og-netizo-terms-en.png',
-        values: { lang: 'en', title: 'Terms of service', party: 'Service provider', business: 'sole proprietorship trading as Netizo', url: 'netizo.pl/en/terms' },
+        values: { lang: 'en', title: 'Terms of service', party: 'Service provider', url: 'netizo.pl/en/terms' },
     },
 ];
 const SIZE = { width: 1200, height: 630 };
