@@ -1,3 +1,4 @@
+import { MapPin, Phone } from 'lucide-react';
 import type { CSSProperties } from 'react';
 import { useHomeUi } from '@/components/home/home-ui-context';
 import { LiveBuild } from '@/components/home/live-build/live-build';
@@ -6,6 +7,7 @@ import { CountUp, SplitLines } from '@/components/motion';
 import { Button } from '@/components/ui/button';
 import { localized, useCopy } from '@/lib/i18n';
 import { useHomeSections } from '@/lib/sections';
+import { contact } from '@/lib/site';
 import { cn } from '@/lib/utils';
 
 type HeroStat = {
@@ -49,21 +51,23 @@ const COPY = localized({
         lead: 'Strony, aplikacje webowe i mobilne oraz systemy dla firm. Projektujemy, programujemy i opiekujemy się nimi po wdrożeniu.',
         quote: 'Wyceń projekt',
         work: 'Zobacz realizacje',
-        reply: 'Odpowiadamy w ciągu 24 godzin.',
+        call: 'Zadzwoń',
+        area: 'Leszno, cała Polska',
     },
     en: {
         headingLines: ['We build', 'websites for', 'the ambitious.'],
         lead: 'Websites, web and mobile apps, and systems for businesses. We design them, build them and look after them once they’re live.',
         quote: 'Get a quote',
         work: 'See our work',
-        reply: 'We reply within 24 hours.',
+        call: 'Call',
+        area: 'Leszno, across Poland',
     },
 });
 const HEADING_WIDE_LINES = [[0, 1], [2]];
 
 /**
  * The first screen plays from the first paint, in CSS only (app.css: `[data-split-line]`, `[data-hero-rise]`), so it
- * never waits for the bundle: H1 lines rise (0–1.1 s), then the lead, the buttons and the reply line (from 0.42 s).
+ * never waits for the bundle: H1 lines rise (0–1.1 s), then the lead, the buttons and the contact line (from 0.42 s).
  * The stage starts building as soon as the app has hydrated; the counters run once the copy has settled.
  * Reduced motion and print show everything in place.
  */
@@ -114,10 +118,23 @@ export function Hero() {
                                 <a href={`#${sections.projects}`}>{copy.work}</a>
                             </Button>
                         </div>
-                        {/* Phones: left out, so more of the stage (and its photo) makes the first screen; it is quoted again
-                            in the FAQ and on the contact form. */}
-                        <p data-hero-rise="" style={riseDelay(2)} className="mt-6 hidden text-sm text-muted-foreground sm:block">
-                            {copy.reply}
+                        {/* The number to call and where we work. From sm one line with a hairline between them; phones drop
+                            the hairline, so on a narrow screen the place wraps under the number on its own. Below md the link
+                            is a 44 px tap target, so the line starts closer to keep the same visible gap under the buttons. */}
+                        <p data-hero-rise="" style={riseDelay(2)} className="mt-3.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[0.9375rem] text-muted-foreground md:mt-6">
+                            <a
+                                href={contact.phone.href}
+                                className="inline-flex min-h-11 items-center gap-2 rounded-sm font-medium text-foreground tabular-nums underline decoration-foreground/30 underline-offset-4 outline-none hover:decoration-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 md:min-h-0"
+                            >
+                                <Phone aria-hidden="true" className="size-4" />
+                                <span className="sr-only">{copy.call}: </span>
+                                {contact.phone.display}
+                            </a>
+                            <span aria-hidden="true" className="hidden h-4 w-px bg-border sm:block" />
+                            <span className="inline-flex items-center gap-2">
+                                <MapPin aria-hidden="true" className="size-4 text-foreground" />
+                                {copy.area}
+                            </span>
                         </p>
                     </div>
 
