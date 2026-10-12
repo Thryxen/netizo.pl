@@ -8,6 +8,8 @@ use App\Http\Requests\Admin\DestroyManyRequest;
 use App\Http\Requests\Admin\ReorderRequest;
 use App\Http\Requests\Admin\SaveClientRequest;
 use App\Models\Client;
+use App\Services\IndexNow;
+use App\Services\LocalizedRoutes;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -15,6 +17,8 @@ use Inertia\Response;
 class ClientController extends Controller
 {
     use ReordersRecords;
+
+    public function __construct(private IndexNow $indexNow) {}
 
     public function index(): Response
     {
@@ -36,6 +40,8 @@ class ClientController extends Controller
     {
         $client = Client::query()->create($request->clientAttributes());
 
+        $this->announce($client->is_active);
+
         return to_route('admin.clients.index')->with('success', "Dodano klienta „{$client->name}”.");
     }
 
@@ -48,7 +54,11 @@ class ClientController extends Controller
 
     public function update(SaveClientRequest $request, Client $client): RedirectResponse
     {
+        $wasPublic = $client->is_active;
+
         $client->update($request->clientAttributes());
+
+        $this->announce($wasPublic || $client->is_active);
 
         return to_route('admin.clients.index')->with('success', "Zapisano klienta „{$client->name}”.");
     }
@@ -57,12 +67,18 @@ class ClientController extends Controller
     {
         $client->delete();
 
+        $this->announce($client->is_active);
+
         return to_route('admin.clients.index')->with('success', "Usunięto klienta „{$client->name}”.");
     }
 
     public function destroyMany(DestroyManyRequest $request): RedirectResponse
     {
+        $anyPublic = Client::query()->whereKey($request->ids())->active()->exists();
+
         $count = Client::query()->whereKey($request->ids())->delete();
+
+        $this->announce($anyPublic);
 
         return back()->with('success', "Usunięto klientów: {$count}.");
     }
@@ -72,6 +88,17 @@ class ClientController extends Controller
         $this->applyOrder(Client::query(), $request->ids());
 
         return back();
+    }
+
+    /**
+     * Tell the search engines (IndexNow, after the response) that the home page changed when a public client did: the
+     * page lists their names. Hidden clients send nothing, nor does the order (saved on every drop in the panel).
+     */
+    private function announce(bool $publicClientChanged): void
+    {
+        if ($publicClientChanged) {
+            $this->indexNow->submitAfterResponse(array_values(LocalizedRoutes::alternates('home')));
+        }
     }
 
     /**

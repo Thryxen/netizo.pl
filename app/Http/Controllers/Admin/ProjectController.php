@@ -9,6 +9,8 @@ use App\Http\Requests\Admin\ReorderRequest;
 use App\Http\Requests\Admin\SaveProjectRequest;
 use App\Models\Project;
 use App\Services\ImageOptimizer;
+use App\Services\IndexNow;
+use App\Services\LocalizedRoutes;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -27,7 +29,10 @@ class ProjectController extends Controller
         'full_image' => ['directory' => 'projects/full', 'width' => 1920],
     ];
 
-    public function __construct(private ImageOptimizer $images) {}
+    /** Polish route names of the pages that list projects (App\Services\Sitemap dates them by the projects too). */
+    private const LISTING_PAGES = ['home', 'projects.index', 'about'];
+
+    public function __construct(private ImageOptimizer $images, private IndexNow $indexNow) {}
 
     public function index(): Response
     {
@@ -51,6 +56,8 @@ class ProjectController extends Controller
 
         $project = Project::query()->create([...$request->projectAttributes(), ...$images]);
 
+        $this->announce($this->caseStudyUrls($project));
+
         return to_route('admin.projects.index')->with('success', "Dodano projekt „{$project->title}”.");
     }
 
@@ -64,8 +71,11 @@ class ProjectController extends Controller
     public function update(SaveProjectRequest $request, Project $project): RedirectResponse
     {
         [$images, $obsolete] = $this->imageChanges($request, $project);
+        $publishedUrls = $this->caseStudyUrls($project);
 
         $project->update([...$request->projectAttributes(), ...$images]);
+
+        $this->announce([...$publishedUrls, ...$this->caseStudyUrls($project)]);
 
         foreach ($obsolete as $path) {
             $this->images->delete($path);
@@ -76,14 +86,24 @@ class ProjectController extends Controller
 
     public function destroy(Project $project): RedirectResponse
     {
+        $publishedUrls = $this->caseStudyUrls($project);
+
         $project->delete();
+
+        $this->announce($publishedUrls);
 
         return to_route('admin.projects.index')->with('success', "Usunięto projekt „{$project->title}”.");
     }
 
     public function destroyMany(DestroyManyRequest $request): RedirectResponse
     {
+        $publishedUrls = Project::query()->whereKey($request->ids())->active()->get()
+            ->flatMap(fn (Project $project): array => $this->caseStudyUrls($project))
+            ->all();
+
         $count = Project::query()->whereKey($request->ids())->delete();
+
+        $this->announce($publishedUrls);
 
         return back()->with('success', "Usunięto projektów: {$count}.");
     }
@@ -93,6 +113,37 @@ class ProjectController extends Controller
         $this->applyOrder(Project::query(), $request->ids());
 
         return back();
+    }
+
+    /**
+     * The project's case study in both languages while the project is public; nothing for a hidden one.
+     *
+     * @return list<string>
+     */
+    private function caseStudyUrls(Project $project): array
+    {
+        return $project->is_active ? array_values(LocalizedRoutes::alternates('projects.show', ['project' => $project])) : [];
+    }
+
+    /**
+     * Tell the search engines (IndexNow, after the response) that public projects changed: their case studies, also
+     * the old address of a hidden, renamed or deleted one (so the engines drop it), and the pages that list projects.
+     * Changes to hidden projects alone send nothing, nor does the order: the panel saves it on every drop, and the
+     * sitemap's lastmod covers it.
+     *
+     * @param  list<string>  $caseStudyUrls
+     */
+    private function announce(array $caseStudyUrls): void
+    {
+        if ($caseStudyUrls === []) {
+            return;
+        }
+
+        $listingUrls = collect(self::LISTING_PAGES)
+            ->flatMap(fn (string $name): array => array_values(LocalizedRoutes::alternates($name)))
+            ->all();
+
+        $this->indexNow->submitAfterResponse([...$caseStudyUrls, ...$listingUrls]);
     }
 
     /**

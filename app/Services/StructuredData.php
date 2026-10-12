@@ -26,7 +26,8 @@ class StructuredData
 
     private const IMAGE_HEIGHT = 630;
 
-    private const EMAIL = 'kontakt@netizo.pl';
+    /** The contact address: on the pages, in the JSON-LD and in security.txt (SecurityTxtController). */
+    public const EMAIL = 'kontakt@netizo.pl';
 
     private const TELEPHONE = '+48884343924';
 

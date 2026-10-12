@@ -59,4 +59,12 @@ return [
         'secret_key' => env('TURNSTILE_SECRET_KEY'),
     ],
 
+    /*
+     * IndexNow (Bing, Yandex and the other engines of api.indexnow.org) is told about changed pages (App\Services\IndexNow);
+     * off until the key is set: 8–128 characters, letters, digits and dashes, served at /{key}.txt.
+     */
+    'indexnow' => [
+        'key' => env('INDEXNOW_KEY'),
+    ],
+
 ];

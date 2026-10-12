@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\IndexNowKeyController;
 use App\Http\Controllers\LlmsTxtController;
+use App\Http\Controllers\SecurityTxtController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Middleware\HandleAppearance;
 use App\Http\Middleware\HandleInertiaRequests;
 use App\Http\Middleware\SecurityHeaders;
 use App\Http\Middleware\SetLocale;
+use App\Services\IndexNow;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -22,9 +25,14 @@ return Application::configure(basePath: dirname(__DIR__))
         then: function (): void {
             Route::middleware('web')->group(base_path('routes/admin.php'));
 
-            // Outside the web group: no session or XSRF cookie on a response crawlers fetch (App\Services\Sitemap, App\Services\LlmsTxt).
+            /*
+             * Outside the web group: no session or XSRF cookie on a response crawlers fetch (App\Services\Sitemap,
+             * App\Services\LlmsTxt, security.txt, the IndexNow key file of App\Services\IndexNow).
+             */
             Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
             Route::get('/llms.txt', LlmsTxtController::class)->name('llms');
+            Route::get('/.well-known/security.txt', SecurityTxtController::class)->name('security-txt');
+            Route::get('/{key}.txt', IndexNowKeyController::class)->where('key', IndexNow::KEY_PATTERN)->name('indexnow.key');
         },
     )
     ->withMiddleware(function (Middleware $middleware): void {
