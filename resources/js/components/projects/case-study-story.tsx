@@ -1,6 +1,7 @@
 import { ExternalLinkIcon } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { ExternalLink } from '@/components/home/external-link';
+import { displayUrl } from '@/components/home/project-frame';
 import { Container, Rivet, SectionHeading } from '@/components/home/section';
 import { TechTag } from '@/components/home/tech-tag';
 import { localized, useCopy } from '@/lib/i18n';
@@ -86,7 +87,7 @@ export function CaseStudyStory({ project }: { project: Project }) {
                                         href={project.liveUrl}
                                         className="inline-flex min-h-11 items-center gap-1.5 rounded-sm font-medium underline decoration-foreground/30 underline-offset-4 transition-colors outline-none hover:decoration-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50 md:min-h-0"
                                     >
-                                        {project.url}
+                                        {displayUrl(project.url)}
                                         <ExternalLinkIcon aria-hidden="true" className="size-3.5" />
                                     </ExternalLink>
                                 </Fact>

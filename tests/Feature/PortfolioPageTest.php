@@ -283,6 +283,29 @@ it('draws a new card under a new name when the project changes, and removes the 
         ->and(Storage::disk('public')->files('projects/share'))->toBe([str_replace(asset('storage').'/', '', $after)]);
 });
 
+it('keeps a long one-word name and a long address inside the left column of the card', function () {
+    $project = Project::factory()->create([
+        'slug' => 'bardzo-dlugi-adres-realizacji-ktory-sie-nie-miesci-w-kolumnie',
+        'title' => 'nakazdaokazje.pl',
+        'url' => 'https://nakazdaokazje.pl',
+        'full_image' => storeProjectScreenshot('projects/full/nakazdaokazje.webp'),
+    ]);
+
+    $card = imagecreatefromjpeg(Storage::disk('public')->path(str_replace(asset('storage').'/', '', ogImageOf('/realizacje/'.$project->slug))));
+    $darkest = 255;
+
+    // Between the end of the text column (x 640) and the column line (x 679), from the top hairline to the bottom edge,
+    // leaving out the bottom hairline (y 500) that crosses it.
+    foreach (range(650, 674) as $x) {
+        foreach ([...range(145, 494, 2), ...range(506, 625, 2)] as $y) {
+            $rgb = imagecolorat($card, $x, $y);
+            $darkest = min($darkest, (int) round(((($rgb >> 16) & 0xFF) + (($rgb >> 8) & 0xFF) + ($rgb & 0xFF)) / 3));
+        }
+    }
+
+    expect($darkest)->toBeGreaterThan(235);
+});
+
 it('falls back to the list\'s share image and shortens a long description for a case study', function () {
     Project::factory()->create(['slug' => 'dlugi', 'description' => str_repeat('Bardzo długi opis projektu. ', 12)]);
     Project::factory()->create(['slug' => 'bez-pliku', 'thumbnail_image' => 'projects/thumbnails/missing.webp']);

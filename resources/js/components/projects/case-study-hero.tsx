@@ -12,6 +12,7 @@ import { useHomeSections } from '@/lib/sections';
 import { usePageUrls } from '@/lib/site';
 import { cn } from '@/lib/utils';
 import type { Project } from '@/types/home';
+import { titleFitStyle } from './title-fit';
 
 const COPY = localized({
     pl: {
@@ -61,7 +62,7 @@ export function CaseStudyHero({ project }: { project: Project }) {
         <section aria-labelledby="hero-heading" className="relative">
             <Container>
                 <div className="grid lg:min-h-[min(calc(100svh-var(--header-height)-6rem),52rem)] lg:grid-cols-12">
-                    <div className="max-w-2xl pt-8 pb-12 sm:pt-14 lg:col-span-5 lg:flex lg:max-w-none lg:flex-col lg:justify-center lg:py-14 lg:pr-10">
+                    <div className="max-w-2xl pt-8 pb-12 [container-type:inline-size] sm:pt-14 lg:col-span-5 lg:flex lg:max-w-none lg:flex-col lg:justify-center lg:py-14 lg:pr-10">
                         <nav aria-label={copy.breadcrumb}>
                             <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
                                 <li>
@@ -84,7 +85,8 @@ export function CaseStudyHero({ project }: { project: Project }) {
                         <SplitLines
                             id="hero-heading"
                             lines={[project.title]}
-                            className="mt-5 text-[clamp(2.75rem,min(10vw,11svh),5.5rem)] leading-[0.98] font-semibold tracking-[-0.05em] text-balance break-words lg:text-[clamp(2.75rem,min(5.4vw,9svh),5.25rem)]"
+                            style={titleFitStyle(project.title)}
+                            className="mt-5 text-[max(1.75rem,min(clamp(2.75rem,min(10vw,11svh),5.5rem),var(--title-fit)))] leading-[0.98] font-semibold tracking-[-0.05em] text-balance break-words lg:text-[max(1.75rem,min(clamp(2.75rem,min(5.4vw,9svh),5.25rem),var(--title-fit)))]"
                         />
                         {project.category && (
                             <p data-hero-rise="" style={riseDelay(0)} className="mt-4 text-lg text-muted-foreground">

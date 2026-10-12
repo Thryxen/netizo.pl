@@ -6,6 +6,7 @@ import { useCaseStudySections } from '@/lib/sections';
 import { useCaseStudyUrl } from '@/lib/site';
 import { cn } from '@/lib/utils';
 import type { ProjectSummary } from '@/types/projects';
+import { titleFitStyle } from './title-fit';
 
 const COPY = localized({
     pl: { title: 'Następna realizacja', open: 'Zobacz case study' },
@@ -39,8 +40,11 @@ export function NextProject({ project }: { project: ProjectSummary | null }) {
                         href={caseStudyUrl(project.slug)}
                         className="grid gap-10 rounded-md outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 lg:grid-cols-2 lg:items-center lg:gap-16"
                     >
-                        <div className="min-w-0">
-                            <p className="text-[clamp(2.75rem,8vw,5rem)] leading-[0.95] font-semibold tracking-[-0.05em] text-balance break-words decoration-2 underline-offset-[0.14em] group-hover/project:underline lg:text-[clamp(3rem,5.2vw,5rem)]">
+                        <div className="min-w-0 [container-type:inline-size]">
+                            <p
+                                style={titleFitStyle(project.title)}
+                                className="text-[max(1.75rem,min(clamp(2.75rem,8vw,5rem),var(--title-fit)))] leading-[0.95] font-semibold tracking-[-0.05em] text-balance break-words decoration-2 underline-offset-[0.14em] group-hover/project:underline lg:text-[max(1.75rem,min(clamp(3rem,5.2vw,5rem),var(--title-fit)))]"
+                            >
                                 {project.title}
                             </p>
                             {project.category && <p className="mt-5 text-lg text-muted-foreground">{project.category}</p>}

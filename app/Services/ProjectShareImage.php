@@ -24,7 +24,7 @@ class ProjectShareImage
     public const HEIGHT = 630;
 
     /** Bump to redraw every preview after a change of the layout below. */
-    private const LAYOUT_VERSION = 1;
+    private const LAYOUT_VERSION = 3;
 
     private const DIRECTORY = 'projects/share';
 
@@ -128,14 +128,16 @@ class ProjectShareImage
 
         $this->drawTitle($image, $title, $category);
 
-        $addressSize = $this->fitSize($address, $this->font('mono'), self::TEXT_WIDTH, 34, 18);
+        // The address shrinks to fit the column; a slug too long even at 20 px ends in an ellipsis.
+        $addressSize = $this->fitSize($address, $this->font('mono'), self::TEXT_WIDTH, 34, 20);
+        $address = $this->truncate($address, $this->font('mono'), $addressSize, self::TEXT_WIDTH);
         $this->drawLine($image, $address, $this->font('mono'), $addressSize, self::CONTENT_X, $this->middleBaseline(self::LINE_BOTTOM, self::HEIGHT, $addressSize), self::MUTED);
 
         return $canvas->encode('jpg', 86)->getEncoded();
     }
 
     /**
-     * The right column below the top hairline: a browser bar (three dots, the site's address as stored in the panel) over
+     * The right column below the top hairline: a browser bar (three dots, the site's address without the scheme) over
      * the top of the site, at the column's width (a short screenshot is cropped to cover the window).
      */
     private function drawWindow(ImageManager $manager, Image $canvas, string $screenshotPath, string $siteUrl): void
@@ -155,7 +157,8 @@ class ProjectShareImage
         $fieldX = self::COLUMN_X + 76;
         $this->fill($image, $fieldX, self::LINE_TOP + 9, $width - 76 - 16, 26, self::LINE);
         $this->fill($image, $fieldX + 1, self::LINE_TOP + 10, $width - 76 - 18, 24, '#ffffff');
-        $this->drawLine($image, $this->truncate($siteUrl, $this->font('mono'), 15, $width - 76 - 40), $this->font('mono'), 15, $fieldX + 12, self::LINE_TOP + 27, self::MUTED);
+        $siteAddress = rtrim((string) preg_replace('#^https?://(www\.)?#i', '', $siteUrl), '/');
+        $this->drawLine($image, $this->truncate($siteAddress, $this->font('mono'), 15, $width - 76 - 40), $this->font('mono'), 15, $fieldX + 12, self::LINE_TOP + 27, self::MUTED);
 
         $screenshot = $manager->make($screenshotPath)->widen($width);
 
@@ -169,8 +172,9 @@ class ProjectShareImage
     }
 
     /**
-     * The project's name, as large as fits in three lines of the column (76 px down to 44 px), with its type under it,
-     * centred together between the hairlines.
+     * The project's name, as large as fits the column in at most three lines with every line inside it (76 px down to
+     * 36 px: a long one-word name such as a domain shrinks instead of running into the window), with its type under it,
+     * centred together between the hairlines. A word wider than the column even at 36 px is broken inside.
      */
     private function drawTitle(GdImage $image, string $title, string $category): void
     {
@@ -178,12 +182,16 @@ class ProjectShareImage
         $categoryFont = $this->font('400');
         $categorySize = 27;
 
-        foreach (range(76, 44, -4) as $size) {
+        foreach (range(76, 36, -4) as $size) {
             $lines = $this->wrap($title, $titleFont, $size, self::TEXT_WIDTH);
 
-            if (count($lines) <= 3) {
+            if (count($lines) <= 3 && $this->widestLine($lines, $titleFont, $size) <= self::TEXT_WIDTH) {
                 break;
             }
+        }
+
+        if ($this->widestLine($lines, $titleFont, $size) > self::TEXT_WIDTH) {
+            $lines = $this->wrap($title, $titleFont, $size, self::TEXT_WIDTH, breakWords: true);
         }
 
         $lines = array_slice($lines, 0, 3);
@@ -206,16 +214,22 @@ class ProjectShareImage
     }
 
     /**
-     * Greedy word wrap at `$width` pixels; a single word wider than the column is kept whole (it is cut by the canvas).
+     * Greedy word wrap at `$width` pixels. A word wider than `$width` is kept whole, unless `$breakWords`: then it is
+     * split into pieces that fit.
      *
      * @return list<string>
      */
-    private function wrap(string $text, string $font, int $size, int $width): array
+    private function wrap(string $text, string $font, int $size, int $width, bool $breakWords = false): array
     {
         $lines = [];
         $line = '';
+        $words = preg_split('/\s+/u', trim($text)) ?: [];
 
-        foreach (preg_split('/\s+/u', trim($text)) ?: [] as $word) {
+        if ($breakWords) {
+            $words = array_merge(...array_map(fn (string $word): array => $this->splitWord($word, $font, $size, $width), $words));
+        }
+
+        foreach ($words as $word) {
             $candidate = $line === '' ? $word : "{$line} {$word}";
 
             if ($line !== '' && $this->textWidth($candidate, $font, $size) > $width) {
@@ -227,6 +241,36 @@ class ProjectShareImage
         }
 
         return $line === '' ? $lines : [...$lines, $line];
+    }
+
+    /**
+     * A word cut into pieces no wider than `$width`, character by character.
+     *
+     * @return list<string>
+     */
+    private function splitWord(string $word, string $font, int $size, int $width): array
+    {
+        $pieces = [];
+        $piece = '';
+
+        foreach (mb_str_split($word) as $character) {
+            if ($piece !== '' && $this->textWidth($piece.$character, $font, $size) > $width) {
+                $pieces[] = $piece;
+                $piece = '';
+            }
+
+            $piece .= $character;
+        }
+
+        return $piece === '' ? $pieces : [...$pieces, $piece];
+    }
+
+    /**
+     * @param  list<string>  $lines
+     */
+    private function widestLine(array $lines, string $font, int $size): int
+    {
+        return max(0, ...array_map(fn (string $line): int => $this->textWidth($line, $font, $size), $lines));
     }
 
     /** The largest size from `$max` down to `$min` at which `$text` fits `$width` on one line. */

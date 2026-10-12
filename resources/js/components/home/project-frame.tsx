@@ -66,7 +66,12 @@ export function ProjectFrame({ project, alt: altOverride, className }: ProjectFr
     );
 }
 
-/** The window's title bar: three dots and an address bar with the project's URL (as stored, no scheme). */
+/** An address as a browser's bar shows it: without the scheme, `www.` and a trailing slash ("https://shop.pl/" → "shop.pl"). */
+export function displayUrl(url: string): string {
+    return url.replace(/^https?:\/\/(www\.)?/i, '').replace(/\/$/, '');
+}
+
+/** The window's title bar: three dots and an address bar with the project's address (displayUrl). */
 export function BrowserBar({ url, className }: { url: string; className?: string }) {
     return (
         <div className={cn('flex h-10 items-center gap-3 border-b bg-muted/60 px-3.5', className)}>
@@ -76,7 +81,7 @@ export function BrowserBar({ url, className }: { url: string; className?: string
                 <span className="size-1.5 rounded-full bg-foreground/20" />
             </span>
             <span className="flex h-6 max-w-md min-w-0 flex-1 items-center rounded-md border bg-background px-2.5 font-mono text-xs text-muted-foreground">
-                <span className="truncate">{url}</span>
+                <span className="truncate">{displayUrl(url)}</span>
             </span>
         </div>
     );
