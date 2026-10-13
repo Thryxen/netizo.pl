@@ -1,7 +1,0 @@
-- banner:
-  - link "Netizo – strona główna":
-    - /url: "#"
-  - link "English":
-    - /url: https://netizo.pl/en
-  - button "Zamów rozmowę telefoniczną"
-  - button "Otwórz menu"
