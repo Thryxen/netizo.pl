@@ -20,6 +20,9 @@
  *   og-netizo-ai-automation-en.jpg, og-netizo-devops-i-chmura.jpg, og-netizo-devops-cloud-en.jpg
  *                            strony usług (PL i EN), z jednego szablonu szablon-usluga.html: nagłówek strony, cena „od”
  *                            (jak w App\Enums\Service) i zdjęcie z hero usługi, więc też JPEG
+ *   og-netizo-tworzenie-stron-internetowych-leszno.jpg, og-netizo-website-development-leszno-en.jpg
+ *                            strona Leszna (/tworzenie-stron-internetowych/leszno, /en/website-development/leszno), z tego
+ *                            samego szablonu usługi: H1 strony, cena „od” stron internetowych i zdjęcie z jej hero
  * Logo, sygnet i fonty są wspólne z wizytówkami (netizo/wizytowki), więc marka zmienia się w jednym miejscu.
  *
  * Uruchomienie (z katalogu projektu, bez instalowania niczego w projekcie):
@@ -50,9 +53,12 @@ function photo(name) {
 function projectsMosaic() {
     return { photoCode: photo('about-code'), photoWorkshop: photo('mission-workshop'), photoVisit: photo('about-visit') };
 }
-/** Wartości obrazu strony usługi: nagłówek (H1 strony w liniach), cena „od”, nazwa nad zdjęciem, adres i zdjęcie z hero. */
-function service({ lang, label, headline, price, url, photoName, photoPosition = '50% 50%' }) {
-    return { lang, label, headline, pricePrefix: lang === 'pl' ? 'od' : 'from', price, url, photo: photo(photoName), photoPosition };
+/**
+ * Wartości obrazu strony usługi: nagłówek (H1 strony w liniach), cena „od”, nazwa nad zdjęciem, adres i zdjęcie z hero.
+ * Dłuższy adres (strona Leszna) dostaje mniejszy font (`urlSize`), żeby nie wchodził na zdjęcie.
+ */
+function service({ lang, label, headline, price, url, photoName, photoPosition = '50% 50%', urlSize = '21px' }) {
+    return { lang, label, headline, pricePrefix: lang === 'pl' ? 'od' : 'from', price, url, urlSize, photo: photo(photoName), photoPosition };
 }
 
 const IMAGES = [
@@ -115,6 +121,18 @@ const IMAGES = [
         output: 'og-netizo-websites-en.jpg',
         format: 'jpeg',
         values: service({ lang: 'en', label: 'Websites', headline: 'Website<br>development<br>for businesses', price: 'PLN&nbsp;799', url: 'netizo.pl/en/website-development', photoName: 'websites-studio', photoPosition: '42% 50%' }),
+    },
+    {
+        template: 'szablon-usluga.html',
+        output: 'og-netizo-tworzenie-stron-internetowych-leszno.jpg',
+        format: 'jpeg',
+        values: service({ lang: 'pl', label: 'Leszno i okolice', headline: 'Tworzenie stron<br>internetowych<br>w Lesznie', price: '799&nbsp;zł', url: 'netizo.pl/tworzenie-stron-internetowych/leszno', photoName: 'leszno-visit', photoPosition: '34% 50%', urlSize: '19px' }),
+    },
+    {
+        template: 'szablon-usluga.html',
+        output: 'og-netizo-website-development-leszno-en.jpg',
+        format: 'jpeg',
+        values: service({ lang: 'en', label: 'Leszno and around', headline: 'Website<br>development<br>in Leszno', price: 'PLN&nbsp;799', url: 'netizo.pl/en/website-development/leszno', photoName: 'leszno-visit', photoPosition: '34% 50%' }),
     },
     {
         template: 'szablon-usluga.html',

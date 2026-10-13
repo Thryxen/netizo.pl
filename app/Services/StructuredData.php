@@ -31,6 +31,9 @@ class StructuredData
 
     private const TELEPHONE = '+48884343924';
 
+    /** The towns of the meeting area, Leszno first (MEETING_TOWNS in resources/js/components/about/about-data.ts). */
+    public const MEETING_TOWNS = ['Leszno', 'Rydzyna', 'Wschowa', 'Kościan', 'Gostyń', 'Rawicz'];
+
     /**
      * The JSON-LD document of a page: Netizo (`$organization`, by default its summary), the website and the page's nodes.
      *
@@ -105,13 +108,19 @@ class StructuredData
     {
         return [
             ['@type' => 'Country', 'name' => __('home.seo.country')],
-            ['@type' => 'City', 'name' => 'Leszno'],
-            ['@type' => 'City', 'name' => 'Rydzyna'],
-            ['@type' => 'City', 'name' => 'Wschowa'],
-            ['@type' => 'City', 'name' => 'Kościan'],
-            ['@type' => 'City', 'name' => 'Gostyń'],
-            ['@type' => 'City', 'name' => 'Rawicz'],
+            ...self::meetingArea(),
         ];
+    }
+
+    /**
+     * The towns where Netizo meets clients in person, travelling to them (MEETING_TOWNS in about-data.ts): the area of
+     * the Leszno page.
+     *
+     * @return list<array{'@type': string, name: string}>
+     */
+    public static function meetingArea(): array
+    {
+        return array_map(fn (string $town): array => ['@type' => 'City', 'name' => $town], self::MEETING_TOWNS);
     }
 
     /**

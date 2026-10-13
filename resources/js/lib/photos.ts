@@ -25,6 +25,11 @@
  * tablet), `stores-product-shoot` (a mug on a paper sweep, a softbox, a phone on a tripod), `apps-warehouse` (a tablet in
  * a warehouse aisle), `mobile-testing` (an app tested on two phones), `ai-process` (a process mapped on paper), `devops-architecture`
  * (an architecture drawn on paper).
+ * `leszno-*`: the Leszno hub (/tworzenie-stron-internetowych/leszno; 3:2, codex-image, same style, no faces) —
+ * `leszno-visit` (the hero: a meeting at a client's joinery workshop, a laptop and printed wireframes on the workbench;
+ * the right third is a calm sage wall for the floating chips), `leszno-road` (on the way to a client: a country road
+ * through the fields towards a small town) and `leszno-meeting` (a tree care company's office, the website's layouts
+ * marked up on the desk).
  */
 const PHOTOS = {
     'bento-mobile': { width: 1024, height: 1536 },
@@ -60,6 +65,9 @@ const PHOTOS = {
     'ai-process': { width: 1536, height: 1024 },
     'devops-desk': { width: 1536, height: 1024 },
     'devops-architecture': { width: 1536, height: 1024 },
+    'leszno-visit': { width: 1536, height: 1024 },
+    'leszno-road': { width: 1536, height: 1024 },
+    'leszno-meeting': { width: 1536, height: 1024 },
 } as const satisfies Record<string, { width: number; height: number }>;
 
 export type PhotoName = keyof typeof PHOTOS;

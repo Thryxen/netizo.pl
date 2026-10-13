@@ -19,6 +19,7 @@ return [
         'faq' => 'Najczęstsze pytania',
         'partner_faq' => 'Program partnerski: najczęstsze pytania',
         'service_faq' => ':service: najczęstsze pytania',
+        'leszno_faq' => 'Strony internetowe w Lesznie i okolicach: najczęstsze pytania',
         'contact' => 'Kontakt',
     ],
 
@@ -30,6 +31,10 @@ return [
         'websites' => [
             'name' => 'Tworzenie stron internetowych',
             'note' => 'prosta strona (landing page, wizytówka) od 799 zł do 1 499 zł, zwykle w ciągu tygodnia, rozbudowana strona z CMS od 1 799 zł do 2 999 zł, zwykle w ciągu dwóch tygodni; zakres, proces, realizacje i najczęstsze pytania.',
+        ],
+        'leszno' => [
+            'name' => 'Tworzenie stron internetowych w Lesznie i okolicach',
+            'note' => 'strony internetowe dla firm z Leszna, Rydzyny, Wschowy, Kościana, Gostynia, Rawicza i okolic: przyjeżdżamy na spotkanie do firmy klienta (bez biura w Lesznie, adres rejestrowy w Kępnie), te same ceny co na stronie usługi (od 799 zł), realizacje z regionu, opinie klientów i najczęstsze pytania.',
         ],
         'stores' => [
             'name' => 'Tworzenie sklepów internetowych',
@@ -99,6 +104,7 @@ return [
         'contact' => 'kontakt',
         'partner_faq' => 'faq',
         'service_faq' => 'faq',
+        'leszno_faq' => 'faq',
         'company' => 'dane-firmy',
     ],
 ];

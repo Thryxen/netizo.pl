@@ -44,6 +44,8 @@ export type AdminProject = AdminProjectRow & {
     fullImageUrl: string | null;
     /** Values of App\Enums\Service: the service pages that show the project. */
     services: string[];
+    /** A project for a client from the region, shown on the Leszno page. */
+    isLocal: boolean;
     techStack: string[];
     metrics: { value: string; label: string }[];
     challenges: string[];

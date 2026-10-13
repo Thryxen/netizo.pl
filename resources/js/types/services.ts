@@ -33,3 +33,9 @@ export type ServicePageProps = {
     projects: ProjectSummary[];
     otherServices: OtherService[];
 };
+
+/**
+ * Props of the Leszno page (LesznoController): the websites page's tiers, its own FAQ, up to four active projects marked
+ * in the panel as from the region (in the panel's order) and the services other than websites.
+ */
+export type LesznoPageProps = ServicePageProps;

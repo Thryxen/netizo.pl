@@ -63,6 +63,7 @@ export const pageUrls = localized({
     pl: {
         home: '/',
         websites: '/tworzenie-stron-internetowych',
+        leszno: '/tworzenie-stron-internetowych/leszno',
         stores: '/sklepy-internetowe',
         apps: '/aplikacje-webowe',
         mobile: '/aplikacje-mobilne',
@@ -78,6 +79,7 @@ export const pageUrls = localized({
     en: {
         home: '/en',
         websites: '/en/website-development',
+        leszno: '/en/website-development/leszno',
         stores: '/en/online-stores',
         apps: '/en/web-applications',
         mobile: '/en/mobile-apps',

@@ -146,3 +146,33 @@ export type ServiceSection = keyof (typeof serviceSections)['pl'];
 export function useServiceSections(): Record<ServiceSection, string> {
     return serviceSections[useLocale()];
 }
+
+/**
+ * The Leszno page (/tworzenie-stron-internetowych/leszno). It reuses the service pages' pricing, FAQ and other services
+ * sections, so `pricing` and `faq` are the same ids as in serviceSections; its contact section is the home page's.
+ */
+export const lesznoSections = localized({
+    pl: {
+        area: 'dojazd',
+        meeting: 'spotkanie',
+        pricing: 'cennik',
+        projects: 'realizacje',
+        reviews: 'opinie',
+        faq: 'faq',
+    },
+    en: {
+        area: 'where-we-meet',
+        meeting: 'meeting',
+        pricing: 'pricing',
+        projects: 'projects',
+        reviews: 'reviews',
+        faq: 'faq',
+    },
+});
+
+export type LesznoSection = keyof (typeof lesznoSections)['pl'];
+
+/** Anchor ids of the Leszno page's sections in the language of the current page. */
+export function useLesznoSections(): Record<LesznoSection, string> {
+    return lesznoSections[useLocale()];
+}

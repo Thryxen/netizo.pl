@@ -414,6 +414,28 @@ it('passes the services and their options to the forms', function () {
         ->assertInertia(fn (Assert $page) => $page->has('serviceOptions', 6));
 });
 
+it('marks a project as from the region for the Leszno page, and unmarks it when the box is not sent', function () {
+    $this->post(route('admin.projects.store'), validProjectPayload(['is_local' => true]))->assertSessionHasNoErrors();
+
+    $project = Project::query()->where('slug', 'netizo-case-study')->firstOrFail();
+
+    expect($project->is_local)->toBeTrue();
+
+    $this->get(route('admin.projects.edit', $project))
+        ->assertOk()
+        ->assertInertia(fn (Assert $page) => $page->where('project.isLocal', true));
+
+    $this->put(route('admin.projects.update', $project), validProjectPayload())->assertSessionHasNoErrors();
+
+    expect($project->fresh()->is_local)->toBeFalse();
+});
+
+it('refuses a region mark that is not a yes or no', function () {
+    $this->post(route('admin.projects.store'), validProjectPayload(['is_local' => 'maybe']))->assertSessionHasErrors('is_local');
+
+    assertDatabaseCount('projects', 0);
+});
+
 it('clears the services of a project when none are sent', function () {
     $project = Project::factory()->withServices(Service::Stores)->create(['slug' => 'netizo-case-study']);
 

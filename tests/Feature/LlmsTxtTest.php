@@ -76,6 +76,7 @@ it('lists every page and the case study of every active project in both language
         url('/en'), url('/en/projects'), url('/en/about'), url('/en/partners'),
         url('/tworzenie-stron-internetowych'), url('/sklepy-internetowe'), url('/aplikacje-webowe'), url('/aplikacje-mobilne'), url('/automatyzacja-ai'), url('/devops-i-chmura'),
         url('/en/website-development'), url('/en/online-stores'), url('/en/web-applications'), url('/en/mobile-apps'), url('/en/ai-automation'), url('/en/devops-cloud'),
+        url('/tworzenie-stron-internetowych/leszno'), url('/en/website-development/leszno'),
         url('/realizacje/zloty-klos'), url('/en/projects/zloty-klos'),
         url('/realizacje/mebloteka'), url('/en/projects/mebloteka'),
         url('/polityka-prywatnosci'), url('/regulamin'), url('/partnerzy/regulamin'),
@@ -122,6 +123,15 @@ it('answers every question of the service FAQs as the service pages do', functio
         expect($content)->toContain('['.llmsTxtText($item['question'])."]({$page}#faq): ".llmsTxtText($item['answer'])."\n");
     }
 })->with(['websites', 'stores', 'apps', 'mobile', 'ai', 'devops'])->with(['pl', 'en']);
+
+it('answers every question of the Leszno page as the page does', function (string $locale) {
+    $content = llmsTxt();
+    $page = route(($locale === 'pl' ? '' : 'en.').'leszno');
+
+    foreach (trans('leszno.faq', [], $locale) as $item) {
+        expect($content)->toContain('['.llmsTxtText($item['question'])."]({$page}#faq): ".llmsTxtText($item['answer'])."\n");
+    }
+})->with(['pl', 'en']);
 
 it('links the services that have a page to that page', function (string $locale) {
     $content = llmsTxt();

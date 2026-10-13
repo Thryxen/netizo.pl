@@ -42,9 +42,15 @@ export function whenScrollUnlocked(callback: () => void, timeoutMs = 1000): void
     window.requestAnimationFrame(check);
 }
 
-export function HomeUiProvider({ children }: { children: ReactNode }): ReactNode {
+type HomeUiProviderProps = {
+    children: ReactNode;
+    /** The contact section's tab before the visitor picks one (the brief by default; the Leszno page asks for a message). */
+    initialContactTab?: ContactTab;
+};
+
+export function HomeUiProvider({ children, initialContactTab = 'brief' }: HomeUiProviderProps): ReactNode {
     const [callbackOpen, setCallbackOpen] = useState(false);
-    const [contactTab, setContactTab] = useState<ContactTab>('brief');
+    const [contactTab, setContactTab] = useState<ContactTab>(initialContactTab);
     const callbackReturnFocusRef = useRef<HTMLElement | null>(null);
     const contactSectionId = useHomeSections().contact;
 

@@ -25,7 +25,7 @@ const TECH_SUGGESTIONS = [
 type TabKey = 'basic' | 'images' | 'tech' | 'metrics' | 'story' | 'english';
 
 const TABS: { key: TabKey; label: string; fields: string[] }[] = [
-    { key: 'basic', label: 'Podstawowe', fields: ['title', 'slug', 'url', 'category', 'sort_order', 'is_active', 'services', 'description', 'full_description'] },
+    { key: 'basic', label: 'Podstawowe', fields: ['title', 'slug', 'url', 'category', 'sort_order', 'is_active', 'services', 'is_local', 'description', 'full_description'] },
     { key: 'images', label: 'Zdjęcia', fields: ['thumbnail_image', 'full_image'] },
     { key: 'tech', label: 'Technologie', fields: ['tech_stack'] },
     { key: 'metrics', label: 'Metryki', fields: ['metrics'] },
@@ -47,6 +47,7 @@ type ProjectFormData = {
     sort_order: number;
     is_active: boolean;
     services: string[];
+    is_local: boolean;
     description: string;
     full_description: string;
     thumbnail_image: File | null;
@@ -113,6 +114,7 @@ export function ProjectForm({ project, nextSortOrder = 1, serviceOptions }: Proj
         sort_order: project?.sortOrder ?? nextSortOrder,
         is_active: project?.isActive ?? true,
         services: project?.services ?? [],
+        is_local: project?.isLocal ?? false,
         description: project?.description ?? '',
         full_description: project?.fullDescription ?? '',
         thumbnail_image: null,
@@ -269,6 +271,27 @@ export function ProjectForm({ project, nextSortOrder = 1, serviceOptions }: Proj
                             </p>
                         )}
                     </fieldset>
+                    <div className="grid gap-2">
+                        <div className="flex items-center gap-2.5">
+                            <Checkbox
+                                id="is_local"
+                                checked={data.is_local}
+                                aria-describedby="is_local-hint"
+                                aria-invalid={Boolean(errors.is_local)}
+                                onCheckedChange={(checked) => setData('is_local', checked === true)}
+                            />
+                            <Label htmlFor="is_local">Realizacja z regionu</Label>
+                        </div>
+                        {errors.is_local ? (
+                            <p id="is_local-hint" className="text-sm text-destructive" role="alert">
+                                {errors.is_local}
+                            </p>
+                        ) : (
+                            <p id="is_local-hint" className="text-sm text-muted-foreground">
+                                Projekt dla firmy z Leszna i okolic: pokaże się na stronie „Strony internetowe Leszno”, gdy jest widoczny na stronie.
+                            </p>
+                        )}
+                    </div>
                     <FormField label="Krótki opis" htmlFor="description" error={errors.description} hint="Wyświetlany na stronie głównej pod projektem.">
                         <Textarea id="description" rows={3} required value={data.description} aria-invalid={Boolean(errors.description)} onChange={(event) => setData('description', event.target.value)} />
                     </FormField>

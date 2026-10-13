@@ -5,6 +5,7 @@ use App\Http\Controllers\CallbackRequestController;
 use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LegalPageController;
+use App\Http\Controllers\LesznoController;
 use App\Http\Controllers\NewsletterSubscriptionController;
 use App\Http\Controllers\PartnerApplicationController;
 use App\Http\Controllers\PartnerProgramController;
@@ -19,6 +20,7 @@ use Illuminate\Support\Facades\Route;
  */
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/tworzenie-stron-internetowych', [ServicePageController::class, 'websites'])->name('services.websites');
+Route::get('/tworzenie-stron-internetowych/leszno', [LesznoController::class, 'index'])->name('leszno');
 Route::get('/sklepy-internetowe', [ServicePageController::class, 'stores'])->name('services.stores');
 Route::get('/aplikacje-webowe', [ServicePageController::class, 'apps'])->name('services.apps');
 Route::get('/aplikacje-mobilne', [ServicePageController::class, 'mobile'])->name('services.mobile');
@@ -43,6 +45,7 @@ Route::middleware('throttle:forms')->group(function () {
 Route::prefix('en')->name('en.')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/website-development', [ServicePageController::class, 'websites'])->name('services.websites');
+    Route::get('/website-development/leszno', [LesznoController::class, 'index'])->name('leszno');
     Route::get('/online-stores', [ServicePageController::class, 'stores'])->name('services.stores');
     Route::get('/web-applications', [ServicePageController::class, 'apps'])->name('services.apps');
     Route::get('/mobile-apps', [ServicePageController::class, 'mobile'])->name('services.mobile');

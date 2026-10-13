@@ -24,7 +24,7 @@ it('has an English twin with the same keys for every Polish file of the site', f
     $english = require lang_path("en/{$file}.php");
 
     expect(array_keys(translationEntries($english)))->toBe(array_keys(translationEntries($polish)));
-})->with(['home', 'partners', 'about', 'projects', 'services', 'legal', 'llms', 'forms', 'errors']);
+})->with(['home', 'partners', 'about', 'projects', 'services', 'leszno', 'legal', 'llms', 'forms', 'errors']);
 
 it('translates every string of the site into English', function (string $file) {
     $english = require lang_path("en/{$file}.php");
@@ -33,7 +33,7 @@ it('translates every string of the site into English', function (string $file) {
         ->filter(fn (mixed $value): bool => ! is_string($value) || trim($value) === '');
 
     expect($blank)->toBeEmpty();
-})->with(['home', 'partners', 'about', 'projects', 'services', 'legal', 'llms', 'forms', 'errors']);
+})->with(['home', 'partners', 'about', 'projects', 'services', 'leszno', 'legal', 'llms', 'forms', 'errors']);
 
 it('serves the Polish file in Polish and the English one in English', function () {
     app()->setLocale('pl');

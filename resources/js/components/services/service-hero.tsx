@@ -1,6 +1,6 @@
 import { MapPin, Phone } from 'lucide-react';
-import type { CSSProperties, ReactNode } from 'react';
-import { useHomeUi } from '@/components/home/home-ui-context';
+import { type CSSProperties, Fragment, type ReactNode } from 'react';
+import { type ContactTab, useHomeUi } from '@/components/home/home-ui-context';
 import { Container, gutterClassName, Rivet } from '@/components/home/section';
 import { SplitLines } from '@/components/motion';
 import { Button } from '@/components/ui/button';
@@ -16,7 +16,8 @@ const COPY = localized({
         home: 'Netizo',
         pricing: 'Zobacz cennik',
         call: 'Zadzwoń',
-        area: 'Leszno, cała Polska',
+        areaPlace: 'Leszno',
+        areaRest: 'cała Polska',
         facts: 'Ceny i terminy w skrócie',
     },
     en: {
@@ -24,7 +25,8 @@ const COPY = localized({
         home: 'Netizo',
         pricing: 'See pricing',
         call: 'Call',
-        area: 'Leszno, across Poland',
+        areaPlace: 'Leszno',
+        areaRest: 'across Poland',
         facts: 'Prices and timelines at a glance',
     },
 });
@@ -45,17 +47,24 @@ const FACT_CELL_BORDERS = ['border-r border-b lg:border-b-0', 'border-b lg:borde
 const linkFocus = 'rounded-sm outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50';
 
 type ServiceHeroProps = {
-    copy: ServiceCopy;
+    copy: Pick<ServiceCopy, 'name' | 'hero'>;
     /** The photo scene on the right (absolutely filling the stage). */
     scene: ReactNode;
+    /** The pages between the home page and this one in the breadcrumb (the Leszno page sits under the websites page). */
+    trail?: { label: string; href: string }[];
+    /** The contact tab the main button opens (the brief by default). */
+    contactTab?: ContactTab;
+    /** What sits beside the phone number in place of where we work ("Leszno, cała Polska", Leszno linking to its page). */
+    area?: ReactNode;
 };
 
 /**
- * Hero of a service page, split like the partner and about heroes: the breadcrumb, the H1 rising in line by line, the
- * lead, the quote button (to the brief on this page) and the way to the pricing, the number to call; on the right the
- * service's photo scene. Under it four figures on the shared-border grid: what the service costs and how long it takes.
+ * Hero of a service page (and of the Leszno page), split like the partner and about heroes: the breadcrumb, the H1
+ * rising in line by line, the lead, the quote button (to the brief on this page) and the way to the pricing, the number
+ * to call and where we work; on the right the service's photo scene. Under it four figures on the shared-border grid:
+ * what the service costs and how long it takes.
  */
-export function ServiceHero({ copy: service, scene }: ServiceHeroProps) {
+export function ServiceHero({ copy: service, scene, trail = [], contactTab = 'brief', area }: ServiceHeroProps) {
     const copy = useCopy(COPY);
     const { openContact } = useHomeUi();
     const sections = useServiceSections();
@@ -77,6 +86,18 @@ export function ServiceHero({ copy: service, scene }: ServiceHeroProps) {
                                 <li aria-hidden="true" className="text-foreground/25">
                                     /
                                 </li>
+                                {trail.map((crumb) => (
+                                    <Fragment key={crumb.href}>
+                                        <li>
+                                            <a href={crumb.href} className={cn('inline-flex min-h-11 items-center underline-offset-4 hover:text-foreground hover:underline md:min-h-0', linkFocus)}>
+                                                {crumb.label}
+                                            </a>
+                                        </li>
+                                        <li aria-hidden="true" className="text-foreground/25">
+                                            /
+                                        </li>
+                                    </Fragment>
+                                ))}
                                 <li aria-current="page" className="text-foreground">
                                     {service.name}
                                 </li>
@@ -93,7 +114,7 @@ export function ServiceHero({ copy: service, scene }: ServiceHeroProps) {
                             {hero.lead}
                         </p>
                         <div data-hero-rise="" style={riseDelay(1)} className="mt-9 flex flex-wrap items-center gap-3 lg:mt-8">
-                            <Button size="lg" className="max-md:h-11" onClick={() => openContact('brief')}>
+                            <Button size="lg" className="max-md:h-11" onClick={() => openContact(contactTab)}>
                                 {hero.quote}
                             </Button>
                             <Button size="lg" variant="outline" className="max-md:h-11" asChild>
@@ -114,8 +135,17 @@ export function ServiceHero({ copy: service, scene }: ServiceHeroProps) {
                             </a>
                             <span aria-hidden="true" className="hidden h-4 w-px bg-border sm:block" />
                             <span className="inline-flex items-center gap-2">
-                                <MapPin aria-hidden="true" className="size-4 text-foreground" />
-                                {copy.area}
+                                <MapPin aria-hidden="true" className="size-4 shrink-0 text-foreground" />
+                                <span>
+                                    {area ?? (
+                                        <>
+                                            <a href={pageUrls.leszno} className={cn('underline decoration-foreground/30 underline-offset-4 hover:text-foreground hover:decoration-foreground', linkFocus)}>
+                                                {copy.areaPlace}
+                                            </a>
+                                            , {copy.areaRest}
+                                        </>
+                                    )}
+                                </span>
                             </span>
                         </p>
                     </div>

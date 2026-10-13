@@ -1,6 +1,7 @@
 import { Section, SectionHeading } from '@/components/home/section';
 import { localized, useCopy } from '@/lib/i18n';
 import { useAboutSections } from '@/lib/sections';
+import { usePageUrls } from '@/lib/site';
 import { cn } from '@/lib/utils';
 import { WORK_MODES, WORK_NOTES } from './about-data';
 import { CARD, CardRivets } from './card';
@@ -14,6 +15,7 @@ const COPY = localized({
         mapTitle: 'Tu przyjeżdżamy do klienta',
         mapLead: 'Odległość od Leszna w linii prostej. W pozostałej części Polski pracujemy zdalnie.',
         km: 'km',
+        local: 'Strony internetowe w Lesznie i okolicach',
     },
     en: {
         title: 'How we work',
@@ -21,6 +23,7 @@ const COPY = localized({
         mapTitle: 'Where we come to you',
         mapLead: 'Straight-line distance from Leszno. Everywhere else in Poland we work remotely.',
         km: 'km',
+        local: 'Websites in and around Leszno',
     },
 });
 
@@ -34,6 +37,7 @@ export function HowWeWorkSection() {
     const modes = useCopy(WORK_MODES);
     const notes = useCopy(WORK_NOTES);
     const sectionId = useAboutSections().howWeWork;
+    const pageUrls = usePageUrls();
 
     return (
         <Section id={sectionId} labelledBy={`${sectionId}-heading`}>
@@ -73,6 +77,12 @@ export function HowWeWorkSection() {
                                     </li>
                                 ))}
                             </ul>
+                            <a
+                                href={pageUrls.leszno}
+                                className="mt-6 self-start rounded-sm text-sm font-medium underline decoration-foreground/30 underline-offset-4 outline-none hover:decoration-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50"
+                            >
+                                {copy.local}
+                            </a>
                         </div>
                     </div>
             </div>

@@ -23,6 +23,7 @@ class Sitemap
     private const PAGES = [
         'home' => '2026-10-12',
         'services.websites' => '2026-10-12',
+        'leszno' => '2026-10-13',
         'services.stores' => '2026-10-12',
         'services.apps' => '2026-10-12',
         'services.mobile' => '2026-10-12',
@@ -52,6 +53,7 @@ class Sitemap
             $dataChangedAt = match ($name) {
                 'home' => [$projectsChangedAt, Client::active()->max('updated_at')],
                 'projects.index', 'about', 'services.websites', 'services.stores', 'services.apps', 'services.mobile', 'services.ai', 'services.devops' => [$projectsChangedAt],
+                'leszno' => [$projects->where('is_local', true)->max('updated_at')],
                 default => [],
             };
 

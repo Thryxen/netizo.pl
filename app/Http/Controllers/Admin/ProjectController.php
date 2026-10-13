@@ -120,7 +120,7 @@ class ProjectController extends Controller
 
     /**
      * The pages that show the project while it is public, in both languages: its case study, then the pages of the
-     * services it is tagged with. Nothing for a hidden one.
+     * services it is tagged with and the Leszno page for a project from the region. Nothing for a hidden one.
      *
      * @return list<string>
      */
@@ -136,13 +136,15 @@ class ProjectController extends Controller
             ->flatMap(fn (Service $service): array => array_values(LocalizedRoutes::alternates($service->routeName())))
             ->all();
 
-        return [...array_values(LocalizedRoutes::alternates('projects.show', ['project' => $project])), ...$servicePages];
+        $localPage = $project->is_local ? array_values(LocalizedRoutes::alternates('leszno')) : [];
+
+        return [...array_values(LocalizedRoutes::alternates('projects.show', ['project' => $project])), ...$servicePages, ...$localPage];
     }
 
     /**
-     * Tell the search engines (IndexNow, after the response) that public projects changed: their case studies and the
-     * pages of their services, also the old address of a hidden, renamed or deleted one and the page of a service it is
-     * no longer tagged with (so the engines drop or refresh them), and the pages that list projects.
+     * Tell the search engines (IndexNow, after the response) that public projects changed: their case studies, the pages
+     * of their services and the Leszno page, also the old address of a hidden, renamed or deleted one and a page that no
+     * longer shows it (so the engines drop or refresh them), and the pages that list projects.
      * Changes to hidden projects alone send nothing, nor does the order: the panel saves it on every drop, and the
      * sitemap's lastmod covers it.
      *
@@ -216,6 +218,7 @@ class ProjectController extends Controller
             'fullDescription' => (string) $project->full_description,
             'fullImageUrl' => $project->full_image ? asset('storage/'.$project->full_image) : null,
             'services' => $this->serviceValues($project),
+            'isLocal' => (bool) $project->is_local,
             'techStack' => $this->stringList($project->tech_stack, null),
             'metrics' => $this->metricList($project->metrics),
             'challenges' => $this->stringList($project->challenges, 'challenge'),

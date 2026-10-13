@@ -21,6 +21,7 @@ class ProjectFactory extends Factory
             'sort_order' => fake()->numberBetween(1, 100),
             'is_active' => true,
             'services' => [],
+            'is_local' => false,
             'title' => fake()->unique()->words(3, true),
             'url' => fake()->domainName(),
             'category' => 'Strona firmowa',
@@ -38,6 +39,14 @@ class ProjectFactory extends Factory
     public function inactive(): static
     {
         return $this->state(fn (array $attributes): array => ['is_active' => false]);
+    }
+
+    /**
+     * For a client from the region, shown on the Leszno page.
+     */
+    public function local(): static
+    {
+        return $this->state(fn (array $attributes): array => ['is_local' => true]);
     }
 
     /**

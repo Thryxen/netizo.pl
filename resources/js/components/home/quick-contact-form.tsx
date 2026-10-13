@@ -73,8 +73,13 @@ const COPY = localized({
 
 const createInitialData = (): QuickContactData => ({ name: '', email: '', subject: '', message: '' });
 
+type QuickContactFormProps = {
+    /** The message field's hint, when the page asks for something specific (the Leszno page: where and when to meet). */
+    messagePlaceholder?: string;
+};
+
 /** Short contact form (Kontakt → "Szybka wiadomość"). */
-export function QuickContactForm() {
+export function QuickContactForm({ messagePlaceholder }: QuickContactFormProps = {}) {
     const copy = useCopy(COPY);
     const endpoints = useEndpoints();
     const form = useForm<QuickContactData>(createInitialData);
@@ -224,7 +229,7 @@ export function QuickContactForm() {
                         name="message"
                         rows={6}
                         maxLength={5000}
-                        placeholder={copy.messagePlaceholder}
+                        placeholder={messagePlaceholder ?? copy.messagePlaceholder}
                         value={form.data.message}
                         onChange={(event) => setField('message', event.target.value)}
                         required

@@ -28,6 +28,7 @@ class LlmsTxt
     private const PAGES = [
         'home' => 'home',
         'websites' => 'services.websites',
+        'leszno' => 'leszno',
         'stores' => 'services.stores',
         'apps' => 'services.apps',
         'mobile' => 'services.mobile',
@@ -94,7 +95,7 @@ class LlmsTxt
 
     /**
      * The sections in the current language: the pages, the services, the case studies, the FAQs (home, partner programme,
-     * each service) and the contact.
+     * each service, the Leszno page) and the contact.
      *
      * @param  Collection<int, Project>  $projects
      * @return list<array{heading: string, links: list<string>}>
@@ -137,6 +138,10 @@ class LlmsTxt
                 'heading' => __('llms.headings.service_faq', ['service' => __("services.{$service->value}.card.name")]),
                 'links' => $this->faqLinks(__("services.{$service->value}.faq"), $this->anchored(LocalizedRoutes::url($service->routeName()), 'service_faq')),
             ], Service::cases()),
+            [
+                'heading' => __('llms.headings.leszno_faq'),
+                'links' => $this->faqLinks(__('leszno.faq'), $this->anchored(LocalizedRoutes::url('leszno'), 'leszno_faq')),
+            ],
             [
                 'heading' => __('llms.headings.contact'),
                 'links' => [

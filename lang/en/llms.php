@@ -13,6 +13,7 @@ return [
         'faq' => 'Frequently asked questions',
         'partner_faq' => 'Partner program: frequently asked questions',
         'service_faq' => ':service: frequently asked questions',
+        'leszno_faq' => 'Websites in and around Leszno: frequently asked questions',
         'contact' => 'Contact',
     ],
 
@@ -24,6 +25,10 @@ return [
         'websites' => [
             'name' => 'Website development',
             'note' => 'a simple website (landing page, business card site) from PLN 799 to PLN 1,499, usually within a week, a larger website with a CMS from PLN 1,799 to PLN 2,999, usually within two weeks; scope, process, projects and FAQ.',
+        ],
+        'leszno' => [
+            'name' => 'Website development in and around Leszno',
+            'note' => 'websites for businesses in Leszno, Rydzyna, Wschowa, Kościan, Gostyń, Rawicz and nearby: we come to a meeting at the client’s company (no office in Leszno, registered address in Kępno), the same prices as on the service page (from PLN 799), projects from the region, client testimonials and frequently asked questions.',
         ],
         'stores' => [
             'name' => 'Online store development',
@@ -93,6 +98,7 @@ return [
         'contact' => 'contact',
         'partner_faq' => 'faq',
         'service_faq' => 'faq',
+        'leszno_faq' => 'faq',
         'company' => 'company-details',
     ],
 ];

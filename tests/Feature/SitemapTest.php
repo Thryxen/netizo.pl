@@ -50,6 +50,7 @@ it('lists every public page in both languages and the case study of every active
     expect(array_column(sitemapEntries(), 'loc'))->toBe([
         url('/'), url('/en'),
         url('/tworzenie-stron-internetowych'), url('/en/website-development'),
+        url('/tworzenie-stron-internetowych/leszno'), url('/en/website-development/leszno'),
         url('/sklepy-internetowe'), url('/en/online-stores'),
         url('/aplikacje-webowe'), url('/en/web-applications'),
         url('/aplikacje-mobilne'), url('/en/mobile-apps'),
@@ -111,4 +112,18 @@ it('dates a page by its last change, including the panel data it shows', functio
         ->and($lastmods[url('/regulamin')])->toBe(LegalPageController::TERMS_EFFECTIVE_DATE)
         ->and($lastmods[url('/en/partners/terms')])->toBe(LegalPageController::PARTNER_TERMS_EFFECTIVE_DATE)
         ->and($lastmods->every(fn (string $date): bool => preg_match('/^\d{4}-\d{2}-\d{2}$/', $date) === 1))->toBeTrue();
+});
+
+it('dates the Leszno page by the projects from the region only', function () {
+    Carbon::setTestNow('2031-05-04 12:00:00');
+    Project::factory()->local()->create(['slug' => 'treepropl']);
+    Carbon::setTestNow('2031-06-01 12:00:00');
+    Project::factory()->create(['slug' => 'spoza-regionu']);
+    Carbon::setTestNow();
+
+    $lastmods = collect(sitemapEntries())->pluck('lastmod', 'loc');
+
+    expect($lastmods[url('/tworzenie-stron-internetowych/leszno')])->toBe('2031-05-04')
+        ->and($lastmods[url('/en/website-development/leszno')])->toBe('2031-05-04')
+        ->and($lastmods[url('/realizacje')])->toBe('2031-06-01');
 });

@@ -187,6 +187,28 @@ describe('admin panel', function () {
         ]]);
     });
 
+    it('announces the Leszno page for a public project from the region', function () {
+        $this->post(route('admin.projects.store'), indexNowProjectPayload(['is_local' => true]))->assertSessionHasNoErrors();
+
+        expect(indexNowSubmissions())->toBe([[
+            url('/realizacje/zloty-klos'), url('/en/projects/zloty-klos'),
+            url('/tworzenie-stron-internetowych/leszno'), url('/en/website-development/leszno'),
+            ...projectListingUrls(),
+        ]]);
+    });
+
+    it('announces the Leszno page when a project is no longer marked as from the region', function () {
+        $project = Project::factory()->local()->create(['slug' => 'zloty-klos']);
+
+        $this->put(route('admin.projects.update', $project), indexNowProjectPayload())->assertSessionHasNoErrors();
+
+        expect(indexNowSubmissions())->toBe([[
+            url('/realizacje/zloty-klos'), url('/en/projects/zloty-klos'),
+            url('/tworzenie-stron-internetowych/leszno'), url('/en/website-development/leszno'),
+            ...projectListingUrls(),
+        ]]);
+    });
+
     it('announces a renamed project at its old and new address', function () {
         $project = Project::factory()->create(['slug' => 'stary-adres']);
 
@@ -301,7 +323,7 @@ describe('indexnow:submit', function () {
         Project::factory()->create(['slug' => 'zloty-klos']);
 
         $this->artisan('indexnow:submit')
-            ->expectsOutputToContain('Zgłoszono stron: 28.')
+            ->expectsOutputToContain('Zgłoszono stron: 30.')
             ->assertSuccessful();
 
         $locs = [];
@@ -311,7 +333,7 @@ describe('indexnow:submit', function () {
         }
 
         expect(indexNowSubmissions())->toBe([$locs])
-            ->and($locs)->toHaveCount(28)->toContain(url('/realizacje/zloty-klos'), url('/en/projects/zloty-klos'));
+            ->and($locs)->toHaveCount(30)->toContain(url('/realizacje/zloty-klos'), url('/en/projects/zloty-klos'));
     });
 
     it('submits only the pages of the sitemap changed since a day', function () {

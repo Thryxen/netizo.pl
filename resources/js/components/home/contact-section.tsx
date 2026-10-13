@@ -45,20 +45,25 @@ const contactLinkClass =
 type ContactSectionProps = {
     /** Project types (brief option values) the brief starts with checked, e.g. `['website']` on its service page. */
     briefTypes?: string[];
+    /** The heading and lead in place of the default ones (the Leszno page invites a meeting). */
+    title?: string;
+    lead?: string;
+    /** The quick message's hint in place of the default one. */
+    messagePlaceholder?: string;
 };
 
 /**
  * Bleed block, rail to rail like the services grid: the form cell (8/12) and the alternatives aside (4/12)
  * share one hairline. The section drops its bottom padding so the block meets the footer's hairline.
  */
-export function ContactSection({ briefTypes }: ContactSectionProps = {}) {
+export function ContactSection({ briefTypes, title, lead, messagePlaceholder }: ContactSectionProps = {}) {
     const { contactTab, setContactTab, openCallback } = useHomeUi();
     const copy = useCopy(COPY);
     const id = useHomeSections().contact;
 
     return (
         <Section id={id} labelledBy={`${id}-heading`} containerClassName="pb-0 md:pb-0">
-            <SectionHeading id={`${id}-heading`} title={copy.title} lead={copy.lead} />
+            <SectionHeading id={`${id}-heading`} title={title ?? copy.title} lead={lead ?? copy.lead} />
 
             <div className={cn('relative border-t border-border', bleedClassName)}>
                 <Rivet side="left" />
@@ -97,7 +102,7 @@ export function ContactSection({ briefTypes }: ContactSectionProps = {}) {
                                 <DeferredBlock component={briefWizard} props={{ initialTypes: briefTypes }} />
                             </TabsContent>
                             <TabsContent value="quick" forceMount tabIndex={-1} className="data-[state=inactive]:hidden">
-                                <DeferredBlock component={quickContactForm} />
+                                <DeferredBlock component={quickContactForm} props={{ messagePlaceholder }} />
                             </TabsContent>
                         </Tabs>
                     </div>

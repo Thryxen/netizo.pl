@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\Service;
 use App\Http\Controllers\Concerns\PresentsProjects;
+use App\Http\Controllers\Concerns\PresentsServices;
 use App\Models\Project;
 use App\Services\LocalizedRoutes;
 use App\Services\StructuredData;
@@ -24,6 +25,7 @@ use Inertia\Response;
 class ServicePageController extends Controller
 {
     use PresentsProjects;
+    use PresentsServices;
 
     /** How many projects a service page shows; the rest are on the list of projects. */
     private const PROJECT_COUNT = 4;
@@ -112,27 +114,6 @@ class ServicePageController extends Controller
     }
 
     /**
-     * The service's tiers in the current language with their prices: the copy of each tier and the price bracket at the
-     * same position in App\Enums\Service::priceBrackets(). A tier without a timeline in the copy has none (the site
-     * states no timeline for it).
-     *
-     * @return list<array{name: string, description: string, timeline: string|null, includes: list<string>, priceFrom: int, priceTo: int|null}>
-     */
-    private function offers(Service $service): array
-    {
-        $brackets = $service->priceBrackets();
-
-        return array_map(fn (array $offer, int $index): array => [
-            'name' => $offer['name'],
-            'description' => $offer['description'],
-            'timeline' => $offer['timeline'] ?? null,
-            'includes' => array_values($offer['includes']),
-            'priceFrom' => $brackets[$index]['from'],
-            'priceTo' => $brackets[$index]['to'],
-        ], __("services.{$service->value}.offers"), array_keys($brackets));
-    }
-
-    /**
      * The service's questions in the current language: the single source for the page's FAQ and its JSON-LD.
      *
      * @return list<array{question: string, answer: string}>
@@ -143,28 +124,8 @@ class ServicePageController extends Controller
     }
 
     /**
-     * The other services, each with its name, one sentence, the price it starts at and its page in the current language.
-     *
-     * @return list<array{key: string, name: string, description: string, priceFrom: int, url: string}>
-     */
-    private function otherServices(Service $service): array
-    {
-        return collect(Service::cases())
-            ->reject(fn (Service $other): bool => $other === $service)
-            ->map(fn (Service $other): array => [
-                'key' => $other->value,
-                'name' => __("services.{$other->value}.card.name"),
-                'description' => __("services.{$other->value}.card.description"),
-                'priceFrom' => $other->priceBrackets()[0]['from'],
-                'url' => LocalizedRoutes::url($other->routeName()),
-            ])
-            ->values()
-            ->all();
-    }
-
-    /**
      * The service itself, the main entity of its page: provided by Netizo where Netizo works, with the price each tier
-     * starts at (no maximum: the copy's ceilings are what a price usually stays under, not a cap).
+     * starts at.
      *
      * @param  list<array{name: string, description: string, priceFrom: int, priceTo: int|null}>  $offers
      * @return array<string, mixed>
@@ -181,16 +142,7 @@ class ServicePageController extends Controller
             'mainEntityOfPage' => StructuredData::reference($pageUrl, 'webpage'),
             'provider' => StructuredData::organizationReference(),
             'areaServed' => StructuredData::areaServed(),
-            'offers' => array_map(fn (array $offer): array => [
-                '@type' => 'Offer',
-                'name' => $offer['name'],
-                'description' => $offer['description'],
-                'priceSpecification' => [
-                    '@type' => 'PriceSpecification',
-                    'minPrice' => $offer['priceFrom'],
-                    'priceCurrency' => 'PLN',
-                ],
-            ], $offers),
+            'offers' => $this->offerSchema($offers),
         ];
     }
 }

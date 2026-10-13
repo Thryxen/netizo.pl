@@ -168,8 +168,9 @@
             display: flex;
             align-items: center;
             font-family: 'Geist Mono', monospace;
-            /* The longest address (netizo.pl/tworzenie-stron-internetowych) fits the left column at this size. */
-            font-size: 21px;
+            /* 21px fits the service pages' addresses (netizo.pl/tworzenie-stron-internetowych); a longer one (the Leszno
+               page's) passes a smaller size, so it stays clear of the photo. */
+            font-size: {{urlSize}};
             color: var(--muted);
         }
     </style>

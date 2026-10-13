@@ -17,6 +17,7 @@ class Project extends Model
         'sort_order',
         'is_active',
         'services',
+        'is_local',
         'title',
         'url',
         'category',
@@ -39,6 +40,7 @@ class Project extends Model
     protected $casts = [
         'is_active' => 'boolean',
         'services' => 'array',
+        'is_local' => 'boolean',
         'tech_stack' => 'array',
         'metrics' => 'array',
         'challenges' => 'array',
@@ -64,5 +66,13 @@ class Project extends Model
     public function scopeForService($query, Service $service)
     {
         return $query->whereJsonContains('services', $service->value);
+    }
+
+    /**
+     * Projects for clients from the region, marked in the admin panel and shown on the Leszno page.
+     */
+    public function scopeLocal($query)
+    {
+        return $query->where('is_local', true);
     }
 }

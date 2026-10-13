@@ -5,7 +5,7 @@ import { Logo } from '@/components/home/logo';
 import { Container, Rivet } from '@/components/home/section';
 import { SocialIcon } from '@/components/home/social-icon';
 import { localized, useCopy } from '@/lib/i18n';
-import { clientPanelUrl, company, contact, socialNetworkNames, useInfoLinks, useServiceLinks, useSocialProfiles } from '@/lib/site';
+import { clientPanelUrl, company, contact, socialNetworkNames, useInfoLinks, usePageUrls, useServiceLinks, useSocialProfiles } from '@/lib/site';
 import { cn } from '@/lib/utils';
 
 const COPY = localized({
@@ -16,6 +16,7 @@ const COPY = localized({
         info: 'Informacje',
         clientPanel: 'Panel klienta',
         contact: 'Kontakt',
+        meetings: 'Spotkania w Lesznie',
         nip: 'NIP',
         regon: 'REGON',
         socials: 'Obserwuj nas',
@@ -27,6 +28,7 @@ const COPY = localized({
         info: 'Information',
         clientPanel: 'Client portal',
         contact: 'Contact',
+        meetings: 'Meetings in Leszno',
         nip: 'Tax ID (NIP)',
         regon: 'REGON',
         socials: 'Follow us',
@@ -55,6 +57,7 @@ export function SiteFooter({ homeHref = '#' }: SiteFooterProps) {
     const infoLinks = useInfoLinks();
     const serviceLinks = useServiceLinks();
     const socialProfiles = useSocialProfiles();
+    const pageUrls = usePageUrls();
 
     return (
         <footer className="border-t border-border">
@@ -107,6 +110,11 @@ export function SiteFooter({ homeHref = '#' }: SiteFooterProps) {
                     <div className="lg:col-span-2">
                         <h2 className="text-sm font-medium">{copy.contact}</h2>
                         <ul className="mt-2 flex flex-col text-sm md:mt-4 md:gap-3">
+                            <li>
+                                <a href={pageUrls.leszno} className={linkClass}>
+                                    {copy.meetings}
+                                </a>
+                            </li>
                             <li>
                                 <a href={`mailto:${contact.email}`} className={linkClass}>
                                     {contact.email}
