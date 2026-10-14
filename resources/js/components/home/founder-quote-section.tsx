@@ -9,17 +9,17 @@ const COPY = localized({
     pl: {
         quote: '„Dla nas najważniejsze jest, żeby to, co tworzymy, realnie pomagało Twojej firmie.”',
         name: 'Damian Idzik',
-        role: 'współwłaściciel Netizo',
+        role: 'współzałożyciel Netizo',
     },
     en: {
         quote: '“What matters most to us is that what we build actually helps your business.”',
         name: 'Damian Idzik',
-        role: 'co-owner of Netizo',
+        role: 'co-founder of Netizo',
     },
 });
 
 /**
- * A word from a co-owner: his round avatar in a dashed ring (the page rails' line), a hairline, then the quote with its
+ * A word from a co-founder: his round avatar in a dashed ring (the page rails' line), a hairline, then the quote with its
  * opening mark hung in the margin and the attribution after a short rule; stacked and centred on phones (no hung mark,
  * no rule). The avatar is decorative: the caption names him. A hairline ring keeps the photo's white backdrop apart
  * from the light page.

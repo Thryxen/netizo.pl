@@ -94,7 +94,7 @@ it('renders a search result description that opens with the call to action and n
     'english' => ['/en/about', 'Meet Damian Idzik and Kamil Nawrot of Netizo. Websites, online stores and web apps for companies across Poland, with on-site meetings around Leszno.'],
 ]);
 
-it('describes the page and the two co-owners in the AboutPage JSON-LD', function () {
+it('describes the page and the two co-founders in the AboutPage JSON-LD', function () {
     $graph = jsonLdGraph($this->get('/o-nas'));
     $aboutPage = $graph->firstWhere('@type', 'AboutPage');
     $organization = $graph->firstWhere('@type', 'Organization');
@@ -108,8 +108,8 @@ it('describes the page and the two co-owners in the AboutPage JSON-LD', function
         ->and($organization['name'])->toBe('Netizo')
         ->and($organization['url'])->toBe(url('/').'/')
         ->and($organization['member'])->toBe([
-            ['@type' => 'Person', 'name' => 'Damian Idzik', 'jobTitle' => 'Współwłaściciel'],
-            ['@type' => 'Person', 'name' => 'Kamil Nawrot', 'jobTitle' => 'Współwłaściciel'],
+            ['@type' => 'Person', 'name' => 'Damian Idzik', 'jobTitle' => 'Współzałożyciel'],
+            ['@type' => 'Person', 'name' => 'Kamil Nawrot', 'jobTitle' => 'Współzałożyciel'],
         ]);
 });
 
@@ -120,7 +120,7 @@ it('uses English job titles and the same organization in the JSON-LD on /en/abou
     expect($graph->firstWhere('@type', 'AboutPage')['inLanguage'])->toBe('en')
         ->and($organization['@id'])->toBe(url('/').'/#organization')
         ->and($organization['url'])->toBe(url('/').'/')
-        ->and(array_column($organization['member'], 'jobTitle'))->toBe(['Co-owner', 'Co-owner']);
+        ->and(array_column($organization['member'], 'jobTitle'))->toBe(['Co-founder', 'Co-founder']);
 });
 
 it('does not repeat the home page organization or FAQ JSON-LD', function () {

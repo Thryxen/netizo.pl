@@ -10,16 +10,16 @@ import { PersonAvatar } from './person-portrait';
 const COPY = localized({
     pl: {
         title: 'Kto czym się zajmuje',
-        lead: 'Obaj jesteśmy współwłaścicielami Netizo. Pracą dzielimy się tak:',
+        lead: 'Obaj jesteśmy współzałożycielami Netizo. Pracą dzielimy się tak:',
     },
     en: {
         title: 'Who does what',
-        lead: 'We are both co-owners of Netizo. This is how we split the work:',
+        lead: 'We both co-founded Netizo. This is how we split the work:',
     },
 });
 
 /**
- * Zespół (#zespol, #team): a card per co-owner — on one side (alternating) the photo of their part of the work, drifting
+ * Zespół (#zespol, #team): a card per co-founder — on one side (alternating) the photo of their part of the work, drifting
  * with the scroll, with their avatar (photo or initials) as a badge; on the other the name set large in two lines with the role, a short
  * bio and what you settle with them — then a muted card with what they share. Stacked on phones.
  */

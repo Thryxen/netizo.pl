@@ -7,7 +7,7 @@
 return [
     'seo' => [
         'title' => 'Websites and web apps for businesses – Leszno, Poland | Netizo',
-        'description' => 'Get a free quote for a website or web app. Speed and SEO as standard, from a team with 150+ projects and 8 years of experience. Based in Leszno, Poland.',
+        'description' => 'Get a free quote for a website or web app. Speed and SEO as standard, 150+ projects and 8 years of team experience. Across Poland, meetings around Leszno.',
         'share_description' => 'Professional websites and web applications. Modern design, speed, SEO. 150+ projects by our team. Free quote!',
         'organization_description' => 'Netizo builds websites and web applications for businesses in Leszno and across Poland. Founded in 2023 by Damian Idzik and Kamil Nawrot. Modern design, speed and SEO as standard.',
         'country' => 'Poland',
@@ -33,7 +33,7 @@ return [
         ],
         [
             'question' => 'Will you design the website if I don’t have a design?',
-            'answer' => 'Yes. We have UI/UX designers on the team: we design the look from scratch or build on your sketches, logo and brand identity. Before we start coding, you get the design and a clickable Figma prototype to review and approve.',
+            'answer' => 'Yes. We design the look ourselves, without subcontractors: from scratch or based on your sketches, logo and brand identity. Before we start coding, you get the design and a clickable Figma prototype to review and approve.',
         ],
         [
             'question' => 'Can you refresh my current website instead of building a new one?',

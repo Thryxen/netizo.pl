@@ -30,7 +30,7 @@ const HEADING_ID = 'about-cta-heading';
 
 /**
  * Closing call to action: a centred panel over the café-table photo (drifting with the scroll, under a dark scrim) with
- * the co-owners' avatars, the heading and the two ways to get in touch (the contact form on the home page, the phone).
+ * the co-founders' avatars, the heading and the two ways to get in touch (the contact form on the home page, the phone).
  * The heading block enters like the other section headings.
  */
 export function AboutCtaSection() {

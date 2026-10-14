@@ -19,7 +19,7 @@ export type Person = {
     photo: PhotoName;
 };
 
-/** The co-owners. Their job titles in the JSON-LD come from lang/{pl,en}/about.php. */
+/** The co-founders. Their job titles in the JSON-LD come from lang/{pl,en}/about.php. */
 export const PEOPLE = localized<Person[]>({
     pl: [
         {
@@ -28,7 +28,7 @@ export const PEOPLE = localized<Person[]>({
             initials: 'DI',
             portrait: 'damian-idzik',
             photo: 'about-code',
-            role: 'Współwłaściciel, technologia',
+            role: 'Współzałożyciel, technologia',
             bio: 'Zajmuje się kwestiami technicznymi projektów i kontaktem z klientami. Pilnuje, żeby strona lub aplikacja działała tak, jak się umówiliśmy.',
             topics: ['jak strona lub aplikacja ma działać', 'technologię, integracje i hosting', 'wdrożenie i opiekę techniczną'],
         },
@@ -37,7 +37,7 @@ export const PEOPLE = localized<Person[]>({
             lastName: 'Nawrot',
             initials: 'KN',
             photo: 'about-planning',
-            role: 'Współwłaściciel, organizacja',
+            role: 'Współzałożyciel, organizacja',
             bio: 'Zajmuje się organizacją firmy i kontaktem z klientami. Pilnuje, żeby projekt szedł zgodnie z planem, a formalności nie stały na drodze.',
             topics: ['terminy i harmonogram', 'warunki współpracy i umowę', 'formalności i rozliczenia'],
         },
@@ -49,7 +49,7 @@ export const PEOPLE = localized<Person[]>({
             initials: 'DI',
             portrait: 'damian-idzik',
             photo: 'about-code',
-            role: 'Co-owner, technology',
+            role: 'Co-founder, technology',
             bio: 'Handles the technical side of our projects and talks to clients. He makes sure your website or app works the way we agreed.',
             topics: ['how your website or app should work', 'technology, integrations and hosting', 'the launch and technical care'],
         },
@@ -58,7 +58,7 @@ export const PEOPLE = localized<Person[]>({
             lastName: 'Nawrot',
             initials: 'KN',
             photo: 'about-planning',
-            role: 'Co-owner, operations',
+            role: 'Co-founder, operations',
             bio: 'Runs the organizational side of the company and talks to clients. He keeps the project on schedule and the paperwork out of the way.',
             topics: ['schedules and deadlines', 'terms of cooperation and the contract', 'paperwork and invoicing'],
         },
@@ -68,7 +68,7 @@ export const PEOPLE = localized<Person[]>({
 /** Full name, as used in the copy and the alt texts. */
 export const fullName = (person: Person): string => `${person.firstName} ${person.lastName}`;
 
-/** What the co-owners share: the band under PeopleSection. */
+/** What the co-founders share: the band under PeopleSection. */
 export const SHARED_DUTY = localized({
     pl: {
         topicsLabel: 'Z nim omówisz',
@@ -224,12 +224,12 @@ export const STORY = localized<StoryEntry[]>({
 export const NUMBERS = localized<NumberEntry[]>({
     pl: [
         { sample: true, value: '150+', label: 'projektów na koncie', source: 'Liczymy oddane strony, sklepy i aplikacje webowe, także sprzed Netizo.' },
-        { sample: true, value: '8 lat', label: 'w branży', source: 'Liczymy lata pracy wspólników w branży, także sprzed założenia Netizo w 2023 roku.' },
+        { sample: true, value: '8 lat', label: 'w branży', source: 'Liczymy lata pracy współzałożycieli w branży, także sprzed założenia Netizo w 2023 roku.' },
         { sample: true, value: '99,9%', label: 'dostępności wdrożeń', source: 'Średnia dostępność stron, którymi się opiekujemy, według monitoringu.' },
     ],
     en: [
         { sample: true, value: '150+', label: 'projects under our belt', source: 'We count the websites, online stores and web apps we have delivered, including before Netizo.' },
-        { sample: true, value: '8 years', label: 'in the industry', source: 'We count the co-owners’ years in the industry, including those before Netizo was founded in 2023.' },
+        { sample: true, value: '8 years', label: 'in the industry', source: 'We count the co-founders’ years in the industry, including those before Netizo was founded in 2023.' },
         { sample: true, value: '99.9%', label: 'uptime of our launches', source: 'The average uptime of the websites in our care, from monitoring.' },
     ],
 });

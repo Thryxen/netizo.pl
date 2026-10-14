@@ -56,7 +56,7 @@ return [
         ],
         'about' => [
             'name' => 'About us',
-            'note' => 'the co-owners Damian Idzik and Kamil Nawrot, how we work (remotely across Poland, in person around Leszno), selected projects and company details.',
+            'note' => 'the co-founders Damian Idzik and Kamil Nawrot, how we work (remotely across Poland, in person around Leszno), selected projects and company details.',
         ],
         'partners' => [
             'name' => 'Partner program',

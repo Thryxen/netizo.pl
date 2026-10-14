@@ -127,7 +127,7 @@ class StructuredData
      * Netizo on the pages other than the home pages: the same @id with what identifies it. Typed as a plain
      * Organization, because a LocalBusiness (ProfessionalService) without its address would be incomplete.
      *
-     * @param  array<string, mixed>  $properties  What the page adds about Netizo (the co-owners on the about page).
+     * @param  array<string, mixed>  $properties  What the page adds about Netizo (the co-founders on the about page).
      * @return array<string, mixed>
      */
     public static function organizationSummary(array $properties = []): array

@@ -64,7 +64,7 @@ class AboutController extends Controller
     }
 
     /**
-     * The co-owners in the current language (lang/{pl,en}/about.php), as schema.org people: the members of Netizo.
+     * The co-founders in the current language (lang/{pl,en}/about.php), as schema.org people: the members of Netizo.
      *
      * @return list<array{'@type': string, name: string, jobTitle: string}>
      */

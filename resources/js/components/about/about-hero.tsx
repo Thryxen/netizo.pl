@@ -15,7 +15,7 @@ import { PersonAvatar } from './person-portrait';
 
 const COPY = localized({
     pl: {
-        pill: 'Damian i Kamil, współwłaściciele',
+        pill: 'Damian i Kamil, współzałożyciele',
         headingLines: ['Za Netizo stoją', 'Damian i Kamil.'],
         lead: 'Netizo to software house, który tworzy strony internetowe, sklepy i aplikacje webowe dla firm. Pracujemy zdalnie z firmami z całej Polski, a w Lesznie i okolicach przyjeżdżamy do klienta.',
         quote: 'Wyceń projekt',
@@ -25,7 +25,7 @@ const COPY = localized({
         reply: 'Odpowiadamy w ciągu 24 godzin',
     },
     en: {
-        pill: 'Damian and Kamil, co-owners',
+        pill: 'Damian and Kamil, co-founders',
         headingLines: ['Netizo is', 'Damian and Kamil.'],
         lead: 'We are a software house that builds websites, online stores and web apps for companies. We work remotely with companies across Poland, and around Leszno we come to you.',
         quote: 'Get a quote',
@@ -50,7 +50,7 @@ const FLOATING_CARD = cn('rounded-lg', CHIP_SURFACE);
 /**
  * First screen of the about page: the copy on the left (an avatar pill, the heading, the lead, the two ways to get in
  * touch, the facts), on the right the studio photo in a sharp-edged frame with rivets on its corners, running off the
- * right edge from lg, with the co-owners' cards and the reply time floating on its wall like the home page's scene chips.
+ * right edge from lg, with the co-founders' cards and the reply time floating on its wall like the home page's scene chips.
  */
 export function AboutHero() {
     const copy = useCopy(COPY);

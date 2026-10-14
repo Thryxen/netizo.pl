@@ -14,7 +14,7 @@ return [
     ],
 
     'people' => [
-        ['name' => 'Damian Idzik', 'job_title' => 'Co-owner'],
-        ['name' => 'Kamil Nawrot', 'job_title' => 'Co-owner'],
+        ['name' => 'Damian Idzik', 'job_title' => 'Co-founder'],
+        ['name' => 'Kamil Nawrot', 'job_title' => 'Co-founder'],
     ],
 ];

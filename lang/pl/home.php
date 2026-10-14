@@ -34,7 +34,7 @@ return [
         ],
         [
             'question' => 'Czy zaprojektujecie wygląd strony, jeśli nie mam projektu?',
-            'answer' => 'Tak. Mamy w zespole projektantów UI/UX: zaprojektujemy wygląd od zera albo oprzemy się na Twoich szkicach, logo i identyfikacji wizualnej. Zanim zaczniemy programować, dostajesz projekt i klikalny prototyp w Figmie do przejrzenia i akceptacji.',
+            'answer' => 'Tak. Wygląd projektujemy sami, bez podwykonawców: od zera albo na podstawie Twoich szkiców, logo i identyfikacji wizualnej. Zanim zaczniemy programować, dostajesz projekt i klikalny prototyp w Figmie do przejrzenia i akceptacji.',
         ],
         [
             'question' => 'Czy możecie odświeżyć moją obecną stronę, zamiast budować nową?',

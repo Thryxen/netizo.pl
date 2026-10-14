@@ -15,7 +15,9 @@ const COPY = localized({
         lead: 'Wszystko, czego potrzebujesz do umowy i faktury. Skopiujesz je jednym kliknięciem.',
         cardLabel: 'Dane firmy Netizo',
         name: 'Nazwa',
-        owners: 'Współwłaściciele',
+        business: 'Przedsiębiorca',
+        businessNote: 'działalność gospodarcza pod nazwą',
+        founders: 'Współzałożyciele',
         address: 'Adres rejestrowy',
         addressNote: 'Bez biura dla klientów',
         nip: 'NIP',
@@ -31,7 +33,9 @@ const COPY = localized({
         lead: 'Everything you need for a contract or an invoice. Copy any of it with one click.',
         cardLabel: 'Netizo company details',
         name: 'Name',
-        owners: 'Co-owners',
+        business: 'Business owner',
+        businessNote: 'sole proprietorship trading as',
+        founders: 'Co-founders',
         address: 'Registered address',
         addressNote: 'No office for clients to visit',
         nip: 'Tax ID (NIP)',
@@ -50,7 +54,9 @@ const focusRing = 'outline-none focus-visible:ring-[3px] focus-visible:ring-ring
 
 /**
  * Dane firmy (#dane-firmy, #company-details): the registry details on one card, like the letterhead of an invoice, with
- * the heading beside it from lg. Every value has a copy button; the confirmation is announced to screen readers.
+ * the heading beside it from lg. The NIP is Kamil's sole proprietorship (as in the legal pages' letterhead), so the card
+ * names him as the business owner and both of us as co-founders. Every value has a copy button; the confirmation is
+ * announced to screen readers.
  */
 export function CompanySection() {
     const copy = useCopy(COPY);
@@ -58,10 +64,12 @@ export function CompanySection() {
     const sectionId = useAboutSections().company;
     const [announcement, setAnnouncement] = useState('');
     const address = `${company.street}, ${company.postalCode} ${company.city}`;
+    const business = `${copy.businessNote} ${company.name}`;
 
     const rows: { label: string; value: ReactNode; copyText?: string; note?: string }[] = [
         { label: copy.name, value: company.name, copyText: company.name },
-        { label: copy.owners, value: people.map(fullName).join(', ') },
+        { label: copy.business, value: company.owner, copyText: `${company.owner}, ${business}`, note: business },
+        { label: copy.founders, value: people.map(fullName).join(', ') },
         { label: copy.address, value: address, copyText: address, note: copy.addressNote },
         { label: copy.nip, value: <span className="tabular-nums">{company.nip}</span>, copyText: company.nip },
         { label: copy.regon, value: <span className="tabular-nums">{company.regon}</span>, copyText: company.regon },

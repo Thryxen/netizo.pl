@@ -13,7 +13,7 @@
  * `partner-question` (3:2): a partner at home reading his phone, under the partner FAQ's chat; the lower part is a calm
  * desk for the bubbles.
  * `about-*`: the about page — `about-studio` (3:2, the hero: a desk set for two, no people; the right third is a calm
- * sage wall for the floating cards), `about-code` and `about-planning` (2:3) for the co-owners' rows (hands only: the
+ * sage wall for the floating cards), `about-code` and `about-planning` (2:3) for the co-founders' rows (hands only: the
  * technology and the organization, not the people themselves), `about-remote`, `about-visit` (a meeting at a client's
  * shop) and `about-drive` (on the way to a client: a parked car in a small town) (3:2) for "Jak pracujemy", and
  * `about-meeting` (3:2, a café table set for a meeting, a calm sage wall in the middle) behind the closing call to action.

@@ -62,7 +62,7 @@ return [
         ],
         'about' => [
             'name' => 'O nas',
-            'note' => 'współwłaściciele Damian Idzik i Kamil Nawrot, jak pracujemy (zdalnie w całej Polsce, na miejscu w Lesznie i okolicach), wybrane realizacje i dane firmy.',
+            'note' => 'współzałożyciele Damian Idzik i Kamil Nawrot, jak pracujemy (zdalnie w całej Polsce, na miejscu w Lesznie i okolicach), wybrane realizacje i dane firmy.',
         ],
         'partners' => [
             'name' => 'Program partnerski',

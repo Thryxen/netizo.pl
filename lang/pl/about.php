@@ -14,7 +14,7 @@ return [
     ],
 
     'people' => [
-        ['name' => 'Damian Idzik', 'job_title' => 'Współwłaściciel'],
-        ['name' => 'Kamil Nawrot', 'job_title' => 'Współwłaściciel'],
+        ['name' => 'Damian Idzik', 'job_title' => 'Współzałożyciel'],
+        ['name' => 'Kamil Nawrot', 'job_title' => 'Współzałożyciel'],
     ],
 ];

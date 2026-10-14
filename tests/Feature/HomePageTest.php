@@ -152,7 +152,7 @@ it('renders a search result description that opens with the call to action and n
     expect(mb_strlen($description))->toBeLessThanOrEqual(155);
 })->with([
     'polish' => ['/', 'Zamów bezpłatną wycenę strony internetowej lub aplikacji. Szybkość i SEO w standardzie, 150+ projektów i 8 lat doświadczenia zespołu. Leszno i cała Polska.'],
-    'english' => ['/en', 'Get a free quote for a website or web app. Speed and SEO as standard, from a team with 150+ projects and 8 years of experience. Based in Leszno, Poland.'],
+    'english' => ['/en', 'Get a free quote for a website or web app. Speed and SEO as standard, 150+ projects and 8 years of team experience. Across Poland, meetings around Leszno.'],
 ]);
 
 it('describes Netizo in full in the JSON-LD of the home page', function () {

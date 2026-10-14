@@ -21,7 +21,7 @@ class Sitemap
      * @var array<string, string>
      */
     private const PAGES = [
-        'home' => '2026-10-12',
+        'home' => '2026-10-14',
         'services.websites' => '2026-10-12',
         'leszno' => '2026-10-13',
         'services.stores' => '2026-10-12',
@@ -30,7 +30,7 @@ class Sitemap
         'services.ai' => '2026-10-12',
         'services.devops' => '2026-10-12',
         'projects.index' => '2026-10-12',
-        'about' => '2026-10-12',
+        'about' => '2026-10-14',
         'partners' => '2026-10-12',
         'partners.terms' => LegalPageController::PARTNER_TERMS_EFFECTIVE_DATE,
         'privacy' => LegalPageController::PRIVACY_EFFECTIVE_DATE,
