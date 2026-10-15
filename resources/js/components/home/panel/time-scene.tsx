@@ -13,8 +13,8 @@ const TIMER_END_SECONDS = LIVE_ROW.minutes * 60;
 /** "1 875,00 zł netto", "PLN 1,875.00 net". */
 const netto = (minutes: number, locale: Locale): string => `${formatZloty(costOf(minutes), locale)} ${PANEL_TEXT[locale].net}`;
 
-/** Status colour of "W trakcie" / "In progress" (as on the board), small and muted. */
-const RUNNING_DOT = 'bg-[oklch(0.62_0.13_255)]';
+/** Status colour of "W trakcie" / "In progress" (as on the board): the text colour, white in the dark theme. */
+const RUNNING_DOT = 'bg-foreground';
 
 const ROW_GRID = 'grid grid-cols-[minmax(0,1fr)_7.4em_7.2em] items-center gap-[0.8em] px-[1em] @min-[32.5rem]/panel:grid-cols-[minmax(0,1fr)_8em_7.6em]';
 

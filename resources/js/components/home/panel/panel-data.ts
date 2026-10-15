@@ -91,7 +91,7 @@ export type ColumnKey = 'urgent' | 'todo' | 'doing' | 'done';
 export const BOARD_COLUMNS: { key: ColumnKey; dot: string }[] = [
     { key: 'urgent', dot: 'bg-[oklch(0.64_0.16_25)]' },
     { key: 'todo', dot: 'bg-[oklch(0.62_0_0)]' },
-    { key: 'doing', dot: 'bg-[oklch(0.62_0.13_255)]' },
+    { key: 'doing', dot: 'bg-foreground' },
     { key: 'done', dot: 'bg-[oklch(0.66_0.12_155)]' },
 ];
 
