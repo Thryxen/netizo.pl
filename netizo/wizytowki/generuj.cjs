@@ -3,6 +3,9 @@
  * spadu, strona 1 przód, strona 2 tył, wektorowo z osadzonymi fontami, z TrimBox i BleedBox dla drukarni) do pdf/ oraz
  * podglądy PNG przyciętych kart do podglad/. Kod QR na przodzie zapisuje kontakt (vCard) w telefonie.
  *
+ * Lakier UV 3D (Chroma, z folią Soft Skin): uv3d/{slug}.pdf to ta sama wizytówka z tyłem jako stroną 1 (Chroma lakieruje
+ * pierwszą stronę projektu), a uv3d/maska.pdf to maska lakieru, wspólna dla wszystkich (podgląd: podglad/maska-uv3d.png).
+ *
  * Pola osoby: name, role, phone, email. Wizytówka firmowa: "company": true (role niepotrzebne, w vCard kontakt jest
  * firmą), a w polu po lewej zamiast imienia i stanowiska stoją "heading" i "subheading". Opcjonalne "slug" nadaje nazwę
  * plików (domyślnie z name).
@@ -21,6 +24,11 @@ const PX_PER_MM = 96 / 25.4;
 /** Podgląd w ~600 dpi. */
 const PREVIEW_SCALE = 6;
 const PT_PER_MM = 72 / 25.4;
+/**
+ * Chroma: lakier UV 3D co najmniej 3 mm od linii cięcia („Elementy uszlachetnienia nachodzą na margines
+ * bezpieczeństwa”). 0,2 mm zapasu na wygładzone krawędzie, gdy ich kontrola rasteryzuje maskę.
+ */
+const VARNISH_MARGIN_MM = 3.2;
 const RUN_COMMAND = 'npx -y -p playwright@1.58.0 -p qrcode@1.5.4 -p pdf-lib@1.17.1 node netizo/wizytowki/generuj.cjs';
 
 /** Pakiety z `npx -p` nie są widoczne dla require(), więc szukamy ich też w katalogach .bin z PATH. */
@@ -253,6 +261,92 @@ async function fitPageBoxes(PDFDocument, pdf) {
     return document.save({ useObjectStreams: false });
 }
 
+/** Ta sama wizytówka z odwróconą kolejnością stron: tył jako strona 1, bo Chroma lakieruje pierwszą stronę projektu. */
+async function backFirst(PDFDocument, pdf) {
+    const source = await PDFDocument.load(pdf, { updateMetadata: false });
+    const document = await PDFDocument.create({ updateMetadata: false });
+
+    for (const page of await document.copyPages(source, [1, 0])) {
+        document.addPage(page);
+    }
+
+    return document.save({ useObjectStreams: false });
+}
+
+/**
+ * Uruchamiane w stronie: położenie wielkiego sygnetu z tyłu względem lewego górnego rogu karty ze spadem, jako przekształcenie
+ * jednostek SVG sygnetu na piksele CSS (x = originX + u · scale).
+ */
+function measureMark() {
+    const card = document.querySelector('.card.dark').getBoundingClientRect();
+    const svg = document.querySelector('.card.dark .mark svg');
+    const box = svg.getBoundingClientRect();
+    const [viewX, viewY, , viewHeight] = svg.getAttribute('viewBox').split(/\s+/).map(Number);
+    const scale = box.height / viewHeight;
+
+    return { originX: box.left - card.left - viewX * scale, originY: box.top - card.top - viewY * scale, scale };
+}
+
+/** Pole lakieru: format netto pomniejszony o VARNISH_MARGIN_MM z każdej strony, w mm od lewego górnego rogu ze spadem. */
+const varnishArea = () => ({
+    x: BLEED_MM + VARNISH_MARGIN_MM,
+    y: BLEED_MM + VARNISH_MARGIN_MM,
+    width: CARD_MM.width - 2 * VARNISH_MARGIN_MM,
+    height: CARD_MM.height - 2 * VARNISH_MARGIN_MM,
+});
+
+/**
+ * Maska lakieru UV 3D do tyłu (wymagania Chromy: osobny plik, lakier tam, gdzie czerń K=100%, białe tło bez lakieru,
+ * lakier ≥ 3 mm od linii cięcia, linie ≥ 2 pt, pola do 9 cm², nie na białych elementach). Lakierujemy wielki sygnet N:
+ * jest ciemnoszary, więc żółtawy odcień lakieru na nim ginie, a w polu lakieru jego dwie części mają ok. 5,1 i 6,7 cm².
+ * Logo i nagłówek są białe, a drobny wzór ma kreski węższe niż 2 pt, więc zostają bez lakieru. Maska ma format i pola
+ * stron wizytówki, a sygnet stoi tam, gdzie zmierzył go measureMark. Rysuje ją pdf-lib, nie Chromium, bo Chromium
+ * zapisuje kolory w RGB, a czerń maski musi być czystym K.
+ */
+async function varnishMask(pdfLib, mark, paths) {
+    const { PDFDocument, cmyk, pushGraphicsState, popGraphicsState, rectangle, clip, endPath } = pdfLib;
+    const document = await PDFDocument.create({ updateMetadata: false });
+    const pageHeight = (CARD_MM.height + 2 * BLEED_MM) * PT_PER_MM;
+    const page = document.addPage([(CARD_MM.width + 2 * BLEED_MM) * PT_PER_MM, pageHeight]);
+    const area = varnishArea();
+    const ptPerPx = 72 / 96;
+
+    page.pushOperators(
+        pushGraphicsState(),
+        rectangle(area.x * PT_PER_MM, pageHeight - (area.y + area.height) * PT_PER_MM, area.width * PT_PER_MM, area.height * PT_PER_MM),
+        clip(),
+        endPath(),
+    );
+
+    for (const d of paths) {
+        page.drawSvgPath(d, {
+            x: mark.originX * ptPerPx,
+            y: pageHeight - mark.originY * ptPerPx,
+            scale: mark.scale * ptPerPx,
+            color: cmyk(0, 0, 0, 1),
+        });
+    }
+
+    page.pushOperators(popGraphicsState());
+
+    return fitPageBoxes(PDFDocument, await document.save({ useObjectStreams: false }));
+}
+
+/** Maska jako SVG w pikselach CSS, do podglądu PNG. */
+function varnishMaskSvg(mark, paths) {
+    const px = (mm) => mm * PX_PER_MM;
+    const area = varnishArea();
+
+    return [
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${px(CARD_MM.width + 2 * BLEED_MM)}" height="${px(CARD_MM.height + 2 * BLEED_MM)}" style="display: block">`,
+        '<rect width="100%" height="100%" fill="#fff"/>',
+        `<clipPath id="area"><rect x="${px(area.x)}" y="${px(area.y)}" width="${px(area.width)}" height="${px(area.height)}"/></clipPath>`,
+        `<g clip-path="url(#area)"><g transform="matrix(${mark.scale} 0 0 ${mark.scale} ${mark.originX} ${mark.originY})">`,
+        ...paths.map((d) => `<path d="${d}"/>`),
+        '</g></g></svg>',
+    ].join('');
+}
+
 (async () => {
     const people = JSON.parse(fs.readFileSync(path.join(DIR, 'osoby.json'), 'utf8'));
 
@@ -266,7 +360,8 @@ async function fitPageBoxes(PDFDocument, pdf) {
 
     const QRCode = loadModule('qrcode');
     const { chromium } = loadModule('playwright');
-    const { PDFDocument } = loadModule('pdf-lib');
+    const pdfLib = loadModule('pdf-lib');
+    const { PDFDocument } = pdfLib;
 
     const template = inlineFonts(fs.readFileSync(path.join(DIR, 'szablon.html'), 'utf8'));
     const shared = {
@@ -276,9 +371,12 @@ async function fitPageBoxes(PDFDocument, pdf) {
 
     fs.mkdirSync(path.join(DIR, 'pdf'), { recursive: true });
     fs.mkdirSync(path.join(DIR, 'podglad'), { recursive: true });
+    fs.mkdirSync(path.join(DIR, 'uv3d'), { recursive: true });
 
     const browser = await chromium.launch();
     const page = await browser.newPage({ deviceScaleFactor: PREVIEW_SCALE });
+    /** Tył jest wspólny, więc wielki sygnet stoi na każdej wizytówce w tym samym miejscu. */
+    let mark;
 
     for (const person of people) {
         const slug = person.slug ?? slugify(person.name);
@@ -299,15 +397,27 @@ async function fitPageBoxes(PDFDocument, pdf) {
 
         const pdf = await page.pdf({ preferCSSPageSize: true, printBackground: true });
 
-        fs.writeFileSync(path.join(DIR, 'pdf', `${slug}.pdf`), await fitPageBoxes(PDFDocument, pdf));
+        const printable = await fitPageBoxes(PDFDocument, pdf);
+
+        fs.writeFileSync(path.join(DIR, 'pdf', `${slug}.pdf`), printable);
+        fs.writeFileSync(path.join(DIR, 'uv3d', `${slug}.pdf`), await backFirst(PDFDocument, printable));
+        mark ??= await page.evaluate(measureMark);
 
         const cards = await page.$$('.card');
 
-        for (const [card, side] of [
-            [cards[0], 'przod'],
-            [cards[1], 'tyl'],
+        /*
+         * Każda strona fotografowana z lewego górnego rogu strony: tył pod przodem zaczyna się na 61 mm (230,55 px),
+         * a Chromium dociąga ułamek piksela, więc logo na podglądzie tyłu stało ok. 0,13 mm wyżej niż na przodzie
+         * (w PDF stoją tak samo).
+         */
+        for (const [index, side] of [
+            [0, 'przod'],
+            [1, 'tyl'],
         ]) {
-            const box = await card.boundingBox();
+            await page.evaluate((index) => {
+                document.querySelectorAll('.card').forEach((card, i) => (card.style.display = i === index ? '' : 'none'));
+            }, index);
+            const box = await cards[index].boundingBox();
 
             await page.screenshot({
                 path: path.join(DIR, 'podglad', `${slug}-${side}.png`),
@@ -320,8 +430,23 @@ async function fitPageBoxes(PDFDocument, pdf) {
             });
         }
 
-        console.log(`✓ ${person.name}: pdf/${slug}.pdf, podglad/${slug}-przod.png, podglad/${slug}-tyl.png`);
+        console.log(`✓ ${person.name}: pdf/${slug}.pdf, uv3d/${slug}.pdf, podglad/${slug}-przod.png, podglad/${slug}-tyl.png`);
     }
+
+    const sygnetPaths = [...shared.sygnet.matchAll(/\sd="([^"]+)"/g)].map(([, d]) => d);
+
+    fs.writeFileSync(path.join(DIR, 'uv3d', 'maska.pdf'), await varnishMask(pdfLib, mark, sygnetPaths));
+    await page.setContent(`<body style="margin: 0">${varnishMaskSvg(mark, sygnetPaths)}</body>`);
+    await page.screenshot({
+        path: path.join(DIR, 'podglad', 'maska-uv3d.png'),
+        clip: {
+            x: BLEED_MM * PX_PER_MM,
+            y: BLEED_MM * PX_PER_MM,
+            width: CARD_MM.width * PX_PER_MM,
+            height: CARD_MM.height * PX_PER_MM,
+        },
+    });
+    console.log('✓ Maska lakieru UV 3D: uv3d/maska.pdf, podglad/maska-uv3d.png');
 
     await browser.close();
 })().catch((error) => {
