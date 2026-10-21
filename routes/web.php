@@ -12,7 +12,9 @@ use App\Http\Controllers\PartnerProgramController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProjectBriefController;
 use App\Http\Controllers\ServicePageController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
  * Polish site without a prefix, English site under /en (App\Services\LocalizedRoutes). An English route is named like
@@ -67,3 +69,18 @@ Route::prefix('en')->name('en.')->group(function () {
         Route::post('/partners', [PartnerApplicationController::class, 'store'])->name('partner-applications.store');
     });
 });
+
+/*
+ * phpinfo() lists the environment (APP_KEY, database and API credentials), so only a signed-in admin may see it.
+ * The panel's login returns here through Inertia, which cannot show a plain HTML page, so it gets a full page load.
+ */
+Route::get('/phpinfo', function (Request $request) {
+    if ($request->inertia()) {
+        return Inertia::location($request->fullUrl());
+    }
+
+    ob_start();
+    phpinfo();
+
+    return response(ob_get_clean());
+})->middleware('auth')->name('phpinfo');
