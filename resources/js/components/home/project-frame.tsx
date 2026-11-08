@@ -20,9 +20,6 @@ const COPY = localized({
     },
 });
 
-/** How far (px) the screenshot drifts up inside its window while the frame passes through the viewport. */
-const PARALLAX_DISTANCE = 24;
-
 type ProjectFrameProps = {
     project: Pick<Project, 'title' | 'url' | 'thumbnailUrl' | 'fullImageUrl'>;
     /** Alt text of the screenshot; '' when the frame sits inside a link that already names the project. */
@@ -31,8 +28,8 @@ type ProjectFrameProps = {
 };
 
 /**
- * Browser-window chrome around a project screenshot: three dots, an address bar with the project URL and a 16:10
- * window onto the full-page screenshot (`fullImageUrl ?? thumbnailUrl`), top-aligned. It drifts slightly with the page
+ * Browser-window chrome around a project screenshot: three dots, an address bar with the project URL and a window onto
+ * the full-page screenshot (`fullImageUrl ?? thumbnailUrl`), top-aligned, in the page's own shape up to 16:10. It drifts slightly with the page
  * (parallax) and slowly scrolls the whole page while a surrounding `group/frame` (the frame itself, or a card around it)
  * is hovered, or while a control inside the surrounding `group/project` has keyboard focus. Falls back to the
  * placeholder illustration when there is no screenshot.
@@ -45,7 +42,7 @@ export function ProjectFrame({ project, alt: altOverride, className }: ProjectFr
     const alt = altOverride ?? copy.alt(project.title);
 
     return (
-        <div data-slot="project-frame" className={cn('group/frame overflow-hidden rounded-lg border bg-background', className)}>
+        <div data-slot="project-frame" className={cn('group/frame @container overflow-hidden rounded-lg border bg-background', className)}>
             <BrowserBar url={project.url} />
 
             {imageUrl === null ? (
@@ -88,14 +85,13 @@ export function BrowserBar({ url, className }: { url: string; className?: string
 }
 
 /**
- * The preview window. Layers, outside in:
- * - the 16:10 window (clips),
- * - a parallax layer, PARALLAX_DISTANCE taller than the window, moved up by scroll progress (0 → −24px),
- * - the Photo wrapper filling that layer; it is a size container, so the <img> (the whole page at the window's
- *   width, never shorter than the layer) can translate by exactly its overflow: −(100% − 100cqh).
- *
- * A short page (a screenshot wider than the window) is never cropped: it keeps the window's width at the top
- * (`object-contain`), and the space below it shows the ScreenshotWash.
+ * The preview window, in the page's own shape up to 16:10 (`max-h-[62.5cqw]`, the frame is the container): a long page
+ * shows its top, a short one (a screenshot wider than 16:10) is shown whole, neither cropped nor padded. Its overflow
+ * below the window is −(100% − 62.5cqw) of the <img>'s height (0 for a short page). Layers, outside in:
+ * - the window (clips),
+ * - a parallax layer drifting up with scroll progress (`--drift` 0 → 1) by up to 24px of that overflow,
+ * - the <img>, the whole page at the window's width, which scrolls by its overflow plus those 24px, so its bottom
+ *   never rises above the window's.
  *
  * The slow scroll only runs with motion allowed (`motion-safe`). It scrolls down in 6 s linear and returns faster.
  */
@@ -104,37 +100,26 @@ function ScreenshotPreview({ src, alt }: { src: string; alt: string }) {
     const layerRef = useRef<HTMLDivElement>(null);
     const reduced = useReducedMotionPreference();
     const { scrollYProgress } = useScroll({ target: windowRef, offset: ['start end', 'end start'] });
-    const y = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [0, -PARALLAX_DISTANCE]);
+    const drift = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [0, 1]);
 
-    useMotionStyle(layerRef, { y });
+    useMotionStyle(layerRef, { '--drift': drift });
 
     return (
-        <div ref={windowRef} className="relative aspect-[16/10] overflow-hidden bg-muted">
-            <ScreenshotWash src={src} />
-            <div ref={layerRef} className="absolute inset-x-0 top-0 h-[calc(100%+24px)]">
+        <div ref={windowRef} className="max-h-[62.5cqw] overflow-hidden bg-muted">
+            <div ref={layerRef} className="translate-y-[calc(var(--drift,0)*clamp(-24px,calc(62.5cqw_-_100%),0px))]">
                 <Photo
                     src={src}
                     alt={alt}
                     width={1600}
                     height={1000}
-                    className="size-full bg-transparent [container-type:size]"
                     imgClassName={cn(
-                        'h-auto! min-h-full object-contain object-top',
+                        'h-auto! object-top',
                         'transition-transform duration-[900ms] ease-expo-out',
-                        'motion-safe:group-hover/frame:translate-y-[calc(-100%+100cqh)] motion-safe:group-hover/frame:duration-[6s] motion-safe:group-hover/frame:ease-linear',
-                        'motion-safe:group-has-focus-visible/project:translate-y-[calc(-100%+100cqh)] motion-safe:group-has-focus-visible/project:duration-[6s] motion-safe:group-has-focus-visible/project:ease-linear',
+                        'motion-safe:group-hover/frame:translate-y-[min(0px,calc(62.5cqw_+_24px_-_100%))] motion-safe:group-hover/frame:duration-[6s] motion-safe:group-hover/frame:ease-linear',
+                        'motion-safe:group-has-focus-visible/project:translate-y-[min(0px,calc(62.5cqw_+_24px_-_100%))] motion-safe:group-has-focus-visible/project:duration-[6s] motion-safe:group-has-focus-visible/project:ease-linear',
                     )}
                 />
             </div>
         </div>
     );
-}
-
-/**
- * The screenshot again, blurred into a wash of the site's colours, behind a screenshot in a fixed-ratio box: where a
- * short page ends above the box's bottom, it fills the rest instead of the page being cropped at the sides; a long page
- * covers it whole. Same URL as the screenshot, so no extra download.
- */
-export function ScreenshotWash({ src }: { src: string }) {
-    return <img src={src} alt="" aria-hidden="true" loading="lazy" decoding="async" className="absolute inset-0 size-full scale-150 object-cover object-bottom blur-2xl" />;
 }
