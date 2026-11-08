@@ -147,10 +147,11 @@ function HeroStage({ project, alt }: { project: Project; alt: string }) {
             <div aria-hidden="true" className="absolute inset-0 -z-10 bg-background/25 dark:bg-background/30" />
 
             <div className="absolute inset-0 flex items-center justify-center p-[7%] lg:p-[9%]">
-                <div data-hero-rise="" style={riseDelay(3)} className="w-full max-w-[46rem]">
+                <div data-hero-rise="" style={riseDelay(3)} className="@container w-full max-w-[46rem]">
                     <div ref={driftRef} className={cn('overflow-hidden rounded-lg', WINDOW_SURFACE)}>
                         <BrowserBar url={project.url} />
-                        <div className="aspect-[16/10] bg-muted">
+                        {/* The window takes the page's own shape up to 16:10: a long page shows its top, a short one is never cropped. */}
+                        <div className={cn('overflow-hidden bg-muted', screenshot ? 'max-h-[62.5cqw]' : 'aspect-[16/10]')}>
                             {screenshot ? (
                                 <img
                                     src={screenshot}
@@ -159,7 +160,7 @@ function HeroStage({ project, alt }: { project: Project; alt: string }) {
                                     height={1000}
                                     fetchPriority="high"
                                     decoding="async"
-                                    className="block size-full object-cover object-top"
+                                    className="block h-auto w-full"
                                 />
                             ) : (
                                 <ThemedImage

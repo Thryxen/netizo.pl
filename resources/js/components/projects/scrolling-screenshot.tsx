@@ -1,6 +1,7 @@
 import { ChevronDown } from 'lucide-react';
 import { useScroll, useTransform } from 'motion/react';
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
+import type { CSSProperties } from 'react';
 import { BrowserBar, PLACEHOLDER_DARK, PLACEHOLDER_LIGHT } from '@/components/home/project-frame';
 import { ThemedImage } from '@/components/home/themed-image';
 import { useMotionStyle, useReducedMotionPreference } from '@/components/motion';
@@ -44,7 +45,8 @@ type ScrollingScreenshotProps = {
  * From lg it sticks beside the case study text and scrolls itself with the reader: over the column's height it runs
  * from the top of the site to its bottom (`--scrub`, 0–1 from scroll, moves the screenshot by its overflow,
  * −(100% − 100cqh) of the window, the size container), with a thumb on the right edge showing how far it has got.
- * Under reduced motion it stays put and is a focusable region the reader scrolls themselves.
+ * Under reduced motion it stays put and is a focusable region the reader scrolls themselves. A short page (a screenshot
+ * no taller than the window) gives the window its own ratio: it is shown whole, with nothing to scroll and no thumb.
  *
  * Below lg there is no scrubbing (it would rush past on a phone): the window shows the top of the site, and "Pokaż całą
  * stronę" unfolds the whole screenshot in place, so the page's own scroll walks through it; "Zwiń podgląd" folds it
@@ -60,38 +62,50 @@ export function ScrollingScreenshot({ project, className }: ScrollingScreenshotP
     const reduced = useReducedMotionPreference();
     const isPinned = useMediaQuery(PINNED_QUERY);
     const [isExpanded, setIsExpanded] = useState(false);
-    const [unfolded, setUnfolded] = useState<{ height: number; canExpand: boolean }>({ height: 0, canExpand: false });
+    const [shot, setShot] = useState<{ aspect?: string; height: number; canExpand: boolean; overflows: boolean }>({ height: 0, canExpand: false, overflows: false });
     const { scrollYProgress } = useScroll({ target: trackRef, offset: ['start start', 'end end'] });
     const scrub = useTransform([scrollYProgress], ([progress]: number[]) => (reduced || !isPinned ? 0 : progress));
     const imageUrl = project.fullImageUrl ?? project.thumbnailUrl;
-    const isRegion = reduced && isPinned && imageUrl !== null;
-    const canExpand = !isPinned && unfolded.canExpand;
+    const isRegion = reduced && isPinned && imageUrl !== null && shot.overflows;
+    const canExpand = !isPinned && shot.canExpand;
 
     useMotionStyle(viewportRef, { '--scrub': scrub });
 
-    /** The image's full height at the window's width, and whether the folded window hides part of it. */
+    /**
+     * The image's ratio (the pinned window takes it, up to its height, so a short page is shown whole), its full height
+     * at the window's width, whether the folded window hides part of it and whether the window has anything to scroll.
+     */
     const measure = useCallback((): void => {
         const image = imageRef.current;
+        const viewport = viewportRef.current;
 
-        if (!image) {
+        if (!image?.naturalWidth || !viewport) {
             return;
         }
 
+        const height = (image.offsetWidth * image.naturalHeight) / image.naturalWidth;
         const rem = Number.parseFloat(window.getComputedStyle(document.documentElement).fontSize) || 16;
         const foldedHeight = Math.min(window.innerHeight * FOLDED_VIEWPORT_SHARE, FOLDED_MAX_REM * rem);
 
-        setUnfolded({ height: image.offsetHeight, canExpand: image.offsetHeight > foldedHeight + 1 });
+        setShot({
+            aspect: `${image.naturalWidth} / ${image.naturalHeight}`,
+            height,
+            canExpand: height > foldedHeight + 1,
+            overflows: height > viewport.clientHeight + 1,
+        });
     }, []);
 
     useEffect(() => {
         const image = imageRef.current;
+        const viewport = viewportRef.current;
 
-        if (!image || typeof ResizeObserver === 'undefined') {
+        if (!image || !viewport || typeof ResizeObserver === 'undefined') {
             return;
         }
 
         const observer = new ResizeObserver(measure);
         observer.observe(image);
+        observer.observe(viewport);
 
         return () => observer.disconnect();
     }, [measure]);
@@ -122,11 +136,13 @@ export function ScrollingScreenshot({ project, className }: ScrollingScreenshotP
                     role={isRegion ? 'region' : undefined}
                     aria-label={isRegion ? copy.scrollable(project.title) : undefined}
                     tabIndex={isRegion ? 0 : undefined}
-                    style={canExpand && isExpanded ? { maxHeight: `${unfolded.height}px` } : undefined}
+                    style={{ '--shot-aspect': shot.aspect, maxHeight: canExpand && isExpanded ? `${shot.height}px` : undefined } as CSSProperties}
                     className={cn(
                         'relative overflow-hidden bg-muted',
                         'max-lg:max-h-[min(68svh,34rem)] max-lg:transition-[max-height] max-lg:duration-700 max-lg:ease-expo-out',
-                        'lg:h-[min(calc(100svh-var(--header-height)-7.5rem),46rem)] lg:[container-type:size]',
+                        // Until the image's ratio is known (and without an image) a tall ratio fills the window's full height;
+                        // the explicit width keeps max-height from narrowing the window through the ratio.
+                        'lg:aspect-[var(--shot-aspect,1/10)] lg:max-h-[min(calc(100svh-var(--header-height)-7.5rem),46rem)] lg:w-full lg:[container-type:size]',
                         isRegion && 'overflow-y-auto overscroll-contain focus-visible:outline-2 focus-visible:-outline-offset-2',
                     )}
                 >
@@ -142,7 +158,7 @@ export function ScrollingScreenshot({ project, className }: ScrollingScreenshotP
                                 style={{ transform: 'translateY(calc(var(--scrub, 0) * (100cqh - 100%)))' }}
                                 className="block h-auto w-full lg:min-h-full lg:object-cover lg:object-top lg:will-change-transform"
                             />
-                            {!reduced && (
+                            {!reduced && shot.overflows && (
                                 <span aria-hidden="true" className="pointer-events-none absolute top-2 right-2 bottom-2 hidden w-1 rounded-full bg-black/10 lg:block">
                                     <span
                                         style={{ transform: `translateY(${THUMB_TRAVEL})` }}

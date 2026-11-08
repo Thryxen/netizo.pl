@@ -94,6 +94,9 @@ export function BrowserBar({ url, className }: { url: string; className?: string
  * - the Photo wrapper filling that layer; it is a size container, so the <img> (the whole page at the window's
  *   width, never shorter than the layer) can translate by exactly its overflow: −(100% − 100cqh).
  *
+ * A short page (a screenshot wider than the window) is never cropped: it keeps the window's width at the top
+ * (`object-contain`), and the space below it shows the ScreenshotWash.
+ *
  * The slow scroll only runs with motion allowed (`motion-safe`). It scrolls down in 6 s linear and returns faster.
  */
 function ScreenshotPreview({ src, alt }: { src: string; alt: string }) {
@@ -107,15 +110,16 @@ function ScreenshotPreview({ src, alt }: { src: string; alt: string }) {
 
     return (
         <div ref={windowRef} className="relative aspect-[16/10] overflow-hidden bg-muted">
+            <ScreenshotWash src={src} />
             <div ref={layerRef} className="absolute inset-x-0 top-0 h-[calc(100%+24px)]">
                 <Photo
                     src={src}
                     alt={alt}
                     width={1600}
                     height={1000}
-                    className="size-full [container-type:size]"
+                    className="size-full bg-transparent [container-type:size]"
                     imgClassName={cn(
-                        'h-auto! min-h-full object-top',
+                        'h-auto! min-h-full object-contain object-top',
                         'transition-transform duration-[900ms] ease-expo-out',
                         'motion-safe:group-hover/frame:translate-y-[calc(-100%+100cqh)] motion-safe:group-hover/frame:duration-[6s] motion-safe:group-hover/frame:ease-linear',
                         'motion-safe:group-has-focus-visible/project:translate-y-[calc(-100%+100cqh)] motion-safe:group-has-focus-visible/project:duration-[6s] motion-safe:group-has-focus-visible/project:ease-linear',
@@ -124,4 +128,13 @@ function ScreenshotPreview({ src, alt }: { src: string; alt: string }) {
             </div>
         </div>
     );
+}
+
+/**
+ * The screenshot again, blurred into a wash of the site's colours, behind a screenshot in a fixed-ratio box: where a
+ * short page ends above the box's bottom, it fills the rest instead of the page being cropped at the sides; a long page
+ * covers it whole. Same URL as the screenshot, so no extra download.
+ */
+export function ScreenshotWash({ src }: { src: string }) {
+    return <img src={src} alt="" aria-hidden="true" loading="lazy" decoding="async" className="absolute inset-0 size-full scale-150 object-cover object-bottom blur-2xl" />;
 }

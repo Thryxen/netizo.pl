@@ -1,5 +1,5 @@
 import { Photo } from '@/components/home/photo';
-import { PLACEHOLDER_DARK, PLACEHOLDER_LIGHT } from '@/components/home/project-frame';
+import { PLACEHOLDER_DARK, PLACEHOLDER_LIGHT, ScreenshotWash } from '@/components/home/project-frame';
 import { Section, SectionHeading } from '@/components/home/section';
 import { Button } from '@/components/ui/button';
 import { localized, useCopy } from '@/lib/i18n';
@@ -59,14 +59,17 @@ export function AboutProjectsSection({ projects }: AboutProjectsSectionProps) {
                 {projects.map((project) => (
                     <li key={project.id} className={cn(CARD, 'flex flex-col overflow-hidden')}>
                         {project.thumbnailUrl ? (
-                            <Photo
-                                src={project.thumbnailUrl}
-                                alt=""
-                                width={SCREENSHOT_WIDTH}
-                                height={SCREENSHOT_HEIGHT}
-                                className="aspect-[16/10] border-b border-border"
-                                imgClassName="object-top"
-                            />
+                            <div className="relative aspect-[16/10] overflow-hidden border-b border-border bg-muted">
+                                <ScreenshotWash src={project.thumbnailUrl} />
+                                <Photo
+                                    src={project.thumbnailUrl}
+                                    alt=""
+                                    width={SCREENSHOT_WIDTH}
+                                    height={SCREENSHOT_HEIGHT}
+                                    className="size-full bg-transparent"
+                                    imgClassName="h-auto! min-h-full object-contain object-top"
+                                />
+                            </div>
                         ) : (
                             <div aria-hidden="true" className="relative aspect-[16/10] overflow-hidden border-b border-border bg-muted">
                                 <img src={PLACEHOLDER_LIGHT} alt="" loading="lazy" decoding="async" className="size-full object-cover dark:hidden" />
