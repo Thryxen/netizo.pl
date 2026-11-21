@@ -5,31 +5,48 @@
  * five failed attempts, the logs page reads 19 kinds of game logs. The FAQ quotes the same figures.
  */
 
+import type { BentoService } from '@/components/home/bento/bento-tile';
 import type { ServiceCopy } from '@/components/services/service-copy';
 import { localized } from '@/lib/i18n';
+import type { LogoName } from './metin2cms-images';
+
+/** A screen of a deployment: `bar` is what the window's bar shows (the address, or an e-mail's subject), `file` its image (screen-{file}.webp; null for the clip of the home page). */
+type DeploymentScreen = { key: string; bar: string; file: string | null };
 
 /**
- * The screens of the deployment's showcase, in the order of `caseStudy.groups` and their `screens`: the address the
- * browser window shows and the screen's file (screen-{file}.webp); `home` is the clip of the home page.
+ * The deployments of the showcase, in the order of `caseStudy.deployments`, each with its screens in the order of that
+ * entry's `groups` and their `screens`: the site and player panel, the admin panel, the e-mails it sends.
  */
-export const SHOWCASE_SCREENS = [
-    [
-        { key: 'home', path: '', file: null },
-        { key: 'ranking', path: 'ranking', file: 'site-ranking' },
-        { key: 'top-up', path: 'doladuj', file: 'site-top-up' },
-        { key: 'support', path: 'support', file: 'site-support' },
-    ],
-    [
-        { key: 'dashboard', path: 'admin', file: 'admin-dashboard' },
-        { key: 'accounts', path: 'admin/konta', file: 'admin-accounts' },
-        { key: 'character', path: 'admin/postacie/1', file: 'admin-character' },
-        { key: 'logs', path: 'admin/logi', file: 'admin-logs' },
-        { key: 'bans', path: 'admin/bany', file: 'admin-bans' },
-        { key: 'payments', path: 'admin/doladowania', file: 'admin-top-up' },
-        { key: 'news', path: 'admin/aktualnosci', file: 'admin-news' },
-        { key: 'tickets', path: 'admin/support', file: 'admin-support' },
-    ],
-] as const;
+export const DEPLOYMENTS: { key: string; logo: LogoName; groups: DeploymentScreen[][] }[] = [
+    {
+        key: 'sherkan',
+        logo: 'sherkan',
+        groups: [
+            [
+                { key: 'home', bar: 'sherkan', file: null },
+                { key: 'ranking', bar: 'sherkan/ranking', file: 'site-ranking' },
+                { key: 'top-up', bar: 'sherkan/doladuj', file: 'site-top-up' },
+                { key: 'support', bar: 'sherkan/support', file: 'site-support' },
+            ],
+            [
+                { key: 'dashboard', bar: 'sherkan/admin', file: 'admin-dashboard' },
+                { key: 'accounts', bar: 'sherkan/admin/konta', file: 'admin-accounts' },
+                { key: 'character', bar: 'sherkan/admin/postacie/1', file: 'admin-character' },
+                { key: 'logs', bar: 'sherkan/admin/logi', file: 'admin-logs' },
+                { key: 'bans', bar: 'sherkan/admin/bany', file: 'admin-bans' },
+                { key: 'payments', bar: 'sherkan/admin/doladowania', file: 'admin-top-up' },
+                { key: 'news', bar: 'sherkan/admin/aktualnosci', file: 'admin-news' },
+                { key: 'tickets', bar: 'sherkan/admin/support', file: 'admin-support' },
+            ],
+            [
+                { key: 'mail-confirmation', bar: 'Potwierdź swoje konto na Sherkan', file: 'mail-account-confirmation' },
+                { key: 'mail-password', bar: 'Ustaw nowe hasło na Sherkan', file: 'mail-password-reset' },
+                { key: 'mail-pin', bar: 'Twój nowy PIN na Sherkan', file: 'mail-new-pin' },
+                { key: 'mail-change', bar: 'Potwierdź zmianę hasła na Sherkan', file: 'mail-password-change' },
+            ],
+        ],
+    },
+];
 
 export type Metin2CmsCopy = {
     /** Beside the logo in the header, and the breadcrumb's last crumb. */
@@ -43,7 +60,8 @@ export type Metin2CmsCopy = {
         chips: { deploy: string; deployDetail: string; cache: string; cacheDetail: string; payment: string; paymentDetail: string; now: string };
     };
     header: { system: string; features: string; performance: string; caseStudy: string; faq: string };
-    system: { title: string; lead: string; parts: { title: string; description: string; points: string[] }[] };
+    /** The six parts of the system, one per tile of its bento; `tags` are what the part covers. */
+    system: { title: string; lead: string; tiles: Record<'site' | 'player' | 'payments' | 'support' | 'admin' | 'logs', BentoService> };
     features: {
         title: string;
         lead: string;
@@ -74,15 +92,22 @@ export type Metin2CmsCopy = {
     };
     /** `defence`: the system's answer in a few words, beside a shield under the sentence. */
     threats: { title: string; lead: string; items: { threat: string; defence: string; answer: string }[] };
+    /** Whose logos the page shows under the hero. */
+    trusted: { title: string; lead: string };
     caseStudy: {
         title: string;
         lead: string;
-        facts: { label: string; value: string }[];
         note: string;
-        /** Names the tab list. */
+        /** Names the list of deployments (shown from the second one on). */
+        choose: string;
+        /** Names a deployment's list of screens. */
         pick: string;
-        /** The screens of the showcase in two groups (SHOWCASE_SCREENS): the site and player panel, the admin panel. */
-        groups: { title: string; screens: { label: string; description: string }[] }[];
+        /** One entry per deployment (DEPLOYMENTS): a sentence on it, its facts and its screens in groups. */
+        deployments: {
+            description: string;
+            facts: { label: string; value: string }[];
+            groups: { title: string; screens: { label: string; description: string }[] }[];
+        }[];
     };
     launch: { title: string; lead: string; steps: { title: string; description: string }[] };
     faq: { title: string };
@@ -116,27 +141,19 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
                 now: 'teraz',
             },
         },
-        header: { system: 'System', features: 'Funkcje', performance: 'Wydajność', caseStudy: 'Realizacja', faq: 'FAQ' },
+        header: { system: 'System', features: 'Funkcje', performance: 'Wydajność', caseStudy: 'Wdrożenia', faq: 'FAQ' },
+        trusted: { title: 'Zaufali nam', lead: 'Serwery, dla których budujemy strony i panele.' },
         system: {
             title: 'Co dostajesz w standardzie',
-            lead: 'Każde wdrożenie ma te trzy części. Gracz loguje się tym samym loginem, hasłem i PIN-em co w grze, a system działa na Twojej bazie, bez kopiowania kont.',
-            parts: [
-                {
-                    title: 'Strona serwera',
-                    description: 'Pierwsze miejsce, które widzi nowy gracz: prezentacja serwera, pobieranie klienta i ranking.',
-                    points: ['Aktualności z okładkami i kalendarz eventów', 'Ranking graczy i gildii', 'Pobieranie klienta z kilku źródeł', 'Regulamin i polityka edytowane w panelu'],
-                },
-                {
-                    title: 'Panel gracza',
-                    description: 'Konto gracza bez pisania do administratora: rejestracja, doładowanie i zmiana danych.',
-                    points: ['Rejestracja z potwierdzeniem e-mail', 'Doładowania z płatnością online', 'Zmiana hasła, PIN-u i adresu e-mail', 'Zgłoszenia do supportu z załącznikami'],
-                },
-                {
-                    title: 'Panel administratora',
-                    description: 'Zarządzanie serwerem z przeglądarki, bez zaglądania do bazy.',
-                    points: ['Konta, postacie i ekwipunek', 'Logi gry i graf powiązań kont', 'Bany kont i sprzętu (HWID)', 'Wpłaty, pakiety i promocje'],
-                },
-            ],
+            lead: 'Sześć części jednego systemu. Gracz loguje się tym samym loginem, hasłem i PIN-em co w grze, a wszystko działa na Twojej bazie, bez kopiowania kont.',
+            tiles: {
+                site: { title: 'Strona serwera', description: 'Prezentacja serwera, ranking, aktualności i pobieranie klienta, renderowane po stronie serwera pod SEO.', tags: ['Ranking', 'Aktualności', 'Eventy', 'Pobieranie', 'SSR'] },
+                player: { title: 'Panel gracza', description: 'Rejestracja z potwierdzeniem e-mail, PIN, zmiana danych i lista postaci.', tags: ['Rejestracja', 'PIN', 'hCaptcha', 'E-maile'] },
+                payments: { title: 'Doładowania', description: 'Pakiety monet, promocje czasowe i płatności online.', tags: ['CashBill', 'BLIK', 'Promocje'] },
+                support: { title: 'Support', description: 'Zgłoszenia graczy z kategorią, załącznikami i przydzielonym administratorem.', tags: ['Tickety', 'Załączniki'] },
+                admin: { title: 'Panel administratora', description: 'Konta, postacie z ekwipunkiem, wpłaty i treści strony w jednym panelu, bez zaglądania do bazy.', tags: ['Pulpit', 'Konta', 'Postacie', 'Wpłaty', 'Aktualności'] },
+                logs: { title: 'Logi i bany', description: 'Logi gry w 19 kategoriach, graf powiązań kont i blokady sprzętu.', tags: ['Graf powiązań', 'HWID', 'Multikonta', 'Bany'] },
+            },
         },
         features: {
             title: 'Funkcje w standardzie i na zamówienie',
@@ -145,7 +162,7 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
             groups: [
                 {
                     title: 'Dla gracza',
-                    items: ['Logowanie kontem z gry', 'Rejestracja z hCaptcha i potwierdzeniem e-mail', 'Odzyskiwanie hasła i PIN-u', 'Doładowania przez CashBill', 'Ranking graczy i gildii', 'Zgłoszenia do supportu', 'Zmiana danych konta'],
+                    items: ['Logowanie kontem z gry', 'Rejestracja z hCaptcha i potwierdzeniem e-mail', 'Odzyskiwanie hasła i PIN-u', 'Doładowania przez CashBill', 'Ranking graczy i gildii', 'Zgłoszenia do supportu', 'Zmiana danych konta', 'Maile systemowe w wyglądzie serwera'],
                 },
                 {
                     title: 'Dla administratora',
@@ -204,36 +221,51 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
             ],
         },
         caseStudy: {
-            title: 'Wdrożenie: serwer Sherkan',
-            lead: 'Oldschoolowy serwer Metin2, dla którego zbudowaliśmy stronę, panel gracza i panel administratora. Wygląd jest w całości jego: grafiki, kolory i animowany nagłówek powstały pod ten projekt. Wybierz ekran i zobacz system w działaniu.',
-            facts: [
-                { label: 'Zakres', value: 'Strona, panel gracza, panel administratora' },
-                { label: 'Płatności', value: 'CashBill' },
-                { label: 'Na zamówienie', value: 'Graf powiązań kont, reflinki, kalendarz eventów' },
-            ],
+            title: 'Wdrożenia',
+            lead: 'Zobacz system na działającym serwerze: stronę, panele i maile, które wysyła.',
             note: 'Dane graczy widoczne na nagraniu i zrzutach są zmyślone.',
+            choose: 'Wdrożenia',
             pick: 'Ekrany wdrożenia',
-            groups: [
+            deployments: [
                 {
-                    title: 'Strona i panel gracza',
-                    screens: [
-                        { label: 'Strona główna', description: 'Animowany nagłówek, ranking, aktualności, kalendarz eventów i panel gracza. Nagranie strony głównej.' },
-                        { label: 'Ranking', description: 'Stu najlepszych graczy i gildie, z klasą, poziomem i królestwem.' },
-                        { label: 'Doładowania', description: 'Pakiety monet z bonusem i płatność online. Monety trafiają na konto od razu po wpłacie.' },
-                        { label: 'Support', description: 'Zgłoszenia gracza z kategorią i załącznikami, z odpowiedziami w jednym wątku.' },
+                    description: 'Oldschoolowy serwer Metin2, dla którego zbudowaliśmy stronę i panel.',
+                    facts: [
+                        { label: 'Zakres', value: 'Strona, panel gracza, panel administratora' },
+                        { label: 'Płatności', value: 'CashBill' },
+                        { label: 'Na zamówienie', value: 'Graf powiązań kont, reflinki, kalendarz eventów' },
                     ],
-                },
-                {
-                    title: 'Panel administratora',
-                    screens: [
-                        { label: 'Pulpit', description: 'Konta, gracze online z ostatniej doby i zarobki z doładowań na jednym ekranie.' },
-                        { label: 'Konta', description: 'Wyszukiwanie po loginie lub e-mailu, status konta i ostatnie logowanie.' },
-                        { label: 'Postać i ekwipunek', description: 'Statystyki, ekwipunek i magazyn postaci, z opisami przedmiotów jak w kliencie gry.' },
-                        { label: 'Logi i powiązania', description: 'Handel, sklepy i PvP na jednym grafie, ze wspólnym IP i sprzętem. Multikonto widać od razu.' },
-                        { label: 'Bany', description: 'Blokada konta albo całego komputera (HWID), z podglądem powiązanych kont.' },
-                        { label: 'Wpłaty', description: 'Każda wpłata ze statusem u operatora, pakiety monet i promocje czasowe.' },
-                        { label: 'Aktualności', description: 'Wpisy z edytorem tekstu i okładką, widoczne na stronie głównej.' },
-                        { label: 'Zgłoszenia', description: 'Zgłoszenia graczy w kolejce, z kategorią, załącznikami i przydzielonym administratorem.' },
+                    groups: [
+                        {
+                            title: 'Strona i panel gracza',
+                            screens: [
+                                { label: 'Strona główna', description: 'Animowany nagłówek, ranking, aktualności, kalendarz eventów i panel gracza. Nagranie strony głównej.' },
+                                { label: 'Ranking', description: 'Stu najlepszych graczy i gildie, z klasą, poziomem i królestwem.' },
+                                { label: 'Doładowania', description: 'Pakiety monet z bonusem i płatność online. Monety trafiają na konto od razu po wpłacie.' },
+                                { label: 'Support', description: 'Zgłoszenia gracza z kategorią i załącznikami, z odpowiedziami w jednym wątku.' },
+                            ],
+                        },
+                        {
+                            title: 'Panel administratora',
+                            screens: [
+                                { label: 'Pulpit', description: 'Konta, gracze online z ostatniej doby i zarobki z doładowań na jednym ekranie.' },
+                                { label: 'Konta', description: 'Wyszukiwanie po loginie lub e-mailu, status konta i ostatnie logowanie.' },
+                                { label: 'Postać i ekwipunek', description: 'Statystyki, ekwipunek i magazyn postaci, z opisami przedmiotów jak w kliencie gry.' },
+                                { label: 'Logi i powiązania', description: 'Handel, sklepy i PvP na jednym grafie, ze wspólnym IP i sprzętem. Multikonto widać od razu.' },
+                                { label: 'Bany', description: 'Blokada konta albo całego komputera (HWID), z podglądem powiązanych kont.' },
+                                { label: 'Wpłaty', description: 'Każda wpłata ze statusem u operatora, pakiety monet i promocje czasowe.' },
+                                { label: 'Aktualności', description: 'Wpisy z edytorem tekstu i okładką, widoczne na stronie głównej.' },
+                                { label: 'Zgłoszenia', description: 'Zgłoszenia graczy w kolejce, z kategorią, załącznikami i przydzielonym administratorem.' },
+                            ],
+                        },
+                        {
+                            title: 'E-maile',
+                            screens: [
+                                { label: 'Potwierdzenie konta', description: 'Po rejestracji: PIN do gry i przycisk, który aktywuje konto.' },
+                                { label: 'Nowe hasło', description: 'Link do ustawienia nowego hasła, ważny 60 minut.' },
+                                { label: 'Nowy PIN', description: 'Wylosowany PIN po prośbie o przypomnienie danych.' },
+                                { label: 'Zmiana hasła', description: 'Potwierdzenie zmiany hasła z ustawień konta, z ostrzeżeniem dla właściciela.' },
+                            ],
+                        },
                     ],
                 },
             ],
@@ -281,27 +313,19 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
                 now: 'now',
             },
         },
-        header: { system: 'System', features: 'Features', performance: 'Performance', caseStudy: 'Case study', faq: 'FAQ' },
+        header: { system: 'System', features: 'Features', performance: 'Performance', caseStudy: 'Deployments', faq: 'FAQ' },
+        trusted: { title: 'Trusted by', lead: 'Servers we build websites and panels for.' },
         system: {
             title: 'What’s included',
-            lead: 'Every deployment has these three parts. A player signs in with the same login, password and PIN as in the game, and the system runs on your database, with no copies of the accounts.',
-            parts: [
-                {
-                    title: 'Server website',
-                    description: 'The first place a new player sees: what the server is, the client download and the ranking.',
-                    points: ['News with covers and an event calendar', 'Player and guild rankings', 'Client downloads from several sources', 'Terms and privacy policy edited in the panel'],
-                },
-                {
-                    title: 'Player panel',
-                    description: 'A player account without writing to an admin: sign-up, top-up and changing the details.',
-                    points: ['Sign-up with email confirmation', 'Top-ups with online payment', 'Password, PIN and email changes', 'Support requests with attachments'],
-                },
-                {
-                    title: 'Admin panel',
-                    description: 'Running the server from a browser, without opening the database.',
-                    points: ['Accounts, characters and equipment', 'Game logs and the account connection graph', 'Account and hardware (HWID) bans', 'Payments, packages and promotions'],
-                },
-            ],
+            lead: 'Six parts of one system. A player signs in with the same login, password and PIN as in the game, and everything runs on your database, with no copies of the accounts.',
+            tiles: {
+                site: { title: 'Server website', description: 'What the server is, the ranking, the news and the client download, server-rendered for SEO.', tags: ['Ranking', 'News', 'Events', 'Downloads', 'SSR'] },
+                player: { title: 'Player panel', description: 'Sign-up with email confirmation, the PIN, account changes and the list of characters.', tags: ['Sign-up', 'PIN', 'hCaptcha', 'E-mails'] },
+                payments: { title: 'Top-ups', description: 'Coin packages, time-limited promotions and online payments.', tags: ['CashBill', 'BLIK', 'Promotions'] },
+                support: { title: 'Support', description: 'Player requests with a category, attachments and the admin they are assigned to.', tags: ['Tickets', 'Attachments'] },
+                admin: { title: 'Admin panel', description: 'Accounts, characters with their equipment, payments and the site’s content in one panel, without opening the database.', tags: ['Dashboard', 'Accounts', 'Characters', 'Payments', 'News'] },
+                logs: { title: 'Logs and bans', description: 'Game logs in 19 categories, the account connection graph and hardware bans.', tags: ['Connection graph', 'HWID', 'Multi-accounts', 'Bans'] },
+            },
         },
         features: {
             title: 'Features included and made to order',
@@ -310,7 +334,7 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
             groups: [
                 {
                     title: 'For the player',
-                    items: ['Sign-in with the game account', 'Sign-up with hCaptcha and email confirmation', 'Password and PIN recovery', 'Top-ups through CashBill', 'Player and guild rankings', 'Support requests', 'Account detail changes'],
+                    items: ['Sign-in with the game account', 'Sign-up with hCaptcha and email confirmation', 'Password and PIN recovery', 'Top-ups through CashBill', 'Player and guild rankings', 'Support requests', 'Account detail changes', 'System e-mails in the server’s look'],
                 },
                 {
                     title: 'For the admin',
@@ -369,36 +393,51 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
             ],
         },
         caseStudy: {
-            title: 'A deployment: the Sherkan server',
-            lead: 'An old-school Metin2 server for which we built the website, the player panel and the admin panel. The look is entirely its own: the art, the colors and the animated header were made for this project. Pick a screen and see the system at work.',
-            facts: [
-                { label: 'Scope', value: 'Website, player panel, admin panel' },
-                { label: 'Payments', value: 'CashBill' },
-                { label: 'Made to order', value: 'Account connection graph, referral links, event calendar' },
-            ],
+            title: 'Deployments',
+            lead: 'See the system on a running server: the website, the panels and the e-mails it sends.',
             note: 'The player data in the clip and the screenshots is invented.',
+            choose: 'Deployments',
             pick: 'Screens of the deployment',
-            groups: [
+            deployments: [
                 {
-                    title: 'Website and player panel',
-                    screens: [
-                        { label: 'Home page', description: 'The animated header, the ranking, the news, the event calendar and the player panel. A recording of the home page.' },
-                        { label: 'Ranking', description: 'The hundred best players and the guilds, with class, level and kingdom.' },
-                        { label: 'Top-ups', description: 'Coin packages with a bonus and online payment. The coins reach the account as soon as the payment clears.' },
-                        { label: 'Support', description: 'A player’s requests with a category and attachments, the replies in one thread.' },
+                    description: 'An old-school Metin2 server we built the website and the panel for.',
+                    facts: [
+                        { label: 'Scope', value: 'Website, player panel, admin panel' },
+                        { label: 'Payments', value: 'CashBill' },
+                        { label: 'Made to order', value: 'Account connection graph, referral links, event calendar' },
                     ],
-                },
-                {
-                    title: 'Admin panel',
-                    screens: [
-                        { label: 'Dashboard', description: 'Accounts, players online over the last day and top-up earnings on one screen.' },
-                        { label: 'Accounts', description: 'Search by login or email, the account’s status and its last login.' },
-                        { label: 'Character and equipment', description: 'A character’s stats, equipment and storage, with item descriptions as in the game client.' },
-                        { label: 'Logs and connections', description: 'Trades, shops and PvP on one graph, with shared IPs and hardware. A multi-account shows at once.' },
-                        { label: 'Bans', description: 'Block an account or a whole computer (HWID), with a view of the connected accounts.' },
-                        { label: 'Payments', description: 'Every payment with its status at the provider, coin packages and time-limited promotions.' },
-                        { label: 'News', description: 'Posts with a text editor and a cover, shown on the home page.' },
-                        { label: 'Requests', description: 'Player requests in a queue, with a category, attachments and the admin they are assigned to.' },
+                    groups: [
+                        {
+                            title: 'Website and player panel',
+                            screens: [
+                                { label: 'Home page', description: 'The animated header, the ranking, the news, the event calendar and the player panel. A recording of the home page.' },
+                                { label: 'Ranking', description: 'The hundred best players and the guilds, with class, level and kingdom.' },
+                                { label: 'Top-ups', description: 'Coin packages with a bonus and online payment. The coins reach the account as soon as the payment clears.' },
+                                { label: 'Support', description: 'A player’s requests with a category and attachments, the replies in one thread.' },
+                            ],
+                        },
+                        {
+                            title: 'Admin panel',
+                            screens: [
+                                { label: 'Dashboard', description: 'Accounts, players online over the last day and top-up earnings on one screen.' },
+                                { label: 'Accounts', description: 'Search by login or email, the account’s status and its last login.' },
+                                { label: 'Character and equipment', description: 'A character’s stats, equipment and storage, with item descriptions as in the game client.' },
+                                { label: 'Logs and connections', description: 'Trades, shops and PvP on one graph, with shared IPs and hardware. A multi-account shows at once.' },
+                                { label: 'Bans', description: 'Block an account or a whole computer (HWID), with a view of the connected accounts.' },
+                                { label: 'Payments', description: 'Every payment with its status at the provider, coin packages and time-limited promotions.' },
+                                { label: 'News', description: 'Posts with a text editor and a cover, shown on the home page.' },
+                                { label: 'Requests', description: 'Player requests in a queue, with a category, attachments and the admin they are assigned to.' },
+                            ],
+                        },
+                        {
+                            title: 'E-mails',
+                            screens: [
+                                { label: 'Account confirmation', description: 'After sign-up: the game PIN and the button that activates the account.' },
+                                { label: 'New password', description: 'A link to set a new password, valid for 60 minutes.' },
+                                { label: 'New PIN', description: 'The PIN drawn after a request to recover the account.' },
+                                { label: 'Password change', description: 'Confirms a password change from the account settings, with a warning for the owner.' },
+                            ],
+                        },
                     ],
                 },
             ],

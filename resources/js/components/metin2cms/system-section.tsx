@@ -1,47 +1,63 @@
-import { Check } from 'lucide-react';
+import { BentoStyles } from '@/components/home/bento/bento-styles';
 import { bleedClassName, Rivet, Section, SectionHeading } from '@/components/home/section';
 import { useCopy } from '@/lib/i18n';
 import { useMetin2CmsSections } from '@/lib/sections';
 import { cn } from '@/lib/utils';
+import { AdminTile } from './bento/admin-tile';
+import { LogsTile } from './bento/logs-tile';
+import { PaymentsTile } from './bento/payments-tile';
+import { PlayerTile } from './bento/player-tile';
+import { SiteTile } from './bento/site-tile';
+import { SupportTile } from './bento/support-tile';
 import { METIN2CMS_COPY } from './metin2cms-copy';
-import { METIN2CMS_VIGNETTES } from './metin2cms-vignettes';
 
 /**
- * Co dostajesz (#system): the three parts of the system on the shared-border grid rail to rail. Each cell shows its
- * part in use (a vignette on a muted stage, as on the service pages), then what it is and what it covers. The grid
- * leaves its bottom hairline to the next section.
+ * Co dostajesz w standardzie (#system): the six parts of the system as a live bento on the shared-border grid, rail to
+ * rail, in the home page's bento (its tile shell, motion and scoped styles), laid out the same way:
+ *
+ *   lg (4 columns)                              md (2 columns)           below md: one column, same order
+ *   [ Site 2×2    ][ Player 1×2 ][ Payments ]   [ Site 2×1            ]
+ *   [ Site        ][ Player     ][ Support  ]   [ Player  ][ Payments ]
+ *   [ Admin 2×1   ][ Logs 2×1               ]   [ Support ][ Admin    ]
+ *                                               [ Logs 2×1            ]
+ *
+ * Each tile plays its part while in view (a page filling in, a sign-up, a top-up, a ticket, the dashboard, the
+ * connection graph) and shows the finished frame without JS and under reduced motion. Where a row hairline meets a
+ * rail, the tile below it carries the rivet; the bottom edge is the next section's hairline.
  */
 export function SystemSection() {
     const copy = useCopy(METIN2CMS_COPY).system;
     const id = useMetin2CmsSections().system;
+    const { tiles } = copy;
 
     return (
         <Section id={id} labelledBy={`${id}-heading`} containerClassName="pb-0 md:pb-0">
             <SectionHeading id={`${id}-heading`} title={copy.title} lead={copy.lead} />
 
+            <BentoStyles />
+
             <div className={cn('relative border-t border-border', bleedClassName)}>
                 <Rivet side="left" />
                 <Rivet side="right" />
-                <ul className="grid gap-px bg-border lg:grid-cols-3">
-                    {copy.parts.map((part, index) => {
-                        const Vignette = METIN2CMS_VIGNETTES[index];
-
-                        return (
-                            <li key={part.title} className="flex min-w-0 flex-col bg-background px-4 pt-4 pb-8 sm:px-6 sm:pt-6 lg:px-7 lg:pt-7 lg:pb-9">
-                                <Vignette />
-                                <h3 className="mt-6 text-lg font-semibold tracking-tight text-balance sm:text-xl">{part.title}</h3>
-                                <p className="mt-2 max-w-[44ch] leading-relaxed text-pretty text-muted-foreground">{part.description}</p>
-                                <ul className="mt-5 flex flex-col gap-2.5 text-[0.9375rem]">
-                                    {part.points.map((point) => (
-                                        <li key={point} className="flex items-start gap-2.5">
-                                            <Check aria-hidden="true" className="mt-1 size-4 shrink-0" />
-                                            {point}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </li>
-                        );
-                    })}
+                <ul className="grid gap-px bg-border md:grid-cols-2 lg:auto-rows-[minmax(20rem,auto)] lg:grid-cols-4">
+                    <SiteTile service={tiles.site} />
+                    <PlayerTile service={tiles.player} rivets={[{ side: 'left', className: 'lg:hidden' }]} />
+                    <PaymentsTile service={tiles.payments} rivets={[{ side: 'right', className: 'lg:hidden' }]} />
+                    <SupportTile
+                        service={tiles.support}
+                        rivets={[
+                            { side: 'left', className: 'lg:hidden' },
+                            { side: 'right', className: 'md:hidden lg:block' },
+                        ]}
+                    />
+                    <AdminTile
+                        service={tiles.admin}
+                        rivets={[
+                            { side: 'right', className: 'lg:hidden' },
+                            { side: 'left', className: 'md:hidden lg:block' },
+                        ]}
+                    />
+                    <LogsTile service={tiles.logs} rivets={[{ side: 'left', className: 'lg:hidden' }, { side: 'right' }]} />
                 </ul>
             </div>
         </Section>

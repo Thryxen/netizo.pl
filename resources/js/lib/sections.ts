@@ -180,22 +180,24 @@ export function useLesznoSections(): Record<LesznoSection, string> {
 /** The Metin2 CMS page (/metin2cms); its FAQ is `serviceSections.faq` and its contact section the home page's. */
 export const metin2CmsSections = localized({
     pl: {
+        trusted: 'zaufali-nam',
         system: 'system',
         features: 'funkcje',
         pillars: 'fundamenty',
         performance: 'wydajnosc',
         threats: 'bezpieczenstwo',
-        caseStudy: 'realizacja',
-        launch: 'wdrozenie',
+        caseStudy: 'wdrozenia',
+        launch: 'proces',
     },
     en: {
+        trusted: 'trusted-by',
         system: 'system',
         features: 'features',
         pillars: 'foundations',
         performance: 'performance',
         threats: 'security',
-        caseStudy: 'case-study',
-        launch: 'launch',
+        caseStudy: 'deployments',
+        launch: 'process',
     },
 });
 

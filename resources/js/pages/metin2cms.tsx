@@ -13,6 +13,7 @@ import { PillarsSection } from '@/components/metin2cms/pillars-section';
 import { ShowcaseSection } from '@/components/metin2cms/showcase-section';
 import { SystemSection } from '@/components/metin2cms/system-section';
 import { ThreatsSection } from '@/components/metin2cms/threats-section';
+import { TrustedSection } from '@/components/metin2cms/trusted-section';
 import { MotionRoot } from '@/components/motion/motion-root';
 import { ServiceFaqSection } from '@/components/services/service-faq-section';
 import { ServiceHero } from '@/components/services/service-hero';
@@ -27,10 +28,10 @@ type Metin2CmsPageProps = { faq: FaqItem[] };
 
 /**
  * Metin2 CMS (/metin2cms, /en/metin2cms): the ready-made system for Metin2 private servers, framed like the service
- * pages, with an ink drawing of the game's own models as its hero. The hero, the three parts of the system, what is
+ * pages, with an ink drawing of the game's own models as its hero. The hero, whose servers trust it, the three parts of the system, what is
  * included and what we add to order, the four foundations as the game's classes, how little the website asks of the
- * game database, the threats it answers, the four steps to launch, and only then the first
- * deployment in a browser window as wide as the page, the FAQ and the home page's contact section.
+ * game database, the threats it answers, the four steps to launch, and only then the deployments in
+ * one compact card, the FAQ and the home page's contact section.
  */
 export default function Metin2Cms({ faq }: Metin2CmsPageProps) {
     const copy = useCopy(METIN2CMS_COPY);
@@ -51,6 +52,7 @@ export default function Metin2Cms({ faq }: Metin2CmsPageProps) {
                         area={copy.hero.area}
                         secondary={{ label: copy.hero.secondary, href: `#${sections.system}` }}
                     />
+                    <TrustedSection />
                     <SystemSection />
                     <FeaturesSection />
                     <PillarsSection />
