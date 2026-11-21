@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LegalPageController;
 use App\Http\Controllers\LesznoController;
+use App\Http\Controllers\Metin2CmsController;
 use App\Http\Controllers\NewsletterSubscriptionController;
 use App\Http\Controllers\PartnerApplicationController;
 use App\Http\Controllers\PartnerProgramController;
@@ -28,6 +29,7 @@ Route::get('/aplikacje-webowe', [ServicePageController::class, 'apps'])->name('s
 Route::get('/aplikacje-mobilne', [ServicePageController::class, 'mobile'])->name('services.mobile');
 Route::get('/automatyzacja-ai', [ServicePageController::class, 'ai'])->name('services.ai');
 Route::get('/devops-i-chmura', [ServicePageController::class, 'devops'])->name('services.devops');
+Route::get('/metin2cms', [Metin2CmsController::class, 'index'])->name('metin2cms');
 Route::get('/partnerzy', [PartnerProgramController::class, 'index'])->name('partners');
 Route::get('/partnerzy/regulamin', [LegalPageController::class, 'partnerTerms'])->name('partners.terms');
 Route::get('/o-nas', [AboutController::class, 'index'])->name('about');
@@ -53,6 +55,7 @@ Route::prefix('en')->name('en.')->group(function () {
     Route::get('/mobile-apps', [ServicePageController::class, 'mobile'])->name('services.mobile');
     Route::get('/ai-automation', [ServicePageController::class, 'ai'])->name('services.ai');
     Route::get('/devops-cloud', [ServicePageController::class, 'devops'])->name('services.devops');
+    Route::get('/metin2cms', [Metin2CmsController::class, 'index'])->name('metin2cms');
     Route::get('/partners', [PartnerProgramController::class, 'index'])->name('partners');
     Route::get('/partners/terms', [LegalPageController::class, 'partnerTerms'])->name('partners.terms');
     Route::get('/about', [AboutController::class, 'index'])->name('about');

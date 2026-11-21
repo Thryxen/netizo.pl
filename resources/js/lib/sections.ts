@@ -176,3 +176,32 @@ export type LesznoSection = keyof (typeof lesznoSections)['pl'];
 export function useLesznoSections(): Record<LesznoSection, string> {
     return lesznoSections[useLocale()];
 }
+
+/** The Metin2 CMS page (/metin2cms); its FAQ is `serviceSections.faq` and its contact section the home page's. */
+export const metin2CmsSections = localized({
+    pl: {
+        system: 'system',
+        features: 'funkcje',
+        pillars: 'fundamenty',
+        performance: 'wydajnosc',
+        threats: 'bezpieczenstwo',
+        caseStudy: 'realizacja',
+        launch: 'wdrozenie',
+    },
+    en: {
+        system: 'system',
+        features: 'features',
+        pillars: 'foundations',
+        performance: 'performance',
+        threats: 'security',
+        caseStudy: 'case-study',
+        launch: 'launch',
+    },
+});
+
+export type Metin2CmsSection = keyof (typeof metin2CmsSections)['pl'];
+
+/** Anchor ids of the Metin2 CMS page's sections in the language of the current page. */
+export function useMetin2CmsSections(): Record<Metin2CmsSection, string> {
+    return metin2CmsSections[useLocale()];
+}

@@ -56,6 +56,8 @@ type ServiceHeroProps = {
     contactTab?: ContactTab;
     /** What sits beside the phone number in place of where we work ("Leszno, cała Polska", Leszno linking to its page). */
     area?: ReactNode;
+    /** The second button in place of the way to the pricing (a page without tiers leads to another of its sections). */
+    secondary?: { label: string; href: string };
 };
 
 /**
@@ -64,7 +66,7 @@ type ServiceHeroProps = {
  * to call and where we work; on the right the service's photo scene. Under it four figures on the shared-border grid:
  * what the service costs and how long it takes.
  */
-export function ServiceHero({ copy: service, scene, trail = [], contactTab = 'brief', area }: ServiceHeroProps) {
+export function ServiceHero({ copy: service, scene, trail = [], contactTab = 'brief', area, secondary }: ServiceHeroProps) {
     const copy = useCopy(COPY);
     const { openContact } = useHomeUi();
     const sections = useServiceSections();
@@ -118,7 +120,7 @@ export function ServiceHero({ copy: service, scene, trail = [], contactTab = 'br
                                 {hero.quote}
                             </Button>
                             <Button size="lg" variant="outline" className="max-md:h-11" asChild>
-                                <a href={`#${sections.pricing}`}>{copy.pricing}</a>
+                                <a href={secondary?.href ?? `#${sections.pricing}`}>{secondary?.label ?? copy.pricing}</a>
                             </Button>
                         </div>
                         <p data-hero-rise="" style={riseDelay(2)} className="mt-3.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[0.9375rem] text-muted-foreground md:mt-6">

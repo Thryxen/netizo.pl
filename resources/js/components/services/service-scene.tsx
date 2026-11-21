@@ -14,7 +14,7 @@ const PHASE_MS = [700, 1300, 1300, 3600] as const;
  * Before the loop has started, under the inline script's `html.js` gate, the chips wait hidden, so the first round plays
  * from its start instead of the static frame flashing first. SSR, no JS and reduced motion show the static frame.
  */
-const SCENE_CSS = `
+export const SCENE_CSS = `
 @media screen and (prefers-reduced-motion: no-preference) {
     .js [data-service-scene]:not([data-started]) [data-service-chip] { opacity: 0; }
 }
