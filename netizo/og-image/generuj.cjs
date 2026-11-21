@@ -18,6 +18,9 @@
  *   og-netizo-online-stores-en.jpg, og-netizo-aplikacje-webowe.jpg, og-netizo-web-applications-en.jpg,
  *   og-netizo-aplikacje-mobilne.jpg, og-netizo-mobile-apps-en.jpg, og-netizo-automatyzacja-ai.jpg,
  *   og-netizo-ai-automation-en.jpg, og-netizo-devops-i-chmura.jpg, og-netizo-devops-cloud-en.jpg
+ *   og-netizo-metin2cms.jpg, og-netizo-metin2cms-en.jpg
+ *                            strona Metin2 CMS (/metin2cms, /en/metin2cms), z szablon-usluga.html: zamiast zdjęcia rysunek
+ *                            tuszem z jej hero, zamiast ceny „gotowy CMS Metin2” (wycena jest indywidualna)
  *                            strony usług (PL i EN), z jednego szablonu szablon-usluga.html: nagłówek strony, cena „od”
  *                            (jak w App\Enums\Service) i zdjęcie z hero usługi, więc też JPEG
  *   og-netizo-tworzenie-stron-internetowych-leszno.jpg, og-netizo-website-development-leszno-en.jpg
@@ -59,6 +62,11 @@ function projectsMosaic() {
  */
 function service({ lang, label, headline, price, url, photoName, photoPosition = '50% 50%', urlSize = '21px' }) {
     return { lang, label, headline, pricePrefix: lang === 'pl' ? 'od' : 'from', price, url, urlSize, photo: photo(photoName), photoPosition };
+}
+
+/** Rysunek tuszem z hero strony Metin2 CMS (public/assets/images/metin2cms), w miejscu zdjęcia z serii. */
+function metin2CmsInk() {
+    return `data:image/webp;base64,${fs.readFileSync(path.join(OUTPUT_DIR, 'metin2cms', 'hero-ink.webp')).toString('base64')}`;
 }
 
 const IMAGES = [
@@ -193,6 +201,18 @@ const IMAGES = [
         output: 'og-netizo-devops-cloud-en.jpg',
         format: 'jpeg',
         values: service({ lang: 'en', label: 'DevOps &amp; cloud', headline: 'DevOps<br>and cloud<br>for businesses', price: 'PLN&nbsp;499', url: 'netizo.pl/en/devops-cloud', photoName: 'devops-desk', photoPosition: '30% 50%' }),
+    },
+    {
+        template: 'szablon-usluga.html',
+        output: 'og-netizo-metin2cms.jpg',
+        format: 'jpeg',
+        values: { lang: 'pl', label: 'Metin2 CMS', headline: 'Strona i panel<br>dla serwera<br>Metin2', pricePrefix: 'gotowy', price: 'CMS Metin2', url: 'netizo.pl/metin2cms', urlSize: '21px', photo: metin2CmsInk(), photoPosition: '50% 70%' },
+    },
+    {
+        template: 'szablon-usluga.html',
+        output: 'og-netizo-metin2cms-en.jpg',
+        format: 'jpeg',
+        values: { lang: 'en', label: 'Metin2 CMS', headline: 'Website and<br>panel for your<br>Metin2 server', pricePrefix: 'ready-made', price: 'Metin2 CMS', url: 'netizo.pl/en/metin2cms', urlSize: '21px', photo: metin2CmsInk(), photoPosition: '50% 70%' },
     },
 ];
 const SIZE = { width: 1200, height: 630 };

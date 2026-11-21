@@ -56,6 +56,7 @@ it('lists every public page in both languages and the case study of every active
         url('/aplikacje-mobilne'), url('/en/mobile-apps'),
         url('/automatyzacja-ai'), url('/en/ai-automation'),
         url('/devops-i-chmura'), url('/en/devops-cloud'),
+        url('/metin2cms'), url('/en/metin2cms'),
         url('/realizacje'), url('/en/projects'),
         url('/o-nas'), url('/en/about'),
         url('/partnerzy'), url('/en/partners'),

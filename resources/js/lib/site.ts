@@ -132,6 +132,7 @@ export const serviceLinks = localized<InfoLink[]>({
         { href: '/aplikacje-mobilne', label: 'Aplikacje mobilne' },
         { href: '/automatyzacja-ai', label: 'AI & Automatyzacja' },
         { href: '/devops-i-chmura', label: 'DevOps & Cloud' },
+        { href: '/metin2cms', label: 'CMS Metin2' },
     ],
     en: [
         { href: '/en/website-development', label: 'Websites' },
@@ -140,6 +141,7 @@ export const serviceLinks = localized<InfoLink[]>({
         { href: '/en/mobile-apps', label: 'Mobile apps' },
         { href: '/en/ai-automation', label: 'AI & automation' },
         { href: '/en/devops-cloud', label: 'DevOps & cloud' },
+        { href: '/en/metin2cms', label: 'Metin2 CMS' },
     ],
 });
 

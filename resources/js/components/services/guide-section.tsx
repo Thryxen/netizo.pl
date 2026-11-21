@@ -6,8 +6,8 @@ import { emphasis, type ServiceCopy } from './service-copy';
 
 type GuideSectionProps = {
     guide: ServiceCopy['guide'];
-    /** The photo under the heading (a photo of the series, decorative). */
-    photoName: PhotoName;
+    /** The photo under the heading (a photo of the series, decorative); the Metin2 CMS page has none. */
+    photoName?: PhotoName;
 };
 
 /**
@@ -24,12 +24,14 @@ export function GuideSection({ guide, photoName }: GuideSectionProps) {
                 <div className="lg:col-span-5">
                     <div className="lg:sticky lg:top-[calc(var(--header-height)+2.5rem)]">
                         <SectionHeading id={`${id}-heading`} title={guide.title} lead={guide.intro} className="mb-0 md:mb-0" />
-                        <Photo
-                            {...photo(photoName)}
-                            alt=""
-                            sizes="(min-width: 1248px) 440px, (min-width: 1024px) 36vw, calc(100vw - 2rem)"
-                            className="mt-10 aspect-[16/10] rounded-lg lg:aspect-[3/2]"
-                        />
+                        {photoName && (
+                            <Photo
+                                {...photo(photoName)}
+                                alt=""
+                                sizes="(min-width: 1248px) 440px, (min-width: 1024px) 36vw, calc(100vw - 2rem)"
+                                className="mt-10 aspect-[16/10] rounded-lg lg:aspect-[3/2]"
+                            />
+                        )}
                     </div>
                 </div>
 

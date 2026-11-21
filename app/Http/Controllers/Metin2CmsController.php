@@ -55,10 +55,34 @@ class Metin2CmsController extends Controller
             'structuredData' => StructuredData::document([
                 ...StructuredData::page('WebPage', $pageUrl, __('metin2cms.seo.name'), $description, $imageUrl, [
                     ['name' => __('metin2cms.seo.breadcrumb'), 'url' => $pageUrl],
+                ], [
+                    'mainEntity' => StructuredData::reference($pageUrl, 'service'),
                 ]),
+                $this->serviceSchema($pageUrl, $description),
                 StructuredData::faq($pageUrl, $faq),
             ]),
         ]);
+    }
+
+    /**
+     * The system as a Service node: what it is, who provides it and who it is for. It names no price (the deployment is
+     * quoted per server) and no area (it is deployed remotely).
+     *
+     * @return array<string, mixed>
+     */
+    private function serviceSchema(string $pageUrl, string $description): array
+    {
+        return [
+            '@type' => 'Service',
+            '@id' => StructuredData::id($pageUrl, 'service'),
+            'name' => __('metin2cms.seo.name'),
+            'serviceType' => __('metin2cms.seo.service_type'),
+            'description' => $description,
+            'url' => $pageUrl,
+            'mainEntityOfPage' => StructuredData::reference($pageUrl, 'webpage'),
+            'provider' => StructuredData::organizationReference(),
+            'audience' => ['@type' => 'Audience', 'audienceType' => __('metin2cms.seo.audience')],
+        ];
     }
 
     /**

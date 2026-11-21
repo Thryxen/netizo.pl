@@ -20,6 +20,7 @@ return [
         'partner_faq' => 'Program partnerski: najczęstsze pytania',
         'service_faq' => ':service: najczęstsze pytania',
         'leszno_faq' => 'Strony internetowe w Lesznie i okolicach: najczęstsze pytania',
+        'metin2cms_faq' => 'CMS dla serwera Metin2: najczęstsze pytania',
         'contact' => 'Kontakt',
     ],
 
@@ -55,6 +56,10 @@ return [
         'devops' => [
             'name' => 'DevOps i chmura dla firm',
             'note' => 'konfiguracja serwera albo chmury z CI/CD i kopiami zapasowymi od 499 zł do 1 499 zł, zwykle w ciągu tygodnia, infrastruktura jako kod i migracja do chmury od 1 999 zł do 4 999 zł, zwykle w ciągu dwóch tygodni; monitoring 24/7, bezpieczeństwo, koszty chmury i najczęstsze pytania.',
+        ],
+        'metin2cms' => [
+            'name' => 'CMS dla serwera Metin2',
+            'note' => 'gotowy system dla prywatnych serwerów Metin2: strona serwera z rankingiem i aktualnościami, panel gracza, doładowania przez CashBill, support i panel administratora z logami gry i blokadami HWID; wdrożenie pod bazę z plików Marty Sama, cache na Redisie, kod na własność, opcjonalne utrzymanie z zero-downtime deployem, wycena indywidualna; wdrożenie na serwerze Sherkan i najczęstsze pytania.',
         ],
         'projects' => [
             'name' => 'Realizacje',
@@ -105,6 +110,7 @@ return [
         'partner_faq' => 'faq',
         'service_faq' => 'faq',
         'leszno_faq' => 'faq',
+        'metin2cms_faq' => 'faq',
         'company' => 'dane-firmy',
     ],
 ];

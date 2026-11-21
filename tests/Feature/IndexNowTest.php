@@ -323,7 +323,7 @@ describe('indexnow:submit', function () {
         Project::factory()->create(['slug' => 'zloty-klos']);
 
         $this->artisan('indexnow:submit')
-            ->expectsOutputToContain('Zgłoszono stron: 30.')
+            ->expectsOutputToContain('Zgłoszono stron: 32.')
             ->assertSuccessful();
 
         $locs = [];
@@ -333,7 +333,7 @@ describe('indexnow:submit', function () {
         }
 
         expect(indexNowSubmissions())->toBe([$locs])
-            ->and($locs)->toHaveCount(30)->toContain(url('/realizacje/zloty-klos'), url('/en/projects/zloty-klos'));
+            ->and($locs)->toHaveCount(32)->toContain(url('/realizacje/zloty-klos'), url('/en/projects/zloty-klos'));
     });
 
     it('submits only the pages of the sitemap changed since a day', function () {

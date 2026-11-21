@@ -29,6 +29,7 @@ class Sitemap
         'services.mobile' => '2026-10-12',
         'services.ai' => '2026-10-12',
         'services.devops' => '2026-10-12',
+        'metin2cms' => '2026-11-21',
         'projects.index' => '2026-10-12',
         'about' => '2026-10-14',
         'partners' => '2026-10-12',

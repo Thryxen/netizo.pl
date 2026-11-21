@@ -77,6 +77,7 @@ it('lists every page and the case study of every active project in both language
         url('/tworzenie-stron-internetowych'), url('/sklepy-internetowe'), url('/aplikacje-webowe'), url('/aplikacje-mobilne'), url('/automatyzacja-ai'), url('/devops-i-chmura'),
         url('/en/website-development'), url('/en/online-stores'), url('/en/web-applications'), url('/en/mobile-apps'), url('/en/ai-automation'), url('/en/devops-cloud'),
         url('/tworzenie-stron-internetowych/leszno'), url('/en/website-development/leszno'),
+        url('/metin2cms'), url('/en/metin2cms'),
         url('/realizacje/zloty-klos'), url('/en/projects/zloty-klos'),
         url('/realizacje/mebloteka'), url('/en/projects/mebloteka'),
         url('/polityka-prywatnosci'), url('/regulamin'), url('/partnerzy/regulamin'),

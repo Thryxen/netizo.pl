@@ -15,6 +15,7 @@ import { SystemSection } from '@/components/metin2cms/system-section';
 import { ThreatsSection } from '@/components/metin2cms/threats-section';
 import { TrustedSection } from '@/components/metin2cms/trusted-section';
 import { MotionRoot } from '@/components/motion/motion-root';
+import { GuideSection } from '@/components/services/guide-section';
 import { ServiceFaqSection } from '@/components/services/service-faq-section';
 import { ServiceHero } from '@/components/services/service-hero';
 import { useInPageAnchors } from '@/hooks/use-in-page-anchors';
@@ -30,7 +31,8 @@ type Metin2CmsPageProps = { faq: FaqItem[] };
  * Metin2 CMS (/metin2cms, /en/metin2cms): the ready-made system for Metin2 private servers, framed like the service
  * pages, with an ink drawing of the game's own models as its hero. The hero, whose servers trust it, the three parts of the system, what is
  * included and what we add to order, the four foundations as the game's classes, how little the website asks of the
- * game database, the threats it answers, the four steps to launch, and only then the deployments in
+ * game database, the threats it answers, the longer read on choosing a CMS (the service pages' guide, without a
+ * photo), the four steps to launch, and only then the deployments in
  * one compact card, the FAQ and the home page's contact section.
  */
 export default function Metin2Cms({ faq }: Metin2CmsPageProps) {
@@ -58,6 +60,7 @@ export default function Metin2Cms({ faq }: Metin2CmsPageProps) {
                     <PillarsSection />
                     <PerformanceSection />
                     <ThreatsSection />
+                    <GuideSection guide={copy.guide} />
                     <LaunchSection />
                     <ShowcaseSection />
                     <ServiceFaqSection title={copy.faq.title} faq={faq} />

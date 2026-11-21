@@ -1,4 +1,4 @@
-import { Bell, ChevronsUpDown, Lock, MessagesSquare } from 'lucide-react';
+import { Bell, ChevronsUpDown, Lock, type LucideIcon, MessagesSquare } from 'lucide-react';
 import type { CSSProperties, ReactNode } from 'react';
 import { LogoMark } from '@/components/home/logo';
 import { useCopy } from '@/lib/i18n';
@@ -24,8 +24,12 @@ export function PanelMark({ className }: { className?: string }) {
     );
 }
 
+/** A page shown after the panel's own navigation (the Metin2 CMS page's "Pliki"); while `active` it is the open page. */
+export type PanelExtraPage = { icon: LucideIcon; label: string; active: boolean };
+
 type PanelWindowProps = {
     mode: PanelMode;
+    extra?: PanelExtraPage;
     /** A notification just arrived (the bell's bit lights). */
     notify: boolean;
     children: ReactNode;
@@ -36,7 +40,7 @@ type PanelWindowProps = {
  * address, the sidebar (mark, project switcher, navigation, team chat) and a top bar with the page title and the
  * notification bell. `children` is the page content; the active page follows the toggle.
  */
-export function PanelWindow({ mode, notify, children }: PanelWindowProps) {
+export function PanelWindow({ mode, extra, notify, children }: PanelWindowProps) {
     const page = MODE_PAGE[mode];
     const text = useCopy(PANEL_TEXT);
 
@@ -55,7 +59,7 @@ export function PanelWindow({ mode, notify, children }: PanelWindowProps) {
             </div>
 
             <div className="flex">
-                <Sidebar activeIndex={page.nav} />
+                <Sidebar activeIndex={extra?.active ? PANEL_NAV_ICONS.length : page.nav} extra={extra} />
 
                 <div className="flex min-w-0 flex-1 flex-col">
                     <div className="flex h-[3.3em] items-center gap-[0.9em] border-b px-[1.4em]">
@@ -72,12 +76,20 @@ export function PanelWindow({ mode, notify, children }: PanelWindowProps) {
                                 {PANEL_MODE_VALUES.map((value) => (
                                     <span
                                         key={value}
-                                        data-show={value === mode}
+                                        data-show={value === mode && !extra?.active}
                                         className="col-start-1 row-start-1 font-medium whitespace-nowrap transition-[opacity,translate] duration-300 ease-expo-out data-[show=false]:translate-y-[0.3em] data-[show=false]:opacity-0"
                                     >
                                         {text.pages[value]}
                                     </span>
                                 ))}
+                                {extra && (
+                                    <span
+                                        data-show={extra.active}
+                                        className="col-start-1 row-start-1 font-medium whitespace-nowrap transition-[opacity,translate] duration-300 ease-expo-out data-[show=false]:translate-y-[0.3em] data-[show=false]:opacity-0"
+                                    >
+                                        {extra.label}
+                                    </span>
+                                )}
                             </span>
                         </span>
                         <span className="ml-auto flex shrink-0 items-center gap-[1em]">
@@ -102,7 +114,7 @@ export function PanelWindow({ mode, notify, children }: PanelWindowProps) {
 }
 
 /** Full sidebar from 41.25rem of stage, an icon rail from 32.5rem, none on phones (the top bar's mark stands in). */
-function Sidebar({ activeIndex }: { activeIndex: number }) {
+function Sidebar({ activeIndex, extra }: { activeIndex: number; extra?: PanelExtraPage }) {
     const text = useCopy(PANEL_TEXT);
 
     return (
@@ -131,7 +143,7 @@ function Sidebar({ activeIndex }: { activeIndex: number }) {
                     style={{ '--nav': activeIndex, height: `${NAV_ROW}em` } as CSSProperties}
                     className="absolute inset-x-0 top-0 translate-y-[calc(var(--nav)*2.55em)] rounded-[0.45em] bg-foreground/[0.07] transition-transform duration-300 ease-expo-out dark:bg-foreground/[0.1]"
                 />
-                {PANEL_NAV_ICONS.map((Icon, index) => (
+                {[...PANEL_NAV_ICONS.map((Icon, index) => ({ Icon, label: text.nav[index] })), ...(extra ? [{ Icon: extra.icon, label: extra.label }] : [])].map(({ Icon, label }, index) => (
                     <li
                         key={index}
                         data-active={index === activeIndex}
@@ -139,7 +151,7 @@ function Sidebar({ activeIndex }: { activeIndex: number }) {
                         className="relative flex items-center justify-center gap-[0.7em] text-foreground/65 transition-colors duration-300 data-[active=true]:text-foreground @min-[41.25rem]/panel:justify-start @min-[41.25rem]/panel:px-[0.7em]"
                     >
                         <Icon aria-hidden="true" className="size-[1.15em] shrink-0" strokeWidth={1.75} />
-                        <span className="hidden truncate text-[0.98em] @min-[41.25rem]/panel:inline">{text.nav[index]}</span>
+                        <span className="hidden truncate text-[0.98em] @min-[41.25rem]/panel:inline">{label}</span>
                     </li>
                 ))}
             </ul>

@@ -131,5 +131,5 @@ function CareVignette() {
     );
 }
 
-/** The pillars' vignettes, in the order of the copy's `pillars.items`: cache, deploys, custom modules, care. */
-export const PILLAR_VIGNETTES: ComponentType[] = [CacheVignette, DeployVignette, CustomVignette, CareVignette];
+/** The pillars' vignettes, in the order of the copy's `pillars.items`: cache, custom modules, then the optional care and its deploys. */
+export const PILLAR_VIGNETTES: ComponentType[] = [CacheVignette, CustomVignette, CareVignette, DeployVignette];

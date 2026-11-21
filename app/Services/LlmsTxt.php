@@ -34,6 +34,7 @@ class LlmsTxt
         'mobile' => 'services.mobile',
         'ai' => 'services.ai',
         'devops' => 'services.devops',
+        'metin2cms' => 'metin2cms',
         'projects' => 'projects.index',
         'about' => 'about',
         'partners' => 'partners',
@@ -141,6 +142,10 @@ class LlmsTxt
             [
                 'heading' => __('llms.headings.leszno_faq'),
                 'links' => $this->faqLinks(__('leszno.faq'), $this->anchored(LocalizedRoutes::url('leszno'), 'leszno_faq')),
+            ],
+            [
+                'heading' => __('llms.headings.metin2cms_faq'),
+                'links' => $this->faqLinks(__('metin2cms.faq'), $this->anchored(LocalizedRoutes::url('metin2cms'), 'metin2cms_faq')),
             ],
             [
                 'heading' => __('llms.headings.contact'),

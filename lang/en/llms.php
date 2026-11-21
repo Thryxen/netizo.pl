@@ -14,6 +14,7 @@ return [
         'partner_faq' => 'Partner program: frequently asked questions',
         'service_faq' => ':service: frequently asked questions',
         'leszno_faq' => 'Websites in and around Leszno: frequently asked questions',
+        'metin2cms_faq' => 'CMS for Metin2 servers: frequently asked questions',
         'contact' => 'Contact',
     ],
 
@@ -49,6 +50,10 @@ return [
         'devops' => [
             'name' => 'DevOps and cloud for businesses',
             'note' => 'a server or cloud setup with CI/CD and backups from PLN 499 to PLN 1,499, usually within a week, infrastructure as code and a cloud migration from PLN 1,999 to PLN 4,999, usually within two weeks; 24/7 monitoring, security, cloud costs and FAQ.',
+        ],
+        'metin2cms' => [
+            'name' => 'CMS for Metin2 servers',
+            'note' => 'a ready-made system for Metin2 private servers: the server website with rankings and news, the player panel, top-ups through CashBill, support and the admin panel with game logs and HWID bans; deployed on the database of the Marty Sama files, Redis cache, code you own, optional maintenance with zero-downtime deploys, quoted per server; the deployment for the Sherkan server and frequently asked questions.',
         ],
         'projects' => [
             'name' => 'Projects',
@@ -99,6 +104,7 @@ return [
         'partner_faq' => 'faq',
         'service_faq' => 'faq',
         'leszno_faq' => 'faq',
+        'metin2cms_faq' => 'faq',
         'company' => 'company-details',
     ],
 ];

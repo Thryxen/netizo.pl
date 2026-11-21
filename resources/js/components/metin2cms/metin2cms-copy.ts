@@ -74,9 +74,10 @@ export type Metin2CmsCopy = {
     pillars: {
         title: string;
         lead: string;
-        items: { title: string; description: string }[];
-        /** `stack`: what the system is built with, as tech tags. */
-        ownership: { title: string; description: string; stack: string[] };
+        /** `note`: whether the part is included, made to order or comes with the optional maintenance (a tag under the title). The descriptions are about as long as each other, so the four cells stay level. */
+        items: { title: string; note: string; description: string }[];
+        /** The band under the cells, over the client panel's flow (ClientPanelFlow): fixes and ideas go into the panel as tasks (a new feature is quoted and starts once the quote is accepted), the team is on the chat, and the code is downloaded there (no repository is handed over). `stack`: what the system is built with, as tech tags. */
+        ownership: { title: string; description: string; points: string[]; stack: string[] };
     };
     performance: {
         title: string;
@@ -110,6 +111,8 @@ export type Metin2CmsCopy = {
         }[];
     };
     launch: { title: string; lead: string; steps: { title: string; description: string }[] };
+    /** The longer read before the steps to launch: how to choose a CMS for a server (the service pages' guide, without a photo). */
+    guide: ServiceCopy['guide'];
     faq: { title: string };
     contact: { title: string; lead: string; messagePlaceholder: string };
 };
@@ -120,16 +123,16 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
         hero: {
             headingLines: ['Strona i panel', 'dla serwera', 'Metin2'],
             wideLines: [[0, 1], [2]],
-            lead: 'Budujemy strony serwerów Metin2 z panelem gracza i panelem administratora. Podpinamy system pod Twoją bazę gry, stawiamy cache na Redisie, wdrażamy przez zero-downtime deploy i przekazujemy kod na własność.',
+            lead: 'Gotowy CMS dla prywatnych serwerów Metin2: strona serwera, panel gracza i panel administratora. Podpinamy system pod Twoją bazę gry, stawiamy cache na Redisie i przekazujemy kod na własność. Utrzymanie z zero-downtime deployem bierzesz, jeśli chcesz.',
             quote: 'Zapytaj o wdrożenie',
             quoteShort: 'Zapytaj',
             secondary: 'Zobacz system',
             area: 'Wdrożenie zdalne, cała Polska',
             facts: [
                 { value: '3 w 1', label: 'strona serwera, panel gracza i panel administratora' },
-                { value: '0 s', label: 'downtime przy deployu nowej wersji' },
+                { value: '0 s', label: 'downtime przy deployu, jeśli utrzymujemy stronę' },
                 { prefix: 'tylko', value: '2 / godz.', label: 'zapytania o ranking do bazy gry, reszta idzie z cache' },
-                { value: '100%', label: 'kodu na własność, w Twoim repozytorium' },
+                { value: '100%', label: 'kodu na własność, do pobrania w panelu klienta' },
             ],
             chips: {
                 deploy: 'Deploy zakończony',
@@ -144,7 +147,7 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
         header: { system: 'System', features: 'Funkcje', performance: 'Wydajność', caseStudy: 'Wdrożenia', faq: 'FAQ' },
         trusted: { title: 'Zaufali nam', lead: 'Serwery, dla których budujemy strony i panele.' },
         system: {
-            title: 'Co dostajesz w standardzie',
+            title: 'CMS Metin2: co dostajesz w standardzie',
             lead: 'Sześć części jednego systemu. Gracz loguje się tym samym loginem, hasłem i PIN-em co w grze, a wszystko działa na Twojej bazie, bez kopiowania kont.',
             tiles: {
                 site: { title: 'Strona serwera', description: 'Prezentacja serwera, ranking, aktualności i pobieranie klienta, renderowane po stronie serwera pod SEO.', tags: ['Ranking', 'Aktualności', 'Eventy', 'Pobieranie', 'SSR'] },
@@ -170,7 +173,7 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
                 },
                 {
                     title: 'Pod maską',
-                    items: ['Cache zapytań do bazy gry (Redis)', 'Zero-downtime deploy z rollbackiem', 'Rate limiting logowania i formularzy', 'Import ikon przedmiotów z klienta (TGA → PNG)', 'Kolejki i sesje na Redisie', 'SSR, sitemap.xml i meta tagi pod SEO'],
+                    items: ['Cache zapytań do bazy gry (Redis)', 'Rate limiting logowania i formularzy', 'Import ikon przedmiotów z klienta (TGA → PNG)', 'Kolejki i sesje na Redisie', 'SSR, sitemap.xml i meta tagi pod SEO'],
                 },
             ],
             custom: 'Na zamówienie',
@@ -179,21 +182,27 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
         },
         pillars: {
             title: 'Na czym opiera się system',
-            lead: 'Cztery rzeczy, które są takie same w każdym wdrożeniu, bez względu na pliki serwera.',
+            lead: 'Cache zapytań ma każde wdrożenie, a moduły dopisujemy pod Twój serwer. Utrzymanie z zero-downtime deployem jest opcją, nie obowiązkiem.',
             items: [
-                { title: 'Cache zapytań', description: 'Ranking, wykresy i dane konta idą z Redisa. Ranking ma TTL 30 minut, więc baza gry dostaje 2 zapytania na godzinę bez względu na ruch.' },
-                { title: 'Zero-downtime deploy', description: 'Nowy release budujemy obok działającego i przełączamy atomowo. Bez maintenance mode, bez wylogowania graczy, z rollbackiem do poprzedniej wersji.' },
-                { title: 'Custom moduły', description: 'Masz własny system w grze? Dopisujemy do niego model, ekran w panelu albo podstronę. Mniejsze zmiany zajmują zwykle kilka dni.' },
-                { title: 'Utrzymanie', description: 'Backupy, aktualizacje zależności i patche bezpieczeństwa są po naszej stronie. Ty zajmujesz się grą i społecznością.' },
+                { title: 'Cache zapytań', note: 'W standardzie', description: 'Ranking, wykresy i dane konta idą z Redisa. Ranking ma TTL 30 minut, więc baza gry dostaje 2 zapytania na godzinę bez względu na ruch.' },
+                { title: 'Custom moduły', note: 'Na zamówienie', description: 'Masz własny system w grze? Dopisujemy do niego model, ekran w panelu albo podstronę. Mniejsze zmiany zajmują zwykle tylko kilka dni.' },
+                { title: 'Utrzymanie', note: 'Opcjonalnie', description: 'Jeśli chcesz, zostajemy po starcie: backupy, aktualizacje i patche bezpieczeństwa są wtedy po naszej stronie, a Ty zajmujesz się grą.' },
+                { title: 'Zero-downtime deploy', note: 'Z utrzymaniem', description: 'Gdy utrzymujemy stronę, nowy release budujemy obok działającego i przełączamy atomowo: bez wylogowania graczy, z rollbackiem.' },
             ],
             ownership: {
-                title: 'Kod na własność',
-                description: 'Po wdrożeniu przekazujemy repozytorium z całym kodem. Możesz rozwijać system z nami, z własnym programistą albo samodzielnie.',
+                title: 'Kod i opieka w panelu klienta',
+                description: 'Po wdrożeniu dostajesz dostęp do panelu klienta Netizo. Ty spisujesz poprawki i pomysły, a my zajmujemy się resztą: od zgłoszenia, przez wycenę, po wdrożenie.',
+                points: [
+                    'Błąd albo poprawkę zgłaszasz jako zadanie, ze zrzutem ekranu, i widzisz, na jakim jest etapie.',
+                    'Nową funkcję dodajesz w odpowiedniej kategorii: wyceniamy ją, a po Twojej akceptacji przystępujemy do pracy.',
+                    'Na czacie masz stały kontakt z zespołem.',
+                    'Kod na własność: każdą wersję pobierasz w zakładce Pliki i rozwijasz z nami, z własnym programistą albo sam.',
+                ],
                 stack: ['Laravel 13', 'React 19', 'Inertia', 'Tailwind CSS 4', 'Redis', 'MariaDB'],
             },
         },
         performance: {
-            title: 'Strona, która nie obciąża bazy gry',
+            title: 'Strona Metin2, która nie obciąża bazy gry',
             lead: 'W Metinie płynność gry zależy od bazy danych. Dlatego strona odpytuje ją tak rzadko, jak to możliwe: wyniki trzyma w cache, a każde zapytanie idzie po indeksie.',
             example: 'Przykład: godzina po starcie serwera',
             visits: 'Odwiedziny rankingu',
@@ -209,7 +218,7 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
             note: 'To wartości domyślne. TTL dobieramy pod Twój serwer.',
         },
         threats: {
-            title: 'Z czym mierzy się każdy serwer',
+            title: 'Z czym mierzy się każdy serwer Metin2',
             lead: 'Te problemy przychodzą razem z popularnością. System ma na każdy z nich gotową odpowiedź.',
             items: [
                 { threat: 'Boty zakładające konta', defence: 'hCaptcha i potwierdzenie e-mail', answer: 'Rejestracja z hCaptcha, potwierdzeniem e-mail i limitem prób z jednego adresu.' },
@@ -271,16 +280,51 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
             ],
         },
         launch: {
-            title: 'Jak wygląda wdrożenie',
+            title: 'Jak wygląda wdrożenie CMS-a',
             lead: 'Cztery kroki. Twój serwer może w tym czasie normalnie działać.',
             steps: [
                 { title: 'Rozmowa i dostęp', description: 'Opowiadasz o serwerze i plikach. Dostajemy osobnego użytkownika bazy z uprawnieniami tylko dla strony.' },
                 { title: 'Podpięcie pod bazę', description: 'Łączymy system z Twoimi bazami account, player, common i log i sprawdzamy każdy ekran na prawdziwych danych.' },
                 { title: 'Wygląd i treści', description: 'Projektujemy stronę pod Twój serwer: grafiki, kolory, teksty i maile.' },
-                { title: 'Deploy i utrzymanie', description: 'Zero-downtime deploy na produkcję, przekazanie repozytorium i dalsze utrzymanie.' },
+                { title: 'Start i przekazanie kodu', description: 'Wdrożenie na produkcję i kod do pobrania w panelu klienta. Jeśli chcesz, zostajemy przy utrzymaniu z zero-downtime deployem.' },
             ],
         },
-        faq: { title: 'Częste pytania' },
+        guide: {
+            title: 'Jak wybrać CMS dla serwera Metin2',
+            intro: 'Kilka rzeczy, które warto wiedzieć, zanim postawisz stronę prywatnego serwera.',
+            sections: [
+                {
+                    heading: 'Strona to pierwsze, co widzi gracz',
+                    paragraphs: [
+                        'Zanim ktoś wejdzie do gry, trafia na **stronę serwera Metin2**: zakłada konto, pobiera klienta i sprawdza ranking. Jeśli rejestracja się zacina albo strona ładuje się kilka sekund, część graczy rezygnuje jeszcze przed pierwszym logowaniem.',
+                        'Dlatego strona prywatnego serwera to nie wizytówka, tylko część gry. Działa na tych samych kontach, pokazuje te same postacie i gildie, a w dniu startu przyjmuje największy ruch.',
+                    ],
+                },
+                {
+                    heading: 'Darmowy CMS czy system z opieką',
+                    paragraphs: [
+                        'Darmowe CMS-y do Metin2 z forów i GitHuba pozwalają postawić stronę w jeden wieczór i na serwer testowy w zupełności wystarczą. Na działającym serwerze dochodzą jednak rzeczy, których nikt za Ciebie nie zrobi: **poprawki bezpieczeństwa**, dopasowanie do Twoich plików i aktualizacje bez wyłączania strony.',
+                        'Gotowy CMS z wdrożeniem kosztuje więcej na starcie, ale masz komu zlecić utrzymanie, jeśli nie chcesz zajmować się nim sam. Warto zapytać o trzy rzeczy: **czyj jest kod**, jak wygląda aktualizacja na działającym serwerze i kto reaguje, gdy coś przestanie działać.',
+                    ],
+                },
+                {
+                    heading: 'Co musi mieć strona serwera',
+                    paragraphs: [
+                        'Minimum to rejestracja z potwierdzeniem e-mail, pobieranie klienta, **ranking graczy i gildii**, aktualności i panel gracza, w którym da się zmienić hasło i odzyskać konto bez pisania do administratora.',
+                        'Serwer zarabia na doładowaniach, więc płatności muszą księgować się same: gracz płaci, monety trafiają na konto. Itemshop w przeglądarce, Vote4Coins czy wiki przedmiotów to dodatki, które warto dołożyć, gdy podstawa działa.',
+                        'Po drugiej stronie jest **panel administratora**: konta, postacie, wpłaty, logi gry i bany. Im mniej rzeczy trzeba sprawdzać bezpośrednio w bazie, tym szybciej reagujesz na zgłoszenia.',
+                    ],
+                },
+                {
+                    heading: 'Baza gry jest najważniejsza',
+                    paragraphs: [
+                        'W Metinie strona i gra korzystają z tej samej bazy danych. Każde ciężkie zapytanie ze strony, na przykład ranking liczony przy każdym odświeżeniu, zabiera zasoby grze. W godzinach szczytu gracze widzą to jako lagi.',
+                        'Dobry CMS odpytuje bazę gry rzadko: **wyniki trzyma w cache**, a zapytania idą po indeksach. U nas ranking odświeża się co 30 minut, więc baza dostaje dwa zapytania na godzinę, bez względu na liczbę odwiedzin.',
+                    ],
+                },
+            ],
+        },
+        faq: { title: 'Częste pytania o CMS Metin2' },
         contact: {
             title: 'Porozmawiajmy o Twoim serwerze',
             lead: 'Napisz, na jakich plikach działasz i kiedy planujesz start. Odpowiemy w ciągu 24 godzin.',
@@ -292,16 +336,16 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
         hero: {
             headingLines: ['Website and', 'panel for your', 'Metin2 server'],
             wideLines: [[0, 1], [2]],
-            lead: 'We build Metin2 server websites with a player panel and an admin panel. We connect the system to your game database, put a Redis cache in front of it, ship with zero-downtime deploys and hand the code over to you.',
+            lead: 'A ready-made CMS for Metin2 private servers: the server website, a player panel and an admin panel. We connect the system to your game database, put a Redis cache in front of it and hand the code over to you. Maintenance with zero-downtime deploys is there if you want it.',
             quote: 'Ask about a deployment',
             quoteShort: 'Ask',
             secondary: 'See the system',
             area: 'Remote deployment, anywhere',
             facts: [
                 { value: '3 in 1', label: 'the server website, the player panel and the admin panel' },
-                { value: '0 s', label: 'of downtime on every deploy' },
+                { value: '0 s', label: 'of downtime on deploys, if we maintain the website' },
                 { prefix: 'only', value: '2 / hour', label: 'ranking queries to the game database, the rest comes from cache' },
-                { value: '100%', label: 'of the code is yours, in your repository' },
+                { value: '100%', label: 'of the code is yours, to download in the client portal' },
             ],
             chips: {
                 deploy: 'Deploy finished',
@@ -316,7 +360,7 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
         header: { system: 'System', features: 'Features', performance: 'Performance', caseStudy: 'Deployments', faq: 'FAQ' },
         trusted: { title: 'Trusted by', lead: 'Servers we build websites and panels for.' },
         system: {
-            title: 'What’s included',
+            title: 'Metin2 CMS: what’s included',
             lead: 'Six parts of one system. A player signs in with the same login, password and PIN as in the game, and everything runs on your database, with no copies of the accounts.',
             tiles: {
                 site: { title: 'Server website', description: 'What the server is, the ranking, the news and the client download, server-rendered for SEO.', tags: ['Ranking', 'News', 'Events', 'Downloads', 'SSR'] },
@@ -342,7 +386,7 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
                 },
                 {
                     title: 'Under the hood',
-                    items: ['Cache for game database queries (Redis)', 'Zero-downtime deploys with rollback', 'Rate limiting on login and forms', 'Item icon import from the client (TGA → PNG)', 'Queues and sessions on Redis', 'SSR, sitemap.xml and meta tags for SEO'],
+                    items: ['Cache for game database queries (Redis)', 'Rate limiting on login and forms', 'Item icon import from the client (TGA → PNG)', 'Queues and sessions on Redis', 'SSR, sitemap.xml and meta tags for SEO'],
                 },
             ],
             custom: 'Made to order',
@@ -351,21 +395,27 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
         },
         pillars: {
             title: 'What the system is built on',
-            lead: 'Four things that are the same in every deployment, whatever the server files.',
+            lead: 'Every deployment has the query cache, and modules are added for your server. Maintenance with zero-downtime deploys is an option, not an obligation.',
             items: [
-                { title: 'Query cache', description: 'The ranking, the charts and the account data come from Redis. The ranking has a 30-minute TTL, so the game database gets 2 queries an hour whatever the traffic.' },
-                { title: 'Zero-downtime deploys', description: 'We build the new release beside the running one and switch atomically. No maintenance mode, no players signed out, with a rollback to the previous version.' },
-                { title: 'Custom modules', description: 'Have a system of your own in the game? We add a model, a panel screen or a page for it. Smaller changes usually take a few days.' },
-                { title: 'Maintenance', description: 'Backups, dependency updates and security patches are on our side. You look after the game and the community.' },
+                { title: 'Query cache', note: 'Included', description: 'The ranking, the charts and the account data come from Redis. With a 30-minute TTL the game database gets 2 ranking queries an hour, whatever the traffic.' },
+                { title: 'Custom modules', note: 'Made to order', description: 'Have a system of your own in the game? We add a model, a panel screen or a page for it. Smaller changes usually take only a few days to build.' },
+                { title: 'Maintenance', note: 'Optional', description: 'If you want, we stay after launch: backups, updates and security patches are then on our side, and you look after the game and the community.' },
+                { title: 'Zero-downtime deploys', note: 'With maintenance', description: 'When we maintain the website, we build the new release beside the running one and switch atomically: no players signed out, and a rollback if needed.' },
             ],
             ownership: {
-                title: 'Code you own',
-                description: 'After the deployment we hand over the repository with all the code. You can develop the system with us, with your own developer or on your own.',
+                title: 'Code and care in the client portal',
+                description: 'After the deployment you get access to the Netizo client portal. You write down fixes and ideas, and we take care of the rest: from the report, through the quote, to the deploy.',
+                points: [
+                    'You report a bug or a fix as a task, with a screenshot, and see what stage it is at.',
+                    'You add a new feature in the right category: we quote it and, once you accept, we get to work.',
+                    'The chat keeps you in touch with the team.',
+                    'Code you own: you download every version under Files and develop it with us, with your own developer or on your own.',
+                ],
                 stack: ['Laravel 13', 'React 19', 'Inertia', 'Tailwind CSS 4', 'Redis', 'MariaDB'],
             },
         },
         performance: {
-            title: 'A website that puts no load on the game database',
+            title: 'A Metin2 website that puts no load on the game database',
             lead: 'In Metin the game runs only as smoothly as its database. So the website asks it as rarely as possible, and every query uses an index.',
             example: 'Example: an hour after the server opens',
             visits: 'Visits to the ranking',
@@ -381,7 +431,7 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
             note: 'These are the defaults. We tune the TTLs to your server.',
         },
         threats: {
-            title: 'What every server has to face',
+            title: 'What every Metin2 server has to face',
             lead: 'These problems come with popularity. The system has an answer ready for each of them.',
             items: [
                 { threat: 'Bots creating accounts', defence: 'hCaptcha and email confirmation', answer: 'Sign-up with hCaptcha, email confirmation and a limit on attempts from one address.' },
@@ -443,16 +493,51 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
             ],
         },
         launch: {
-            title: 'How a deployment goes',
+            title: 'How a CMS deployment goes',
             lead: 'Four steps. Your server can keep running the whole time.',
             steps: [
                 { title: 'A call and access', description: 'You tell us about the server and its files. We get a separate database user with rights for the website only.' },
                 { title: 'Connecting the database', description: 'We connect the system to your account, player, common and log databases and check every screen on real data.' },
                 { title: 'Look and content', description: 'We design the website for your server: the art, the colors, the copy and the emails.' },
-                { title: 'Deploy and maintenance', description: 'A zero-downtime deploy to production, the repository handed over, and maintenance from then on.' },
+                { title: 'Launch and handover', description: 'The deploy to production and the code to download in the client portal. If you want, we stay on for maintenance with zero-downtime deploys.' },
             ],
         },
-        faq: { title: 'Common questions' },
+        guide: {
+            title: 'How to choose a CMS for a Metin2 server',
+            intro: 'A few things worth knowing before you put up a private server’s website.',
+            sections: [
+                {
+                    heading: 'The website is the first thing a player sees',
+                    paragraphs: [
+                        'Before anyone enters the game, they land on the **Metin2 server website**: they create an account, download the client and check the ranking. If sign-up stalls or the page takes seconds to load, some players give up before their first login.',
+                        'So a private server’s website is not a brochure, it is part of the game. It runs on the same accounts, shows the same characters and guilds, and takes the heaviest traffic on launch day.',
+                    ],
+                },
+                {
+                    heading: 'A free CMS or a system someone looks after',
+                    paragraphs: [
+                        'The free Metin2 CMSes from forums and GitHub let you put up a website in one evening, and for a test server they are plenty. On a live server come the things nobody will do for you: **security fixes**, fitting the CMS to your files and updates without taking the website down.',
+                        'A ready-made CMS with a deployment costs more at the start, but there is someone to hand the maintenance to if you would rather not do it yourself. Three questions are worth asking: **who owns the code**, how an update goes on a running server and who reacts when something stops working.',
+                    ],
+                },
+                {
+                    heading: 'What a server website has to have',
+                    paragraphs: [
+                        'The minimum is sign-up with email confirmation, the client download, **player and guild rankings**, news and a player panel where a password can be changed and an account recovered without writing to an admin.',
+                        'A server earns on top-ups, so payments have to credit themselves: the player pays, the coins land on the account. An item shop in the browser, Vote4Coins or an item wiki are extras worth adding once the basics work.',
+                        'On the other side is the **admin panel**: accounts, characters, payments, game logs and bans. The fewer things you have to check straight in the database, the faster you answer requests.',
+                    ],
+                },
+                {
+                    heading: 'The game database comes first',
+                    paragraphs: [
+                        'In Metin the website and the game use the same database. Every heavy query from the website, a ranking computed on each refresh for example, takes resources from the game. At peak hours players feel it as lag.',
+                        'A good CMS asks the game database rarely: **it keeps results in a cache** and its queries use indexes. Ours refreshes the ranking every 30 minutes, so the database gets two queries an hour however many visitors there are.',
+                    ],
+                },
+            ],
+        },
+        faq: { title: 'Common questions about the Metin2 CMS' },
         contact: {
             title: 'Let’s talk about your server',
             lead: 'Tell us which files you run and when you plan to launch. We’ll reply within 24 hours.',

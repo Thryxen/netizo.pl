@@ -6,15 +6,19 @@
  * (resources/js/components/metin2cms/). The cache times are the system's defaults (ranking 30 minutes, the signed-in
  * account 60 seconds, the online chart 5 minutes); the page's performance section and hero quote the same.
  * English twin: lang/en/metin2cms.php (same keys).
+ * The title and the description carry what a server owner searches for: CMS Metin2, the server's website, the player
+ * panel, a private server. `service_type` and `audience` describe the Service node of the JSON-LD.
  * Titles and descriptions for search results use plain spaces.
  */
 return [
     'seo' => [
-        'title' => 'CMS Metin2 – strona i panel serwera | Netizo',
-        'description' => 'Gotowy CMS dla serwera Metin2: strona, panel gracza i panel administratora. Cache na Redisie, zero-downtime deploy, kod na własność i utrzymanie.',
+        'title' => 'CMS Metin2 – strona serwera z panelem gracza | Netizo',
+        'description' => 'Gotowy CMS dla prywatnego serwera Metin2: strona z rankingiem, panel gracza, doładowania i panel administratora. Wdrożenie, kod na własność, utrzymanie.',
         'name' => 'CMS dla serwera Metin2',
         'breadcrumb' => 'Metin2 CMS',
-        'image' => 'assets/images/og-netizo-2.png',
+        'service_type' => 'CMS dla prywatnych serwerów Metin2',
+        'audience' => 'Właściciele i administratorzy prywatnych serwerów Metin2',
+        'image' => 'assets/images/og-netizo-metin2cms.jpg',
         'image_alt' => 'Netizo – CMS dla serwera Metin2: strona, panel gracza i panel administratora',
     ],
 
@@ -24,28 +28,44 @@ return [
             'answer' => 'System jest przygotowany pod strukturę bazy z plików Marty Sama: bazy account, player, common i log. Podpinamy go pod działający serwer bez zmian w grze. Jeśli Twoje pliki mają inne tabele albo dodatkowe systemy, dopasowujemy odczyty przy wdrożeniu.',
         ],
         [
+            'question' => 'Czym ten CMS różni się od darmowych CMS-ów do Metin2?',
+            'answer' => 'Darmowy CMS pobierasz i utrzymujesz sam: dopasowanie do plików, poprawki bezpieczeństwa i aktualizacje są po Twojej stronie. U nas dostajesz wdrożenie pod Twoją bazę gry, wygląd zaprojektowany pod serwer i cache, który ogranicza zapytania do bazy. Jeśli chcesz, bierzemy też utrzymanie z zero-downtime deployem. Kod i tak jest Twoją własnością.',
+        ],
+        [
             'question' => 'Czy strona obciąża bazę gry?',
             'answer' => 'W jak najmniejszym stopniu, bo to od bazy zależy płynność gry. Ranking graczy i gildii odświeża się co 30 minut, więc baza gry dostaje dwa zapytania na godzinę bez względu na liczbę odwiedzin. Dane zalogowanego konta trzymamy w cache (Redis) przez 60 sekund, a wykres graczy online doczytuje co 5 minut tylko nowe wiersze logów po kluczu głównym. TTL ustawiamy pod Twój serwer.',
         ],
         [
             'question' => 'Czy dostanę kod źródłowy?',
-            'answer' => 'Tak. Po wdrożeniu przekazujemy repozytorium z całym kodem strony i panelu. Kod jest Twoją własnością: możesz go rozwijać z nami, z własnym programistą albo samodzielnie.',
+            'answer' => 'Tak. Po wdrożeniu cały kod strony i panelu pobierasz w panelu klienta Netizo. Kod jest Twoją własnością: możesz go rozwijać z nami, z własnym programistą albo samodzielnie.',
         ],
         [
             'question' => 'Jak wygląda aktualizacja strony na działającym serwerze?',
-            'answer' => 'Stosujemy zero-downtime deploy: nowy release budujemy obok działającego i przełączamy ruch atomowo dopiero wtedy, gdy jest gotowy. Nie ma maintenance mode ani wylogowania graczy, a gdyby coś poszło nie tak, robimy rollback do poprzedniej wersji.',
+            'answer' => 'Jeśli utrzymujemy stronę, stosujemy zero-downtime deploy: nowy release budujemy obok działającego i przełączamy ruch atomowo dopiero wtedy, gdy jest gotowy. Nie ma maintenance mode ani wylogowania graczy, a gdyby coś poszło nie tak, robimy rollback do poprzedniej wersji. Bez utrzymania aktualizacje wdrażasz po swojemu: kod jest Twój i pobierasz go w panelu klienta.',
+        ],
+        [
+            'question' => 'Czy strona serwera będzie miała własny wygląd?',
+            'answer' => 'Tak. Wygląd projektujemy pod serwer: grafiki, kolory i nagłówek strony. System pod spodem zostaje ten sam, więc panel gracza i panel administratora działają od pierwszego dnia. Przykład zobaczysz w sekcji wdrożeń: stronę Sherkana zaprojektowaliśmy w całości pod ten serwer.',
         ],
         [
             'question' => 'Czy mogę zamówić funkcję, której nie ma w standardzie?',
-            'answer' => 'Tak. Własne moduły, na przykład itemshop w przeglądarce, Vote4Coins, wiki przedmiotów czy kolejną wersję językową, dopisujemy na zamówienie. Mniejsze zmiany zajmują zwykle kilka dni, bo system jest zbudowany tak, żeby dało się go łatwo rozszerzać.',
+            'answer' => 'Tak. Własne moduły, na przykład itemshop w przeglądarce, Vote4Coins, wiki przedmiotów czy kolejną wersję językową, dopisujemy na zamówienie. Mniejsze zmiany zajmują zwykle kilka dni, bo system jest zbudowany tak, żeby dało się go łatwo rozszerzać. Nową funkcję dodajesz w panelu klienta jako zadanie w odpowiedniej kategorii: wyceniamy ją, a po Twojej akceptacji zaczynamy.',
+        ],
+        [
+            'question' => 'Czy CMS ma itemshop?',
+            'answer' => 'Doładowania są w standardzie: gracz wybiera pakiet monet, płaci przez CashBill, a monety trafiają na jego konto. Itemshop w przeglądarce, z listą przedmiotów i zakupem prosto ze strony, dopisujemy jako moduł na zamówienie.',
         ],
         [
             'question' => 'Jakie płatności obsługuje system?',
             'answer' => 'W standardzie doładowania przez CashBill: BLIK, szybkie przelewy i karty. Pakiety monet, bonusy i promocje czasowe ustawiasz sam w panelu, a każdą wpłatę widzisz razem z jej statusem u operatora. Innego operatora płatności podłączamy na zamówienie.',
         ],
         [
+            'question' => 'Jak system chroni serwer przed botami i multikontami?',
+            'answer' => 'Rejestracja ma hCaptcha, potwierdzenie e-mail i limit prób z jednego adresu. Po pięciu nieudanych próbach logowanie blokuje się na minutę, a do wejścia potrzebny jest też PIN. W panelu administratora graf powiązań pokazuje konta ze wspólnym IP i sprzętem, a blokada HWID zamyka dostęp do gry z danego komputera.',
+        ],
+        [
             'question' => 'Kto opiekuje się stroną po starcie?',
-            'answer' => 'My. W ramach utrzymania pilnujemy działania strony, robimy backupy, wgrywamy aktualizacje i patche bezpieczeństwa oraz wprowadzamy zmiany, o które poprosisz. Na zgłoszenia odpowiadamy w ciągu 24 godzin.',
+            'answer' => 'To Twoja decyzja. Utrzymanie jest opcją: w jego ramach pilnujemy działania strony, robimy backupy, wgrywamy aktualizacje i patche bezpieczeństwa oraz wprowadzamy zmiany, o które poprosisz, a na zgłoszenia odpowiadamy w ciągu 24 godzin. Błędy i zmiany zgłaszasz w panelu klienta jako zadania i widzisz, na jakim są etapie. Możesz też prowadzić stronę sam albo z własnym programistą, bo kod jest Twój.',
         ],
         [
             'question' => 'Ile kosztuje wdrożenie?',
