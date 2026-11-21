@@ -9,11 +9,10 @@ import { METIN2CMS_COPY } from './metin2cms-copy';
 import { PILLAR_VIGNETTES } from './metin2cms-vignettes';
 
 /**
- * Fundamenty (#fundamenty, #foundations): what the system stands on. Four cells on the shared-border grid rail to rail,
- * each showing its part in use (a vignette on a muted stage, as on the service pages), then what that part does. A tag
- * under each title says whether the part is included, made to order or optional (maintenance and its zero-downtime
- * deploys). Under
- * them a band on the client panel: fixes and ideas go there as tasks, the team is on the chat and the code is downloaded
+ * Po wdrożeniu (#po-wdrozeniu, #after-launch), right after the steps to launch: what comes after it. Three cells on the
+ * shared-border grid rail to rail, each showing its part in use (a vignette on a muted stage, as on the service pages),
+ * then what that part does. A tag under each title says whether the part is made to order or optional (maintenance and
+ * its zero-downtime deploys). Under them a band on the client panel: fixes and ideas go there as tasks, the team is on the chat and the code is downloaded
  * there, over a live mock of the panel taking a bug and a quoted new feature to done (ClientPanelFlow), with what the
  * system is built with as tech tags.
  */
@@ -28,7 +27,7 @@ export function PillarsSection() {
             <div className={cn('relative border-t border-border', bleedClassName)}>
                 <Rivet side="left" />
                 <Rivet side="right" />
-                <ul className="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
+                <ul className="grid gap-px bg-border md:grid-cols-3">
                     {copy.items.map((item, index) => {
                         const Vignette = PILLAR_VIGNETTES[index];
 

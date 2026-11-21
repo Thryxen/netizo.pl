@@ -5,10 +5,6 @@ import { cn } from '@/lib/utils';
 
 const PILLARS = localized({
     pl: {
-        visits: 'Requesty',
-        visitsValue: '12 480',
-        queries: 'Zapytania do bazy gry',
-        queriesValue: '2',
         steps: ['Build', 'Testy', 'Release'],
         downtime: 'Downtime: 0 s',
         modules: ['Ranking', 'Doładowania'],
@@ -19,10 +15,6 @@ const PILLARS = localized({
         backup: 'Backup, 03:00',
     },
     en: {
-        visits: 'Requests',
-        visitsValue: '12,480',
-        queries: 'Game database queries',
-        queriesValue: '2',
         steps: ['Build', 'Tests', 'Release'],
         downtime: 'Downtime: 0 s',
         modules: ['Ranking', 'Top-ups'],
@@ -33,34 +25,6 @@ const PILLARS = localized({
         backup: 'Backup, 3:00 am',
     },
 });
-
-/** Pamięć podręczna: an hour of visits against the queries they cost the game database. */
-function CacheVignette() {
-    const copy = useCopy(PILLARS);
-
-    return (
-        <VignetteStage>
-            <dl className={cn('flex w-full max-w-[16rem] flex-col gap-2.5 p-3', vignetteCard)}>
-                <div>
-                    <dt className="flex justify-between text-[10px] text-muted-foreground">
-                        {copy.visits}
-                        <span className="font-semibold text-foreground tabular-nums">{copy.visitsValue}</span>
-                    </dt>
-                    <dd className="mt-1 h-2 rounded-[2px] bg-foreground" />
-                </div>
-                <div>
-                    <dt className="flex justify-between text-[10px] text-muted-foreground">
-                        {copy.queries}
-                        <span className="font-semibold text-foreground tabular-nums">{copy.queriesValue}</span>
-                    </dt>
-                    <dd className="mt-1 h-2 rounded-[2px] bg-foreground/10">
-                        <span className="block h-full w-1 rounded-[2px] bg-foreground" />
-                    </dd>
-                </div>
-            </dl>
-        </VignetteStage>
-    );
-}
 
 /** Wdrożenia bez przerwy: the three steps of a deploy, all done, and the downtime it cost. */
 function DeployVignette() {
@@ -131,5 +95,5 @@ function CareVignette() {
     );
 }
 
-/** The pillars' vignettes, in the order of the copy's `pillars.items`: cache, custom modules, then the optional care and its deploys. */
-export const PILLAR_VIGNETTES: ComponentType[] = [CacheVignette, CustomVignette, CareVignette, DeployVignette];
+/** The pillars' vignettes, in the order of the copy's `pillars.items`: custom modules, then the optional care and its deploys. */
+export const PILLAR_VIGNETTES: ComponentType[] = [CustomVignette, CareVignette, DeployVignette];

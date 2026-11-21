@@ -74,7 +74,7 @@ export type Metin2CmsCopy = {
     pillars: {
         title: string;
         lead: string;
-        /** `note`: whether the part is included, made to order or comes with the optional maintenance (a tag under the title). The descriptions are about as long as each other, so the four cells stay level. */
+        /** What comes after launch: custom modules, the optional maintenance and its deploys. `note`: whether the part is made to order, optional or comes with the maintenance (a tag under the title). The descriptions are about as long as each other, so the three cells stay level. */
         items: { title: string; note: string; description: string }[];
         /** The band under the cells, over the client panel's flow (ClientPanelFlow): fixes and ideas go into the panel as tasks (a new feature is quoted and starts once the quote is accepted), the team is on the chat, and the code is downloaded there (no repository is handed over). `stack`: what the system is built with, as tech tags. */
         ownership: { title: string; description: string; points: string[]; stack: string[] };
@@ -152,7 +152,7 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
             tiles: {
                 site: { title: 'Strona serwera', description: 'Prezentacja serwera, ranking, aktualności i pobieranie klienta, renderowane po stronie serwera pod SEO.', tags: ['Ranking', 'Aktualności', 'Eventy', 'Pobieranie', 'SSR'] },
                 player: { title: 'Panel gracza', description: 'Rejestracja z potwierdzeniem e-mail, PIN, zmiana danych i lista postaci.', tags: ['Rejestracja', 'PIN', 'hCaptcha', 'E-maile'] },
-                payments: { title: 'Doładowania', description: 'Pakiety monet, promocje czasowe i płatności online.', tags: ['CashBill', 'BLIK', 'Promocje'] },
+                payments: { title: 'Doładowania', description: 'Pakiety monet, promocje czasowe i płatności online.', tags: ['Operator do wyboru', 'BLIK', 'Promocje'] },
                 support: { title: 'Support', description: 'Zgłoszenia graczy z kategorią, załącznikami i przydzielonym administratorem.', tags: ['Tickety', 'Załączniki'] },
                 admin: { title: 'Panel administratora', description: 'Konta, postacie z ekwipunkiem, wpłaty i treści strony w jednym panelu, bez zaglądania do bazy.', tags: ['Pulpit', 'Konta', 'Postacie', 'Wpłaty', 'Aktualności'] },
                 logs: { title: 'Logi i bany', description: 'Logi gry w 19 kategoriach, graf powiązań kont i blokady sprzętu.', tags: ['Graf powiązań', 'HWID', 'Multikonta', 'Bany'] },
@@ -165,7 +165,7 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
             groups: [
                 {
                     title: 'Dla gracza',
-                    items: ['Logowanie kontem z gry', 'Rejestracja z hCaptcha i potwierdzeniem e-mail', 'Odzyskiwanie hasła i PIN-u', 'Doładowania przez CashBill', 'Ranking graczy i gildii', 'Zgłoszenia do supportu', 'Zmiana danych konta', 'Maile systemowe w wyglądzie serwera'],
+                    items: ['Logowanie kontem z gry', 'Rejestracja z hCaptcha i potwierdzeniem e-mail', 'Odzyskiwanie hasła i PIN-u', 'Doładowania przez jednego wybranego operatora', 'Ranking graczy i gildii', 'Zgłoszenia do supportu', 'Zmiana hasła, PIN-u i e-maila z potwierdzeniem mailem', 'Maile systemowe w wyglądzie serwera'],
                 },
                 {
                     title: 'Dla administratora',
@@ -181,10 +181,9 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
             customItems: ['Itemshop w przeglądarce', 'Vote4Coins', 'Koło fortuny', 'Wiki przedmiotów i potworów', 'Kolejne wersje językowe', 'PayPal, Stripe, paysafecard', 'Logowanie przez Discord', 'Powiadomienia na Discordzie', 'Kody promocyjne', 'Statystyki serwera na żywo', 'API dla launchera i patchera', 'Własny wygląd strony'],
         },
         pillars: {
-            title: 'Na czym opiera się system',
-            lead: 'Cache zapytań ma każde wdrożenie, a moduły dopisujemy pod Twój serwer. Utrzymanie z zero-downtime deployem jest opcją, nie obowiązkiem.',
+            title: 'Rozwój i utrzymanie CMS-a po starcie',
+            lead: 'System rośnie razem z serwerem: nowe moduły dopisujemy na zamówienie, a utrzymanie z deployem bez przerwy bierzesz, jeśli chcesz. Wszystko zlecasz w panelu klienta.',
             items: [
-                { title: 'Cache zapytań', note: 'W standardzie', description: 'Ranking, wykresy i dane konta idą z Redisa. Ranking ma TTL 30 minut, więc baza gry dostaje 2 zapytania na godzinę bez względu na ruch.' },
                 { title: 'Custom moduły', note: 'Na zamówienie', description: 'Masz własny system w grze? Dopisujemy do niego model, ekran w panelu albo podstronę. Mniejsze zmiany zajmują zwykle tylko kilka dni.' },
                 { title: 'Utrzymanie', note: 'Opcjonalnie', description: 'Jeśli chcesz, zostajemy po starcie: backupy, aktualizacje i patche bezpieczeństwa są wtedy po naszej stronie, a Ty zajmujesz się grą.' },
                 { title: 'Zero-downtime deploy', note: 'Z utrzymaniem', description: 'Gdy utrzymujemy stronę, nowy release budujemy obok działającego i przełączamy atomowo: bez wylogowania graczy, z rollbackiem.' },
@@ -223,10 +222,10 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
             items: [
                 { threat: 'Boty zakładające konta', defence: 'hCaptcha i potwierdzenie e-mail', answer: 'Rejestracja z hCaptcha, potwierdzeniem e-mail i limitem prób z jednego adresu.' },
                 { threat: 'Zgadywanie haseł', defence: 'Rate limit: 5 prób na login i IP', answer: 'Po pięciu nieudanych próbach logowanie blokuje się na minutę, a do wejścia potrzebny jest też PIN.' },
+                { threat: 'Przejęcie konta gracza', defence: 'Zmiany potwierdzane mailem', answer: 'Nowe hasło, PIN i adres e-mail działają dopiero po kliknięciu linku z maila. Przeniesienie konta na nowy adres potwierdzasz na obu skrzynkach.' },
                 { threat: 'Multikonta i handel między nimi', defence: 'Wspólne IP i HWID na grafie', answer: 'Graf powiązań pokazuje konta ze wspólnym IP i sprzętem oraz ich handel, sklepy i walki.' },
                 { threat: 'Zbanowani, którzy wracają', defence: 'Blokada HWID', answer: 'Blokada sprzętu (HWID) zamyka dostęp do gry z danego komputera, nie tylko z jednego konta.' },
                 { threat: 'Wpłaty, które utknęły', defence: 'Weryfikacja statusu u operatora', answer: 'Każdą płatność porównujemy ze statusem u operatora. Te do sprawdzenia trafiają na osobną listę.' },
-                { threat: 'Ciężkie zapytania w godzinach szczytu', defence: 'Pamięć podręczna', answer: 'Ranking, wykresy i listy korzystają z pamięci podręcznej, więc ruch na stronie nie dociąża bazy gry.' },
             ],
         },
         caseStudy: {
@@ -319,7 +318,7 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
                     heading: 'Baza gry jest najważniejsza',
                     paragraphs: [
                         'W Metinie strona i gra korzystają z tej samej bazy danych. Każde ciężkie zapytanie ze strony, na przykład ranking liczony przy każdym odświeżeniu, zabiera zasoby grze. W godzinach szczytu gracze widzą to jako lagi.',
-                        'Dobry CMS odpytuje bazę gry rzadko: **wyniki trzyma w cache**, a zapytania idą po indeksach. U nas ranking odświeża się co 30 minut, więc baza dostaje dwa zapytania na godzinę, bez względu na liczbę odwiedzin.',
+                        'Dobry CMS odpytuje bazę gry rzadko: **wyniki trzyma w cache**, a zapytania idą po indeksach.',
                     ],
                 },
             ],
@@ -365,7 +364,7 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
             tiles: {
                 site: { title: 'Server website', description: 'What the server is, the ranking, the news and the client download, server-rendered for SEO.', tags: ['Ranking', 'News', 'Events', 'Downloads', 'SSR'] },
                 player: { title: 'Player panel', description: 'Sign-up with email confirmation, the PIN, account changes and the list of characters.', tags: ['Sign-up', 'PIN', 'hCaptcha', 'E-mails'] },
-                payments: { title: 'Top-ups', description: 'Coin packages, time-limited promotions and online payments.', tags: ['CashBill', 'BLIK', 'Promotions'] },
+                payments: { title: 'Top-ups', description: 'Coin packages, time-limited promotions and online payments.', tags: ['Provider of your choice', 'BLIK', 'Promotions'] },
                 support: { title: 'Support', description: 'Player requests with a category, attachments and the admin they are assigned to.', tags: ['Tickets', 'Attachments'] },
                 admin: { title: 'Admin panel', description: 'Accounts, characters with their equipment, payments and the site’s content in one panel, without opening the database.', tags: ['Dashboard', 'Accounts', 'Characters', 'Payments', 'News'] },
                 logs: { title: 'Logs and bans', description: 'Game logs in 19 categories, the account connection graph and hardware bans.', tags: ['Connection graph', 'HWID', 'Multi-accounts', 'Bans'] },
@@ -378,7 +377,7 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
             groups: [
                 {
                     title: 'For the player',
-                    items: ['Sign-in with the game account', 'Sign-up with hCaptcha and email confirmation', 'Password and PIN recovery', 'Top-ups through CashBill', 'Player and guild rankings', 'Support requests', 'Account detail changes', 'System e-mails in the server’s look'],
+                    items: ['Sign-in with the game account', 'Sign-up with hCaptcha and email confirmation', 'Password and PIN recovery', 'Top-ups through one payment provider of your choice', 'Player and guild rankings', 'Support requests', 'Password, PIN and email changes confirmed by email', 'System e-mails in the server’s look'],
                 },
                 {
                     title: 'For the admin',
@@ -394,10 +393,9 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
             customItems: ['Item shop in the browser', 'Vote4Coins', 'Wheel of fortune', 'Item and monster wiki', 'More languages', 'PayPal, Stripe, paysafecard', 'Sign-in with Discord', 'Discord notifications', 'Promo codes', 'Live server statistics', 'API for the launcher and patcher', 'Your own look of the website'],
         },
         pillars: {
-            title: 'What the system is built on',
-            lead: 'Every deployment has the query cache, and modules are added for your server. Maintenance with zero-downtime deploys is an option, not an obligation.',
+            title: 'Growing and maintaining the CMS after launch',
+            lead: 'The system grows with your server: new modules are made to order, and maintenance with zero-downtime deploys is yours if you want it. You order everything in the client portal.',
             items: [
-                { title: 'Query cache', note: 'Included', description: 'The ranking, the charts and the account data come from Redis. With a 30-minute TTL the game database gets 2 ranking queries an hour, whatever the traffic.' },
                 { title: 'Custom modules', note: 'Made to order', description: 'Have a system of your own in the game? We add a model, a panel screen or a page for it. Smaller changes usually take only a few days to build.' },
                 { title: 'Maintenance', note: 'Optional', description: 'If you want, we stay after launch: backups, updates and security patches are then on our side, and you look after the game and the community.' },
                 { title: 'Zero-downtime deploys', note: 'With maintenance', description: 'When we maintain the website, we build the new release beside the running one and switch atomically: no players signed out, and a rollback if needed.' },
@@ -436,10 +434,10 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
             items: [
                 { threat: 'Bots creating accounts', defence: 'hCaptcha and email confirmation', answer: 'Sign-up with hCaptcha, email confirmation and a limit on attempts from one address.' },
                 { threat: 'Password guessing', defence: 'Rate limit: 5 attempts per login and IP', answer: 'After five failed attempts the login locks for a minute, and getting in takes the PIN too.' },
+                { threat: 'Hijacked player accounts', defence: 'Changes confirmed by email', answer: 'A new password, PIN or email address takes effect only after a link from an email is clicked. Moving the account to a new address is confirmed in both inboxes.' },
                 { threat: 'Multi-accounts trading with each other', defence: 'Shared IP and HWID on the graph', answer: 'The connection graph shows accounts with a shared IP and hardware, and their trades, shops and fights.' },
                 { threat: 'Banned players coming back', defence: 'HWID ban', answer: 'A hardware (HWID) ban closes the game to a computer, not just to one account.' },
                 { threat: 'Payments that got stuck', defence: 'Status check with the provider', answer: 'We compare every payment with its status at the provider. The ones to check go on a list of their own.' },
-                { threat: 'Heavy queries at peak hours', defence: 'Cache', answer: 'The ranking, charts and lists come from the cache, so traffic on the website adds no load to the game database.' },
             ],
         },
         caseStudy: {
@@ -532,7 +530,7 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
                     heading: 'The game database comes first',
                     paragraphs: [
                         'In Metin the website and the game use the same database. Every heavy query from the website, a ranking computed on each refresh for example, takes resources from the game. At peak hours players feel it as lag.',
-                        'A good CMS asks the game database rarely: **it keeps results in a cache** and its queries use indexes. Ours refreshes the ranking every 30 minutes, so the database gets two queries an hour however many visitors there are.',
+                        'A good CMS asks the game database rarely: **it keeps results in a cache** and its queries use indexes.',
                     ],
                 },
             ],

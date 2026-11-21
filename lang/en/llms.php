@@ -53,7 +53,7 @@ return [
         ],
         'metin2cms' => [
             'name' => 'CMS for Metin2 servers',
-            'note' => 'a ready-made system for Metin2 private servers: the server website with rankings and news, the player panel, top-ups through CashBill, support and the admin panel with game logs and HWID bans; deployed on the database of the Marty Sama files, Redis cache, code you own, optional maintenance with zero-downtime deploys, quoted per server; the deployment for the Sherkan server and frequently asked questions.',
+            'note' => 'a ready-made system for Metin2 private servers: the server website with rankings and news, the player panel, top-ups through one payment provider of your choice, support and the admin panel with game logs and HWID bans; deployed on the database of the Marty Sama files, Redis cache, code you own, optional maintenance with zero-downtime deploys, quoted per server; the deployment for the Sherkan server and frequently asked questions.',
         ],
         'projects' => [
             'name' => 'Projects',

@@ -1,4 +1,4 @@
-import { Bot, Coins, DatabaseZap, KeyRound, type LucideIcon, Network, ShieldCheck, UserX } from 'lucide-react';
+import { Bot, Coins, KeyRound, type LucideIcon, MailCheck, Network, ShieldCheck, UserX } from 'lucide-react';
 import { bleedClassName, Rivet, Section, SectionHeading } from '@/components/home/section';
 import { useCopy } from '@/lib/i18n';
 import { useMetin2CmsSections } from '@/lib/sections';
@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 import { METIN2CMS_COPY } from './metin2cms-copy';
 
 /** The icon of each threat, in the order of `threats.items`. */
-const ICONS: LucideIcon[] = [Bot, KeyRound, Network, UserX, Coins, DatabaseZap];
+const ICONS: LucideIcon[] = [Bot, KeyRound, MailCheck, Network, UserX, Coins];
 
 /**
  * Bezpieczeństwo (#bezpieczenstwo, #security): what every popular server runs into and how the system answers it. Six

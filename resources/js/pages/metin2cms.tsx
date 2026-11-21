@@ -29,11 +29,12 @@ type Metin2CmsPageProps = { faq: FaqItem[] };
 
 /**
  * Metin2 CMS (/metin2cms, /en/metin2cms): the ready-made system for Metin2 private servers, framed like the service
- * pages, with an ink drawing of the game's own models as its hero. The hero, whose servers trust it, the three parts of the system, what is
- * included and what we add to order, the four foundations as the game's classes, how little the website asks of the
- * game database, the threats it answers, the longer read on choosing a CMS (the service pages' guide, without a
- * photo), the four steps to launch, and only then the deployments in
- * one compact card, the FAQ and the home page's contact section.
+ * pages, with an ink drawing of the game's own models as its hero. The order follows a server owner's questions: the
+ * hero, whose servers trust it, the six parts of the system, what is included and what we add to order, how little the
+ * website asks of the game database, the threats it answers, the longer read on choosing a CMS (the service pages'
+ * guide, without a photo), the four steps to launch, what comes after launch (modules, the optional maintenance, the
+ * client panel), and only then the deployments in one compact card, the FAQ (in the same order) and the home page's
+ * contact section.
  */
 export default function Metin2Cms({ faq }: Metin2CmsPageProps) {
     const copy = useCopy(METIN2CMS_COPY);
@@ -57,11 +58,11 @@ export default function Metin2Cms({ faq }: Metin2CmsPageProps) {
                     <TrustedSection />
                     <SystemSection />
                     <FeaturesSection />
-                    <PillarsSection />
                     <PerformanceSection />
                     <ThreatsSection />
                     <GuideSection guide={copy.guide} />
                     <LaunchSection />
+                    <PillarsSection />
                     <ShowcaseSection />
                     <ServiceFaqSection title={copy.faq.title} faq={faq} />
                     <ContactSection title={copy.contact.title} lead={copy.contact.lead} messagePlaceholder={copy.contact.messagePlaceholder} />

@@ -59,7 +59,7 @@ return [
         ],
         'metin2cms' => [
             'name' => 'CMS dla serwera Metin2',
-            'note' => 'gotowy system dla prywatnych serwerów Metin2: strona serwera z rankingiem i aktualnościami, panel gracza, doładowania przez CashBill, support i panel administratora z logami gry i blokadami HWID; wdrożenie pod bazę z plików Marty Sama, cache na Redisie, kod na własność, opcjonalne utrzymanie z zero-downtime deployem, wycena indywidualna; wdrożenie na serwerze Sherkan i najczęstsze pytania.',
+            'note' => 'gotowy system dla prywatnych serwerów Metin2: strona serwera z rankingiem i aktualnościami, panel gracza, doładowania przez jednego wybranego operatora płatności, support i panel administratora z logami gry i blokadami HWID; wdrożenie pod bazę z plików Marty Sama, cache na Redisie, kod na własność, opcjonalne utrzymanie z zero-downtime deployem, wycena indywidualna; wdrożenie na serwerze Sherkan i najczęstsze pytania.',
         ],
         'projects' => [
             'name' => 'Realizacje',
