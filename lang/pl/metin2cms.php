@@ -45,7 +45,7 @@ return [
         ],
         [
             'question' => 'Czy mogę zamówić funkcję, której nie ma w standardzie?',
-            'answer' => 'Tak. Własne moduły, na przykład itemshop w przeglądarce, Vote4Coins, wiki przedmiotów czy kolejną wersję językową, dopisujemy na zamówienie. Mniejsze zmiany zajmują zwykle kilka dni, bo system jest zbudowany tak, żeby dało się go łatwo rozszerzać. Nową funkcję dodajesz w panelu klienta jako zadanie w odpowiedniej kategorii: wyceniamy ją, a po Twojej akceptacji zaczynamy.',
+            'answer' => 'Tak, zrealizujemy każdy Twój pomysł. Własne moduły, na przykład itemshop w przeglądarce, Vote4Coins, wiki przedmiotów czy kolejną wersję językową, dopisujemy na zamówienie. Mniejsze zmiany zajmują zwykle kilka dni, bo system jest zbudowany tak, żeby dało się go łatwo rozszerzać. Nową funkcję dodajesz w panelu klienta jako zadanie w odpowiedniej kategorii: wyceniamy ją, a po Twojej akceptacji zaczynamy.',
         ],
         [
             'question' => 'Czy strona obciąża bazę gry?',

@@ -177,7 +177,7 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
                 },
             ],
             custom: 'Na zamówienie',
-            customLead: 'Najczęstsze prośby właścicieli serwerów. Każdą z nich dopisujemy do Twojej wersji systemu.',
+            customLead: 'Najczęstsze prośby właścicieli serwerów, ale to tylko przykłady. Zrealizujemy każdy Twój pomysł: opisz go, a my go wycenimy i dopiszemy do Twojej wersji systemu.',
             customItems: ['Itemshop w przeglądarce', 'Vote4Coins', 'Koło fortuny', 'Wiki przedmiotów i potworów', 'Kolejne wersje językowe', 'PayPal, Stripe, paysafecard', 'Logowanie przez Discord', 'Powiadomienia na Discordzie', 'Kody promocyjne', 'Statystyki serwera na żywo', 'API dla launchera i patchera', 'Własny wygląd strony'],
         },
         pillars: {
@@ -389,7 +389,7 @@ export const METIN2CMS_COPY = localized<Metin2CmsCopy>({
                 },
             ],
             custom: 'Made to order',
-            customLead: 'What server owners ask for most often. We add each of them to your version of the system.',
+            customLead: 'What server owners ask for most often, but these are only examples. We build any idea you have: describe it, and we quote it and add it to your version of the system.',
             customItems: ['Item shop in the browser', 'Vote4Coins', 'Wheel of fortune', 'Item and monster wiki', 'More languages', 'PayPal, Stripe, paysafecard', 'Sign-in with Discord', 'Discord notifications', 'Promo codes', 'Live server statistics', 'API for the launcher and patcher', 'Your own look of the website'],
         },
         pillars: {

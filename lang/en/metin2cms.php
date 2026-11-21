@@ -39,7 +39,7 @@ return [
         ],
         [
             'question' => 'Can I order a feature that is not included?',
-            'answer' => 'Yes. We add custom modules to order, for example an item shop in the browser, Vote4Coins, an item wiki or another language. Smaller changes usually take a few days, because the system is built to be easy to extend. You add a new feature in the client portal as a task in the right category: we quote it and, once you accept, we start.',
+            'answer' => 'Yes, we build any idea you have. We add custom modules to order, for example an item shop in the browser, Vote4Coins, an item wiki or another language. Smaller changes usually take a few days, because the system is built to be easy to extend. You add a new feature in the client portal as a task in the right category: we quote it and, once you accept, we start.',
         ],
         [
             'question' => 'Does the website put load on the game database?',
